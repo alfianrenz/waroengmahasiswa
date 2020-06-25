@@ -18,13 +18,27 @@
                         <i class="feather icon-user"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right profile-notification">
-                        <div class="pro-head">
-                            <img src="<?= base_url('upload/foto_user/default.png'); ?>" class="img-radius" alt="User-Profile-Image">
-                            <span>Seller</span>
-                        </div>
+                        <?php if ($this->session->userdata('tipe') == 1) { ?>
+                            <div class="pro-head">
+                                <img src="<?= base_url('upload/foto_user/' . $s_mahasiswa['foto_mahasiswa']); ?>" class="img-radius" alt="User-Profile-Image">
+                                <span><?= $s_mahasiswa['nama_mahasiswa']; ?></span>
+                            </div>
+                        <?php } else { ?>
+                            <div class="pro-head">
+                                <img src="<?= base_url('upload/foto_user/' . $s_umum['foto']); ?>" class="img-radius" alt="User-Profile-Image">
+                                <span><?= $s_umum['username']; ?></span>
+                            </div>
+                        <?php } ?>
+
                         <ul class="pro-body">
-                            <li><a href="<?= site_url('profile'); ?>" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
-                            <li><a href="<?= site_url('auth/logout_seller'); ?>" class="dropdown-item"><i class="feather icon-log-out"></i> Logout</a></li>
+                            <?php if ($this->session->userdata('tipe') == 1) { ?>
+                                <li><a href="<?= site_url('profile/profile_mahasiswa'); ?>" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
+                                <li><a href="<?= site_url('auth/logout_mahasiswa'); ?>" class="dropdown-item"><i class="feather icon-log-out"></i> Logout</a></li>
+                            <?php } else { ?>
+                                <li><a href="<?= site_url('profile/profile_umum'); ?>" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
+                                <li><a href="<?= site_url('auth/logout_umum'); ?>" class="dropdown-item"><i class="feather icon-log-out"></i> Logout</a></li>
+                            <?php } ?>
+
                         </ul>
                     </div>
                 </div>

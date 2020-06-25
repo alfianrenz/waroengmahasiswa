@@ -16,17 +16,17 @@
     <!-- My Account Page -->
     <div class="my-account-area ptb-30">
         <div class="container">
-            <h2>LOGIN DOSEN/STAFF/UMUM</h2>
             <br>
             <div class="row">
 
                 <!-- Images  -->
                 <div class="col-lg-6">
-                    <img src="<?= base_url(); ?>assets/frontend/images/others/login_mahasiswa.png" alt="">
+                    <img src="<?= base_url(); ?>assets/frontend/images/others/daftar_mahasiswa.png" alt="">
                 </div>
 
                 <!-- Form Login -->
                 <div class="col-lg-6 mt-30 mt-lg-0">
+                    <h2>LOGIN UMUM</h2>
                     <?= $this->session->userdata('message'); ?>
                     <div class="login-form-wrapper">
                         <div class="card">
@@ -34,7 +34,7 @@
 
                                 <form action="<?= site_url('auth/login_umum'); ?>" method="POST">
                                     <div class="form-group">
-                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Username/Email</label>
+                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Email/Username</label>
                                         <input type="text" class="form-control form-control-sm" id="username" name="username" placeholder="" value="">
                                         <?= form_error('username', '<small class="text-danger">', '</small>'); ?>
                                     </div>
@@ -44,12 +44,12 @@
                                         <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
                                     </div>
                                     <div class="form-group mb-0">
-                                        <button type="submit" class="col-sm-12 ho-button mt-2"><span>Masuk</span></button>
+                                        <button type="submit" class="col-sm-12 ho-button mt-2"><span>Login</span></button>
                                         <div class="text-center mt-3">
                                             <a href="#" class="text-dark">Lupa Password</a>
                                         </div>
                                         <div class="text-center">
-                                            <a href="<?= site_url('auth/buat_akun_mahasiswa'); ?>" class="text-dark">Buat Akun</a>
+                                            <a href="<?= site_url('auth/buat_akun_umum'); ?>" class="text-dark">Buat Akun</a>
                                         </div>
                                     </div>
                                 </form>

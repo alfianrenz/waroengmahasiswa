@@ -208,6 +208,7 @@ class Auth extends My_Controller
     //===============================================
     //                LOGIN MAHASISWA
     //===============================================
+
     public function login_mahasiswa()
     {
         //SESSION
@@ -217,7 +218,6 @@ class Auth extends My_Controller
 
         //title
         $data['title'] = 'Warma CIC | Login Mahasiswa';
-        $data['tipe'] = 'mahasiswa';
 
         //form validation setrules
         $this->form_validation->set_rules('nim', 'nim', 'required|numeric', [
@@ -255,9 +255,9 @@ class Auth extends My_Controller
                             'nama' => $master['nama_mahasiswa'],
                             'tipe' => $mahasiswa['tipe']
                         ];
-                        // unset($umum['password_umum']);
                         $this->session->set_userdata($data);
-                        redirect('dashboard/pembeli');
+                        $this->session->set_flashdata('message', '<div class="flash-data" data-loginsuccess="Silahkan berbelanja!"></div>');
+                        redirect('beranda');
                     } else {
                         $this->session->set_flashdata('message', '<div class="flash-data" data-passworderror="Periksa kembali password anda"></div>');
                         redirect('auth/login_mahasiswa');
@@ -267,7 +267,7 @@ class Auth extends My_Controller
                     redirect('auth/login_mahasiswa');
                 }
             } else {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" align="center" role="alert">NIM belum terdaftar</div>');
+                $this->session->set_flashdata('message', '<div class="flash-data" data-nimempty="Periksa kembali NIM anda"></div>');
                 redirect('auth/login_mahasiswa');
             }
         }
@@ -280,17 +280,20 @@ class Auth extends My_Controller
         $data['title'] = 'Warma CIC | Buat Akun';
 
         //form validation setrules
-        $this->form_validation->set_rules('nim', 'nim', 'required|numeric', [
+        $this->form_validation->set_rules('nim', 'nim', 'required|numeric|is_unique[akun_mahasiswa.nim]', [
             'required' => 'Form ini tidak boleh kosong',
-            'numeric'  => 'Harus di isi dengan angka'
+            'numeric'  => 'Harus di isi dengan angka',
+            'is_unique'  => 'NIM sudah terdaftar',
         ]);
-        $this->form_validation->set_rules('email', 'email', 'required|valid_email', [
+        $this->form_validation->set_rules('email', 'email', 'required|valid_email|is_unique[akun_mahasiswa.email_mahasiswa]', [
             'required' => 'Form ini tidak boleh kosong',
-            'valid_email'  => 'Email tidak valid'
+            'valid_email'  => 'Email tidak valid',
+            'is_unique'  => 'Email sudah terdaftar',
         ]);
-        $this->form_validation->set_rules('telepon', 'telepon', 'required|numeric', [
+        $this->form_validation->set_rules('telepon', 'telepon', 'required|numeric|is_unique[akun_mahasiswa.telepon_mahasiswa]', [
             'required' => 'Form ini tidak boleh kosong',
-            'numeric'  => 'Harus di isi dengan angka'
+            'numeric'  => 'Harus di isi dengan angka',
+            'is_unique' => 'Nomor telepon sudah terdaftar'
         ]);
         $this->form_validation->set_rules('alamat', 'alamat', 'required|trim', [
             'required' => 'Form ini tidak boleh kosong'
@@ -318,7 +321,7 @@ class Auth extends My_Controller
             } else {
                 //input ke table akun mahasiswa
                 $this->auth_model->buatAkun_mahasiswa();
-                $this->session->set_flashdata('message', '<div class="alert alert-success" align="center" role="alert">Registrasi Berhasil</div>');
+                $this->session->set_flashdata('message', '<div class="flash-data" data-registrasi="Silahkan login!"></div>');
                 redirect('auth/login_mahasiswa');
             }
         }
@@ -337,11 +340,11 @@ class Auth extends My_Controller
     //===============================================
     //                LOGIN UMUM
     //===============================================
+
     public function login_umum()
     {
         //title
-        $data['title'] = 'Warma CIC | Login Dosen/Staff/Umum';
-        $data['tipe'] = 'umum';
+        $data['title'] = 'Warma CIC | Login Umum';
 
         //form validation setrules
         $this->form_validation->set_rules('username', 'username', 'required', [
@@ -359,28 +362,29 @@ class Auth extends My_Controller
             $username = $this->input->post('username');
             $password = $this->input->post('password');
             $umum = $this->db->select('*')
-                ->from('umum')
-                ->where('username_umum', $username)
-                ->or_where('email_umum', $username)
+                ->from('akun_umum')
+                ->where('username', $username)
+                ->or_where('email', $username)
                 ->get()->row_array();
 
             //jika user ada
             if ($umum) {
                 //cek password
-                if (password_verify($password, $umum['password_umum'])) {
+                if (password_verify($password, $umum['password'])) {
                     $data = [
                         'id' => $umum['id_umum'],
-                        'email' => $umum['email_umum'],
-                        'foto' => $umum['foto_umum'],
-                        'nama' => $umum['username_umum'],
+                        'email' => $umum['email'],
+                        'foto' => $umum['foto'],
+                        'nama' => $umum['username'],
                         'tipe' => $umum['tipe']
                     ];
                     // unset($umum['password_umum']);
                     $this->session->set_userdata($data);
-                    redirect('dashboard/pembeli');
+                    $this->session->set_flashdata('message', '<div class="flash-data" data-loginsuccess="Silahkan berbelanja!"></div>');
+                    redirect('beranda');
                 } else {
                     $this->session->set_flashdata('message', '<div class="flash-data" data-passworderror="Periksa kembali password anda"></div>');
-                    redirect('auth');
+                    redirect('auth/login_umum');
                 }
             } else {
                 $this->session->set_flashdata('message', '<div class="flash-data" data-loginadmin="Periksa kembali email atau username anda"></div>');
@@ -389,18 +393,25 @@ class Auth extends My_Controller
         }
     }
 
+    //buat akun umum
     public function buat_akun_umum()
     {
         //title
         $data['title'] = 'Warma CIC | Buat Akun';
 
         //form validation setrules
-        $this->form_validation->set_rules('email', 'email', 'required|valid_email', [
+        $this->form_validation->set_rules('email', 'email', 'required|valid_email|is_unique[akun_umum.email]', [
             'required' => 'Form ini tidak boleh kosong',
-            'valid_email'  => 'Email tidak valid'
+            'valid_email'  => 'Email tidak valid',
+            'is_unique' => 'Email sudah terdaftar'
         ]);
         $this->form_validation->set_rules('username', 'username', 'required|trim', [
             'required' => 'Form ini tidak boleh kosong'
+        ]);
+        $this->form_validation->set_rules('telepon', 'telepon', 'required|trim|numeric|is_unique[akun_umum.telepon]', [
+            'required' => 'Form ini tidak boleh kosong',
+            'numeric' => 'Harus di isi dengan angka',
+            'is_unique' => 'Nomor telepon sudah terdaftar'
         ]);
         $this->form_validation->set_rules('password1', 'password1', 'required|min_length[3]', [
             'required' => 'Form ini tidak boleh kosong',
@@ -418,7 +429,7 @@ class Auth extends My_Controller
         } else {
             //input ke table umum
             $this->auth_model->buatAkun_umum();
-            $this->session->set_flashdata('message', '<div class="alert alert-success" align="center" role="alert">Registrasi Berhasil</div>');
+            $this->session->set_flashdata('message', '<div class="flash-data" data-registrasi="Silahkan login!"></div>');
             redirect('auth/login_umum');
         }
     }

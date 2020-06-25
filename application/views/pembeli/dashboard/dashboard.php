@@ -18,61 +18,46 @@
 
         <!-- Main Content -->
         <div class="row">
-            <div class="col-xl-3 col-md-6">
+            <div class="col-xl-4 col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <div class="row align-items-center m-l-0">
                             <div class="col-auto">
-                                <i class="icon feather icon-user f-30 text-c-purple"></i>
+                                <i class="icon feather icon-shopping-cart f-30 text-c-purple"></i>
                             </div>
                             <div class="col-auto">
-                                <h6 class="text-muted m-b-10">Penjual</h6>
+                                <h6 class="text-muted m-b-10">Pesanan Saya</h6>
                                 <h2 class="m-b-0">2</h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-md-6">
+            <div class="col-xl-4 col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <div class="row align-items-center m-l-0">
                             <div class="col-auto">
-                                <i class="icon feather icon-box f-30 text-c-green"></i>
+                                <i class="icon feather icon-alert-triangle f-30 text-c-red"></i>
                             </div>
                             <div class="col-auto">
-                                <h6 class="text-muted m-b-10">Kategori</h6>
-                                <h2 class="m-b-0">10</h2>
+                                <h6 class="text-muted m-b-10">Belum Bayar</h6>
+                                <h2 class="m-b-0">1</h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-3 col-md-6">
+            <div class="col-xl-4 col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <div class="row align-items-center m-l-0">
                             <div class="col-auto">
-                                <i class="icon feather icon-users f-30 text-c-red"></i>
+                                <i class="icon feather icon-upload f-30 text-c-green"></i>
                             </div>
                             <div class="col-auto">
-                                <h6 class="text-muted m-b-10">Pelanggan</h6>
-                                <h2 class="m-b-0">20</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row align-items-center m-l-0">
-                            <div class="col-auto">
-                                <i class="icon feather icon-award f-30 text-c-blue"></i>
-                            </div>
-                            <div class="col-auto">
-                                <h6 class="text-muted m-b-10">Reward</h6>
-                                <h2 class="m-b-0">20</h2>
+                                <h6 class="text-muted m-b-10">Dikirim</h6>
+                                <h2 class="m-b-0">3</h2>
                             </div>
                         </div>
                     </div>

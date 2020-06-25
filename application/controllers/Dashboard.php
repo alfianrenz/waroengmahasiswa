@@ -17,7 +17,6 @@ class Dashboard extends My_Controller
     //DASHBOARD PENJUAL
     public function penjual()
     {
-        $data['data'] = $this->session->userdata();
         $data['title'] = 'Warma CIC | Dashboard Penjual';
         $this->paggingPenjual('penjual/dashboard/dashboard', $data);
     }
@@ -25,7 +24,6 @@ class Dashboard extends My_Controller
     //DASHBOARD PEMBELI
     public function pembeli()
     {
-        $data['data'] = $this->session->userdata();
         $data['title'] = 'Warma CIC | Dashboard Pembeli';
         $this->paggingPembeli('pembeli/dashboard/dashboard', $data);
     }

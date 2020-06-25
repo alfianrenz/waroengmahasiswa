@@ -19,7 +19,7 @@
             <div class="row align-items-center pb-30">
                 <div class="col-lg-7">
                     <div class="about-image">
-                        <img src="<?= base_url(); ?>assets/frontend/images/others/tentang-warma.png" alt="beautiful girl">
+                        <img src="<?= base_url(); ?>assets/frontend/images/others/warma-ilustration.png" alt="beautiful girl">
                     </div>
                 </div>
                 <div class="col-lg-5">

@@ -53,4 +53,111 @@ class User_model extends CI_Model
         $this->db->where('id_admin', $id_admin);
         $this->db->update('admin');
     }
+
+
+    //==========================================
+    //                  MAHASISWA                   
+    //==========================================
+
+    //get data mahasiswa by session id
+    public function getMahasiswa_id($id)
+    {
+        $this->db->select('*');
+        $this->db->from('akun_mahasiswa');
+        $this->db->join('mahasiswa', 'akun_mahasiswa.nim = mahasiswa.nim');
+        $this->db->join('prodi', 'mahasiswa.id_prodi = prodi.id_prodi');
+        $this->db->join('fakultas', 'mahasiswa.id_fakultas = fakultas.id_fakultas');
+        $this->db->where(['id_mahasiswa' => $id]);
+        return $this->db->get()->row_array();
+    }
+
+    //edit profile mahasiswa
+    public function editProfile_mahasiswa()
+    {
+        $id_mahasiswa = $this->input->post('id');
+        $email = $this->input->post('email');
+        $telepon = $this->input->post('telepon');
+        $alamat = $this->input->post('alamat');
+
+
+        //cek jika ada gambar
+        $upload_image = $_FILES['foto'];
+
+        if ($upload_image) {
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size']      = '2048';
+            $config['file_name']     = $this->input->post('nama');
+            $config['upload_path']   = './upload/foto_user/';
+            $config['overwrite']     = TRUE;
+
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload('foto')) {
+                // upload foto dan edit di database
+                $new_image = $this->upload->data('file_name');
+                $this->db->set('foto_mahasiswa', $new_image);
+            } else {
+                echo $this->upload->display_errors();
+            }
+        }
+
+        //update email, telepon dan alamat
+        $this->db->set('email_mahasiswa', $email);
+        $this->db->set('telepon_mahasiswa', $telepon);
+        $this->db->set('alamat_mahasiswa', $alamat);
+        $this->db->where('id_mahasiswa', $id_mahasiswa);
+        $this->db->update('akun_mahasiswa');
+    }
+
+
+    //==========================================
+    //                  UMUM                   
+    //==========================================
+
+    //get data umum by session id
+    public function getUmum_id($id)
+    {
+        $this->db->select('*');
+        $this->db->from('akun_umum');
+        $this->db->where(['id_umum' => $id]);
+        return $this->db->get()->row_array();
+    }
+
+    //edit profile umum
+    public function editProfile_umum()
+    {
+        $id_umum = $this->input->post('id');
+        $username = $this->input->post('username');
+        $email = $this->input->post('email');
+        $telepon = $this->input->post('telepon');
+
+
+        //cek jika ada gambar
+        $upload_image = $_FILES['foto'];
+
+        if ($upload_image) {
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size']      = '2048';
+            $config['file_name']     = $this->input->post('username');
+            $config['upload_path']   = './upload/foto_user/';
+            $config['overwrite']     = TRUE;
+
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload('foto')) {
+                // upload foto dan edit di database
+                $new_image = $this->upload->data('file_name');
+                $this->db->set('foto', $new_image);
+            } else {
+                echo $this->upload->display_errors();
+            }
+        }
+
+        //update userneme, email dan telepon 
+        $this->db->set('username', $username);
+        $this->db->set('email', $email);
+        $this->db->set('telepon', $telepon);
+        $this->db->where('id_umum', $id_umum);
+        $this->db->update('akun_umum');
+    }
 }

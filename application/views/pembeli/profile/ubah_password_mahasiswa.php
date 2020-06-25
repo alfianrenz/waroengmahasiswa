@@ -24,13 +24,13 @@
                     <div class="card-body">
                         <div class="thumbnail">
                             <div class="thumb">
-                                <a href="<?= base_url('upload/foto_user/' . $admin['foto_admin']); ?>" data-lightbox="1">
-                                    <img src="<?= base_url('upload/foto_user/' . $admin['foto_admin']); ?>" alt="" class="img-fluid img-radius" width="142px" style="object-fit: cover; margin-top:28px;">
+                                <a href="<?= base_url('upload/foto_user/' . $mahasiswa['foto_mahasiswa']); ?>" data-lightbox="1">
+                                    <img src="<?= base_url('upload/foto_user/' . $mahasiswa['foto_mahasiswa']); ?>" alt="" class="img-fluid img-radius" width="142px" style="object-fit: cover; margin-top:28px;">
                                 </a>
                             </div>
                         </div>
-                        <h5 class="mt-4"><?= $admin['nama_admin']; ?></h5>
-                        <p class="text-muted" style="margin-bottom: 16px;">Administrator</p>
+                        <h5 class="mt-4"><?= $mahasiswa['nama_mahasiswa']; ?></h5>
+                        <p class="text-muted" style="margin-bottom: 16px;"><?= $mahasiswa['email_mahasiswa']; ?></p>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                     </div>
 
                     <!-- Form -->
-                    <form action="<?= site_url('profile/ubah_password_admin/' . $admin['id_admin']); ?>" method="POST">
+                    <form action="<?= site_url('profile/ubah_password_mahasiswa/' . $mahasiswa['id_mahasiswa']); ?>" method="POST">
                         <div class="card-body">
                             <?= $this->session->userdata('message'); ?>
                             <div class="form-group row">

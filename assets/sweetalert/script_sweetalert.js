@@ -18,6 +18,8 @@ const nimEmpty = $('.flash-data').data('nimempty');
 const registrasi = $('.flash-data').data('registrasi');
 // Sweet alert aktivasi akun
 const activeAccount = $('.flash-data').data('activeakun');
+// Sweet alert loginsuccess
+const loginSuccess = $('.flash-data').data('loginsuccess');
 
 
 // Sweet alert flashData
@@ -86,13 +88,13 @@ if (nonActive) {
 // Sweet alert nim tidak terdaftar
 if (nimEmpty) {
     Swal.fire({
-        title: 'NIM tidak terdaftar',
+        title: 'NIM Belum Terdaftar',
         text: nimEmpty,
         type: 'error',
     });
 }
 
-// Sweet alert nim tidak terdaftar
+// Sweet alert registrasi berhasil
 if (registrasi) {
     Swal.fire({
         title: 'Registrasi Berhasil',
@@ -110,6 +112,14 @@ if (activeAccount) {
     });
 }
 
+// Sweet alert login sukses
+if (loginSuccess) {
+    Swal.fire({
+        title: 'Login Berhasil',
+        text: loginSuccess,
+        type: 'success',
+    });
+}
 
 //Sweet alert hapus
 $('.tombol-hapus').on('click', function (e) {

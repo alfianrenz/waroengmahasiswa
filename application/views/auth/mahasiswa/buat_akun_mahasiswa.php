@@ -16,7 +16,6 @@
     <!-- My Account Page -->
     <div class="my-account-area ptb-30">
         <div class="container">
-            <h2>BUAT AKUN MAHASISWA</h2>
             <br>
             <div class="row">
 
@@ -27,6 +26,7 @@
 
                 <!-- Form Login -->
                 <div class="col-lg-6 mt-30 mt-lg-0">
+                    <h2>BUAT AKUN MAHASISWA</h2>
                     <?= $this->session->userdata('message'); ?>
                     <div class="login-form-wrapper">
                         <div class="card">
@@ -64,7 +64,7 @@
                                         <?= form_error('password2', '<small class="text-danger">', '</small>'); ?>
                                     </div>
                                     <div class="form-group mb-0">
-                                        <button type="submit" class="col-sm-12 ho-button mt-2"><span>Daftar</span></button>
+                                        <button type="submit" class="col-sm-12 ho-button mt-2"><span>Buat Akun</span></button>
                                         <div class="text-center mt-3">
                                             <a href="<?= site_url('auth/login_mahasiswa'); ?>" class="text-dark">Kembali ke Login</a>
                                         </div>

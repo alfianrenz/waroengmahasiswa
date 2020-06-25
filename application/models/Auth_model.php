@@ -26,18 +26,15 @@ class Auth_model extends CI_Model
     {
         date_default_timezone_set('Asia/Jakarta');
         $data = [
-            "email_umum" => $this->input->post('email'),
-            "username_umum" => $this->input->post('username'),
-            "password_umum" => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
+            "email" => $this->input->post('email'),
+            "username" => $this->input->post('username'),
+            "telepon" => $this->input->post('telepon'),
+            "password" => password_hash($this->input->post('password1'), PASSWORD_DEFAULT),
             "tanggal_daftar" =>  date('Y-m-d H:i:s'),
-            "foto_umum" => 'default.png',
+            "foto" => 'default.png',
             "status_aktif" => 1,
             "tipe" => 2,
         ];
-        $this->db->insert('umum', $data);
-    }
-
-    public function getUser()
-    {
+        $this->db->insert('akun_umum', $data);
     }
 }

@@ -28,14 +28,14 @@
                 <li class="nav-item <?= active_menu('penjual'); ?>">
                     <a href="<?= site_url('penjual/data_penjual'); ?>" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-user"></i></span>
-                        <span class="pcoded-mtext">Mahasiswa</span>
+                        <span class="pcoded-mtext">Akun Mahasiswa</span>
                     </a>
                 </li>
                 <!-- Pelanggan -->
                 <li class="nav-item">
                     <a href="#!" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-users"></i></span>
-                        <span class="pcoded-mtext">Pembeli</span>
+                        <span class="pcoded-mtext">Akun Umum</span>
                     </a>
                 </li>
                 <!-- Transaksi -->
@@ -73,13 +73,16 @@
                 <li class="nav-item pcoded-menu-caption">
                     <label>Pengaturan</label>
                 </li>
-                <!-- Profile -->
-                <li class="nav-item <?= active_menu('profile'); ?>">
-                    <a href="<?= site_url('profile'); ?>" class="nav-link ">
-                        <span class="pcoded-micon"><i class="feather icon-user"></i></span>
-                        <span class="pcoded-mtext">Profile</span>
-                    </a>
+
+                <!-- Profile-->
+                <li class="nav-item pcoded-hasmenu <?= active_menu('profile'); ?>">
+                    <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext"> Akun Saya</span></a>
+                    <ul class="pcoded-submenu">
+                        <li class="<?php echo $this->uri->segment(2) == 'index' || $this->uri->segment(2) == 'edit_profile_admin' ? 'active' : '' ?>"><a href="<?= site_url('profile/index'); ?>">Profile</a></li>
+                        <li class="<?php echo $this->uri->segment(2) == 'ubah_password_admin' ? 'active' : '' ?>"><a href="<?= site_url('profile/ubah_password_admin'); ?>">Ubah Password</a></li>
+                    </ul>
                 </li>
+
                 <!-- Logout -->
                 <li class="nav-item">
                     <a href="<?= site_url('auth/logout_admin'); ?>" class="nav-link ">

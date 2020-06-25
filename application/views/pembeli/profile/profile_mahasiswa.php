@@ -26,13 +26,13 @@
                     <div class="card-body">
                         <div class="thumbnail">
                             <div class="thumb">
-                                <a href="<?= base_url('upload/foto_user/' . $admin['foto_admin']); ?>" data-lightbox="1">
-                                    <img src="<?= base_url('upload/foto_user/' . $admin['foto_admin']); ?>" alt="" class="img-fluid img-radius" width="142px" style="object-fit: cover; margin-top:15px">
+                                <a href="<?= base_url('upload/foto_user/' . $mahasiswa['foto_mahasiswa']); ?>" data-lightbox="1">
+                                    <img src="<?= base_url('upload/foto_user/' . $mahasiswa['foto_mahasiswa']); ?>" alt="" class="img-fluid img-radius" width="142px" style="object-fit: cover; margin-top:15px">
                                 </a>
                             </div>
                         </div>
-                        <h5 class="mt-4"><?= $admin['nama_admin']; ?></h5>
-                        <p class="text-muted" style="margin-bottom: 10px;">Administrator</p>
+                        <h5 class="mt-4"><?= $mahasiswa['nama_mahasiswa']; ?></h5>
+                        <p class="text-muted" style="margin-bottom: 10px;"><?= $mahasiswa['email_mahasiswa']; ?></p>
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                     <div class="card-header">
                         <h5 class="mt-1">Profile</h5>
                         <div class="card-header-right">
-                            <a href="<?= site_url('profile/edit_profile_admin'); ?>" class="btn waves-effect waves-light btn-primary">
+                            <a href="<?= site_url('profile/edit_profile_mahasiswa'); ?>" class="btn waves-effect waves-light btn-primary">
                                 <i class="feather icon-edit"></i>
                                 &nbsp;Edit Profile
                             </a>
@@ -49,23 +49,39 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-sm table-borderless">
+                            <table class="table table-sm table-borderless mb-0">
                                 <tbody>
                                     <tr>
-                                        <td width="30%">Nama</td>
-                                        <td>:&nbsp;&nbsp; <?= $admin['nama_admin']; ?></td>
+                                        <td>Nomor Induk Mahasiswa</td>
+                                        <td>:&nbsp;&nbsp; <?= $mahasiswa['nim']; ?></td>
                                     </tr>
                                     <tr>
-                                        <td>Username</td>
-                                        <td>:&nbsp;&nbsp; <?= $admin['username_admin']; ?></td>
+                                        <td>Nama Mahasiswa</td>
+                                        <td>:&nbsp;&nbsp; <?= $mahasiswa['nama_mahasiswa']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Fakultas</td>
+                                        <td>:&nbsp;&nbsp; <?= $mahasiswa['nama_fakultas']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Program Studi</td>
+                                        <td>:&nbsp;&nbsp; <?= $mahasiswa['nama_prodi']; ?></td>
                                     </tr>
                                     <tr>
                                         <td>Email</td>
-                                        <td>:&nbsp;&nbsp; <?= $admin['email_admin']; ?></td>
+                                        <td>:&nbsp;&nbsp; <?= $mahasiswa['email_mahasiswa']; ?></td>
                                     </tr>
                                     <tr>
-                                        <td>Level</td>
-                                        <td>:&nbsp;&nbsp; administrator</td>
+                                        <td>Nomor Telepon</td>
+                                        <td>:&nbsp;&nbsp; <?= $mahasiswa['telepon_mahasiswa']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alamat</td>
+                                        <td>:&nbsp;&nbsp; <?= $mahasiswa['alamat_mahasiswa']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tanggal Daftar</td>
+                                        <td>:&nbsp;&nbsp; <?= $mahasiswa['tanggal_daftar']; ?></td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -23,8 +23,8 @@
                             <span>Seller</span>
                         </div>
                         <ul class="pro-body">
-                            <li><a href="<?= site_url('profile'); ?>" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
-                            <li><a href="<?= site_url('auth/logout_seller'); ?>" class="dropdown-item"><i class="feather icon-log-out"></i> Logout</a></li>
+                            <li><a href="<?= site_url('dashboard/pembeli'); ?>" class="dropdown-item"><i class="feather icon-user"></i> Dashboard Pembeli</a></li>
+                            <li><a href="<?= site_url('auth/logout_mahasiswa'); ?>" class="dropdown-item"><i class="feather icon-log-out"></i> Logout</a></li>
                         </ul>
                     </div>
                 </div>

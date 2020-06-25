@@ -53,7 +53,7 @@
                     <div class="card-body">
                         <div class="row align-items-center m-l-0">
                             <div class="col-auto">
-                                <i class="icon feather icon-user f-30 text-c-red"></i>
+                                <i class="icon feather icon-alert-triangle f-30 text-c-red"></i>
                             </div>
                             <div class="col-auto">
                                 <h6 class="text-muted m-b-10">Belum Bayar</h6>

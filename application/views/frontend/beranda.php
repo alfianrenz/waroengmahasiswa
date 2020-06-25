@@ -15,7 +15,7 @@
                   <p style="color:#7e7e7e">Pasarnya mahasiswa Universitas Catur Insan Cendekia</p>
               </div>
               <div class="herobanner-box" style="margin-left:50px">
-                  <a href="<?= site_url('profil'); ?>" class="ho-button">
+                  <a href="<?= site_url('tentang_warma'); ?>" class="ho-button">
                       <span>Tentang Warma</span>
                   </a>
               </div>
@@ -37,7 +37,7 @@
                   <p style="color:#7e7e7e">Daftarkan dirimu dan jadilah pengusaha di era teknologi</p>
               </div>
               <div class="herobanner-box" style="margin-left:50px">
-                  <a href="<?= site_url('auth/registrasi_seller'); ?>" class="ho-button">
+                  <a href="<?= site_url('auth/buat_akun_mahasiswa'); ?>" class="ho-button">
                       <span>Daftar</span>
                   </a>
               </div>
@@ -46,6 +46,8 @@
       </div>
 
   </div>
+
+  <?= $this->session->userdata('message'); ?>
 
   <!-- Page Conttent -->
   <main class="page-content">
@@ -56,25 +58,16 @@
               <div class="row">
 
                   <!-- Single Feature -->
-                  <div class="col-lg-3 col-md-6 col-12">
-                      <div class="featurebox">
-                          <i class="flaticon-shipped"></i>
-                          <h5>Jasa Ekspedisi</h5>
-                          <p>Kalian bisa kirim barang lewat jasa ekspedisi looh</p>
-                      </div>
-                  </div>
-
-                  <!-- Single Feature -->
-                  <div class="col-lg-3 col-md-6 col-12">
+                  <div class="col-lg-4 col-md-6 col-12">
                       <div class="featurebox">
                           <i class="flaticon-support-1"></i>
-                          <h5>Selalu Setia</h5>
-                          <p>Jika ada kesulitan hubungi kontak kami yaa</p>
+                          <h5>Setia 24 Jam</h5>
+                          <p>Jika ada kesulitan hubungi kontak kami</p>
                       </div>
                   </div>
 
                   <!-- Single Feature -->
-                  <div class="col-lg-3 col-md-6 col-12">
+                  <div class="col-lg-4 col-md-6 col-12">
                       <div class="featurebox">
                           <i class="flaticon-money-back"></i>
                           <h5>Harga Mahasiswa</h5>
@@ -83,7 +76,7 @@
                   </div>
 
                   <!-- Single Feature -->
-                  <div class="col-lg-3 col-md-6 col-12">
+                  <div class="col-lg-4 col-md-6 col-12">
                       <div class="featurebox">
                           <i class="flaticon-credit-card"></i>
                           <h5>Payment Gateway</h5>
