@@ -54,14 +54,14 @@
                                             <td class="align-middle"><?= $m['nama_prodi']; ?></td>
                                             <td class="align-middle"><?= $m['telepon_mahasiswa']; ?></td>
                                             <td class="align-middle text-center">
-                                                <?php if ($m['status_aktif'] == '1') { ?>
-                                                    <span class="badge badge-success">Aktif</span>
+                                                <?php if ($m['status_aktif'] == 1) { ?>
+                                                    <a href="<?= site_url('akun/nonaktifkan_statusakun_mahasiswa/' . $m['id_mahasiswa']); ?>" class="badge badge-success tombol-nonaktif">Aktif</a>
                                                 <?php } else { ?>
-                                                    <span class="badge badge-danger">Tidak Aktif</span>
+                                                    <a href="<?php echo site_url('akun/aktifkan_statusakun_mahasiswa/' . $m['id_mahasiswa']); ?>" class="badge badge-danger tombol-aktif"> Tidak Aktif</a>
                                                 <?php } ?>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <a href="" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
+                                                <a href="<?= site_url('akun/detail_akun_mahasiswa'); ?>/<?= $m['id_mahasiswa']; ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

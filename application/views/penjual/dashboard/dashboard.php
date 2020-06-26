@@ -8,7 +8,7 @@
                             <h5 class="m-b-10">Dashboard</h5>
                         </div>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?= site_url('dashboard/seller'); ?>"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="<?= site_url('dashboard/penjual'); ?>"><i class="feather icon-home"></i></a></li>
                             <li class="breadcrumb-item"><a href="#!">Dashboard</a></li>
                         </ul>
                     </div>
@@ -26,7 +26,7 @@
                                 <i class="icon feather icon-shopping-cart f-30 text-c-purple"></i>
                             </div>
                             <div class="col-auto">
-                                <h6 class="text-muted m-b-10">Pesanan</h6>
+                                <h6 class="text-muted m-b-10">Pesanan Baru</h6>
                                 <h2 class="m-b-0">2</h2>
                             </div>
                         </div>
@@ -53,10 +53,10 @@
                     <div class="card-body">
                         <div class="row align-items-center m-l-0">
                             <div class="col-auto">
-                                <i class="icon feather icon-alert-triangle f-30 text-c-red"></i>
+                                <i class="icon feather icon-external-link f-30 text-c-yellow"></i>
                             </div>
                             <div class="col-auto">
-                                <h6 class="text-muted m-b-10">Belum Bayar</h6>
+                                <h6 class="text-muted m-b-10">Dikirim</h6>
                                 <h2 class="m-b-0">1</h2>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                     <div class="card-body">
                         <div class="row align-items-center m-l-0">
                             <div class="col-auto">
-                                <i class="icon feather icon-trending-up f-30 text-c-blue"></i>
+                                <i class="icon feather icon-pie-chart f-30 text-c-blue"></i>
                             </div>
                             <div class="col-auto">
                                 <h6 class="text-muted m-b-10">Total Penjualan</h6>

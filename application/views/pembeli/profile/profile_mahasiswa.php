@@ -83,6 +83,16 @@
                                         <td>Tanggal Daftar</td>
                                         <td>:&nbsp;&nbsp; <?= $mahasiswa['tanggal_daftar']; ?></td>
                                     </tr>
+                                    <tr>
+                                        <td>Status</td>
+                                        <td>:&nbsp;&nbsp;
+                                            <?php if ($mahasiswa['status_aktif'] == 1) { ?>
+                                                <span class="badge badge-success">Aktif</span>
+                                            <?php } else { ?>
+                                                <span class="badge badge-success">Tidak Aktif</span>
+                                            <?php } ?>
+                                        </td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

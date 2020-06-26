@@ -62,6 +62,9 @@
     <!-- Ekko Lightbox Js -->
     <script src="<?= base_url(); ?>assets/backend/js/plugins/lightbox.min.js"></script>
 
+    <!-- CKEditor -->
+    <script src="<?= base_url(); ?>assets/ckeditor/ckeditor.js"></script>
+
     <!-- Script Lightbox -->
     <script>
         lightbox.option({

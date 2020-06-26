@@ -18,7 +18,7 @@
 
         <!-- Main Content -->
         <div class="row">
-            <div class="col-xl-4 col-md-6">
+            <div class="col-xl-3 col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <div class="row align-items-center m-l-0">
@@ -33,31 +33,46 @@
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 col-md-6">
+            <div class="col-xl-3 col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <div class="row align-items-center m-l-0">
                             <div class="col-auto">
-                                <i class="icon feather icon-alert-triangle f-30 text-c-red"></i>
+                                <i class="icon feather icon-check-circle f-30 text-c-green"></i>
                             </div>
                             <div class="col-auto">
-                                <h6 class="text-muted m-b-10">Belum Bayar</h6>
-                                <h2 class="m-b-0">1</h2>
+                                <h6 class="text-muted m-b-10">Pesanan Selesai</h6>
+                                <h2 class="m-b-0">3</h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-xl-4 col-md-6">
+            <div class="col-xl-3 col-md-6">
                 <div class="card">
                     <div class="card-body">
                         <div class="row align-items-center m-l-0">
                             <div class="col-auto">
-                                <i class="icon feather icon-upload f-30 text-c-green"></i>
+                                <i class="icon feather icon-external-link f-30 text-c-yellow"></i>
                             </div>
                             <div class="col-auto">
                                 <h6 class="text-muted m-b-10">Dikirim</h6>
                                 <h2 class="m-b-0">3</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center m-l-0">
+                            <div class="col-auto">
+                                <i class="icon feather icon-info f-30 text-c-red"></i>
+                            </div>
+                            <div class="col-auto">
+                                <h6 class="text-muted m-b-10">Belum Bayar</h6>
+                                <h2 class="m-b-0">1</h2>
                             </div>
                         </div>
                     </div>

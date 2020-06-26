@@ -20,6 +20,10 @@ const registrasi = $('.flash-data').data('registrasi');
 const activeAccount = $('.flash-data').data('activeakun');
 // Sweet alert loginsuccess
 const loginSuccess = $('.flash-data').data('loginsuccess');
+// Sweet alert nonaktifkan status
+const nonaktifkanStatus = $('.flash-data').data('nonaktif');
+// Sweet alert nonaktifkan status
+const aktifkanStatus = $('.flash-data').data('aktif');
 
 
 // Sweet alert flashData
@@ -121,6 +125,24 @@ if (loginSuccess) {
     });
 }
 
+// Sweet alert nonaktifkan status
+if (nonaktifkanStatus) {
+    Swal.fire({
+        title: 'Nonaktif',
+        text: nonaktifkanStatus,
+        type: 'success',
+    });
+}
+
+// Sweet alert aktifkan status
+if (aktifkanStatus) {
+    Swal.fire({
+        title: 'Di Aktifkan',
+        text: aktifkanStatus,
+        type: 'success',
+    });
+}
+
 //Sweet alert hapus
 $('.tombol-hapus').on('click', function (e) {
 
@@ -135,6 +157,50 @@ $('.tombol-hapus').on('click', function (e) {
         confirmButtonColor: '#3085D6',
         cancelButtonColor: '#D33',
         confirmButtonText: 'Hapus',
+        cancelButtonText: 'Kembali'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
+    });
+});
+
+//Sweet alert nonaktifkan status
+$('.tombol-nonaktif').on('click', function (e) {
+
+    e.preventDefault();
+    const href = $(this).attr('href');
+
+    Swal.fire({
+        title: 'Nonaktifkan',
+        text: 'Anda yakin ingin menonaktifkan akun ini?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085D6',
+        cancelButtonColor: '#D33',
+        confirmButtonText: 'Nonaktifkan',
+        cancelButtonText: 'Kembali'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
+    });
+});
+
+//Sweet alert aktifkan status
+$('.tombol-aktif').on('click', function (e) {
+
+    e.preventDefault();
+    const href = $(this).attr('href');
+
+    Swal.fire({
+        title: 'Aktifkan',
+        text: 'Anda yakin ingin mengaktifkan akun ini?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085D6',
+        cancelButtonColor: '#D33',
+        confirmButtonText: 'Aktifkan',
         cancelButtonText: 'Kembali'
     }).then((result) => {
         if (result.value) {

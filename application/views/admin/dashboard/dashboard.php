@@ -23,26 +23,11 @@
                     <div class="card-body">
                         <div class="row align-items-center m-l-0">
                             <div class="col-auto">
-                                <i class="icon feather icon-user f-30 text-c-purple"></i>
+                                <i class="icon feather icon-users f-30 text-c-purple"></i>
                             </div>
                             <div class="col-auto">
-                                <h6 class="text-muted m-b-10">Penjual</h6>
-                                <h2 class="m-b-0">2</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row align-items-center m-l-0">
-                            <div class="col-auto">
-                                <i class="icon feather icon-box f-30 text-c-green"></i>
-                            </div>
-                            <div class="col-auto">
-                                <h6 class="text-muted m-b-10">Kategori</h6>
-                                <h2 class="m-b-0">10</h2>
+                                <h6 class="text-muted m-b-10">Mahasiswa</h6>
+                                <h2 class="m-b-0"><?= $jumlahakunmahasiswa; ?></h2>
                             </div>
                         </div>
                     </div>
@@ -56,8 +41,8 @@
                                 <i class="icon feather icon-users f-30 text-c-red"></i>
                             </div>
                             <div class="col-auto">
-                                <h6 class="text-muted m-b-10">Pelanggan</h6>
-                                <h2 class="m-b-0">20</h2>
+                                <h6 class="text-muted m-b-10">Pengguna Umum</h6>
+                                <h2 class="m-b-0"><?= $jumlahakunumum; ?></h2>
                             </div>
                         </div>
                     </div>
@@ -68,11 +53,27 @@
                     <div class="card-body">
                         <div class="row align-items-center m-l-0">
                             <div class="col-auto">
-                                <i class="icon feather icon-award f-30 text-c-blue"></i>
+                                <i class="icon feather icon-download f-30 text-c-green"></i>
                             </div>
                             <div class="col-auto">
-                                <h6 class="text-muted m-b-10">Reward</h6>
-                                <h2 class="m-b-0">20</h2>
+                                <h6 class="text-muted m-b-10">Transaksi Hari Ini</h6>
+                                <h2 class="m-b-0">5</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center m-l-0">
+                            <div class="col-auto">
+                                <i class="icon feather icon-github f-30 text-c-blue"></i>
+                            </div>
+                            <div class="col-auto">
+                                <h6 class="text-muted m-b-10">Total Pengunjung</h6>
+                                <h2 class="m-b-0">200</h2>
                             </div>
                         </div>
                     </div>

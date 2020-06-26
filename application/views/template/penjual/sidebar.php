@@ -24,9 +24,10 @@
                 <li class="nav-item pcoded-menu-caption">
                     <label>Menu Utama</label>
                 </li>
-                <!-- Penjual -->
-                <li class="nav-item">
-                    <a href="" class="nav-link ">
+
+                <!-- Produk -->
+                <li class="nav-item <?= active_menu('produk'); ?>">
+                    <a href="<?= site_url('produk/data_produk'); ?>" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-box"></i></span>
                         <span class="pcoded-mtext">Produk</span>
                     </a>

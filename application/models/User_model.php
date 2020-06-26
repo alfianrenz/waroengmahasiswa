@@ -59,7 +59,7 @@ class User_model extends CI_Model
     //                  MAHASISWA                   
     //==========================================
 
-    //get data mahasiswa by session id
+    //get data akun mahasiswa by id
     public function getMahasiswa_id($id)
     {
         $this->db->select('*');
@@ -119,12 +119,33 @@ class User_model extends CI_Model
         return $this->db->get()->result_array();
     }
 
+    //nonaktifkan status akun mahasiswa
+    public function nonaktifkan_statusAkun_Mahasiswa($id)
+    {
+        $data = [
+            "status_aktif" => 0
+        ];
+        $this->db->where(['id_mahasiswa' => $id]);
+        $this->db->update('akun_mahasiswa', $data);
+    }
+
+
+    //aktifkan status akun mahasiswa
+    public function aktifkan_statusAkun_Mahasiswa($id)
+    {
+        $data = [
+            "status_aktif" => 1
+        ];
+        $this->db->where(['id_mahasiswa' => $id]);
+        $this->db->update('akun_mahasiswa', $data);
+    }
+
 
     //==========================================
     //                  UMUM                   
     //==========================================
 
-    //get data umum by session id
+    //get data umum by id
     public function getUmum_id($id)
     {
         $this->db->select('*');
@@ -177,5 +198,25 @@ class User_model extends CI_Model
         $this->db->select('*');
         $this->db->from('akun_umum');
         return $this->db->get()->result_array();
+    }
+
+    //nonaktifkan status akun umum
+    public function nonaktifkan_statusAkun_Umum($id)
+    {
+        $data = [
+            "status_aktif" => 0
+        ];
+        $this->db->where(['id_umum' => $id]);
+        $this->db->update('akun_umum', $data);
+    }
+
+    //aktifkan status akun umum
+    public function aktifkan_statusAkun_Umum($id)
+    {
+        $data = [
+            "status_aktif" => 1
+        ];
+        $this->db->where(['id_umum' => $id]);
+        $this->db->update('akun_umum', $data);
     }
 }

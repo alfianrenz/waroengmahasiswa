@@ -369,21 +369,29 @@ class Auth extends My_Controller
 
             //jika user ada
             if ($umum) {
-                //cek password
-                if (password_verify($password, $umum['password'])) {
-                    $data = [
-                        'id' => $umum['id_umum'],
-                        'email' => $umum['email'],
-                        'foto' => $umum['foto'],
-                        'nama' => $umum['username'],
-                        'tipe' => $umum['tipe']
-                    ];
-                    // unset($umum['password_umum']);
-                    $this->session->set_userdata($data);
-                    $this->session->set_flashdata('message', '<div class="flash-data" data-loginsuccess="Silahkan berbelanja!"></div>');
-                    redirect('beranda');
+
+                //cek akun aktif
+                if ($umum['status_aktif'] == 1) {
+
+                    //cek password
+                    if (password_verify($password, $umum['password'])) {
+                        $data = [
+                            'id' => $umum['id_umum'],
+                            'email' => $umum['email'],
+                            'foto' => $umum['foto'],
+                            'nama' => $umum['username'],
+                            'tipe' => $umum['tipe']
+                        ];
+                        // unset($umum['password_umum']);
+                        $this->session->set_userdata($data);
+                        $this->session->set_flashdata('message', '<div class="flash-data" data-loginsuccess="Silahkan berbelanja!"></div>');
+                        redirect('beranda');
+                    } else {
+                        $this->session->set_flashdata('message', '<div class="flash-data" data-passworderror="Periksa kembali password anda"></div>');
+                        redirect('auth/login_umum');
+                    }
                 } else {
-                    $this->session->set_flashdata('message', '<div class="flash-data" data-passworderror="Periksa kembali password anda"></div>');
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" align="center" role="alert">Akun anda tidak aktif</div>');
                     redirect('auth/login_umum');
                 }
             } else {

@@ -27,12 +27,12 @@
                         <div class="thumbnail">
                             <div class="thumb">
                                 <a href="<?= base_url('upload/foto_user/' . $umum['foto']); ?>" data-lightbox="1">
-                                    <img src="<?= base_url('upload/foto_user/' . $umum['foto']); ?>" alt="" class="img-fluid img-radius" width="142px" style="object-fit: cover; margin-top:15px">
+                                    <img src="<?= base_url('upload/foto_user/' . $umum['foto']); ?>" alt="" class="img-fluid img-radius" width="142px" style="object-fit: cover; margin-top:29px">
                                 </a>
                             </div>
                         </div>
                         <h5 class="mt-4"><?= $umum['username']; ?></h5>
-                        <p class="text-muted" style="margin-bottom: 10px;"><?= $umum['email']; ?></p>
+                        <p class="text-muted" style="margin-bottom: 17px;"><?= $umum['email']; ?></p>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-sm table-borderless">
+                            <table class="table table-sm table-borderless mb-0">
                                 <tbody>
                                     <tr>
                                         <td>Username</td>
@@ -66,6 +66,16 @@
                                     <tr>
                                         <td>Tanggal Daftar</td>
                                         <td>:&nbsp;&nbsp; <?= $umum['tanggal_daftar']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Status</td>
+                                        <td>:&nbsp;&nbsp;
+                                            <?php if ($umum['status_aktif'] == 1) { ?>
+                                                <span class="badge badge-success">Aktif</span>
+                                            <?php } else { ?>
+                                                <span class="badge badge-success">Tidak Aktif</span>
+                                            <?php } ?>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
