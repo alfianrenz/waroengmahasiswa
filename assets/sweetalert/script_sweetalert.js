@@ -165,7 +165,7 @@ $('.tombol-hapus').on('click', function (e) {
     });
 });
 
-//Sweet alert nonaktifkan status
+//Sweet alert nonaktifkan status akun
 $('.tombol-nonaktif').on('click', function (e) {
 
     e.preventDefault();
@@ -187,7 +187,29 @@ $('.tombol-nonaktif').on('click', function (e) {
     });
 });
 
-//Sweet alert aktifkan status
+//Sweet alert nonaktifkan status produk
+$('.tombol-nonaktifproduk').on('click', function (e) {
+
+    e.preventDefault();
+    const href = $(this).attr('href');
+
+    Swal.fire({
+        title: 'Nonaktifkan',
+        text: 'Anda yakin ingin menonaktifkan produk ini?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085D6',
+        cancelButtonColor: '#D33',
+        confirmButtonText: 'Nonaktifkan',
+        cancelButtonText: 'Kembali'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
+    });
+});
+
+//Sweet alert aktifkan status akun
 $('.tombol-aktif').on('click', function (e) {
 
     e.preventDefault();
@@ -196,6 +218,28 @@ $('.tombol-aktif').on('click', function (e) {
     Swal.fire({
         title: 'Aktifkan',
         text: 'Anda yakin ingin mengaktifkan akun ini?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085D6',
+        cancelButtonColor: '#D33',
+        confirmButtonText: 'Aktifkan',
+        cancelButtonText: 'Kembali'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
+    });
+});
+
+//Sweet alert aktifkan status produk
+$('.tombol-aktifproduk').on('click', function (e) {
+
+    e.preventDefault();
+    const href = $(this).attr('href');
+
+    Swal.fire({
+        title: 'Aktifkan',
+        text: 'Anda yakin ingin mengaktifkan produk ini?',
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085D6',

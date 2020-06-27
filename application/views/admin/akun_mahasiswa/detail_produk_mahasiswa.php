@@ -1,15 +1,17 @@
 <div class="pcoded-main-container">
     <div class="pcoded-content">
+
+        <!-- Breadcumb -->
         <div class="page-header">
             <div class="page-block">
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Produk</h5>
+                            <h5 class="m-b-10">Detail</h5>
                         </div>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?= site_url('dashboard/penjual'); ?>"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#!">Produk</a></li>
+                            <li class="breadcrumb-item"><a href="index.html"><i class="fa fa-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Detail</a></li>
                         </ul>
                     </div>
                 </div>
@@ -18,19 +20,20 @@
 
         <?= $this->session->userdata('message'); ?>
 
-        <!-- Main Content -->
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Data Produk</h5>
-                        <div class="card-header-right">
-                            <a href="<?= site_url('produk/tambah_produk'); ?>" class="btn waves-effect waves-light btn-primary">
-                                <i class="feather icon-plus"></i>
-                                &nbsp;Tambah Produk
-                            </a>
+                        <div class="nav nav-pills" role="tablist">
+                            <a href="<?= site_url('akun/detail_akun_mahasiswa'); ?>/<?= $mahasiswa['id_mahasiswa']; ?>" class="nav-link">Detail Mahasiswa</a>
+                            <a href="#!" class="nav-link active">Detail Produk</a>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="card">
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">
                             <table id="simpletable" class="table table-de nowrap">
@@ -42,8 +45,8 @@
                                         <th>Kategori</th>
                                         <th>Harga</th>
                                         <th class="text-center">Stok</th>
+                                        <th class="text-center">Tanggal Input</th>
                                         <th class="text-center">Status</th>
-                                        <th width="8%">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -59,17 +62,13 @@
                                             <td class="align-middle"><?= $p['nama_kategori']; ?></td>
                                             <td class="align-middle">Rp <?= number_format($p['harga_produk'], 0, ',', '.'); ?></td>
                                             <td class="align-middle text-center"><?= $p['stok_produk']; ?></td>
+                                            <td class="align-middle text-center"><?= $p['tanggal_input']; ?></td>
                                             <td class="align-middle text-center">
                                                 <?php if ($p['status_produk'] == 1) { ?>
-                                                    <a href="<?= site_url('produk/nonaktifkan_statusproduk/' . $p['id_produk']); ?>" class="badge badge-success tombol-nonaktifproduk">Aktif</a>
+                                                    <a href="<?= site_url('akun/nonaktifkan_status_produk/' . $p['id_produk']); ?>" class="badge badge-success tombol-nonaktifproduk">Aktif</a>
                                                 <?php } else { ?>
-                                                    <a href="<?php echo site_url('produk/aktifkan_statusproduk/' . $p['id_produk']); ?>" class="badge badge-danger tombol-aktifproduk"> Tidak Aktif</a>
+                                                    <a href="<?php echo site_url('akun/aktifkan_status_produk/' . $p['id_produk']); ?>" class="badge badge-danger tombol-aktifproduk"> Tidak Aktif</a>
                                                 <?php } ?>
-                                            </td>
-                                            <td class="align-middle text-center">
-                                                <a href="<?= site_url('produk/detail_produk'); ?>/<?= $p['id_produk']; ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
-                                                <a href="<?= site_url('produk/edit_produk'); ?>/<?= $p['id_produk']; ?>" class="btn btn-sm btn-primary rounded"><i class="feather icon-edit"></i> Edit</a>
-                                                <a href="<?= site_url('produk/hapus_produk'); ?>/<?= $p['id_produk']; ?>" class="btn btn-sm btn-danger rounded tombol-hapus"><i class="feather icon-trash-2"></i> Hapus</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

@@ -129,7 +129,6 @@ class User_model extends CI_Model
         $this->db->update('akun_mahasiswa', $data);
     }
 
-
     //aktifkan status akun mahasiswa
     public function aktifkan_statusAkun_Mahasiswa($id)
     {

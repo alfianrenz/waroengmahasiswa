@@ -53,6 +53,14 @@
 
                 <!-- Lihat Website -->
                 <li class="nav-item">
+                    <a href="<?= site_url('dashboard/pembeli'); ?>" class="nav-link">
+                        <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
+                        <span class="pcoded-mtext">Menu Pembeli</span>
+                    </a>
+                </li>
+
+                <!-- Lihat Website -->
+                <li class="nav-item">
                     <a href="<?= site_url('beranda'); ?>" class="nav-link" target="_blank">
                         <span class="pcoded-micon"><i class="feather icon-eye"></i></span>
                         <span class="pcoded-mtext">Lihat Website</span>

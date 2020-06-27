@@ -7,6 +7,7 @@ class Akun extends My_Controller
     {
         parent::__construct();
         $this->load->model('user_model');
+        $this->load->model('produk_model');
     }
 
     //===========================================
@@ -27,6 +28,15 @@ class Akun extends My_Controller
         $this->paggingAdmin('admin/akun_mahasiswa/detail_akun_mahasiswa', $data);
     }
 
+    //detail produk mahasiswa
+    public function detail_produk_mahasiswa($id)
+    {
+        $data['title'] = 'Warma CIC | Detail Produk Mahasiswa';
+        $data['mahasiswa'] = $this->user_model->getMahasiswa_id($id);
+        $data['produk'] = $this->produk_model->getProduk_idMahasiswa($id);
+        $this->paggingAdmin('admin/akun_mahasiswa/detail_produk_mahasiswa', $data);
+    }
+
     //nonaktifkan status akun mahasiswa
     public function nonaktifkan_statusakun_mahasiswa($id)
     {
@@ -42,6 +52,24 @@ class Akun extends My_Controller
         $this->session->set_flashdata('message', '<div class="flash-data" data-aktif="Akun berhasil di aktifkan"></div>');
         redirect('akun/data_akun_mahasiswa');
     }
+
+    //nonaktifkan status produk
+    public function nonaktifkan_status_produk($id)
+    {
+        $this->produk_model->nonaktifkan_statusProduk($id);
+        $this->session->set_flashdata('message', '<div class="flash-data" data-nonaktif="Produk berhasil di nonaktifkan"></div>');
+        redirect('akun/data_akun_mahasiswa');
+    }
+
+    //aktifkan status produk
+    public function aktifkan_status_produk($id)
+    {
+        $this->produk_model->aktifkan_statusProduk($id);
+        $this->session->set_flashdata('message', '<div class="flash-data" data-aktif="Produk berhasil di aktifkan"></div>');
+        redirect('akun/data_akun_mahasiswa');
+    }
+
+
 
     //===========================================
     //               AKUN UMUM

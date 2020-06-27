@@ -19,11 +19,10 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right profile-notification">
                         <div class="pro-head">
-                            <img src="<?= base_url('upload/foto_user/default.png'); ?>" class="img-radius" alt="User-Profile-Image">
-                            <span>Seller</span>
+                            <img src="<?= base_url('upload/foto_user/' . $s_mahasiswa['foto_mahasiswa']); ?>" class="img-radius" alt="User-Profile-Image">
+                            <span><?= $s_mahasiswa['nama_mahasiswa']; ?></span>
                         </div>
                         <ul class="pro-body">
-                            <li><a href="<?= site_url('dashboard/pembeli'); ?>" class="dropdown-item"><i class="feather icon-user"></i> Dashboard Pembeli</a></li>
                             <li><a href="<?= site_url('auth/logout_mahasiswa'); ?>" class="dropdown-item"><i class="feather icon-log-out"></i> Logout</a></li>
                         </ul>
                     </div>

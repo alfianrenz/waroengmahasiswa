@@ -29,7 +29,7 @@
                 <li class="nav-item pcoded-hasmenu <?= active_menu('akun'); ?>">
                     <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext"> Data Akun</span></a>
                     <ul class="pcoded-submenu">
-                        <li class="<?php echo $this->uri->segment(2) == 'data_akun_mahasiswa' || $this->uri->segment(2) == 'detail_akun_mahasiswa' ? 'active' : '' ?>"><a href="<?= site_url('akun/data_akun_mahasiswa'); ?>">Mahasiswa</a></li>
+                        <li class="<?php echo $this->uri->segment(2) == 'data_akun_mahasiswa' || $this->uri->segment(2) == 'detail_akun_mahasiswa' || $this->uri->segment(2) == 'detail_produk_mahasiswa' || $this->uri->segment(2) == 'view_detail_produk' ? 'active' : '' ?>"><a href="<?= site_url('akun/data_akun_mahasiswa'); ?>">Mahasiswa</a></li>
                         <li class="<?php echo $this->uri->segment(2) == 'data_akun_umum' || $this->uri->segment(2) == 'detail_akun_umum' ? 'active' : '' ?>"><a href="<?= site_url('akun/data_akun_umum'); ?>">Pengguna Umum</a></li>
                     </ul>
                 </li>

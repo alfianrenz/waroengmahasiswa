@@ -44,16 +44,6 @@
                     </a>
                 </li>
 
-                <!-- Halaman Penjual -->
-                <?php if ($this->session->userdata('tipe') == 1) { ?>
-                    <li class="nav-item">
-                        <a href="<?= site_url('dashboard/penjual'); ?>" class="nav-link" target="blank">
-                            <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                            <span class="pcoded-mtext">Toko Saya</span>
-                        </a>
-                    </li>
-                <?php } ?>
-
                 <!-- Akun Saya -->
                 <?php if ($this->session->userdata('tipe') == 1) { ?>
                     <li class="nav-item pcoded-hasmenu <?= active_menu('profile'); ?>">
@@ -76,6 +66,16 @@
                 <li class="nav-item pcoded-menu-caption">
                     <label>Utilities</label>
                 </li>
+
+                <!-- Halaman Penjual -->
+                <?php if ($this->session->userdata('tipe') == 1) { ?>
+                    <li class="nav-item">
+                        <a href="<?= site_url('dashboard/penjual'); ?>" class="nav-link">
+                            <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                            <span class="pcoded-mtext">Waroeng Saya</span>
+                        </a>
+                    </li>
+                <?php } ?>
 
                 <!-- Lihat Website -->
                 <li class="nav-item">
