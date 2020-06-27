@@ -78,7 +78,7 @@ class Produk_model extends CI_Model
         }
     }
 
-    //edit produk
+    //edit produk 
     public function editProduk()
     {
         $id_produk   = $this->input->post('id');
