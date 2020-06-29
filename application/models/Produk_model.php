@@ -188,6 +188,7 @@ class Produk_model extends CI_Model
         $this->db->from('produk');
         $this->db->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa');
         $this->db->join('mahasiswa', 'akun_mahasiswa.nim = mahasiswa.nim');
+        $this->db->join('prodi', 'mahasiswa.id_prodi = prodi.id_prodi');
         $this->db->join('kategori', 'produk.id_kategori = kategori.id_kategori');
         $this->db->where(['status_aktif' => 1])
             ->where(['id_produk' => $id]);

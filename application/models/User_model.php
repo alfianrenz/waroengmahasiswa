@@ -218,4 +218,32 @@ class User_model extends CI_Model
         $this->db->where(['id_umum' => $id]);
         $this->db->update('akun_umum', $data);
     }
+
+
+    //==========================================
+    //                FRONTEND 
+    //==========================================
+
+    public function getdata_Penjual()
+    {
+        $this->db->select('*');
+        $this->db->from('akun_mahasiswa');
+        $this->db->join('mahasiswa', 'akun_mahasiswa.nim = mahasiswa.nim');
+        $this->db->join('prodi', 'mahasiswa.id_prodi = prodi.id_prodi');
+        $this->db->where(['status_aktif' => 1]);
+        return $this->db->get()->result_array();
+    }
+
+    //get detail akun mahasiswa(penjual) berdasarkan id
+    public function getdetail_Penjual($id)
+    {
+        $this->db->select('*');
+        $this->db->from('akun_mahasiswa');
+        $this->db->join('mahasiswa', 'akun_mahasiswa.nim = mahasiswa.nim');
+        $this->db->join('fakultas', 'mahasiswa.id_fakultas = fakultas.id_fakultas');
+        $this->db->join('prodi', 'mahasiswa.id_prodi = prodi.id_prodi');
+        $this->db->where(['status_aktif' => 1])
+            ->where(['id_mahasiswa' => $id]);
+        return $this->db->get()->row_array();
+    }
 }

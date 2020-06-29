@@ -44,7 +44,7 @@
                         <div class="row no-gutters">
 
                             <?php foreach ($produk as $p) : ?>
-                                <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                                     <!-- Single Product -->
                                     <article class="hoproduct">
                                         <div class="hoproduct-image">

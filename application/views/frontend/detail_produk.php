@@ -57,21 +57,41 @@
                 </div>
             </div>
 
-            <div class="pdetails-allinfo">
+            <!-- PROFILE PENJUAL -->
+            <div class="pdetails-allinfo" style="margin-bottom: 10px;">
                 <ul class="nav pdetails-allinfotab" id="product-details" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="product-details-area1-tab" data-toggle="tab" href="#product-details-area1" role="tab" aria-controls="product-details-area1" aria-selected="true">PROFIL PENJUAL</a>
                     </li>
                 </ul>
-
                 <div class="tab-content" id="product-details-ontent">
                     <div class="tab-pane fade show active" id="product-details-area1" role="tabpanel" aria-labelledby="product-details-area1-tab">
                         <div class="pdetails-description">
-                            Indonesia :
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-2 text-center">
+                                            <img src="<?= base_url('upload/foto_user/' . $produk['foto_mahasiswa']); ?>" alt="" class="img-fluid rounded-circle" width="100px" style="object-fit: cover;">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <h5 class="mb-0"><?= $produk['nama_mahasiswa']; ?></h5>
+                                            <p><?= $produk['nama_prodi']; ?></p>
+                                            <a href="<?= site_url('penjual/detail_penjual/' . $produk['id_mahasiswa']); ?>" class="btn btn-sm btn-primary text-white">Lihat Profil</a>
+                                            <a href="" class="btn btn-sm btn-success text-white">Chat Penjual</a>
+                                        </div>
+                                        <div class="col-sm-7 border-left align-self-center">
+                                            <p class="mb-0 ml-3">Jumlah Produk : <span class="text-muted">0</span></p>
+                                            <p class="mb-0 ml-3">Program Studi : <span class="text-muted"><?= $produk['nama_prodi']; ?></span></p>
+                                            <p class="mb-0 ml-3">Alamat : <span class="text-muted"><?= $produk['alamat_mahasiswa']; ?></span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </main>
