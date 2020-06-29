@@ -62,20 +62,12 @@
                     <li class="nav-item">
                         <a class="nav-link active" id="product-details-area1-tab" data-toggle="tab" href="#product-details-area1" role="tab" aria-controls="product-details-area1" aria-selected="true">PROFIL PENJUAL</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="product-details-area2-tab" data-toggle="tab" href="#product-details-area2" role="tab" aria-controls="product-details-area2" aria-selected="false">KOMENTAR</a>
-                    </li>
                 </ul>
 
                 <div class="tab-content" id="product-details-ontent">
                     <div class="tab-pane fade show active" id="product-details-area1" role="tabpanel" aria-labelledby="product-details-area1-tab">
                         <div class="pdetails-description">
                             Indonesia :
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="product-details-area2" role="tabpanel" aria-labelledby="product-details-area2-tab">
-                        <div class="pdetails-moreinfo">
-                            AHSDADJASDKL
                         </div>
                     </div>
                 </div>
