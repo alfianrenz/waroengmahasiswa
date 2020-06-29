@@ -49,7 +49,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-3 col-md-6 col-sm-6 order-1 order-lg-1">
-                    <a href="index.html" class="header-logo">
+                    <a href="<?= site_url('beranda'); ?>" class="header-logo">
                         <img src="<?= base_url(); ?>assets/frontend/images/logo/logo-warma.png" alt="logo" width="180px">
                     </a>
                 </div>
@@ -83,7 +83,6 @@
 
                                 </ul>
                             </div>
-
                         <?php } else { ?>
                             <div class="header-account">
                                 <a href=""><button class="header-accountbox-trigger"><span class="lnr lnr-user"></span> Akun Saya</button></a>
@@ -104,7 +103,7 @@
                                     </div>
                                 </div>
                                 <div class="minicart-footer">
-                                    <a href="<?= site_url('produk'); ?>" class="ho-button ho-button-fullwidth">
+                                    <a href="<?= site_url('produk/data_produk_frontend'); ?>" class="ho-button ho-button-fullwidth">
                                         <span><b>LIHAT PRODUK</b></span>
                                     </a>
                                 </div>
@@ -166,7 +165,7 @@
                     <nav class="ho-navigation">
                         <ul>
                             <li class="<?= active_menu('beranda'); ?>"><a href="<?= site_url('beranda'); ?>">Beranda</a></li>
-                            <li><a href="about-us.html">Produk</a></li>
+                            <li class="<?= active_menu('produk'); ?>"><a href="<?= site_url('produk/data_produk_frontend'); ?>">Produk</a></li>
                             <li class="<?= active_menu('tentang_warma'); ?>"><a href="<?= site_url('tentang_warma'); ?>">Tentang Warma</a></li>
                             <li><a href="contact.html">Bantuan</a></li>
                         </ul>

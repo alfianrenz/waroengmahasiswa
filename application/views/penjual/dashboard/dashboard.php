@@ -42,7 +42,7 @@
                             </div>
                             <div class="col-auto">
                                 <h6 class="text-muted m-b-10">Produk</h6>
-                                <h2 class="m-b-0">1</h2>
+                                <h2 class="m-b-0"><?= $jumlahproduk; ?></h2>
                             </div>
                         </div>
                     </div>

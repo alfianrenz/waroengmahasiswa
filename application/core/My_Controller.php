@@ -55,7 +55,17 @@ class My_Controller extends CI_Controller
     //TEMPLATE FRONTEND
     public function paggingFrontend($content, $data = NULL)
     {
-        $data['kategori'] = $this->db->get('kategori')->result_array();
+        //Query menjumlahkan produk berdasarkan kategori
+        $kategori = $this->db->get('kategori')->result_array();
+        for ($i = 0; $i < count($kategori); $i++) {
+            $id_kategori = $kategori[$i]['id_kategori'];
+            $jumlah_produk = $this->db->query("
+                SELECT COUNT(*) AS jumlah FROM produk WHERE id_kategori = '$id_kategori'
+            ")->row_array();
+            $kategori[$i]['jumlah_produk'] = $jumlah_produk['jumlah'];
+        }
+
+        $data['kategori'] = $kategori;
         $data['header'] = $this->load->view('template/frontend/header', $data, TRUE);
         $data['content'] = $this->load->view($content, $data, TRUE);
         $data['footer'] = $this->load->view('template/frontend/footer', $data, TRUE);

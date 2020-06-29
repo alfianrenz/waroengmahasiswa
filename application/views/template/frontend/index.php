@@ -37,7 +37,7 @@
         <?= $footer; ?>
 
         <!-- Quickview Modal -->
-        <div class="quickmodal">
+        <div class="quickmodal" id="modal-produk">
             <div class="body-overlay"></div>
             <button class="quickmodal-close"><i class="ion ion-ios-close"></i></button>
             <div class="quickmodal-inside">
@@ -46,132 +46,39 @@
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="pdetails-images">
+                                    <!-- Foto -->
                                     <div class="pdetails-largeimages">
                                         <div class="pdetails-singleimage">
-                                            <img src="<?= base_url(); ?>assets/frontend/images/product/lg/product-image-1.jpg" alt="product image">
-                                        </div>
-                                        <div class="pdetails-singleimage">
-                                            <img src="<?= base_url(); ?>assets/frontend/images/product/lg/product-image-2.jpg" alt="product image">
-                                        </div>
-                                        <div class="pdetails-singleimage">
-                                            <img src="<?= base_url(); ?>assets/frontend/images/product/lg/product-image-3.jpg" alt="product image">
-                                        </div>
-                                        <div class="pdetails-singleimage">
-                                            <img src="<?= base_url(); ?>assets/frontend/images/product/lg/product-image-4.jpg" alt="product image">
-                                        </div>
-                                        <div class="pdetails-singleimage">
-                                            <img src="<?= base_url(); ?>assets/frontend/images/product/lg/product-image-1.jpg" alt="product image">
-                                        </div>
-                                        <div class="pdetails-singleimage">
-                                            <img src="<?= base_url(); ?>assets/frontend/images/product/lg/product-image-2.jpg" alt="product image">
-                                        </div>
-                                        <div class="pdetails-singleimage">
-                                            <img src="<?= base_url(); ?>assets/frontend/images/product/lg/product-image-3.jpg" alt="product image">
-                                        </div>
-                                        <div class="pdetails-singleimage">
-                                            <img src="<?= base_url(); ?>assets/frontend/images/product/lg/product-image-4.jpg" alt="product image">
-                                        </div>
-                                    </div>
-
-                                    <div class="pdetails-thumbs">
-                                        <div class="pdetails-singlethumb">
-                                            <img src="<?= base_url(); ?>assets/frontend/images/product/thumbnail/product-image-1.jpg" alt="product thumb">
-                                        </div>
-                                        <div class="pdetails-singlethumb">
-                                            <img src="<?= base_url(); ?>assets/frontend/images/product/thumbnail/product-image-2.jpg" alt="product thumb">
-                                        </div>
-                                        <div class="pdetails-singlethumb">
-                                            <img src="<?= base_url(); ?>assets/frontend/images/product/thumbnail/product-image-3.jpg" alt="product thumb">
-                                        </div>
-                                        <div class="pdetails-singlethumb">
-                                            <img src="<?= base_url(); ?>assets/frontend/images/product/thumbnail/product-image-4.jpg" alt="product thumb">
-                                        </div>
-                                        <div class="pdetails-singlethumb">
-                                            <img src="<?= base_url(); ?>assets/frontend/images/product/thumbnail/product-image-1.jpg" alt="product thumb">
-                                        </div>
-                                        <div class="pdetails-singlethumb">
-                                            <img src="<?= base_url(); ?>assets/frontend/images/product/thumbnail/product-image-2.jpg" alt="product thumb">
-                                        </div>
-                                        <div class="pdetails-singlethumb">
-                                            <img src="<?= base_url(); ?>assets/frontend/images/product/thumbnail/product-image-3.jpg" alt="product thumb">
-                                        </div>
-                                        <div class="pdetails-singlethumb">
-                                            <img src="<?= base_url(); ?>assets/frontend/images/product/thumbnail/product-image-4.jpg" alt="product thumb">
+                                            <img id="modal-foto-produk" src="<?= base_url(); ?>assets/frontend/images/product/lg/product-image-1.jpg" alt="product image">
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
                                 <div class="pdetails-content">
-
-                                    <div class="rattingbox">
-                                        <span class="active"><i class="ion ion-ios-star"></i></span>
-                                        <span class="active"><i class="ion ion-ios-star"></i></span>
-                                        <span class="active"><i class="ion ion-ios-star"></i></span>
-                                        <span class="active"><i class="ion ion-ios-star"></i></span>
-                                        <span class="active"><i class="ion ion-ios-star"></i></span>
-                                    </div>
-                                    <h3>SonicFuel Wireless Over-Ear Headphones</h3>
+                                    <h2 id="modal-nama-produk">Nama Produk</h2>
                                     <div class="pdetails-pricebox">
-                                        <del class="oldprice">$35.90</del>
-                                        <span class="price">$34.11</span>
-                                        <span class="badge">Save 5%</span>
+                                        <span class="price" id="modal-harga-produk"></span>
                                     </div>
-                                    <p>The ATH-S700BT offers clear, full-bodied audio reproduction with Bluetooth®
-                                        wireless operation. The headphones are equipped with a mic, and music and
-                                        volume controls, allowing you to easily answer calls..</p>
+                                    <p id="modal-deskripsi-produk">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, eaque rerum! Dolore iste ipsa perspiciatis cumque velit, ut obcaecati sequi sunt, fugit est ullam doloremque minima eligendi cum soluta quos!
+                                    </p>
                                     <div class="pdetails-quantity">
-                                        <div class="quantity-select">
-                                            <input type="text" value="1">
-                                            <div class="inc qtybutton">+<i class="ion ion-ios-arrow-up"></i></div>
-                                            <div class="dec qtybutton">-<i class="ion ion-ios-arrow-down"></i></div>
-                                        </div>
                                         <a href="shop-rightsidebar.html" class="ho-button">
                                             <i class="lnr lnr-cart"></i>
-                                            <span>Add to cart</span>
+                                            <span>&nbsp;Tambahkan Ke Keranjang</span>
                                         </a>
                                     </div>
-                                    <div class="pdetails-color">
-                                        <span>Color :</span>
-                                        <ul>
-                                            <li class="red"><span></span></li>
-                                            <li class="green checked"><span></span></li>
-                                            <li class="blue"><span></span></li>
-                                            <li class="black"><span></span></li>
-                                        </ul>
-                                    </div>
-                                    <div class="pdetails-size">
-                                        <span>Size :</span>
-                                        <ul>
-                                            <li class="checked"><span>S</span></li>
-                                            <li><span>M</span></li>
-                                            <li><span>L</span></li>
-                                            <li><span>XL</span></li>
-                                            <li><span>XXL</span></li>
-                                        </ul>
-                                    </div>
                                     <div class="pdetails-categories">
-                                        <span>Categories :</span>
+                                        <span>Kategori :</span>
                                         <ul>
-                                            <li><a href="shop-rightsidebar.html">Accessories</a></li>
-                                            <li><a href="shop-rightsidebar.html">Kids</a></li>
-                                            <li><a href="shop-rightsidebar.html">Women</a></li>
+                                            <li><a href="#" id="modal-kategori-produk">Accessories</a></li>
                                         </ul>
                                     </div>
                                     <div class="pdetails-tags">
-                                        <span>Tags :</span>
+                                        <span>Stok :</span>
                                         <ul>
-                                            <li><a href="shop-rightsidebar.html">Electronic</a></li>
-                                            <li><a href="shop-rightsidebar.html">Television</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="pdetails-socialshare">
-                                        <span>Share :</span>
-                                        <ul>
-                                            <li><a href="#"><i class="ion ion-logo-facebook"></i></a></li>
-                                            <li><a href="#"><i class="ion ion-logo-twitter"></i></a></li>
-                                            <li><a href="#"><i class="ion ion-logo-googleplus"></i></a></li>
-                                            <li><a href="#"><i class="ion ion-logo-pinterest"></i></a></li>
+                                            <li><a href="shop-rightsidebar.html" id="modal-stok-produk">Electronic</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -195,6 +102,29 @@
     <!-- Sweet Alert Js -->
     <script src="<?= base_url(); ?>assets/sweetalert/sweetalert2.all.min.js"></script>
     <script src="<?= base_url(); ?>assets/sweetalert/script_sweetalert.js"></script>
+
+    <!-- Ini Buat Modal Produk -->
+    <script type="text/javascript">
+        const showDetailProduk = (id_produk) => {
+            //Ambil nilai dari attribute produk
+            const namaProduk = $("#nama-produk-" + id_produk).text();
+            const fotoProduk = $("#foto-produk-" + id_produk).attr('src');
+            const hargaProduk = $("#price-produk-" + id_produk).text();
+            const kategoriProduk = $("#nama-kategori-produk-" + id_produk).text();
+            const deskripsiProduk = $("#deskripsi-produk-" + id_produk).val();
+            const stokProduk = $("#stok_produk-" + id_produk).text();
+            //console.log(deskripsiProduk);
+
+            //Masukkan nilai ke modal
+            $("#modal-nama-produk").text(namaProduk);
+            $("#modal-foto-produk").attr('src', fotoProduk);
+            $("#modal-harga-produk").text(hargaProduk);
+            $("#modal-kategori-produk").text(kategoriProduk);
+            $("#modal-deskripsi-produk").html(deskripsiProduk);
+            $("#modal-stok-produk").text(stokProduk);
+            $('.quickmodal').toggleClass('is-visible');
+        }
+    </script>
 
 </body>
 

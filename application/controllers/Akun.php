@@ -58,7 +58,7 @@ class Akun extends My_Controller
     {
         $this->produk_model->nonaktifkan_statusProduk($id);
         $this->session->set_flashdata('message', '<div class="flash-data" data-nonaktif="Produk berhasil di nonaktifkan"></div>');
-        redirect('akun/data_akun_mahasiswa');
+        echo '<script>window.history.back();</script>';
     }
 
     //aktifkan status produk
@@ -66,7 +66,7 @@ class Akun extends My_Controller
     {
         $this->produk_model->aktifkan_statusProduk($id);
         $this->session->set_flashdata('message', '<div class="flash-data" data-aktif="Produk berhasil di aktifkan"></div>');
-        redirect('akun/data_akun_mahasiswa');
+        echo '<script>window.history.back();</script>';
     }
 
 

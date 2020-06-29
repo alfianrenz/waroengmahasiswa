@@ -20,6 +20,7 @@ class Dashboard extends My_Controller
     public function penjual()
     {
         $data['title'] = 'Warma CIC | Dashboard Penjual';
+        $data['jumlahproduk'] = $this->db->get_where('produk', ['id_mahasiswa' => $this->session->userdata('id')])->num_rows();
         $this->paggingPenjual('penjual/dashboard/dashboard', $data);
     }
 

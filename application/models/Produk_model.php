@@ -148,4 +148,49 @@ class Produk_model extends CI_Model
         $this->db->where(['id_produk' => $id]);
         $this->db->update('produk', $data);
     }
+
+    //======================================
+    //             FRONTEND
+    //======================================
+
+    //Get data produk berdasarkan status aktif di bagian menu produk
+    public function getdata_produkFrontend($sortby)
+    {
+        $this->db->select('*');
+        $this->db->from('produk');
+        $this->db->join('kategori', 'produk.id_kategori = kategori.id_kategori');
+        if ($sortby == "terbaru") {
+            $this->db->order_by('tanggal_input', 'DESC');
+        } else if ($sortby == "termahal") {
+            $this->db->order_by('harga_produk', 'DESC');
+        } else if ($sortby == "termurah") {
+            $this->db->order_by('harga_produk', 'ASC');
+        }
+        $this->db->where(['status_produk' => 1]);
+        return $this->db->get()->result_array();
+    }
+
+    //Get data produk berdasarkan kategori
+    public function getdata_produkByKategori($id_kategori)
+    {
+        $this->db->select('*');
+        $this->db->from('produk');
+        $this->db->join('kategori', 'produk.id_kategori = kategori.id_kategori');
+        $this->db->where(['status_produk' => 1])
+            ->where('produk.id_kategori', $id_kategori);
+        return $this->db->get()->result_array();
+    }
+
+    //Get detail produk by id produk
+    public function detailproduk_Frontend($id)
+    {
+        $this->db->select('*');
+        $this->db->from('produk');
+        $this->db->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa');
+        $this->db->join('mahasiswa', 'akun_mahasiswa.nim = mahasiswa.nim');
+        $this->db->join('kategori', 'produk.id_kategori = kategori.id_kategori');
+        $this->db->where(['status_aktif' => 1])
+            ->where(['id_produk' => $id]);
+        return $this->db->get()->row_array();
+    }
 }

@@ -10,6 +10,10 @@ class Produk extends My_Controller
         $this->load->model('produk_model');
     }
 
+    //=========================================
+    //                MAHASISWA
+    //=========================================
+
     //view data produk
     public function data_produk()
     {
@@ -117,5 +121,28 @@ class Produk extends My_Controller
         $this->produk_model->aktifkan_statusProduk($id);
         $this->session->set_flashdata('message', '<div class="flash-data" data-aktif="Produk berhasil di aktifkan"></div>');
         redirect('produk/data_produk');
+    }
+
+    //=========================================
+    //                FRONTEND
+    //=========================================
+
+    //Get data seluruh produk
+    public function data_produk_frontend($sortby = '', $id_produk = "")
+    {
+        $data['title'] = 'Warma CIC | Produk';
+        $produk = $this->produk_model->getdata_produkFrontend($sortby);
+        if (!empty(trim($sortby)) && !empty(trim($id_produk))) {
+            $produk = $this->produk_model->getdata_produkByKategori($id_produk);
+        }
+        $data['produk'] = $produk;
+        $this->paggingFrontend('frontend/data_produk', $data);
+    }
+
+    public function detail_produk_frontend($id)
+    {
+        $data['title'] = 'Warma CIC | Detail Produk';
+        $data['produk'] = $this->produk_model->detailproduk_Frontend($id);
+        $this->paggingFrontend('frontend/detail_produk', $data);
     }
 }

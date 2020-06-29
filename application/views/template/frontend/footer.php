@@ -32,9 +32,9 @@
                     <div class="footer-widget widget-links">
                         <h5 class="footer-widget-title">PILIHAN MENU</h5>
                         <ul>
-                            <li><a href="#">Beranda</a></li>
+                            <li><a href="<?= site_url('beranda'); ?>">Beranda</a></li>
                             <li><a href="#">Produk</a></li>
-                            <li><a href="#">Tentang Warma</a></li>
+                            <li><a href="<?= site_url('tentang_warma'); ?>">Tentang Warma</a></li>
                             <li><a href="#">Bantuan</a></li>
                         </ul>
                     </div>
@@ -59,7 +59,7 @@
     <div class="footer-bottomarea">
         <div class="container">
             <div class="footer-copyright">
-                <p class="copyright">Copyright &copy; <a href="#">Waroeng Mahasiswa CIC</a> By Alfian</p>
+                <p class="copyright">Copyright &copy; <a href="<?= site_url('beranda'); ?>">Waroeng Mahasiswa CIC</a> By Alfian</p>
             </div>
         </div>
     </div>

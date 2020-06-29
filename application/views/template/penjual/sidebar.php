@@ -29,21 +29,21 @@
                 <li class="nav-item <?= active_menu('produk'); ?>">
                     <a href="<?= site_url('produk/data_produk'); ?>" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-box"></i></span>
-                        <span class="pcoded-mtext">Produk</span>
+                        <span class="pcoded-mtext">Kelola Produk</span>
                     </a>
                 </li>
                 <!-- Pesanan -->
                 <li class="nav-item">
                     <a href="" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
-                        <span class="pcoded-mtext">Pesanan</span>
+                        <span class="pcoded-mtext">Kelola Pesanan</span>
                     </a>
                 </li>
                 <!-- Laporan -->
                 <li class="nav-item">
                     <a href="" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-file"></i></span>
-                        <span class="pcoded-mtext">Laporan</span>
+                        <span class="pcoded-mtext">Laporan Penjualan</span>
                     </a>
                 </li>
 
