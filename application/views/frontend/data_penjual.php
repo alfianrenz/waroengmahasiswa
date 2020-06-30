@@ -32,8 +32,8 @@
                             <div class="select-sortby">
                                 <button class="select-sortby-current">Berdasarkan</button>
                                 <ul class="select-sortby-list dropdown-list">
-                                    <li><a href="">Nama (Ascending)</a></li>
-                                    <li><a href="">Nama (Descending)</a></li>
+                                    <li><a href="<?= site_url('penjual/data_penjual/ascending'); ?>">Nama (A-Z)</a></li>
+                                    <li><a href="<?= site_url('penjual/data_penjual/descending'); ?>">Nama (Z-A)</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -43,27 +43,35 @@
                     <div class="shop-page-products mt-30">
                         <div class="row no-gutters">
 
-                            <?php foreach ($penjual as $p) : ?>
-                                <div class="col-lg-3 col-md-4 col-sm-6 col-12">
-                                    <!-- Single Penjual -->
-                                    <article class="hoproduct">
-                                        <div class="hoproduct-image">
-                                            <a class="hoproduct-thumb" href="<?= site_url('penjual/detail_penjual/' . $p['id_mahasiswa']); ?>">
-                                                <img class="hoproduct-frontimage rounded-circle" src="<?= base_url('upload/foto_user/' . $p['foto_mahasiswa']); ?>" alt="product image">
-                                            </a>
-                                        </div>
-                                        <div class="hoproduct-content text-center">
-                                            <h5 class="hoproduct-title"><a href="<?= site_url('penjual/detail_penjual/' . $p['id_mahasiswa']); ?>"><?= $p['nama_mahasiswa']; ?></a></h5>
-                                            <div class="hoproduct-pricebox">
-                                                <div class="pricebox">
-                                                    <span class=""><?= $p['nama_prodi']; ?></span>
+                            <?php if (!$penjual) { ?>
+                                <div class="col-sm-12 text-center" style="margin-top: 25px;">
+                                    <img src="<?= base_url(); ?>assets/frontend/images/others/penjual_empty.png" alt="" width="280px">
+                                </div>
+                                <div class="col-sm-12 text-center" style="margin-top: 30px; margin-bottom:18px">
+                                    <h2>TIDAK ADA PENJUAL :(</h2>
+                                </div>
+                            <?php } else { ?>
+                                <?php foreach ($penjual as $p) : ?>
+                                    <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+                                        <!-- Single Penjual -->
+                                        <article class="hoproduct">
+                                            <div class="hoproduct-image">
+                                                <a class="hoproduct-thumb" href="<?= site_url('penjual/detail_penjual/' . $p['id_mahasiswa']); ?>">
+                                                    <img class="hoproduct-frontimage rounded-circle" src="<?= base_url('upload/foto_user/' . $p['foto_mahasiswa']); ?>" alt="product image">
+                                                </a>
+                                            </div>
+                                            <div class="hoproduct-content text-center">
+                                                <h5 class="hoproduct-title"><a href="<?= site_url('penjual/detail_penjual/' . $p['id_mahasiswa']); ?>"><?= $p['nama_mahasiswa']; ?></a></h5>
+                                                <div class="hoproduct-pricebox">
+                                                    <div class="pricebox">
+                                                        <span class=""><?= $p['nama_prodi']; ?></span>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </article>
-                                </div>
-                            <?php endforeach; ?>
-
+                                        </article>
+                                    </div>
+                                <?php endforeach; ?>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -75,7 +83,7 @@
                             <h5 class="widget-title">PROGRAM STUDI</h5>
                             <ul class="mt-4">
                                 <?php foreach ($prodi as $p) : ?>
-                                    <li><a href="<?= site_url('penjual/data_penjual/prodi/' . $p['id_prodi']); ?>"><?= $p['nama_prodi']; ?> <span>0</span></a></li>
+                                    <li><a href="<?= site_url('penjual/data_penjual/prodi/' . $p['id_prodi']); ?>"><?= $p['nama_prodi']; ?> <span><?= $p['jumlah_mahasiswa']; ?></span></a></li>
                                 <?php endforeach; ?>
                             </ul>
                         </div>

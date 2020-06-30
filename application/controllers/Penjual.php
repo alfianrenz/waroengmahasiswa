@@ -11,11 +11,26 @@ class Penjual extends My_Controller
     }
 
     //view data penjual
-    public function data_penjual()
+    public function data_penjual($sortby = '', $id_mahasiswa = '')
     {
         $data['title'] = 'Warma CIC | Data Penjual';
-        $data['prodi'] = $this->db->get('prodi')->result_array();
-        $data['penjual'] = $this->user_model->getdata_Penjual();
+
+        //Query menjumlahkan mahasiswa berdasarkan id_prodi
+        $prodi = $this->db->get('prodi')->result_array();
+        for ($i = 0; $i < count($prodi); $i++) {
+            $id_prodi = $prodi[$i]['id_prodi'];
+            $jumlah_mahasiswa = $this->db->query("
+                SELECT COUNT(*) AS jumlah FROM akun_mahasiswa JOIN mahasiswa ON mahasiswa.nim = mahasiswa.nim WHERE id_prodi = '$id_prodi'
+            ")->row_array();
+            $prodi[$i]['jumlah_mahasiswa'] = $jumlah_mahasiswa['jumlah'];
+        }
+
+        $data['prodi'] = $prodi;
+        $penjual = $this->user_model->getdata_Penjual($sortby);
+        if (!empty(trim($sortby)) && !empty(trim($id_mahasiswa))) {
+            $penjual = $this->user_model->getdata_penjualByprodi($id_mahasiswa);
+        }
+        $data['penjual'] = $penjual;
         $this->paggingFrontend('frontend/data_penjual', $data);
     }
 

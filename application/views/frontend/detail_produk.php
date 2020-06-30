@@ -59,11 +59,6 @@
 
             <!-- PROFILE PENJUAL -->
             <div class="pdetails-allinfo" style="margin-bottom: 10px;">
-                <ul class="nav pdetails-allinfotab" id="product-details" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="product-details-area1-tab" data-toggle="tab" href="#product-details-area1" role="tab" aria-controls="product-details-area1" aria-selected="true">PROFIL PENJUAL</a>
-                    </li>
-                </ul>
                 <div class="tab-content" id="product-details-ontent">
                     <div class="tab-pane fade show active" id="product-details-area1" role="tabpanel" aria-labelledby="product-details-area1-tab">
                         <div class="pdetails-description">

@@ -224,13 +224,30 @@ class User_model extends CI_Model
     //                FRONTEND 
     //==========================================
 
-    public function getdata_Penjual()
+    public function getdata_Penjual($sortby)
     {
         $this->db->select('*');
         $this->db->from('akun_mahasiswa');
         $this->db->join('mahasiswa', 'akun_mahasiswa.nim = mahasiswa.nim');
         $this->db->join('prodi', 'mahasiswa.id_prodi = prodi.id_prodi');
+        if ($sortby == "ascending") {
+            $this->db->order_by('nama_mahasiswa', 'ASC');
+        } else if ($sortby == "descending") {
+            $this->db->order_by('nama_mahasiswa', 'DESC');
+        }
         $this->db->where(['status_aktif' => 1]);
+        return $this->db->get()->result_array();
+    }
+
+    //Get data mahasiswa (penjual) berdasarkan prodi
+    public function getdata_penjualByProdi($id_prodi)
+    {
+        $this->db->select('*');
+        $this->db->from('akun_mahasiswa');
+        $this->db->join('mahasiswa', 'akun_mahasiswa.nim = mahasiswa.nim');
+        $this->db->join('prodi', 'mahasiswa.id_prodi = prodi.id_prodi');
+        $this->db->where(['status_aktif' => 1])
+            ->where('mahasiswa.id_prodi', $id_prodi);
         return $this->db->get()->result_array();
     }
 
