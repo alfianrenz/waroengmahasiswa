@@ -66,18 +66,33 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-sm-2 text-center">
-                                            <img src="<?= base_url('upload/foto_user/' . $produk['foto_mahasiswa']); ?>" alt="" class="img-fluid rounded-circle" width="100px" style="object-fit: cover;">
+                                            <img src="<?= base_url('upload/foto_user/' . $produk['foto_mahasiswa']); ?>" alt="" class="img-fluid rounded-circle mt-1" width="100px" style="object-fit: cover;">
                                         </div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-3" style="margin-top:3px;">
                                             <h5 class="mb-0"><?= $produk['nama_mahasiswa']; ?></h5>
                                             <p><?= $produk['nama_prodi']; ?></p>
                                             <a href="<?= site_url('penjual/detail_penjual/' . $produk['id_mahasiswa']); ?>" class="btn btn-sm btn-primary text-white">Lihat Profil</a>
-                                            <a href="" class="btn btn-sm btn-success text-white">Chat Penjual</a>
+                                            <a href="https://api.whatsapp.com/send?phone=<?= $produk['telepon_mahasiswa']; ?>&text=Hai%20gan%20apakah%20barang%20masih%20ada?" class="btn btn-sm btn-success text-white" target="_blank">Chat Penjual</a>
                                         </div>
                                         <div class="col-sm-7 border-left align-self-center">
-                                            <p class="mb-0 ml-3">Jumlah Produk : <span class="text-muted">0</span></p>
-                                            <p class="mb-0 ml-3">Program Studi : <span class="text-muted"><?= $produk['nama_prodi']; ?></span></p>
-                                            <p class="mb-0 ml-3">Alamat : <span class="text-muted"><?= $produk['alamat_mahasiswa']; ?></span></p>
+                                            <div class="table-responsive">
+                                                <table class="table table-sm table-borderless mb-0" style="border-style: none;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Jumlah Produk</td>
+                                                            <td>:&nbsp;&nbsp; 0</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Program Studi</td>
+                                                            <td>:&nbsp;&nbsp; <?= $produk['nama_prodi']; ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Alamat</td>
+                                                            <td>:&nbsp;&nbsp; <?= $produk['alamat_mahasiswa']; ?></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
