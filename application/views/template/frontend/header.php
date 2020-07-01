@@ -73,7 +73,7 @@
                                 <button class="header-accountbox-trigger"><span class="lnr lnr-user"></span> <?= $this->session->userdata('nama'); ?> <i class="ion ion-ios-arrow-down"></i></button>
                                 <ul class="header-accountbox dropdown-list">
                                     <li><a href="<?= site_url('dashboard/pembeli'); ?>">Dashboard</a></li>
-                                    <li><a href="">Keranjang</a></li>
+                                    <li><a href="<?= site_url('keranjang/halaman_keranjang'); ?>">Keranjang</a></li>
 
                                     <?php if ($this->session->userdata('tipe') == 1) { ?>
                                         <li><a href="<?= site_url('auth/logout_mahasiswa'); ?>">Logout</a></li>
@@ -104,7 +104,7 @@
                                 </div>
                                 <div class="minicart-footer">
                                     <a href="<?= site_url('produk/data_produk_frontend'); ?>" class="ho-button ho-button-fullwidth">
-                                        <span><b>LIHAT PRODUK</b></span>
+                                        <span><b>BELANJA SEKARANG</b></span>
                                     </a>
                                 </div>
 
@@ -139,7 +139,7 @@
                                     </div>
                                 </div>
                                 <ul class="minicart-pricing">
-                                    <li>Total <span>Rp 10.000</span></li>
+                                    <li>Total Belanja<span>Rp 10.000</span></li>
                                 </ul>
                                 <div class="minicart-footer">
                                     <a href="cart.html" class="ho-button ho-button-fullwidth">

@@ -24,6 +24,8 @@ const loginSuccess = $('.flash-data').data('loginsuccess');
 const nonaktifkanStatus = $('.flash-data').data('nonaktif');
 // Sweet alert nonaktifkan status
 const aktifkanStatus = $('.flash-data').data('aktif');
+// Sweet alert tambah keranjang
+const tambahKeranjang = $('.flash-data').data('tambahkeranjang');
 
 
 // Sweet alert flashData
@@ -139,6 +141,15 @@ if (aktifkanStatus) {
     Swal.fire({
         title: 'Di Aktifkan',
         text: aktifkanStatus,
+        type: 'success',
+    });
+}
+
+// Sweet alert tambahkan keranjang
+if (tambahKeranjang) {
+    Swal.fire({
+        title: 'Di tambahkan',
+        text: tambahKeranjang,
         type: 'success',
     });
 }

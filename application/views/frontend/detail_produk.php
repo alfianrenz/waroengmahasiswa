@@ -10,6 +10,8 @@
     </div>
 </div>
 
+<?= $this->session->userdata('message'); ?>
+
 <!-- Page Conttent -->
 <main class="page-content">
 
@@ -35,9 +37,9 @@
                             </div>
                             <p><?= $produk['deskripsi_produk']; ?></p>
                             <div class="pdetails-quantity">
-                                <a href="shop-rightsidebar.html" class="ho-button">
+                                <a href="<?= site_url('keranjang/tambah_keranjang/' . $produk['id_produk']); ?>" class="ho-button">
                                     <i class="lnr lnr-cart"></i>
-                                    <span>&nbsp;Tambahkan Ke Keranjang</span>
+                                    <span>&nbsp;Tambahkan Keranjang</span>
                                 </a>
                             </div>
                             <div class="pdetails-categories">
