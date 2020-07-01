@@ -20,7 +20,9 @@ class Penjual extends My_Controller
         for ($i = 0; $i < count($prodi); $i++) {
             $id_prodi = $prodi[$i]['id_prodi'];
             $jumlah_mahasiswa = $this->db->query("
-                SELECT COUNT(*) AS jumlah FROM akun_mahasiswa JOIN mahasiswa ON mahasiswa.nim WHERE id_prodi = '$id_prodi'
+                SELECT COUNT(*) AS jumlah FROM `mahasiswa` WHERE nim IN (
+                    SELECT nim FROM akun_mahasiswa
+                ) AND id_prodi = '$id_prodi'
             ")->row_array();
             $prodi[$i]['jumlah_mahasiswa'] = $jumlah_mahasiswa['jumlah'];
         }
