@@ -31,7 +31,7 @@
                                 <div class="col-sm-6">
                                     <h5 class="mb-2 mt-2"><?= $penjual['nama_mahasiswa']; ?></h5>
                                     <p><?= $penjual['nim']; ?></p>
-                                    <a href="https://api.whatsapp.com/send?phone=<?= $penjual['telepon_mahasiswa']; ?>&text=Hai%20gan%20apakah%20barang%20masih%20ada?" class="btn btn-sm btn-success text-white mb-0" target="_blank">Chat Penjual</a>
+                                    <a href="https://api.whatsapp.com/send?phone=<?= $penjual['telepon_mahasiswa']; ?>&text=Hai,%20saya%20ingin%20bertanya%20tentang%20produk%20yang%20anda%20jual" class="btn btn-sm btn-success text-white mb-0" target="_blank">Chat Penjual</a>
                                 </div>
                             </div>
                             <div class="border-top" style="margin-top: 30px;">
@@ -57,7 +57,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Bergabung</td>
-                                                <td>:&nbsp;&nbsp;<?= $penjual['tanggal_daftar']; ?></td>
+                                                <td>:&nbsp;&nbsp;<?= date('d M Y', strtotime($penjual['tanggal_daftar'])); ?></td>
                                             </tr>
                                             <tr>
                                                 <td>Alamat</td>

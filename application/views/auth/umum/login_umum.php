@@ -46,7 +46,7 @@
                                     <div class="form-group mb-0">
                                         <button type="submit" class="col-sm-12 ho-button mt-2"><span>Login</span></button>
                                         <div class="text-center mt-3">
-                                            <a href="#" class="text-dark">Lupa Password</a>
+                                            <a href="<?= site_url('auth/lupa_password_umum'); ?>" class="text-dark">Lupa Password</a>
                                         </div>
                                         <div class="text-center">
                                             <a href="<?= site_url('auth/buat_akun_umum'); ?>" class="text-dark">Buat Akun</a>

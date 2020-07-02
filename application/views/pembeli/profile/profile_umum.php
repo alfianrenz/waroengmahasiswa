@@ -65,7 +65,7 @@
                                     </tr>
                                     <tr>
                                         <td>Tanggal Daftar</td>
-                                        <td>:&nbsp;&nbsp; <?= $umum['tanggal_daftar']; ?></td>
+                                        <td>:&nbsp;&nbsp; <?= date('d M Y', strtotime($umum['tanggal_daftar'])); ?></td>
                                     </tr>
                                     <tr>
                                         <td>Status</td>

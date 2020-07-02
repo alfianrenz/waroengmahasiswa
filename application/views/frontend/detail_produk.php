@@ -74,7 +74,7 @@
                                             <h5 class="mb-0"><?= $produk['nama_mahasiswa']; ?></h5>
                                             <p><?= $produk['nama_prodi']; ?></p>
                                             <a href="<?= site_url('penjual/detail_penjual/' . $produk['id_mahasiswa']); ?>" class="btn btn-sm btn-primary text-white">Lihat Profil</a>
-                                            <a href="https://api.whatsapp.com/send?phone=<?= $produk['telepon_mahasiswa']; ?>&text=Hai%20gan%20apakah%20barang%20masih%20ada?" class="btn btn-sm btn-success text-white" target="_blank">Chat Penjual</a>
+                                            <a href="https://api.whatsapp.com/send?phone=<?= $produk['telepon_mahasiswa']; ?>&text=Hai,%20saya%20ingin%20bertanya%20tentang%20produk%20yang%20anda%20jual" class="btn btn-sm btn-success text-white" target="_blank">Chat Penjual</a>
                                         </div>
                                         <div class="col-sm-7 border-left align-self-center">
                                             <div class="table-responsive">

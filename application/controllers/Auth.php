@@ -189,9 +189,12 @@ class Auth extends My_Controller
         if ($type == 'forgot_admin') {
             $this->email->subject('Reset Password');
             $this->email->message('Klik untuk mereset password : <a href="' . base_url() . 'auth/reset_password_admin?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Reset Password</a>');
-        } else if ($type == 'forgot_seller') {
+        } else if ($type == 'forgot_mahasiswa') {
             $this->email->subject('Reset Password');
-            $this->email->message('Klik untuk mereset password : <a href="' . base_url() . 'auth/reset_password_seller?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Reset Password</a>');
+            $this->email->message('Klik untuk mereset password : <a href="' . base_url() . 'auth/reset_password_mahasiswa?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Reset Password</a>');
+        } else if ($type == 'forgot_umum') {
+            $this->email->subject('Reset Password');
+            $this->email->message('Klik untuk mereset password : <a href="' . base_url() . 'auth/reset_password_umum?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Reset Password</a>');
         } else if ($type == 'verify') {
             $this->email->subject('Aktivasi akun');
             $this->email->message('Klik untuk mengaktifkan akun : <a href="' . base_url() . 'auth/verify?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Aktifkan akun</a>');
@@ -316,7 +319,7 @@ class Auth extends My_Controller
             $mahasiswa = $this->db->get_where('mahasiswa', ['nim' => $nim])->row_array();
 
             if (!$mahasiswa) {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" align="center" role="alert">Anda Bukan Mahasiswa</div>');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" align="center" role="alert">Anda tidak terdaftar sebagai mahasiswa UCIC</div>');
                 redirect('auth/buat_akun_mahasiswa');
             } else {
                 //input ke table akun mahasiswa
@@ -336,6 +339,104 @@ class Auth extends My_Controller
         $this->session->unset_userdata('nama');
         redirect('beranda');
     }
+
+    //lupa password umum
+    public function lupa_password_mahasiswa()
+    {
+        $data['title'] = 'Warma CIC | Lupa Password';
+
+        //validasi set rules
+        $this->form_validation->set_rules('email', 'email', 'required|trim|valid_email', [
+            'required' => 'Form ini tidak boleh kosong',
+            'valid_email' => 'Email tidak valid'
+        ]);
+
+        //jika salah
+        if ($this->form_validation->run() == false) {
+            $this->paggingFrontend('auth/mahasiswa/lupa_password_mahasiswa', $data);
+        } else {
+            $email = $this->input->post('email');
+            $mahasiswa = $this->db->get_where('akun_mahasiswa', ['email_mahasiswa' => $email])->row_array();
+
+            if ($mahasiswa) {
+                $token = base64_encode(random_bytes(32));
+                $user_token = [
+                    'email' => $email,
+                    'token' => $token,
+                    'date_created' => time()
+                ];
+
+                $this->db->insert('user_token', $user_token);
+                $this->_sendEmail($token, 'forgot_mahasiswa');
+                $this->session->set_flashdata('message', '<div class="flash-data" data-sendemail="Cek email untuk mereset password"></div>');
+                redirect('auth/lupa_password_mahasiswa');
+            } else {
+                $this->session->set_flashdata('message', '<div class="flash-data" data-emailerror="Harap periksa kembali email anda"></div>');
+                redirect('auth/lupa_password_mahasiswa');
+            }
+        }
+    }
+
+    //reset password mahasiswa
+    public function reset_password_mahasiswa()
+    {
+        $email = $this->input->get('email');
+        $token = $this->input->get('token');
+        $mahasiswa = $this->db->get_where('akun_mahasiswa', ['email_mahasiswa' => $email])->row_array();
+
+        if ($mahasiswa) {
+            $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
+            if ($user_token) {
+                $this->session->set_userdata('reset_email', $email);
+                $this->ubah_password_mahasiswa();
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" align="center" role="alert">Token salah</div>');
+                redirect('auth/lupa_password_mahasiswa');
+            }
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" align="center" role="alert">Gagal mereset password</div>');
+            redirect('auth/lupa_password_mahasiswa');
+        }
+    }
+
+    //ubah password mahasiswa
+    public function ubah_password_mahasiswa()
+    {
+        // cek session
+        if (!$this->session->userdata('reset_email')) {
+            redirect('auth/login_mahasiswa');
+        }
+
+        $data['title'] = 'Warma CIC | Ubah Password';
+
+        //form validasi
+        $this->form_validation->set_rules('password1', 'password', 'required|min_length[3]', [
+            'required' => 'Password tidak boleh kosong',
+            'min_length' => 'Password di isi minimal 3 karakter'
+        ]);
+        $this->form_validation->set_rules('password2', 'password', 'required|min_length[3]|matches[password1]', [
+            'required' => 'Ulangi password tidak boleh kosong',
+            'matches' => 'Password tidak sama',
+            'min_length' => 'Minimal di isi dengan 3 karakter'
+        ]);
+
+        //jika form validasi salah
+        if ($this->form_validation->run() == false) {
+            $this->paggingFrontend('auth/mahasiswa/ubah_password_mahasiswa', $data);
+        } else {
+            $password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
+            $email = $this->session->userdata('reset_email');
+
+            $this->db->set('password_mahasiswa', $password);
+            $this->db->where('email_mahasiswa', $email);
+            $this->db->update('akun_mahasiswa');
+
+            $this->session->unset_userdata('reset_email');
+            $this->session->set_flashdata('message', '<div class="flash-data" data-ubahpassword="Password berhasil diubah"></div>');
+            redirect('auth/login_mahasiswa');
+        }
+    }
+
 
     //===============================================
     //                LOGIN UMUM
@@ -449,5 +550,102 @@ class Auth extends My_Controller
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('foto');
         redirect('beranda');
+    }
+
+    //lupa password umum
+    public function lupa_password_umum()
+    {
+        $data['title'] = 'Warma CIC | Lupa Password';
+
+        //validasi set rules
+        $this->form_validation->set_rules('email', 'email', 'required|trim|valid_email', [
+            'required' => 'Form ini tidak boleh kosong',
+            'valid_email' => 'Email tidak valid'
+        ]);
+
+        //jika salah
+        if ($this->form_validation->run() == false) {
+            $this->paggingFrontend('auth/umum/lupa_password_umum', $data);
+        } else {
+            $email = $this->input->post('email');
+            $umum = $this->db->get_where('akun_umum', ['email' => $email])->row_array();
+
+            if ($umum) {
+                $token = base64_encode(random_bytes(32));
+                $user_token = [
+                    'email' => $email,
+                    'token' => $token,
+                    'date_created' => time()
+                ];
+
+                $this->db->insert('user_token', $user_token);
+                $this->_sendEmail($token, 'forgot_umum');
+                $this->session->set_flashdata('message', '<div class="flash-data" data-sendemail="Cek email untuk mereset password"></div>');
+                redirect('auth/lupa_password_umum');
+            } else {
+                $this->session->set_flashdata('message', '<div class="flash-data" data-emailerror="Harap periksa kembali email anda"></div>');
+                redirect('auth/lupa_password_umum');
+            }
+        }
+    }
+
+    //reset password umum
+    public function reset_password_umum()
+    {
+        $email = $this->input->get('email');
+        $token = $this->input->get('token');
+        $umum = $this->db->get_where('akun_umum', ['email' => $email])->row_array();
+
+        if ($umum) {
+            $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
+            if ($user_token) {
+                $this->session->set_userdata('reset_email', $email);
+                $this->ubah_password_umum();
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" align="center" role="alert">Token salah</div>');
+                redirect('auth/lupa_password_umum');
+            }
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" align="center" role="alert">Gagal mereset password</div>');
+            redirect('auth/lupa_password_umum');
+        }
+    }
+
+    //ubah password umum
+    public function ubah_password_umum()
+    {
+        // cek session
+        if (!$this->session->userdata('reset_email')) {
+            redirect('auth/login_umum');
+        }
+
+        $data['title'] = 'Warma CIC | Ubah Password';
+
+        //form validasi
+        $this->form_validation->set_rules('password1', 'password', 'required|min_length[3]', [
+            'required' => 'Password tidak boleh kosong',
+            'min_length' => 'Password di isi minimal 3 karakter'
+        ]);
+        $this->form_validation->set_rules('password2', 'password', 'required|min_length[3]|matches[password1]', [
+            'required' => 'Ulangi password tidak boleh kosong',
+            'matches' => 'Password tidak sama',
+            'min_length' => 'Minimal di isi dengan 3 karakter'
+        ]);
+
+        //jika form validasi salah
+        if ($this->form_validation->run() == false) {
+            $this->paggingFrontend('auth/umum/ubah_password_umum', $data);
+        } else {
+            $password = password_hash($this->input->post('password1'), PASSWORD_DEFAULT);
+            $email = $this->session->userdata('reset_email');
+
+            $this->db->set('password', $password);
+            $this->db->where('email', $email);
+            $this->db->update('akun_umum');
+
+            $this->session->unset_userdata('reset_email');
+            $this->session->set_flashdata('message', '<div class="flash-data" data-ubahpassword="Password berhasil diubah"></div>');
+            redirect('auth/login_umum');
+        }
     }
 }

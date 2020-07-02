@@ -35,7 +35,7 @@
                                         <th>Username</th>
                                         <th>Email</th>
                                         <th>Telepon</th>
-                                        <th>Tanggal Daftar</th>
+                                        <th class="text-center">Tanggal Daftar</th>
                                         <th class="text-center">Status</th>
                                         <th width="8%">Action</th>
                                     </tr>
@@ -52,7 +52,7 @@
                                             <td class="align-middle"><?= $u['username']; ?></td>
                                             <td class="align-middle"><?= $u['email']; ?></td>
                                             <td class="align-middle"><?= $u['telepon']; ?></td>
-                                            <td class="align-middle"><?= $u['tanggal_daftar']; ?></td>
+                                            <td class="align-middle text-center"><?= date('d M Y', strtotime($u['tanggal_daftar'])); ?></td>
                                             <td class="align-middle text-center">
                                                 <?php if ($u['status_aktif'] == 1) { ?>
                                                     <a href="<?= site_url('akun/nonaktifkan_statusakun_umum/' . $u['id_umum']); ?>" class="badge badge-success tombol-nonaktif">Aktif</a>

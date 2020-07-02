@@ -3,8 +3,8 @@
     <div class="container">
         <div class="ho-breadcrumb">
             <ul>
-                <li><a href="<?= site_url('home'); ?>">Beranda</a></li>
-                <li>Login Mahasiswa</li>
+                <li><a href="<?= site_url('beranda'); ?>">Beranda</a></li>
+                <li>Ubah Password</li>
             </ul>
         </div>
     </div>
@@ -27,30 +27,27 @@
 
                 <!-- Form Login -->
                 <div class="col-lg-6 mt-30 mt-lg-0">
-                    <h2>LOGIN MAHASISWA</h2>
+                    <h2>UBAH PASSWORD</h2>
                     <?= $this->session->userdata('message'); ?>
                     <div class="login-form-wrapper">
                         <div class="card">
                             <div class="card-body">
 
-                                <form action="<?= site_url('auth/login_mahasiswa'); ?>" method="POST">
+                                <form action="<?= site_url('auth/ubah_password_umum'); ?>" method="POST">
                                     <div class="form-group">
-                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Nomor Induk Mahasiswa</label>
-                                        <input type="text" class="form-control form-control-sm" id="nim" name="nim" placeholder="" value="">
-                                        <?= form_error('nim', '<small class="text-danger">', '</small>'); ?>
+                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Password Baru</label>
+                                        <input type="password" class="form-control form-control-sm" id="password1" name="password1" placeholder="" value="<?= set_value('password1'); ?>">
+                                        <?= form_error('password1', '<small class="text-danger">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Password</label>
-                                        <input type="password" class="form-control form-control-sm" id="password" name="password" placeholder="" value="">
-                                        <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
+                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Ulangi Password</label>
+                                        <input type="password" class="form-control form-control-sm" id="password2" name="password2" placeholder="" value="">
+                                        <?= form_error('password2', '<small class="text-danger">', '</small>'); ?>
                                     </div>
                                     <div class="form-group mb-0">
-                                        <button type="submit" class="col-sm-12 ho-button mt-2"><span>Login</span></button>
+                                        <button type="submit" class="col-sm-12 ho-button mt-2"><span>Ubah Password</span></button>
                                         <div class="text-center mt-3">
-                                            <a href="<?= site_url('auth/lupa_password_mahasiswa'); ?>" class="text-dark">Lupa Password</a>
-                                        </div>
-                                        <div class="text-center">
-                                            <a href="<?= site_url('auth/buat_akun_mahasiswa'); ?>" class="text-dark">Buat Akun</a>
+                                            <a href="<?= site_url('auth/login_umum'); ?>" class="text-dark">Kembali ke Login</a>
                                         </div>
                                     </div>
                                 </form>
