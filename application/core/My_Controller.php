@@ -3,6 +3,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class My_Controller extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('keranjang_model');
+    }
+
     //TEMPLATE ADMIN
     public function paggingAdmin($content, $data = NULL)
     {
@@ -66,6 +72,7 @@ class My_Controller extends CI_Controller
         }
 
         $data['kategori'] = $kategori;
+        $data['keranjang'] = $this->keranjang_model->data_keranjang();
         $data['header'] = $this->load->view('template/frontend/header', $data, TRUE);
         $data['content'] = $this->load->view($content, $data, TRUE);
         $data['footer'] = $this->load->view('template/frontend/footer', $data, TRUE);

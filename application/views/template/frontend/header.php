@@ -93,62 +93,51 @@
                         <div class="header-cart">
                             <a class="header-carticon" href="cart.html"><i class="lnr lnr-cart"></i><span class="count">0</span></a>
                             <div class="header-minicart minicart">
-                                <div class="minicart-header">
-                                    <div class="text-center mb-4">
-                                        <img src="<?= base_url(); ?>assets/frontend/images/others/cart.png" width="180px">
-                                    </div>
-                                    <div>
-                                        <h5 class="text-dark text-center mb-2">Lho, Kok Kosong?</h5>
-                                        <p class="text-muted text-center mb-4">Mau di isi apa ya keranjang sebesar ini?</p>
-                                    </div>
-                                </div>
-                                <div class="minicart-footer">
-                                    <a href="<?= site_url('produk/data_produk_frontend'); ?>" class="ho-button ho-button-fullwidth">
-                                        <span><b>BELANJA SEKARANG</b></span>
-                                    </a>
-                                </div>
 
-                                <!-- <div class="minicart-header">
-                                    <div class="minicart-product">
-                                        <div class="minicart-productimage">
-                                            <a href="product-details.html">
-                                                <img src="<?= base_url(); ?>assets/frontend/images/product/thumbnail/product-image-1.jpg" alt="product image">
-                                            </a>
-                                            <span class="minicart-productquantity">1x</span>
+                                <?php if (empty($keranjang)) { ?>
+                                    <div class="minicart-header">
+                                        <div class="text-center mb-4">
+                                            <img src="<?= base_url(); ?>assets/frontend/images/others/cart.png" width="180px">
                                         </div>
-                                        <div class="minicart-productcontent">
-                                            <h6><a href="product-details.html">P-Series 4K UHD Dolby Vision HDR
-                                                    Roku Smart TV</a></h6>
-                                            <span class="minicart-productprice">$43.00</span>
+                                        <div>
+                                            <h5 class="text-dark text-center mb-2">Lho, Kok Kosong?</h5>
+                                            <p class="text-muted text-center mb-4">Mau di isi apa ya keranjang sebesar ini?</p>
                                         </div>
-                                        <button class="minicart-productclose"><i class="ion ion-ios-close-circle"></i></button>
                                     </div>
-                                    <div class="minicart-product">
-                                        <div class="minicart-productimage">
-                                            <a href="product-details.html">
-                                                <img src="<?= base_url(); ?>assets/frontend/images/product/thumbnail/product-image-2.jpg" alt="product image">
-                                            </a>
-                                            <span class="minicart-productquantity">1x</span>
-                                        </div>
-                                        <div class="minicart-productcontent">
-                                            <h6><a href="product-details.html">HD Video Recording PJ Handycam
-                                                    Camcorder</a></h6>
-                                            <span class="minicart-productprice">$43.00</span>
-                                        </div>
-                                        <button class="minicart-productclose"><i class="ion ion-ios-close-circle"></i></button>
+                                    <div class="minicart-footer">
+                                        <a href="<?= site_url('produk/data_produk_frontend'); ?>" class="ho-button ho-button-fullwidth">
+                                            <span><b>BELANJA SEKARANG</b></span>
+                                        </a>
                                     </div>
-                                </div>
-                                <ul class="minicart-pricing">
-                                    <li>Total Belanja<span>Rp 10.000</span></li>
-                                </ul>
-                                <div class="minicart-footer">
-                                    <a href="cart.html" class="ho-button ho-button-fullwidth">
-                                        <span>Keranjang</span>
-                                    </a>
-                                    <a href="checkout.html" class="ho-button ho-button-dark ho-button-fullwidth">
-                                        <span>Beli</span>
-                                    </a>
-                                </div> -->
+                                <?php } else { ?>
+                                    <div class="minicart-header">
+                                        <?php foreach ($keranjang as $k) : ?>
+                                            <div class="minicart-product">
+                                                <div class="minicart-productimage">
+                                                    <a href="product-details.html">
+                                                        <img src="<?= base_url('upload/foto_produk/' . $k['foto_produk']); ?>" alt="product image" class="rounded">
+                                                    </a>
+                                                    <span class="minicart-productquantity">1x</span>
+                                                </div>
+                                                <div class="minicart-productcontent">
+                                                    <h6><a href="product-details.html"><?= $k['nama_produk']; ?></a></h6>
+                                                    <span class="minicart-productprice">Rp <?= number_format($k['harga_produk'], 0, ',', '.'); ?></span>
+                                                </div>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div>
+                                    <ul class="minicart-pricing">
+                                        <li>Total Belanja<span>Rp 10.000</span></li>
+                                    </ul>
+                                    <div class="minicart-footer">
+                                        <a href="<?= site_url('keranjang/halaman_keranjang'); ?>" class="ho-button ho-button-fullwidth">
+                                            <span>Keranjang</span>
+                                        </a>
+                                        <a href="checkout.html" class="ho-button ho-button-dark ho-button-fullwidth">
+                                            <span>Beli</span>
+                                        </a>
+                                    </div>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>

@@ -34,8 +34,8 @@
                     </ul>
                 </li>
                 <!-- Transaksi -->
-                <li class="nav-item">
-                    <a href="#!" class="nav-link ">
+                <li class="nav-item <?= active_menu('transaksi'); ?>">
+                    <a href="<?= site_url('transaksi/data_transaksi'); ?>" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
                         <span class="pcoded-mtext">Transaksi</span>
                     </a>
@@ -48,8 +48,8 @@
                     </a>
                 </li>
                 <!-- Laporan -->
-                <li class="nav-item">
-                    <a href="#!" class="nav-link ">
+                <li class="nav-item <?= active_menu('laporan'); ?>">
+                    <a href="<?= site_url('laporan/laporan_transaksi'); ?>" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-file"></i></span>
                         <span class="pcoded-mtext">Laporan</span>
                     </a>

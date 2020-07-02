@@ -11,7 +11,6 @@ class Keranjang_model extends CI_Model
         $this->db->join('produk', 'keranjang.id_produk = produk.id_produk');
         $this->db->where('id_pembeli', $this->session->userdata('id'));
         $this->db->where('tipe_pembeli', $this->session->userdata('tipe'));
-        $this->db->where('status_bayar', 0);
         return $this->db->get()->result_array();
     }
 
@@ -19,14 +18,15 @@ class Keranjang_model extends CI_Model
     public function tambah_keranjang($id_produk)
     {
         $id_pembeli = $this->session->userdata('id');
+        $tipe_pembeli = $this->session->userdata('tipe');
 
         //Insert ke tabel keranjang
         $data_keranjang = [
-            'id_pembeli'   => $id_pembeli,
-            'tipe_pembeli' => $this->session->userdata('tipe'),
-            'id_produk'    => $id_produk,
-            'kuantitas'    => 1,
-            'status_bayar' => 0,
+            'id_pembeli'    => $id_pembeli,
+            'tipe_pembeli'  => $tipe_pembeli,
+            'id_produk'     => $id_produk,
+            'kuantitas'     => 1,
+            'subtotal'      => 0,
             'total_belanja' => 0
         ];
         $this->db->insert("keranjang", $data_keranjang);

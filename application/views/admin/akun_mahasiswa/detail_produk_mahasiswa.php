@@ -62,7 +62,7 @@
                                             <td class="align-middle"><?= $p['nama_kategori']; ?></td>
                                             <td class="align-middle">Rp <?= number_format($p['harga_produk'], 0, ',', '.'); ?></td>
                                             <td class="align-middle text-center"><?= $p['stok_produk']; ?></td>
-                                            <td class="align-middle text-center"><?= $p['tanggal_input']; ?></td>
+                                            <td class="align-middle text-center"><?= date('d M Y H:i:s', strtotime($p['tanggal_input'])); ?></td>
                                             <td class="align-middle text-center">
                                                 <?php if ($p['status_produk'] == 1) { ?>
                                                     <a href="<?= site_url('akun/nonaktifkan_status_produk/' . $p['id_produk']); ?>" class="badge badge-success tombol-nonaktifproduk">Aktif</a>
