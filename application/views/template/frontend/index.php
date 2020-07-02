@@ -103,7 +103,7 @@
     <script src="<?= base_url(); ?>assets/sweetalert/sweetalert2.all.min.js"></script>
     <script src="<?= base_url(); ?>assets/sweetalert/script_sweetalert.js"></script>
 
-    <!-- Ini Buat Modal Produk -->
+    <!-- Untuk Detail Produk di Modal -->
     <script type="text/javascript">
         const showDetailProduk = (id_produk) => {
             //Ambil nilai dari attribute produk
@@ -123,13 +123,6 @@
             $("#modal-deskripsi-produk").html(deskripsiProduk);
             $("#modal-stok-produk").text(stokProduk);
             $('.quickmodal').toggleClass('is-visible');
-        }
-    </script>
-
-    <!-- Update Kuantitas -->
-    <script type="text/javascript">
-        function updateKuantitas(id_detail) {
-            $("#detail-keranjang-" + id_detail).submit();
         }
     </script>
 
