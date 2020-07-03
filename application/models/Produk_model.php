@@ -194,4 +194,15 @@ class Produk_model extends CI_Model
             ->where(['id_produk' => $id]);
         return $this->db->get()->row_array();
     }
+
+    //Cari Produk
+    public function cariProduk($kategori, $keyword)
+    {
+        $this->db->select('*');
+        $this->db->from('produk');
+        $this->db->like('nama_produk', $keyword);
+        $this->db->join('kategori', 'produk.id_kategori = kategori.id_kategori');
+        $this->db->where('kategori.id_kategori', $kategori);
+        return $this->db->get()->result_array();
+    }
 }

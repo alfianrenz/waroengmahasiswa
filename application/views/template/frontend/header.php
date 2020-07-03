@@ -30,11 +30,7 @@
                     <div class="col-lg-5 col-md-5 col-sm-5 col-12">
                         <div class="header-langcurr">
                             <div class="select-currency">
-                                <button class="select-currency-current">Bantuan</button>
-                                <ul class="select-currency-list dropdown-list">
-                                    <li><a href="<?= site_url('auth/login_mahasiswa'); ?>">Penjual</a></li>
-                                    <li><a href="<?= site_url('auth/login_umum'); ?>">Pembeli</a></li>
-                                </ul>
+                                <button class="select-currency-current">Silahkan Berbelanja !</button>
                             </div>
                         </div>
                     </div>
@@ -54,14 +50,14 @@
                     </a>
                 </div>
                 <div class="col-lg-6 col-12 order-3 order-lg-2">
-                    <form action="#" class="header-searchbox">
+                    <form action="<?= site_url('produk/cari_produk'); ?>" class="header-searchbox" method="POST">
                         <select class="select-searchcategory" name="kategori">
                             <option>Kategori</option>
                             <?php foreach ($kategori as $k) : ?>
                                 <option value="<?= $k['id_kategori']; ?>"><?= $k['nama_kategori']; ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <input type="text" placeholder="Apa yang kamu cari hari ini?">
+                        <input type="text" name="keyword" placeholder="Apa yang kamu cari hari ini?">
                         <button type="submit"><i class="lnr lnr-magnifier"></i></button>
                     </form>
                 </div>
@@ -80,7 +76,6 @@
                                     <?php } else { ?>
                                         <li><a href="<?= site_url('auth/logout_umum'); ?>">Logout</a></li>
                                     <?php } ?>
-
                                 </ul>
                             </div>
                         <?php } else { ?>
@@ -157,15 +152,16 @@
                             <li class="<?= active_menu('produk'); ?>"><a href="<?= site_url('produk/data_produk_frontend'); ?>">Produk</a></li>
                             <li class="<?= active_menu('penjual'); ?>"><a href="<?= site_url('penjual/data_penjual'); ?>">Penjual</a></li>
                             <li class="<?= active_menu('tentang_warma'); ?>"><a href="<?= site_url('tentang_warma'); ?>">Tentang Warma</a></li>
-                            <li><a href="contact.html">Bantuan</a></li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-lg-2">
                     <div class="header-contactinfo">
-                        <i class="flaticon-support text-white"></i>
-                        <span class="text-white">Hubungi Kami :</span>
-                        <b class="text-white">089660979061</b>
+                        <a href="https://api.whatsapp.com/send?phone=6289660979061" target="_blank">
+                            <i class="flaticon-support text-white"></i>
+                            <span class="text-white">Bantuan :</span>
+                            <b class="text-white">089660979061</b>
+                        </a>
                     </div>
                 </div>
                 <div class="col-12 d-block d-lg-none">

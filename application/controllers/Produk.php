@@ -139,10 +139,22 @@ class Produk extends My_Controller
         $this->paggingFrontend('frontend/data_produk', $data);
     }
 
+    //detail produk 
     public function detail_produk_frontend($id)
     {
         $data['title'] = 'Warma CIC | Detail Produk';
         $data['produk'] = $this->produk_model->detailproduk_Frontend($id);
         $this->paggingFrontend('frontend/detail_produk', $data);
+    }
+
+    //cari produk
+    public function cari_produk()
+    {
+        $kategori = $this->input->post('kategori');
+        $keyword =  $this->input->post('keyword', true);
+
+        $data['title'] = 'Warma CIC | Cari Produk';
+        $data['produk'] = $this->produk_model->cariProduk($kategori, $keyword);
+        $this->paggingFrontend('frontend/data_produk', $data);
     }
 }

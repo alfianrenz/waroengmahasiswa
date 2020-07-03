@@ -64,7 +64,7 @@
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, eaque rerum! Dolore iste ipsa perspiciatis cumque velit, ut obcaecati sequi sunt, fugit est ullam doloremque minima eligendi cum soluta quos!
                                     </p>
                                     <div class="pdetails-quantity">
-                                        <a href="shop-rightsidebar.html" class="ho-button">
+                                        <a href="#" class="ho-button">
                                             <i class="lnr lnr-cart"></i>
                                             <span>&nbsp;Tambahkan Ke Keranjang</span>
                                         </a>

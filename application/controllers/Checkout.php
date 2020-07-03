@@ -10,16 +10,6 @@ class Checkout extends My_Controller
         }
 
         $data['title'] = 'Warma CIC | Checkout';
-        $this->paggingFrontend('frontend/checkout_payment_gateway', $data);
-    }
-
-    public function checkout_cod()
-    {
-        if (!$this->session->userdata('id')) {
-            redirect('auth/login_mahasiswa');
-        }
-
-        $data['title'] = 'Warma CIC | Checkout';
-        $this->paggingFrontend('frontend/checkout_cod', $data);
+        $this->paggingFrontend('frontend/checkout_payment', $data);
     }
 }

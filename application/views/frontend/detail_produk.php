@@ -81,8 +81,8 @@
                                                 <table class="table table-sm table-borderless mb-0" style="border-style: none;">
                                                     <tbody>
                                                         <tr>
-                                                            <td>Jumlah Produk</td>
-                                                            <td>:&nbsp;&nbsp; 0</td>
+                                                            <td>Bergabung</td>
+                                                            <td>:&nbsp;&nbsp; <?= date('d M Y', strtotime($produk['tanggal_daftar'])); ?></td>
                                                         </tr>
                                                         <tr>
                                                             <td>Program Studi</td>
