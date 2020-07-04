@@ -9,37 +9,12 @@
                         <h5 class="footer-widget-title">Kontak Kami</h5>
                         <p>Hubungi kontak dibawah ini bila ada pertanyaan</p>
                         <ul>
-                            <li class="text-muted"><i class="ion ion-ios-pin text-muted"></i> Jalan Kesambi, No. 202, Kota Cirebon </li>
-                            <li class="text-muted"><i class="ion ion-ios-call text-muted"></i> Telepon : 089660979061</li>
-                            <li class="text-muted"><i class="ion ion-ios-mail text-muted"></i> Email : bkmcic.official@gmail.com</li>
+                            <li class="text-muted"><i class="ion ion-ios-pin text-muted"></i> <?= $website['alamat']; ?> </li>
+                            <li class="text-muted"><i class="ion ion-ios-call text-muted"></i> Telepon : +<?= $website['telepon']; ?></li>
+                            <li class="text-muted"><i class="ion ion-ios-mail text-muted"></i> Email : <?= $website['email']; ?></li>
                         </ul>
                     </div>
                 </div>
-
-                <div class="col-lg-3 col-md-4">
-                    <div class="footer-widget widget-links">
-                        <h5 class="footer-widget-title">IKUTI KAMI</h5>
-                        <ul>
-                            <li><a href="#"><i class="ion ion-logo-instagram"></i>&nbsp;&nbsp;&nbsp;&nbsp;Instagram : warmacic</a></li>
-                            <li><a href="#"><i class="ion ion-logo-instagram"></i>&nbsp;&nbsp;&nbsp;&nbsp;Instagram : bkmcic</a></li>
-                            <li><a href="#"><i class="ion ion-logo-twitter"></i>&nbsp;&nbsp;&nbsp;Twitter : bkmcic</a></li>
-                            <li><a href="#"><i class="ion ion-logo-youtube"></i>&nbsp;&nbsp;&nbsp;Youtube : bkmcic</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-4">
-                    <div class="footer-widget widget-links">
-                        <h5 class="footer-widget-title">PILIHAN MENU</h5>
-                        <ul>
-                            <li><a href="<?= site_url('beranda'); ?>">Beranda</a></li>
-                            <li><a href="#">Produk</a></li>
-                            <li><a href="<?= site_url('tentang_warma'); ?>">Tentang Warma</a></li>
-                            <li><a href="#">Bantuan</a></li>
-                        </ul>
-                    </div>
-                </div>
-
                 <div class="col-lg-2 col-md-4">
                     <div class="footer-widget widget-links">
                         <h5 class="footer-widget-title">AKUN SAYA</h5>
@@ -51,6 +26,13 @@
                         </ul>
                     </div>
                 </div>
+                <div class="col-lg-3 col-md-4">
+                    <div class="footer-widget widget-links">
+                        <h5 class="footer-widget-title">APLIKASI KAMPUS</h5>
+
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

@@ -4,7 +4,7 @@
         <div class=" container">
             <div class="row align-items-center">
                 <div class="col-lg-7 col-md-7 col-sm-7 col-12">
-                    <p class="header-welcomemsg">Welcome to Waroeng Mahasiswa CIC !</p>
+                    <p class="header-welcomemsg">Welcome to <?= $website['nama_website']; ?></p>
                 </div>
 
                 <?php if (!$this->session->userdata('id')) { ?>
@@ -30,7 +30,7 @@
                     <div class="col-lg-5 col-md-5 col-sm-5 col-12">
                         <div class="header-langcurr">
                             <div class="select-currency">
-                                <button class="select-currency-current">Silahkan Berbelanja !</button>
+                                <button class="select-currency-current">Silahkan Berbelanja</button>
                             </div>
                         </div>
                     </div>
@@ -157,10 +157,10 @@
                 </div>
                 <div class="col-lg-2">
                     <div class="header-contactinfo">
-                        <a href="https://api.whatsapp.com/send?phone=6289660979061" target="_blank">
+                        <a href="https://api.whatsapp.com/send?phone=<?= $website['telepon']; ?>" target="_blank">
                             <i class="flaticon-support text-white"></i>
                             <span class="text-white">Bantuan :</span>
-                            <b class="text-white">089660979061</b>
+                            <b class="text-white">+<?= $website['telepon']; ?></b>
                         </a>
                     </div>
                 </div>

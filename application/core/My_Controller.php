@@ -73,6 +73,7 @@ class My_Controller extends CI_Controller
 
         $data['kategori'] = $kategori;
         $data['keranjang'] = $this->keranjang_model->data_keranjang();
+        $data['website'] = $this->db->get('profile_website')->row_array();
         $data['header'] = $this->load->view('template/frontend/header', $data, TRUE);
         $data['content'] = $this->load->view($content, $data, TRUE);
         $data['footer'] = $this->load->view('template/frontend/footer', $data, TRUE);

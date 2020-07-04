@@ -40,13 +40,6 @@
                         <span class="pcoded-mtext">Transaksi</span>
                     </a>
                 </li>
-                <!-- Kategori -->
-                <li class="nav-item <?= active_menu('kategori'); ?>">
-                    <a href="<?= site_url('kategori'); ?>" class="nav-link ">
-                        <span class="pcoded-micon"><i class="feather icon-edit"></i></span>
-                        <span class="pcoded-mtext">Kategori</span>
-                    </a>
-                </li>
                 <!-- Laporan -->
                 <li class="nav-item <?= active_menu('laporan'); ?>">
                     <a href="<?= site_url('laporan/laporan_transaksi'); ?>" class="nav-link ">
@@ -54,13 +47,20 @@
                         <span class="pcoded-mtext">Laporan</span>
                     </a>
                 </li>
+                <!-- Kategori -->
+                <li class="nav-item <?= active_menu('kategori'); ?>">
+                    <a href="<?= site_url('kategori'); ?>" class="nav-link ">
+                        <span class="pcoded-micon"><i class="feather icon-edit"></i></span>
+                        <span class="pcoded-mtext">Kategori</span>
+                    </a>
+                </li>
                 <!-- Website -->
-                <li class="nav-item pcoded-hasmenu">
+                <li class="nav-item pcoded-hasmenu <?= active_menu('website'); ?>">
                     <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-life-buoy"></i></span><span class="pcoded-mtext"> Website</span></a>
                     <ul class="pcoded-submenu">
-                        <li class=""><a href="">Slider</a></li>
-                        <li class=""><a href="">Profil</a></li>
-                        <li class=""><a href="">Kontak</a></li>
+                        <li class="<?php echo $this->uri->segment(2) == 'data_slider' || $this->uri->segment(2) == 'tambah_slider' || $this->uri->segment(2) == 'edit_slider' ? 'active' : '' ?>"><a href="<?= site_url('website/data_slider'); ?>"> Slider</a></li>
+                        <li class="<?= $this->uri->segment(2) == 'edit_profile_website' ? 'active' : '' ?>"><a href="<?= site_url('website/edit_profile_website'); ?>">Profile</a></li>
+                        <li class="<?= $this->uri->segment(2) == 'tentang_warma' ? 'active' : ''; ?>"><a href="<?= site_url('website/edit_tentang_warma'); ?>">Tentang Warma</a></li>
                         <li class=""><a href="<?= site_url('beranda'); ?>" target="blank">Lihat Website</a></li>
                     </ul>
                 </li>

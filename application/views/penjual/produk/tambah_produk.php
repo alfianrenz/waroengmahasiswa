@@ -70,14 +70,14 @@
                             <div class="form-group row">
                                 <label for="inputEmail3" class="col-sm-3 col-form-label col-form-label-sm">Harga Produk</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control form-control-sm" id="harga" name="harga" placeholder="Masukkan Harga Produk (10.000)" value="<?= set_value('harga'); ?>">
+                                    <input type="text" class="form-control form-control-sm hour" id="harga" name="harga" placeholder="Masukkan Harga Produk" value="<?= set_value('harga'); ?>">
                                     <?= form_error('harga', '<small class="text-danger font-weight-bold">', '</small>'); ?>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputEmail3" class="col-sm-3 col-form-label col-form-label-sm">Stok Produk</label>
                                 <div class="col-sm-9">
-                                    <input type="number" class="form-control form-control-sm" id="stok" name="stok" placeholder="Masukkan Stok Produk (0)" value="<?= set_value('stok'); ?>">
+                                    <input type="number" class="form-control form-control-sm" id="stok" name="stok" placeholder="Masukkan Stok Produk" value="<?= set_value('stok'); ?>">
                                     <?= form_error('stok', '<small class="text-danger font-weight-bold">', '</small>'); ?>
                                 </div>
                             </div>
