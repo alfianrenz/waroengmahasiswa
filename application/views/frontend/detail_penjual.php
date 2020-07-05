@@ -101,7 +101,7 @@
                                                     <img id="foto-produk-<?= $p['id_produk'] ?>" class="hoproduct-frontimage" src="<?= base_url('upload/foto_produk/' . $p['foto_produk']); ?>" alt="product image">
                                                 </a>
                                                 <ul class="hoproduct-actionbox">
-                                                    <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
+                                                    <li><a href="<?= site_url('keranjang/tambah_keranjang/' . $p['id_produk']); ?>"><i class="lnr lnr-cart"></i></a></li>
                                                     <li><a href="#" onclick="showDetailProduk(<?= $p['id_produk'] ?>)"><i class="lnr lnr-eye"></i></a></li>
                                                 </ul>
                                             </div>

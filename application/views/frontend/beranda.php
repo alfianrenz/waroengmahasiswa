@@ -3,16 +3,16 @@
 
       <!-- Herobanner Single -->
       <div class="herobanner-single">
-          <img src="<?= base_url(); ?>assets/frontend/images/hero/slider-1.png" alt="hero image">
+          <img src="<?= base_url('assets/frontend/images/hero/slider-1.png'); ?>" alt="hero image">
           <div class="herobanner-content">
               <div class="herobanner-box" style="margin-left:50px">
-                  <h4 style="color:#7e7e7e">SELAMAT DATANG DI</h4>
+                  <h4 style="color:#7e7e7e; text-transform:uppercase">Selamat Datang Di</h4>
               </div>
               <div class="herobanner-box" style="margin-left:50px">
                   <h1 style="color:#363636;"><b>Waroeng</b> <span style="color:#0B88EE"><b>Mahasiswa</b></span></h1>
               </div>
               <div class="herobanner-box" style="margin-left:50px">
-                  <p style="color:#7e7e7e">Pasarnya mahasiswa Universitas Catur Insan Cendekia</p>
+                  <p style="color:#7e7e7e">Pasarnya Mahasiswa Universitas Catur Insan Cendekia</p>
               </div>
               <div class="herobanner-box" style="margin-left:50px">
                   <a href="<?= site_url('tentang_warma'); ?>" class="ho-button">
@@ -22,19 +22,18 @@
           </div>
           <span class="herobanner-progress"></span>
       </div>
-
       <!-- Herobanner Single -->
       <div class="herobanner-single">
-          <img src="<?= base_url(); ?>assets/frontend/images/hero/slider-1.png" alt="hero image">
+          <img src="<?= base_url('assets/frontend/images/hero/slider-1.png'); ?>" alt="hero image">
           <div class="herobanner-content">
               <div class="herobanner-box" style="margin-left:50px">
-                  <h4 style="color:#7e7e7e">SAATNYA MENJADI</h4>
+                  <h4 style="color:#7e7e7e; text-transform:uppercase">Saatnya menjadi</h4>
               </div>
               <div class="herobanner-box" style="margin-left:50px">
-                  <h1 style="color:#363636;"><b>Seorang</b><span style="color:#0B88EE"><b>Entrepreneur</b></span></h1>
+                  <h1 style="color:#363636;"><b>Seorang</b> <span style="color:#0B88EE"><b>Entrepeneur</b></span></h1>
               </div>
               <div class="herobanner-box" style="margin-left:50px">
-                  <p style="color:#7e7e7e">Daftarkan dirimu dan jadilah pengusaha di era teknologi</p>
+                  <p style="color:#7e7e7e">Daftarkan dirimu dan jadilah pengusaha puda</p>
               </div>
               <div class="herobanner-box" style="margin-left:50px">
                   <a href="<?= site_url('auth/buat_akun_mahasiswa'); ?>" class="ho-button">

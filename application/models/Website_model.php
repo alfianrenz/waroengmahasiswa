@@ -41,6 +41,14 @@ class Website_model extends CI_Model
         return $this->db->get()->result_array();
     }
 
+    public function dataSlider_id($id)
+    {
+        $this->db->select('*');
+        $this->db->from('slider');
+        $this->db->where(['id_slider' => $id]);
+        return $this->db->get()->row_array();
+    }
+
     //tambah slider
     public function tambah_slider()
     {
@@ -50,7 +58,7 @@ class Website_model extends CI_Model
         if ($upload_image) {
             $config['allowed_types'] = 'gif|jpg|png';
             $config['max_size']      = '6144';
-            $config['file_name']     = $this->input->post('keterangan');
+            $config['file_name']     = $this->input->post('headline2');
             $config['upload_path']   = './upload/foto_slider/';
             $config['overwrite']     = TRUE;
 
@@ -61,7 +69,9 @@ class Website_model extends CI_Model
 
                 $data = [
                     "foto_slider" => $foto,
-                    "keterangan" => $this->input->post('keterangan', true),
+                    "headline1" => $this->input->post('headline1', true),
+                    "headline2" => $this->input->post('headline2', true),
+                    "headline3" => $this->input->post('headline3', true),
                     "status" => $this->input->post('status', true)
                 ];
                 $this->db->insert('slider', $data);
@@ -72,6 +82,45 @@ class Website_model extends CI_Model
         }
     }
 
+    //edit slider
+    public function edit_slider()
+    {
+        $id_slider   = $this->input->post('id');
+        $headline1 = $this->input->post('headline1');
+        $headline2 = $this->input->post('headline2');
+        $headline3 = $this->input->post('headline3');
+        $status    = $this->input->post('status');
+
+        //cek jika ada gambar
+        $upload_image = $_FILES['foto'];
+
+        if ($upload_image) {
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size']      = '6144';
+            $config['file_name']     = $this->input->post('headline2');
+            $config['upload_path']   = './upload/foto_slider/';
+            $config['overwrite']     = TRUE;
+
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload('foto')) {
+                // upload foto dan edit di database
+                $new_image = $this->upload->data('file_name');
+                $this->db->set('foto_slider', $new_image);
+            } else {
+                echo $this->upload->display_errors();
+            }
+        }
+
+        //update 
+        $this->db->set('headline1', $headline1);
+        $this->db->set('headline2', $headline2);
+        $this->db->set('headline3', $headline3);
+        $this->db->set('status', $status);
+        $this->db->where('id_slider', $id_slider);
+        $this->db->update('slider');
+    }
+
     //hapus slider
     public function hapus_slider($id)
     {
@@ -80,6 +129,16 @@ class Website_model extends CI_Model
         if ($query) {
             unlink('./upload/foto_slider/' . $slider->foto_slider);
         }
+    }
+
+    //update status slider
+    public function update_status_slider($id)
+    {
+        $data = [
+            "status" => 1,
+        ];
+        $this->db->where(['id_slider' => $id]);
+        $this->db->update('slider', $data);
     }
 
 

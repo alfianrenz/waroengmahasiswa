@@ -38,7 +38,7 @@
                     <div class="card-body">
                         <div class="row align-items-center m-l-0">
                             <div class="col-auto">
-                                <i class="icon feather icon-users f-30 text-c-red"></i>
+                                <i class="icon feather icon-users f-30 text-c-yellow"></i>
                             </div>
                             <div class="col-auto">
                                 <h6 class="text-muted m-b-10">Pengguna Umum</h6>

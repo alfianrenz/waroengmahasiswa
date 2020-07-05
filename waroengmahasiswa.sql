@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Jun 2020 pada 03.48
+-- Waktu pembuatan: 05 Jul 2020 pada 03.24
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.2
 
@@ -69,8 +69,10 @@ CREATE TABLE `akun_mahasiswa` (
 --
 
 INSERT INTO `akun_mahasiswa` (`id_mahasiswa`, `nim`, `email_mahasiswa`, `password_mahasiswa`, `alamat_mahasiswa`, `telepon_mahasiswa`, `tanggal_daftar`, `foto_mahasiswa`, `status_aktif`, `tipe`) VALUES
-(1, '2016102037', 'alfianrenz25@gmail.com', '$2y$10$tbvL1bu0yn8JTC3/BYrwLOHjrYD0sduDKxzcgSaWKSA308OpHeUJa', 'Karangwareng, Kabupaten Cirebon', '081214674264', '2020-06-25 05:20:59', 'Alfian.jpg', 1, 1),
-(2, '2016102038', 'haevahreza@gmail.com', '$2y$10$vKNtmbfBxyfzQQF4GCPL0e3eS7GeHTZhXeKJt8FnOset80WGmzkRa', 'Desa Losari, Kabupaten Cirebon', '089677889068', '2020-06-25 14:27:13', 'Haevah_Reza_Amri_.jpg', 1, 1);
+(1, '2016102037', 'alfianrenz25@gmail.com', '$2y$10$DeicUDltHdjznWkVa3u09OhfCgm2NMeE7My/uh6pueqrPPbUJuz/q', 'Karangwangi, Kabupaten Cirebon', '6281214674264', '2020-07-02 05:47:55', 'Alfian.jpg', 1, 1),
+(2, '2016102038', 'haevahreza@gmail.com', '$2y$10$DeicUDltHdjznWkVa3u09OhfCgm2NMeE7My/uh6pueqrPPbUJuz/q', 'Losari, Kabupaten Cirebon', '6289685359966', '2020-07-02 06:00:33', 'Haevah_Reza_Amri.jpg', 1, 1),
+(3, '2016102049', 'dimasaulia@gmail.com', '$2y$10$wAozlkngDq5x/F.q4Cr6Iu7/SVwhVdSKsNkut4uM0bb4ptPZ0q9Um', 'Perum Lobunta', '6282298094803', '2020-07-02 07:26:29', 'Dimas_Aulia.jpg', 1, 1),
+(4, '2016102036', 'pujairawan@gmail.com', '$2y$10$e8l0LqfWaS6m6XSVbtiNLOAt17sm0lQYY4f0RCZFXzbY5z4Wy1U2u', 'Dukuhpuntang, Kabupaten Cirebon', '6283823586126', '2020-07-02 07:31:50', 'Puja_Irawan.jpg', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -95,8 +97,7 @@ CREATE TABLE `akun_umum` (
 --
 
 INSERT INTO `akun_umum` (`id_umum`, `username`, `email`, `telepon`, `password`, `foto`, `tanggal_daftar`, `status_aktif`, `tipe`) VALUES
-(1, 'Alfianrenz', 'alfianrenz25@gmail.com', '081214674264', '$2y$10$wxLM7uzUDGFiDIfPttzwHe19qAoJrqsITpJQzj9bhGQ.sK3LnJ11u', 'alfianrenz.jpg', '2020-06-25 05:22:50', 1, 2),
-(2, 'Jenyver', 'jenyverm95@gmail.com', '089677889907', '$2y$10$JlAF85eEl4ovpQVYlL0qK.szFgFWVGbwH/igp69SFZGnxEte0n0Um', 'Jenyver.jpg', '2020-06-28 18:31:27', 1, 2);
+(1, 'jenyver', 'alfianrenz25@gmail.com', '6289626551599', '$2y$10$09mRsje4Rp.2t67pLUuh2OXzpJbRVuAY1V1RM2uknlEFCl/AtR8AS', 'jenyver.jpg', '2020-07-02 06:40:22', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -147,6 +148,22 @@ INSERT INTO `kategori` (`id_kategori`, `nama_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `keranjang`
+--
+
+CREATE TABLE `keranjang` (
+  `id_keranjang` int(11) NOT NULL,
+  `id_pembeli` int(11) NOT NULL,
+  `tipe_pembeli` int(11) NOT NULL,
+  `id_produk` int(11) NOT NULL,
+  `kuantitas` int(11) NOT NULL,
+  `subtotal` int(11) NOT NULL,
+  `total_belanja` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `mahasiswa`
 --
 
@@ -163,9 +180,42 @@ CREATE TABLE `mahasiswa` (
 --
 
 INSERT INTO `mahasiswa` (`nim`, `nama_mahasiswa`, `id_fakultas`, `id_prodi`, `status_mahasiswa`) VALUES
-('2016102036', 'Puja Irawan', 1, 2, 1),
+('2016102001', 'Kristianto', 1, 1, 1),
+('2016102002', 'Syifa Ulkarim', 1, 1, 1),
+('2016102003', 'Mohamad Rully', 1, 1, 1),
+('2016102005', 'Irfan Riyadi', 1, 1, 1),
+('2016102006', 'Wahyu Septiawan', 1, 1, 1),
+('2016102007', 'Leilly Indahsari', 1, 1, 1),
+('2016102009', 'Sri Apriyani', 1, 1, 1),
+('2016102011', 'Arif Maulana', 1, 1, 1),
+('2016102013', 'Farida Trie Agustiany', 1, 1, 1),
+('2016102014', 'Mochamad Rizky Alvin Fernanda', 1, 1, 1),
+('2016102017', 'Chad Torres', 1, 1, 1),
+('2016102019', 'Miawati', 1, 1, 1),
+('2016102020', 'Sakti Wibawa', 1, 1, 1),
+('2016102021', 'Nurfiki', 1, 1, 1),
+('2016102022', 'Subhan Saeful Islami', 1, 1, 1),
+('2016102023', 'Melly Amalia', 1, 1, 1),
+('2016102024', 'Rizky Arbilah', 1, 1, 1),
+('2016102025', 'Humam Muhadzdzab', 1, 1, 1),
+('2016102026', 'Habillah Abbas', 1, 1, 1),
+('2016102028', 'Andreas Oktafian', 1, 1, 1),
+('2016102029', 'Moh. Yahya', 1, 1, 1),
+('2016102032', 'Indra Romadon', 1, 1, 1),
+('2016102033', 'Devi Nurjannah', 1, 1, 1),
+('2016102036', 'Puja Irawan', 1, 1, 1),
 ('2016102037', 'Alfian', 1, 1, 1),
-('2016102038', 'Haevah Reza Amri ', 1, 1, 1);
+('2016102038', 'Haevah Reza Amri', 1, 1, 1),
+('2016102041', 'Rizky Maulana', 1, 1, 1),
+('2016102042', 'Vega Pramudia Sukma', 1, 1, 1),
+('2016102043', 'Nadila Khabiru', 1, 1, 1),
+('2016102044', 'M. Faqih Hasan', 1, 1, 1),
+('2016102049', 'Dimas Aulia', 1, 1, 1),
+('2016102050', 'Kresna Adi Pratama', 1, 1, 1),
+('2016102051', 'Surandi', 1, 1, 1),
+('2016102052', 'Ridwanto', 1, 1, 1),
+('2016102057', 'Muhammad Fajar Ramadhan', 1, 1, 1),
+('2016102059', 'Jodi Fathurrohman', 1, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -217,12 +267,78 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `id_mahasiswa`, `nama_produk`, `id_kategori`, `harga_produk`, `stok_produk`, `deskripsi_produk`, `foto_produk`, `status_produk`, `tanggal_input`) VALUES
-(1, 1, 'Sepatu Ventela Maroon', 1, 50000, 1, '<p>Sepatu Ventela Public Low Maroon<br />\r\nStock tersedia sesuai variasi tersebut, jika size tidak tertera maka stock tersebut habis.</p>\r\n\r\n<p>Ventela Public Low Maroon<br />\r\nProduksi Indonesia kualitas dunia<br />\r\nInsole yang nyaman</p>\r\n\r\n<p>Untuk Informasi lebih lanjut<br />\r\nHubungi : 0812789889890</p>', 'Sepatu_Ventela_Maroon.jpg', 1, '2020-06-28 18:54:19'),
-(2, 1, 'Seblak Instan Mommy', 7, 10000, 10, '<p>Seblak Kuah Instan Puspa (Pusaka Parahyangan)</p>\r\n\r\n<p>Seblak Bandung - Seblak Super Pedas<br>\r\nMakanan khas Jawa Barat siap saji, kapan saja dan dimana saja tinggal seduh dan di tunggu 3-5 menit.<br>\r\nSelalu Ready!!!</p>\r\n\r\n<p>Cocok buat bekal di perjalanan atau di rumah saja<br>\r\nCepat dan praktis<br>\r\nPesanan di bawah jam 16.00 akan di kirim di hari yang sama</p>\r\n\r\n<p>Informasi lebih lanjut : 08877897990</p>', 'Seblak_Instan_Mommy.jpg', 1, '2020-06-28 19:04:07'),
-(3, 1, 'Jersey Barcelona 2019/2020', 2, 75000, 5, '<p>Jual jersey Barcelona Home 2020</p>\r\n\r\n<p>Untuk ukuran bisa hubungi kontak yang tersedia&nbsp;ya, karena stok terbatas<br />\r\nSponsor original mulus, bordiran rapih<br />\r\nPatch ori bawaan dari pabrik<br />\r\nBahan tidak panas dan ringan&nbsp;<br />\r\nDijamin ORIGINAL !</p>\r\n\r\n<p>Informasi lebih lanjut :&nbsp;<br />\r\nWhats App : 087767009889</p>', 'Jersey_Barcelona_20192020.jpg', 1, '2020-06-28 19:08:41'),
-(4, 2, 'Kemeja Putih Wanita', 3, 45000, 5, '<p>Bahan Premium Katun Import</p>\r\n\r\n<p>Tersedia ukuran S,L,M,XL. Bisa pesan terlebih dahulu karena stok terbatas!</p>\r\n\r\n<p>Produk Indonesia kualitas dunia, dijamin ORI!<br />\r\nUntuk warna hanya tersedia putih<br />\r\nLengan Panjang tidak ada lengan pendek</p>\r\n\r\n<p>Informasi lebih lanjut hubungi<br />\r\nWhats App : 0812789890098</p>', 'Kemeja_Putih_Wanita.png', 1, '2020-06-28 19:14:19'),
-(5, 2, 'Kue Nastar Kering', 7, 25000, 2, '<p>Sudah di konsumsi di dalam negeri dan sudah banyak dibawa ke luar negeri !<br />\r\nJaminan kualitas nomor 1, Fresh from the oven!<br />\r\n<br />\r\nAlamat toko kami!<br />\r\nJl. Jendral Sudirman<br />\r\nRuko Makutarama No.3, Salatiga, Jawa Tengah<br />\r\nTelepon : 0298-326484/312291<br />\r\nWhats App&nbsp;: 085640653838</p>', 'Kue_Nastar_Kering.jpg', 1, '2020-06-28 19:16:17'),
-(6, 2, 'Jam Tangan Casio', 1, 150000, 1, '<p>Jam yang kami jual selalu terjamin kualitasnya dan dipastikan sesuai dengan spesifikasi produk.<br />\r\nJangan tergiur dengan harga lebih murah dari kami tapi spek. Produk &amp; Kualitas Berbeda Jauh!<br />\r\nBE SMART BUYER..GUYS!<br />\r\n=========================================================<br />\r\nBrand&nbsp; &nbsp;: Patek Philippe<br />\r\nSeries&nbsp; &nbsp;: Aquanaut<br />\r\nGender : Man Watch<br />\r\nQuality&nbsp; : Super Premium (CLONE ORI)<br />\r\nStrap Rubber<br />\r\nAutomatic Japan Movement (Otomatis)<br />\r\nCase : Solid Stainless Steel<br />\r\nBezel : Fixed</p>\r\n\r\n<p>Whats App : 081588990098</p>', 'Jam_Tangan_Casio.jpg', 1, '2020-06-28 19:22:23');
+(1, 1, 'Jersey Barcelona 2019/2020', 2, 70000, 5, '<p>Deskripsi&nbsp;Seblak Bandung Kuah Instan Enak dan Pedas (Puspa)</p>\r\n\r\n<p>Seblak Kuah Instan Puspa (Pusaka Parahyangan)<br />\r\nSeblak Bandung - Seblak Super Pedas<br />\r\nMakanan khas Jawa Barat siap saji, kapan saja dan dimana saja&nbsp;dan di tunggu 3-5 menit.<br />\r\nSelalu ready ..!!!<br />\r\nCocok buat bekal di perjalanan atau di rumah saja<br />\r\nCepat dan praktis<br />\r\nReseller welcome</p>', 'Jersey_Barcelona_20192020.jpg', 1, '2020-07-02 07:13:59'),
+(2, 1, 'Sepatu Futsal Nike', 1, 50000, 3, '<p>Deskripsi&nbsp;Seblak Bandung Kuah Instan Enak dan Pedas (Puspa)</p>\r\n\r\n<p>Seblak Kuah Instan Puspa (Pusaka Parahyangan)<br />\r\nSeblak Bandung - Seblak Super Pedas<br />\r\nMakanan khas Jawa Barat siap saji, kapan saja dan dimana saja&nbsp;dan di tunggu 3-5 menit.<br />\r\nSelalu ready ..!!!<br />\r\nCocok buat bekal di perjalanan atau di rumah saja<br />\r\nCepat dan praktis<br />\r\nReseller welcome</p>', 'Sepatu_Futsal_Nike.jpg', 1, '2020-07-02 07:16:24'),
+(3, 2, 'Jam Tangan Casio', 1, 120000, 2, '<p>NB : STOCK SANGAT TERBATAS!</p>\r\n\r\n<p>Jam yang kami jual selalu terjamin kualitasnya dan dipastikan sesuai dengan spesifikasi produk.<br />\r\nJangan tergiur dengan harga lebih murah dari kami tapi spek. Produk &amp; Kualitas Berbeda Jauh!<br />\r\nBE SMART BUYER..GUYS!<br />\r\n<br />\r\nBrand&nbsp; &nbsp;: Patek Philippe<br />\r\nSeries&nbsp; &nbsp;: Aquanaut<br />\r\nGender : Man Watch<br />\r\nQuality&nbsp; : Super Premium</p>', 'Jam_Tangan_Casio.jpg', 1, '2020-07-02 07:21:29'),
+(4, 2, 'Hijab Motif Kembang', 3, 15000, 3, '<p>Special Edition NEW YORK REBORN SERIES square Hijab Motif Kembang<br />\r\n<br />\r\nMeasurement : 110 x 110 cm, material : Premium Voile<br />\r\nKualitas bahan terbaik produk indoenesia kualitas dunia<br />\r\nGold charm Lasercut hem details<br />\r\nCompletely opaque<br />\r\nNot slippery and easy to style</p>', 'Hijab_Motif_Kembang.jpg', 1, '2020-07-02 07:24:20'),
+(5, 3, 'Kemeja Putih Wanita', 3, 30000, 1, '<p>Special Edition NEW YORK REBORN SERIES square Kemeja Putih Wanita<br />\r\n<br />\r\nMeasurement : 110 x 110 cm, material : Premium Voile<br />\r\nKualitas bahan terbaik produk indoenesia kualitas dunia<br />\r\nGold charm Lasercut hem details<br />\r\nCompletely opaque<br />\r\nNot slippery and easy to style</p>', 'Kemeja_Putih_Wanita.png', 1, '2020-07-02 07:29:57'),
+(6, 4, 'Sepatu High Hells', 1, 60000, 4, '<p>Special Edition NEW YORK REBORN SERIES square Sepatu High Hells Wanita<br />\r\n<br />\r\nMeasurement : 110 x 110 cm, material : Premium Voile<br />\r\nKualitas bahan terbaik produk indoenesia kualitas dunia<br />\r\nGold charm Lasercut hem details<br />\r\nCompletely opaque<br />\r\nNot slippery and easy to style</p>\r\n\r\n<p>Gold charm Lasercut hem details<br />\r\nCompletely opaque<br />\r\nNot slippery and easy to style</p>', 'Sepatu_High_Hells.jpg', 1, '2020-07-02 07:35:14'),
+(7, 1, 'Seblak Instan Mommy', 7, 10000, 5, '<p>Deskripsi Seblak Bandung Kuah Instan Enak dan Pedas</p>\r\n\r\n<p>Seblak Kuah Instan Puspa (Pusaka Parahyangan)<br>\r\nSeblak Bandung - Seblak Super Pedas<br>\r\nMakanan khas Jawa Barat siap saji, kapan saja dan dimana saja ditunggu 3-5 menit.<br>\r\nSelalu ready ..!!!<br>\r\nCocok buat bekal di perjalanan atau di rumah saja<br>\r\nCepat dan praktis<br>\r\nReseller welcome</p>', 'Seblak_Instan_Mommy.jpg', 1, '2020-07-02 07:37:40'),
+(8, 1, 'Kue Nastar Kering', 7, 25000, 10, '<p>Deskripsi Kue Kering Nastar Untuk Lebaran</p>\r\n\r\n<p>Seblak Kuah Instan Puspa (Pusaka Parahyangan)<br>\r\nSeblak Bandung - Seblak Super Pedas<br>\r\nMakanan khas Jawa Barat siap saji, kapan saja dan dimana saja <br>\r\nSelalu ready ..!!!<br>\r\nCocok buat bekal di perjalanan atau di rumah saja<br>\r\nCepat dan praktis<br>\r\nReseller welcome</p>', 'Kue_Nastar_Kering.jpg', 1, '2020-07-02 07:39:24');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `profile_website`
+--
+
+CREATE TABLE `profile_website` (
+  `id` int(11) NOT NULL,
+  `nama_website` varchar(50) NOT NULL,
+  `alamat` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `telepon` varchar(20) NOT NULL,
+  `instagram` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `profile_website`
+--
+
+INSERT INTO `profile_website` (`id`, `nama_website`, `alamat`, `email`, `telepon`, `instagram`) VALUES
+(1, 'Waroeng Mahasiswa CIC', 'Jalan Kesambi, No.202 Kota Cirebon', 'bkmcic.official@gmail.com', '6289660979061', '@warmacic');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `slider`
+--
+
+CREATE TABLE `slider` (
+  `id_slider` int(11) NOT NULL,
+  `foto_slider` varchar(100) NOT NULL,
+  `headline1` varchar(100) NOT NULL,
+  `headline2` varchar(100) NOT NULL,
+  `headline3` varchar(100) NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `slider`
+--
+
+INSERT INTO `slider` (`id_slider`, `foto_slider`, `headline1`, `headline2`, `headline3`, `status`) VALUES
+(1, 'Waroeng_Mahasiswa.png', 'Selamat Datang di', 'Waroeng Mahasiswa', 'Pasarnya Mahasiswa Universitas Catur Insan Cendekia', 1),
+(2, 'Seorang_Entrepeneur.png', 'Saatnya Menjadi', 'Seorang Entrepeneur', 'Daftarkan Dirimu dan Jadilah Pengusaha Muda', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tentang_warma`
+--
+
+CREATE TABLE `tentang_warma` (
+  `id` int(11) NOT NULL,
+  `tentang` text NOT NULL,
+  `tujuan` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tentang_warma`
+--
+
+INSERT INTO `tentang_warma` (`id`, `tentang`, `tujuan`) VALUES
+(1, '<p>Warma atau Waroeng Mahasiswa adalah sebuah wadah bagi mahasiswa UCIC yang memiliki usaha di bidang jasa atau produk yang dijual dan dapat dipasarkan melalui internal kampus ataupun eksternal kampus melalui media berbasis website. Warma merupakan salah satu bentuk produk yang dihasilkan oleh BKM CIC yang dikontribusikan melalui pelayanan BKM CIC kepada mahasiswa yang memiliki usaha. Dengan adanya warma diharapkan mahasiswa UCIC dapat menunjukan eksistensi dan prestasinya sebagai seorang enterpreneur</p>', '<p>Waroeng Mahasiswa memiliki beberapa tujuan yang pertama yaitu untuk mengembangkan minat bagi mahasiswa yang memiliki usaha di bidang jasa atau produk, kedua untuk menghargai bentuk karya mahasiswa yang ingin berkesempatan menjadi seorang enterpreneur, ketiga untuk menunjukkan prestasi dan eksistensi sebagai seorang enterprenenur dan untuk memasarkan produk atau jasa yang dijual oleh mahasiswa untuk dapat di perluas didalam atau luar kampus UCIC</p>');
 
 -- --------------------------------------------------------
 
@@ -236,6 +352,16 @@ CREATE TABLE `user_token` (
   `token` varchar(150) NOT NULL,
   `date_created` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `user_token`
+--
+
+INSERT INTO `user_token` (`id_token`, `email`, `token`, `date_created`) VALUES
+(1, 'alfianrenz25@gmail.com', 'Y7ZnMIRSB4oy6it+mtgbaspNiboU8lxrsCqHkmWh8O4=', 1593645655),
+(2, 'alfianrenz25@gmail.com', 'QfgARSaVY7/JwzNAXF/Q8B8VEE/ctMY0bqk/qrCMFUI=', 1593645734),
+(3, 'alfianrenz25@gmail.com', 'lVf0g0h53S0yPNUliGSTnJ1H2d7KaTJgfVlJ4/Uhhx0=', 1593646518),
+(4, 'alfianrenz25@gmail.com', 'X0Mf7k5y2zc1ZO7j0y0O4olSbuO7a8ZA0jjwNqVfumQ=', 1593647394);
 
 --
 -- Indexes for dumped tables
@@ -272,6 +398,12 @@ ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
+-- Indeks untuk tabel `keranjang`
+--
+ALTER TABLE `keranjang`
+  ADD PRIMARY KEY (`id_keranjang`);
+
+--
 -- Indeks untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
@@ -288,6 +420,24 @@ ALTER TABLE `prodi`
 --
 ALTER TABLE `produk`
   ADD PRIMARY KEY (`id_produk`);
+
+--
+-- Indeks untuk tabel `profile_website`
+--
+ALTER TABLE `profile_website`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `slider`
+--
+ALTER TABLE `slider`
+  ADD PRIMARY KEY (`id_slider`);
+
+--
+-- Indeks untuk tabel `tentang_warma`
+--
+ALTER TABLE `tentang_warma`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indeks untuk tabel `user_token`
@@ -309,13 +459,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `akun_mahasiswa`
 --
 ALTER TABLE `akun_mahasiswa`
-  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_mahasiswa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `akun_umum`
 --
 ALTER TABLE `akun_umum`
-  MODIFY `id_umum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_umum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `fakultas`
@@ -330,6 +480,12 @@ ALTER TABLE `kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT untuk tabel `keranjang`
+--
+ALTER TABLE `keranjang`
+  MODIFY `id_keranjang` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `prodi`
 --
 ALTER TABLE `prodi`
@@ -339,13 +495,31 @@ ALTER TABLE `prodi`
 -- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT untuk tabel `profile_website`
+--
+ALTER TABLE `profile_website`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `slider`
+--
+ALTER TABLE `slider`
+  MODIFY `id_slider` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `tentang_warma`
+--
+ALTER TABLE `tentang_warma`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_token`
 --
 ALTER TABLE `user_token`
-  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_token` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

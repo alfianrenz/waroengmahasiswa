@@ -31,19 +31,29 @@
                                 <label for="inputEmail3" class="col-form-label col-form-label-sm">Foto Slider <span class="text-danger">*</span></label>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" id="inputGroupFile01" name="foto">
-                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                    <label class="custom-file-label" for="inputGroupFile01">Upload Foto</label>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="inputPassword3" class="col-form-label col-form-label-sm">Keterangan <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control form-control-sm" id="keterangan" name="keterangan" placeholder="Masukkan Keterangan" value="<?= set_value('keterangan'); ?>">
-                                <?= form_error('keterangan', '<small class="text-danger font-weight-bold">', '</small>'); ?>
+                                <label for="inputPassword3" class="col-form-label col-form-label-sm">Headline 1 <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control form-control-sm" id="headline1" name="headline1" placeholder="Masukkan Headline 1" value="<?= set_value('headline1'); ?>">
+                                <?= form_error('headline1', '<small class="text-danger font-weight-bold">', '</small>'); ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-form-label col-form-label-sm">Headline 2 <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control form-control-sm" id="headline2" name="headline2" placeholder="Masukkan Headline 2" value="<?= set_value('headline2'); ?>">
+                                <?= form_error('headline2', '<small class="text-danger font-weight-bold">', '</small>'); ?>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword3" class="col-form-label col-form-label-sm">Headline 3 <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control form-control-sm" id="headline3" name="headline3" placeholder="Masukkan Headline 3" value="<?= set_value('headline3'); ?>">
+                                <?= form_error('headline3', '<small class="text-danger font-weight-bold">', '</small>'); ?>
                             </div>
                             <div class="form-group">
                                 <label for="inputPassword3" class="col-form-label col-form-label-sm">Jadikan Foto Awal <span class="text-danger">*</span></label>
                                 <select class="form-control" name="status">
-                                    <option value="0">Tidak</option>
-                                    <option value="1">Iya</option>
+                                    <option value="0">Tidak Aktif</option>
+                                    <option value="1">Aktif</option>
                                 </select>
                             </div>
                             <div class="form-group mt-4 mb-0">

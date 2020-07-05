@@ -39,8 +39,8 @@
                                     <tr>
                                         <th width="5%">ID</th>
                                         <th class="text-center">Foto</th>
-                                        <th>Keterangan</th>
-                                        <th width="5%">Slider Utama</th>
+                                        <th class="text-center">Slider Utama</th>
+                                        <th>Headline</th>
                                         <th width="8%">Action</th>
                                     </tr>
                                 </thead>
@@ -51,14 +51,14 @@
                                             <td class="align-middle text-center">
                                                 <img src="<?= base_url('upload/foto_slider/' . $s['foto_slider']); ?>" alt="contact-img" title="contact-img" class="rounded" height="60px" style="object-fit: cover">
                                             </td>
-                                            <td class="align-middle"><?= $s['keterangan']; ?></td>
                                             <td class="align-middle text-center">
                                                 <?php if ($s['status'] == 1) { ?>
                                                     <span class="badge badge-success">Aktif</span>
                                                 <?php } else { ?>
-                                                    <span class="badge badge-danger">Tidak Aktif</span>
+                                                    <a href="<?= site_url('website/update_status_slider'); ?>/<?= $s['id_slider']; ?>" class="badge badge-danger" onclick="confirm('Jadikan slider utama?')"> Tidak Aktif</a>
                                                 <?php } ?>
                                             </td>
+                                            <td class="align-middle"><?= $s['headline2']; ?></td>
                                             <td class="align-middle text-center">
                                                 <a href="<?= site_url('website/edit_slider'); ?>/<?= $s['id_slider']; ?>" class="btn btn-sm btn-primary rounded"><i class="feather icon-edit"></i> Edit</a>
                                                 <a href="<?= site_url('website/hapus_slider'); ?>/<?= $s['id_slider']; ?>" class="btn btn-sm btn-danger rounded tombol-hapus"><i class="feather icon-trash-2"></i> Hapus</a>

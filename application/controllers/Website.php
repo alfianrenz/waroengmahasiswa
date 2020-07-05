@@ -25,7 +25,13 @@ class Website extends My_Controller
         $data['title'] = 'Warma CIC | Tambah Slider';
 
         //form validasi set rules
-        $this->form_validation->set_rules('keterangan', 'keterangan', 'required|trim', [
+        $this->form_validation->set_rules('headline1', 'headline1', 'required|trim', [
+            'required' => 'Form ini tidak boleh kosong'
+        ]);
+        $this->form_validation->set_rules('headline2', 'headline2', 'required|trim', [
+            'required' => 'Form ini tidak boleh kosong'
+        ]);
+        $this->form_validation->set_rules('headline3', 'headline3', 'required|trim', [
             'required' => 'Form ini tidak boleh kosong'
         ]);
 
@@ -45,7 +51,13 @@ class Website extends My_Controller
         $data['slider'] = $this->website_model->dataSlider_id($id);
 
         //form validasi set rules
-        $this->form_validation->set_rules('keterangan', 'keterangan', 'required|trim', [
+        $this->form_validation->set_rules('headline1', 'headline1', 'required|trim', [
+            'required' => 'Form ini tidak boleh kosong'
+        ]);
+        $this->form_validation->set_rules('headline2', 'headline2', 'required|trim', [
+            'required' => 'Form ini tidak boleh kosong'
+        ]);
+        $this->form_validation->set_rules('headline3', 'headline3', 'required|trim', [
             'required' => 'Form ini tidak boleh kosong'
         ]);
 
@@ -63,6 +75,13 @@ class Website extends My_Controller
     {
         $this->website_model->hapus_slider($id);
         $this->session->set_flashdata('message', '<div class="flash-data" data-flashdata="Data berhasil di hapus"></div>');
+        redirect('website/data_slider');
+    }
+
+    public function update_status_slider($id)
+    {
+        $this->website_model->update_status_slider($id);
+        $this->session->set_flashdata('message', '<div class="flash-data" data-flashdata="Slider utama telah dirubah"></div>');
         redirect('website/data_slider');
     }
 
@@ -100,7 +119,7 @@ class Website extends My_Controller
             $this->paggingAdmin('admin/website/edit_profile_website', $data);
         } else {
             $this->website_model->editProfile_website();
-            $this->session->set_flashdata('message', '<div class="flash-data" data-flashdata="Data Berhasil di Ubah"></div>');
+            $this->session->set_flashdata('message', '<div class="flash-data" data-flashdata="Data berhasil di ubah"></div>');
             redirect('website/edit_profile_website');
         }
     }
