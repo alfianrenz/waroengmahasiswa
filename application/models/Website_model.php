@@ -19,14 +19,40 @@ class Website_model extends CI_Model
     //edit profile website
     public function editProfile_website()
     {
-        $data = [
-            'nama_website' => $this->input->post('nama'),
-            'alamat' => $this->input->post('alamat'),
-            'email' => $this->input->post('email'),
-            'telepon' => $this->input->post('telepon'),
-            'instagram' => $this->input->post('instagram'),
-        ];
-        $this->db->update('profile_website', $data);
+
+        $nama   = $this->input->post('nama');
+        $alamat = $this->input->post('alamat');
+        $email = $this->input->post('email');
+        $telepon = $this->input->post('telepon');
+        $instagram = $this->input->post('instagram');
+
+        //cek jika ada gambar
+        $upload_image = $_FILES['foto'];
+
+        if ($upload_image) {
+            $config['allowed_types'] = 'gif|jpg|png';
+            $config['max_size']      = '2048';
+            $config['file_name']     = $this->input->post('nama');
+            $config['upload_path']   = './upload/logo_website/';
+            $config['overwrite']     = TRUE;
+
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload('foto')) {
+                // upload foto dan edit di database
+                $new_image = $this->upload->data('file_name');
+                $this->db->set('logo', $new_image);
+            } else {
+                echo $this->upload->display_errors();
+            }
+        }
+
+        $this->db->set('nama_website', $nama);
+        $this->db->set('alamat', $alamat);
+        $this->db->set('email', $email);
+        $this->db->set('telepon', $telepon);
+        $this->db->set('instagram', $instagram);
+        $this->db->update('profile_website');
     }
 
 

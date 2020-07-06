@@ -38,8 +38,8 @@
                                 <tr>
                                     <!-- Checkbox -->
                                     <td class="align-middle">
-                                        <input type="checkbox" class="form-check-input" id="select_produk" name="select_produk">
-                                        <label class="form-check-label" for="select_produk"></label>
+                                        <input type="checkbox" name="select_produk" id="select_produk">
+                                        <label for="select_produk"></label>
                                     </td>
 
                                     <!-- Foto Produk -->

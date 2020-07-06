@@ -10,6 +10,8 @@
     </div>
 </div>
 
+<?= $this->session->userdata('message'); ?>
+
 <!-- Main Content -->
 <main class="page-content">
 

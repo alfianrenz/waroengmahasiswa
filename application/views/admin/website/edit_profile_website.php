@@ -21,12 +21,22 @@
         <!-- Main Content -->
         <div class="row">
             <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="mt-1">Ubah Profile Website</h5>
+                <form action="<?= site_url('website/edit_profile_website'); ?>" method="POST" enctype="multipart/form-data">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mt-1">Logo Website</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="text-center">
+                                <img src="<?= base_url('upload/logo_website/' . $website['logo']); ?>" width="300px" class="img-fluid mb-4 mt-4" style="object-fit: cover" id="image-field">
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <form action="<?= site_url('website/edit_profile_website'); ?>" method="POST">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="mt-1">Ubah Profile Website</h5>
+                        </div>
+                        <div class="card-body">
                             <div class="form-group row">
                                 <label for="inputEmail3" class="col-sm-3 col-form-label col-form-label-sm">Nama Website <span class="text-danger">*</span></label>
                                 <div class="col-sm-9">
@@ -62,14 +72,20 @@
                                     <?= form_error('instagram', '<small class="text-danger font-weight-bold">', '</small>'); ?>
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="inputPassword3" class="col-sm-3 col-form-label col-form-label-sm">Logo Website <span class="text-danger">*</span></label>
+                                <div class="col-sm-9">
+                                    <input type="file" class="form-control form-control-sm" id="foto" name="foto" placeholder="Foto">
+                                </div>
+                            </div>
                             <div class="form-group mt-4 mb-0">
                                 <div class="float-right">
                                     <button type="submit" class="btn btn-primary"><i class="feather icon-save"></i>&nbsp;&nbsp;Simpan</button>
                                 </div>
                             </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
