@@ -36,35 +36,42 @@
                     <p style="text-align:justify; text-indent:0.5in; margin-bottom:22px"><?= $tentang_warma['tujuan']; ?></p>
                 </div>
                 <div class="col-lg-12 blogitem2-content cr-border-top mb-30">
-                    <h2 class="mb-3">KONTAK KAMI</h2>
-                    <div class="contact-content" style="margin-top: 25px">
-                        <div class="single-content">
-                            <span class="single-content-icon">
-                                <i class="lnr lnr-map-marker"></i>
-                            </span>
-                            <b>Alamat :</b><br>
-                            <?= $website['alamat']; ?>
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <h2 class="mb-3">KONTAK KAMI</h2>
+                            <div class="contact-content" style="margin-top: 25px">
+                                <div class="single-content">
+                                    <span class="single-content-icon">
+                                        <i class="lnr lnr-map-marker"></i>
+                                    </span>
+                                    <b>Alamat :</b><br>
+                                    <?= $website['alamat']; ?>
+                                </div>
+                                <div class="single-content">
+                                    <span class="single-content-icon">
+                                        <i class="lnr lnr-envelope"></i>
+                                    </span>
+                                    <b>Email :</b><br>
+                                    <a href="#"><?= $website['email']; ?></a>
+                                </div>
+                                <div class="single-content">
+                                    <span class="single-content-icon">
+                                        <i class="lnr lnr-phone-handset"></i>
+                                    </span>
+                                    <b>Telepon :</b><br>
+                                    <a href="#">+<?= $website['telepon']; ?></a>
+                                </div>
+                                <div class="single-content">
+                                    <span class="single-content-icon">
+                                        <i class="ion ion-logo-instagram"></i>
+                                    </span>
+                                    <b>Instagram: </b><br>
+                                    <?= $website['instagram']; ?>
+                                </div>
+                            </div>
                         </div>
-                        <div class="single-content">
-                            <span class="single-content-icon">
-                                <i class="lnr lnr-envelope"></i>
-                            </span>
-                            <b>Email :</b><br>
-                            <a href="#"><?= $website['email']; ?></a>
-                        </div>
-                        <div class="single-content">
-                            <span class="single-content-icon">
-                                <i class="lnr lnr-phone-handset"></i>
-                            </span>
-                            <b>Telepon :</b><br>
-                            <a href="#">+<?= $website['telepon']; ?></a>
-                        </div>
-                        <div class="single-content">
-                            <span class="single-content-icon">
-                                <i class="ion ion-logo-instagram"></i>
-                            </span>
-                            <b>Instagram: </b><br>
-                            <?= $website['instagram']; ?>
+                        <div class="col-sm-5">
+                            <img src="<?= base_url(); ?>assets/frontend/images/others/contact.png" alt="beautiful girl" class="mt-3">
                         </div>
                     </div>
                 </div>

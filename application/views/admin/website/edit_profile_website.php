@@ -28,13 +28,13 @@
                         </div>
                         <div class="card-body">
                             <div class="text-center">
-                                <img src="<?= base_url('upload/logo_website/' . $website['logo']); ?>" width="300px" class="img-fluid mb-4 mt-4" style="object-fit: cover" id="image-field">
+                                <img src="<?= base_url('upload/logo_website/' . $website['logo']); ?>" width="300px" class="img-fluid" style="object-fit: cover; margin-top:30px; margin-bottom:30px" id="image-field">
                             </div>
                         </div>
                     </div>
                     <div class="card">
                         <div class="card-header">
-                            <h5 class="mt-1">Ubah Profile Website</h5>
+                            <h5 class="mt-1">Profile Website</h5>
                         </div>
                         <div class="card-body">
                             <div class="form-group row">

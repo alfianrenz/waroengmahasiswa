@@ -23,7 +23,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Ubah Halaman Tentang Warma</h5>
+                        <h5>Halaman Tentang Warma</h5>
                     </div>
                     <div class="card-body">
                         <form action="<?= site_url('website/edit_tentang_warma'); ?>" method="POST">

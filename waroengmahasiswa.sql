@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Jul 2020 pada 03.24
+-- Waktu pembuatan: 06 Jul 2020 pada 10.19
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.2
 
@@ -288,15 +288,16 @@ CREATE TABLE `profile_website` (
   `alamat` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
   `telepon` varchar(20) NOT NULL,
-  `instagram` varchar(20) NOT NULL
+  `instagram` varchar(20) NOT NULL,
+  `logo` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `profile_website`
 --
 
-INSERT INTO `profile_website` (`id`, `nama_website`, `alamat`, `email`, `telepon`, `instagram`) VALUES
-(1, 'Waroeng Mahasiswa CIC', 'Jalan Kesambi, No.202 Kota Cirebon', 'bkmcic.official@gmail.com', '6289660979061', '@warmacic');
+INSERT INTO `profile_website` (`id`, `nama_website`, `alamat`, `email`, `telepon`, `instagram`, `logo`) VALUES
+(1, 'Waroeng Mahasiswa CIC', 'Jalan Kesambi, No.202 Kota Cirebon', 'bkmcic.official@gmail.com', '6289660979061', '@warmacic', 'Waroeng_Mahasiswa_CIC.png');
 
 -- --------------------------------------------------------
 

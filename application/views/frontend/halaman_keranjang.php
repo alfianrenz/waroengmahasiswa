@@ -27,7 +27,7 @@
                                 </th>
                                 <th width="10%" class="text-center">Foto</th>
                                 <th class="text-center">Nama Produk</th>
-                                <th class="text-center">Harga Satuan</th>
+                                <th class="text-center">Harga</th>
                                 <th class="text-center" width="15%">Kuantitas</th>
                                 <th class="text-center">Subtotal</th>
                                 <th width="8%" class="text-center">Action</th>

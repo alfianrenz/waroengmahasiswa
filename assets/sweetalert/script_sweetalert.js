@@ -148,7 +148,7 @@ if (aktifkanStatus) {
 // Sweet alert tambahkan keranjang
 if (tambahKeranjang) {
     Swal.fire({
-        title: 'Di tambahkan',
+        title: 'Sukses',
         text: tambahKeranjang,
         type: 'success',
     });
