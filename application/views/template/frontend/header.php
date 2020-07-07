@@ -4,7 +4,7 @@
         <div class=" container">
             <div class="row align-items-center">
                 <div class="col-lg-7 col-md-7 col-sm-7 col-12">
-                    <p class="header-welcomemsg">Welcome to <?= $website['nama_website']; ?></p>
+                    <p class="header-welcomemsg"><?= $website['nama_website']; ?> &nbsp;&nbsp;|&nbsp;&nbsp;<?= date('d M Y'); ?></p>
                 </div>
 
                 <?php if (!$this->session->userdata('id')) { ?>
@@ -57,7 +57,7 @@
                                 <option value="<?= $k['id_kategori']; ?>"><?= $k['nama_kategori']; ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <input type="text" name="keyword" placeholder="Apa yang kamu cari hari ini?">
+                        <input type="text" name="keyword" placeholder="Mau beli apa hari ini?">
                         <button type="submit"><i class="lnr lnr-magnifier"></i></button>
                     </form>
                 </div>
@@ -159,7 +159,7 @@
                     <div class="header-contactinfo">
                         <a href="https://api.whatsapp.com/send?phone=<?= $website['telepon']; ?>" target="_blank">
                             <i class="flaticon-support text-white"></i>
-                            <span class="text-white">Bantuan :</span>
+                            <span class="text-white">Hubungi Kami :</span>
                             <b class="text-white">+<?= $website['telepon']; ?></b>
                         </a>
                     </div>

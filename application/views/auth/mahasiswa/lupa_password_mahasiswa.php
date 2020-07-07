@@ -32,7 +32,6 @@
                     <div class="login-form-wrapper">
                         <div class="card">
                             <div class="card-body">
-
                                 <form action="<?= site_url('auth/lupa_password_mahasiswa'); ?>" method="POST">
                                     <div class="form-group">
                                         <label for="inputEmail3" class="col-form-label col-form-label-sm">Email</label>

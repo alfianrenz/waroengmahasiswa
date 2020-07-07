@@ -21,10 +21,7 @@
                     <table id="keranjang" class="table table-de nowrap">
                         <thead>
                             <tr>
-                                <th width="3%">
-                                    <input type="checkbox" class="form-check-input" id="select_all">
-                                    <label class="form-check-label" for="select_all"></label>
-                                </th>
+                                <th width="3%">#</th>
                                 <th width="10%" class="text-center">Foto</th>
                                 <th class="text-center">Nama Produk</th>
                                 <th class="text-center">Harga</th>
@@ -38,7 +35,7 @@
                                 <tr>
                                     <!-- Checkbox -->
                                     <td class="align-middle">
-                                        <input type="checkbox" name="select_produk" id="select_produk">
+                                        <input type="checkbox" class="form-check-input" name="select_produk[]" id="select_produk" value="<?= $k['id_produk']; ?>">
                                         <label for="select_produk"></label>
                                     </td>
 

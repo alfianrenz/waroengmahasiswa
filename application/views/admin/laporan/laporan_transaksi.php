@@ -58,6 +58,12 @@
                 <div class="card">
                     <div class="card-header">
                         <h5>Laporan Transaksi</h5>
+                        <div class="card-header-right">
+                            <a href="<?= site_url('profile/edit_profile_admin'); ?>" class="btn waves-effect waves-light btn-primary">
+                                <i class="feather icon-printer"></i>
+                                &nbsp;Cetak
+                            </a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">

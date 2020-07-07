@@ -23,17 +23,15 @@
                 </div>
                 <div class="col-lg-2 col-md-4">
                     <div class="footer-widget widget-links">
-                        <h5 class="footer-widget-title">AKUN SAYA</h5>
+                        <h5 class="footer-widget-title">IKUTI KAMI</h5>
                         <ul>
-                            <li><a href="#">Pesanan Saya</a></li>
-                            <li><a href="#">Transaksi</a></li>
-                            <li><a href="#">Profil Saya</a></li>
-                            <li><a href="#">Keranjang</a></li>
+                            <li><a href="#"><i class="ion ion-logo-instagram"></i>&nbsp;&nbsp;Instagram</a></li>
+                            <li><a href="#"><i class="ion ion-logo-facebook"></i>&nbsp;&nbsp;Facebook</a></li>
+                            <li><a href="#"><i class="ion ion-logo-twitter"></i>&nbsp;&nbsp;Twitter</a></li>
+                            <li><a href="#"><i class="ion ion-logo-youtube"></i>&nbsp;&nbsp;Youtube</a></li>
                         </ul>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
@@ -42,7 +40,7 @@
     <div class="footer-bottomarea">
         <div class="container">
             <div class="footer-copyright">
-                <p class="copyright">Copyright &copy; <a href="<?= site_url('beranda'); ?>">Waroeng Mahasiswa CIC</a> By Alfian</p>
+                <p class="copyright">Copyright &copy; <a href="<?= site_url('beranda'); ?>"><?= $website['nama_website']; ?></a> By Alfian</p>
             </div>
         </div>
     </div>

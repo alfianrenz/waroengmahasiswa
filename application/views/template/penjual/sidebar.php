@@ -33,8 +33,8 @@
                     </a>
                 </li>
                 <!-- Pesanan -->
-                <li class="nav-item">
-                    <a href="" class="nav-link ">
+                <li class="nav-item <?= active_menu('pesanan'); ?>">
+                    <a href="<?= site_url('pesanan/daftar_pesanan_penjual'); ?>" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
                         <span class="pcoded-mtext">Pesanan</span>
                     </a>
