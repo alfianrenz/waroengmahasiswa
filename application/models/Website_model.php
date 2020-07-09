@@ -189,4 +189,27 @@ class Website_model extends CI_Model
         ];
         $this->db->update('tentang_warma', $data);
     }
+
+    //===================================
+    //              BANTUAN
+    //===================================
+
+    //get data bantuan dari database
+    public function bantuan()
+    {
+        $this->db->select('*');
+        $this->db->from('bantuan');
+        return $this->db->get()->row_array();
+    }
+
+    //edit bantuan
+    public function edit_bantuan()
+    {
+        $data = [
+            'bantuan1' => $this->input->post('bantuan1'),
+            'bantuan2' => $this->input->post('bantuan2'),
+            'bantuan3' => $this->input->post('bantuan3'),
+        ];
+        $this->db->update('bantuan', $data);
+    }
 }

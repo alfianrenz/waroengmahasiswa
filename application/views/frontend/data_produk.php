@@ -10,14 +10,15 @@
     </div>
 </div>
 
-<?= $this->session->userdata('message'); ?>
-
 <!-- Main Content -->
 <main class="page-content">
 
     <!-- Shop Page Area -->
     <div class="shop-page-area bg-white ptb-30">
         <div class="container">
+
+            <?= $this->session->userdata('message'); ?>
+
             <div class="row">
                 <div class="col-lg-9 order-1 order-lg-2">
 
@@ -70,7 +71,7 @@
                                                 <h5 class="hoproduct-title"><a id="nama-produk-<?= $p['id_produk'] ?>" href="<?= site_url('produk/detail_produk_frontend/' . $p['id_produk']); ?>"><?= $p['nama_produk']; ?></a></h5>
                                                 <div class="hoproduct-pricebox">
                                                     <div class="pricebox">
-                                                        <span class="price" id="price-produk-<?= $p['id_produk'] ?>">Rp <?= number_format($p['harga_produk'], 0, ',', '.'); ?></span>
+                                                        <span class="price" id="price-produk-<?= $p['id_produk'] ?>">Rp<?= number_format($p['harga_produk'], 0, ',', '.'); ?></span>
                                                     </div>
                                                 </div>
                                                 <p class="hoproduct-content-description">

@@ -57,7 +57,7 @@
                                 <option value="<?= $k['id_kategori']; ?>"><?= $k['nama_kategori']; ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <input type="text" name="keyword" placeholder="Mau beli apa hari ini?">
+                        <input type="text" name="keyword" placeholder="Ingin belanja apa ya hari ini?">
                         <button type="submit"><i class="lnr lnr-magnifier"></i></button>
                     </form>
                 </div>
@@ -86,10 +86,15 @@
 
                         <!-- Keranjang -->
                         <div class="header-cart">
-                            <a class="header-carticon" href="cart.html"><i class="lnr lnr-cart"></i><span class="count">0</span></a>
+                            <a class="header-carticon" href="cart.html"><i class="lnr lnr-cart"></i><span class="count"><?= $jumlah_produk; ?></span></a>
                             <div class="header-minicart minicart">
 
-                                <?php if (empty($keranjang)) { ?>
+                                <!-- Variabel Total Belanja -->
+                                <?php
+                                $total_belanja = 0;
+                                ?>
+
+                                <?php if (empty($detail_keranjang)) { ?>
                                     <div class="minicart-header">
                                         <div class="text-center mb-4">
                                             <img src="<?= base_url(); ?>assets/frontend/images/others/cart.png" width="180px">
@@ -101,35 +106,44 @@
                                     </div>
                                     <div class="minicart-footer">
                                         <a href="<?= site_url('produk/data_produk_frontend'); ?>" class="ho-button ho-button-fullwidth">
-                                            <span><b>BELANJA SEKARANG</b></span>
+                                            <span><b>LIHAT PRODUK</b></span>
                                         </a>
                                     </div>
                                 <?php } else { ?>
                                     <div class="minicart-header">
-                                        <?php foreach ($keranjang as $k) : ?>
+                                        <?php foreach ($detail_keranjang as $dk) : ?>
                                             <div class="minicart-product">
                                                 <div class="minicart-productimage">
                                                     <a href="product-details.html">
-                                                        <img src="<?= base_url('upload/foto_produk/' . $k['foto_produk']); ?>" alt="product image" class="rounded">
+                                                        <img src="<?= base_url('upload/foto_produk/' . $dk['foto_produk']); ?>" alt="product image" class="rounded">
                                                     </a>
-                                                    <span class="minicart-productquantity">1x</span>
+                                                    <span class="minicart-productquantity"><?= $dk['kuantitas']; ?>x</span>
                                                 </div>
                                                 <div class="minicart-productcontent">
-                                                    <h6><a href="product-details.html"><?= $k['nama_produk']; ?></a></h6>
-                                                    <span class="minicart-productprice">Rp <?= number_format($k['harga_produk'], 0, ',', '.'); ?></span>
+                                                    <h6><a href="product-details.html"><?= $dk['nama_produk']; ?></a></h6>
+                                                    <span class="minicart-productprice">Rp<?= number_format($dk['harga_produk'], 0, ',', '.'); ?></span>
                                                 </div>
                                             </div>
+
+                                            <!-- Hitung Total Belanja -->
+                                            <?php
+                                            $harga_produk = $dk['harga_produk'];
+                                            $kuantitas = $dk['kuantitas'];
+                                            $subtotal = $harga_produk * $kuantitas;
+                                            $total_belanja = $total_belanja + $subtotal;
+                                            ?>
+
                                         <?php endforeach; ?>
                                     </div>
                                     <ul class="minicart-pricing">
-                                        <li>Total Belanja<span>Rp 10.000</span></li>
+                                        <li>Total Belanja<span>Rp<?= number_format($total_belanja, 0, ',', '.'); ?></span></li>
                                     </ul>
                                     <div class="minicart-footer">
                                         <a href="<?= site_url('keranjang/halaman_keranjang'); ?>" class="ho-button ho-button-fullwidth">
                                             <span>Keranjang</span>
                                         </a>
-                                        <a href="checkout.html" class="ho-button ho-button-dark ho-button-fullwidth">
-                                            <span>Beli</span>
+                                        <a href="<?= site_url('checkout'); ?>" class="ho-button ho-button-dark ho-button-fullwidth">
+                                            <span>Checkout</span>
                                         </a>
                                     </div>
                                 <?php } ?>
@@ -152,6 +166,7 @@
                             <li class="<?= active_menu('produk'); ?>"><a href="<?= site_url('produk/data_produk_frontend'); ?>">Produk</a></li>
                             <li class="<?= active_menu('penjual'); ?>"><a href="<?= site_url('penjual/data_penjual'); ?>">Penjual</a></li>
                             <li class="<?= active_menu('tentang_warma'); ?>"><a href="<?= site_url('tentang_warma'); ?>">Tentang Warma</a></li>
+                            <li class="<?= active_menu('website'); ?>"><a href="<?= site_url('website/bantuan'); ?>">Bantuan</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -159,7 +174,7 @@
                     <div class="header-contactinfo">
                         <a href="https://api.whatsapp.com/send?phone=<?= $website['telepon']; ?>" target="_blank">
                             <i class="flaticon-support text-white"></i>
-                            <span class="text-white">Hubungi Kami :</span>
+                            <span class="text-white">Contact Person :</span>
                             <b class="text-white">+<?= $website['telepon']; ?></b>
                         </a>
                     </div>

@@ -15,20 +15,37 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-5 col-md-4 mr-5">
+                <div class="col-lg-2 col-md-4">
                     <div class="footer-widget widget-links">
-                        <h5 class="footer-widget-title">TENTANG KAMI</h5>
-                        <p style="text-align: justify;">Waroeng Mahasiswa adalah sebuah wadah bagi mahasiswa UCIC yang memiliki usaha di bidang jasa atau produk dan dapat dipasarkan melalui internal kampus ataupun eksternal kampus melalui media berbasis website. Warma merupakan salah satu bentuk produk yang dihasilkan oleh BKM CIC yang dikontribusikan melalui pelayanan BKM CIC kepada mahasiswa yang memiliki usaha.</p>
+                        <h5 class="footer-widget-title">PEMBAYARAN</h5>
+                        <ul>
+                            <li><a href="#">&nbsp;&nbsp;Alfamart</a></li>
+                            <li><a href="#">&nbsp;&nbsp;Indomaret</a></li>
+                            <li><a href="#">&nbsp;&nbsp;Bank Transfer</a></li>
+                            <li><a href="#">&nbsp;&nbsp;Gopay</a></li>
+                        </ul>
+
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-4">
                     <div class="footer-widget widget-links">
                         <h5 class="footer-widget-title">IKUTI KAMI</h5>
                         <ul>
-                            <li><a href="#"><i class="ion ion-logo-instagram"></i>&nbsp;&nbsp;Instagram</a></li>
-                            <li><a href="#"><i class="ion ion-logo-facebook"></i>&nbsp;&nbsp;Facebook</a></li>
-                            <li><a href="#"><i class="ion ion-logo-twitter"></i>&nbsp;&nbsp;Twitter</a></li>
-                            <li><a href="#"><i class="ion ion-logo-youtube"></i>&nbsp;&nbsp;Youtube</a></li>
+                            <li><a href="https://instagram.com/bkmcic/" target="_blank"><i class="ion ion-logo-instagram"></i>&nbsp;&nbsp;Instagram</a></li>
+                            <li><a href="https://facebook.com/bkm.cic/" target="_blank"><i class="ion ion-logo-facebook"></i>&nbsp;&nbsp;Facebook</a></li>
+                            <li><a href="https://twitter.com/bkmcic/" target="_blank"><i class="ion ion-logo-twitter"></i>&nbsp;&nbsp;Twitter</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCIhuRHN9F_tUXx-EMziVWlg/" target="_blank"><i class="ion ion-logo-youtube"></i>&nbsp;&nbsp;Youtube</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="footer-widget widget-links">
+                        <h5 class="footer-widget-title">WEBSITE TERKAIT</h5>
+                        <ul>
+                            <li><a href="https://www.cic.ac.id/" target="_blank">&nbsp;&nbsp;Portal Universitas Catur Insan Cendekia</a></li>
+                            <li><a href="https://bkmcic.com/" target="_blank">&nbsp;&nbsp;Website Badan Koordinasi Mahasiswa CIC</a></li>
+                            <li><a href="https://my.cic.ac.id/portal/module/front/" target="_blank">&nbsp;&nbsp;Sistem Informasi Nilai Akademik (MyCIC)</a></li>
+                            <li><a href="https://prota.cic.ac.id/" target="_blank">&nbsp;&nbsp;Sistem Informasi Nilai Proyek dan Skripsi</a></li>
                         </ul>
                     </div>
                 </div>

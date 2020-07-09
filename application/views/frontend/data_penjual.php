@@ -16,6 +16,7 @@
     <!-- Shop Page Area -->
     <div class="shop-page-area bg-white ptb-30">
         <div class="container">
+            <?= $this->session->userdata('message'); ?>
             <div class="row">
 
                 <!-- Data Penjual -->
@@ -44,10 +45,10 @@
                         <div class="row no-gutters">
 
                             <?php if (!$penjual) { ?>
-                                <div class="col-sm-12 text-center" style="margin-top: 25px;">
-                                    <img src="<?= base_url(); ?>assets/frontend/images/others/penjual_empty.png" alt="" width="280px">
+                                <div class="col-sm-12 text-center" style="margin-top: 20px;">
+                                    <img src="<?= base_url(); ?>assets/frontend/images/others/produk_empty.png" alt="" width="300px">
                                 </div>
-                                <div class="col-sm-12 text-center" style="margin-top: 30px; margin-bottom:18px">
+                                <div class="col-sm-12 text-center" style="margin-top: 30px; margin-bottom:8px">
                                     <h2>TIDAK ADA PENJUAL :(</h2>
                                 </div>
                             <?php } else { ?>

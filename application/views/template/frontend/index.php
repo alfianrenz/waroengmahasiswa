@@ -126,6 +126,13 @@
         }
     </script>
 
+    <!-- Update Kuantitas -->
+    <script type="text/javascript">
+        function updateKuantitas(id_detail) {
+            $("#detail-keranjang-" + id_detail).submit();
+        }
+    </script>
+
 </body>
 
 </html>

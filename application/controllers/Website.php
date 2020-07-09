@@ -147,8 +147,48 @@ class Website extends My_Controller
             $this->paggingAdmin('admin/website/tentang_warma', $data);
         } else {
             $this->website_model->edit_tentang_warma();
-            $this->session->set_flashdata('message', '<div class="flash-data" data-flashdata="Data Berhasil di Ubah"></div>');
+            $this->session->set_flashdata('message', '<div class="flash-data" data-flashdata="Data berhasil di ubah"></div>');
             redirect('website/edit_tentang_warma');
+        }
+    }
+
+
+    //======================================
+    //              BANTUAN
+    //======================================
+
+    //view halaman bantuan di frontend
+    public function bantuan()
+    {
+        $data['title'] = 'Warma CIC | Bantuan';
+        $data['bantuan'] = $this->website_model->bantuan();
+        $this->paggingFrontend('frontend/bantuan', $data);
+    }
+
+    //edit halaman bantuan
+    public function edit_bantuan()
+    {
+        $data['title'] = 'Warma CIC | Bantuan';
+        $data['bantuan'] = $this->website_model->bantuan();
+
+        //form validasi set rules
+        $this->form_validation->set_rules('bantuan1', 'bantuan1', 'required|trim', [
+            'required' => 'Form ini tidak boleh kosong'
+        ]);
+        $this->form_validation->set_rules('bantuan2', 'bantuan2', 'required|trim', [
+            'required' => 'Form ini tidak boleh kosong'
+        ]);
+        $this->form_validation->set_rules('bantuan3', 'bantuan3', 'required|trim', [
+            'required' => 'Form ini tidak boleh kosong'
+        ]);
+
+        //jika form validasi salah
+        if ($this->form_validation->run() == FALSE) {
+            $this->paggingAdmin('admin/website/edit_bantuan', $data);
+        } else {
+            $this->website_model->edit_bantuan();
+            $this->session->set_flashdata('message', '<div class="flash-data" data-flashdata="Data berhasil di ubah"></div>');
+            redirect('website/edit_bantuan');
         }
     }
 }

@@ -28,6 +28,7 @@
                 <!-- Form Login -->
                 <div class="col-lg-6 mt-30 mt-lg-0">
                     <h2>RESET PASSWORD</h2>
+                    <p>Masukkan email yang terdaftar di Waroeng Mahasiswa. Kami akan mengirimkan email verifikasi untuk mereset password lama anda</p>
                     <?= $this->session->userdata('message'); ?>
                     <div class="login-form-wrapper">
                         <div class="card">

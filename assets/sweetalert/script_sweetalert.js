@@ -26,6 +26,10 @@ const nonaktifkanStatus = $('.flash-data').data('nonaktif');
 const aktifkanStatus = $('.flash-data').data('aktif');
 // Sweet alert tambah keranjang
 const tambahKeranjang = $('.flash-data').data('tambahkeranjang');
+// Sweet alert tidak dapat membeli produk sendiri
+const keranjangGagal = $('.flash-data').data('keranjanggagal');
+// Sweet alert registrasi gagal
+const registrasiGagal = $('.flash-data').data('registrasigagal');
 
 
 // Sweet alert flashData
@@ -58,7 +62,7 @@ if (loginAdmin) {
 // Sweet alert email salah
 if (emailError) {
     Swal.fire({
-        title: 'Tidak terdaftar',
+        title: 'Email tidak terdaftar',
         text: emailError,
         type: 'error',
     });
@@ -148,9 +152,27 @@ if (aktifkanStatus) {
 // Sweet alert tambahkan keranjang
 if (tambahKeranjang) {
     Swal.fire({
-        title: 'Sukses',
+        title: 'Berhasil',
         text: tambahKeranjang,
         type: 'success',
+    });
+}
+
+// Sweet alert keranjang gagal
+if (keranjangGagal) {
+    Swal.fire({
+        title: 'Gagal',
+        text: keranjangGagal,
+        type: 'error',
+    });
+}
+
+// Sweet alert registrasi gagal
+if (registrasiGagal) {
+    Swal.fire({
+        title: 'Registrasi Gagal',
+        text: registrasiGagal,
+        type: 'error',
     });
 }
 

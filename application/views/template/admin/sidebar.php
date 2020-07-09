@@ -60,6 +60,7 @@
                     <ul class="pcoded-submenu">
                         <li class="<?php echo $this->uri->segment(2) == 'data_slider' || $this->uri->segment(2) == 'tambah_slider' || $this->uri->segment(2) == 'edit_slider' ? 'active' : '' ?>"><a href="<?= site_url('website/data_slider'); ?>"> Slider</a></li>
                         <li class="<?= $this->uri->segment(2) == 'edit_profile_website' ? 'active' : '' ?>"><a href="<?= site_url('website/edit_profile_website'); ?>">Profile</a></li>
+                        <li class="<?= $this->uri->segment(2) == 'edit_bantuan' ? 'active' : '' ?>"><a href="<?= site_url('website/edit_bantuan'); ?>">Bantuan</a></li>
                         <li class="<?= $this->uri->segment(2) == 'tentang_warma' ? 'active' : ''; ?>"><a href="<?= site_url('website/edit_tentang_warma'); ?>">Tentang Warma</a></li>
                         <li class=""><a href="<?= site_url('beranda'); ?>" target="blank">Lihat Website</a></li>
                     </ul>

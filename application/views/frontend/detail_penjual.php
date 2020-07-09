@@ -16,8 +16,10 @@
     <!-- Product Details Area -->
     <div class="product-details-area bg-white ptb-30">
         <div class="container">
-            <div class="row">
 
+            <?= $this->session->userdata('message'); ?>
+
+            <div class="row">
                 <!-- Profile -->
                 <div class="col-sm-4">
                     <div class="card">

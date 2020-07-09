@@ -255,11 +255,12 @@ class Auth extends My_Controller
                             'id' => $mahasiswa['id_mahasiswa'],
                             'email' => $mahasiswa['email_mahasiswa'],
                             'foto' => $mahasiswa['foto_mahasiswa'],
+                            'telepon' => $mahasiswa['telepon_mahasiswa'],
                             'nama' => $master['nama_mahasiswa'],
                             'tipe' => $mahasiswa['tipe']
                         ];
                         $this->session->set_userdata($data);
-                        $this->session->set_flashdata('message', '<div class="flash-data" data-loginsuccess="Silahkan berbelanja!"></div>');
+                        $this->session->set_flashdata('message', '<div class="flash-data" data-loginsuccess="Selamat berbelanja"></div>');
                         redirect('beranda');
                     } else {
                         $this->session->set_flashdata('message', '<div class="flash-data" data-passworderror="Periksa kembali password anda"></div>');
@@ -319,12 +320,12 @@ class Auth extends My_Controller
             $mahasiswa = $this->db->get_where('mahasiswa', ['nim' => $nim])->row_array();
 
             if (!$mahasiswa) {
-                $this->session->set_flashdata('message', '<div class="alert alert-danger" align="center" role="alert">Anda tidak terdaftar sebagai mahasiswa UCIC</div>');
+                $this->session->set_flashdata('message', '<div class="flash-data" data-registrasigagal="Tidak terdaftar sebagai mahasiswa UCIC"></div>');
                 redirect('auth/buat_akun_mahasiswa');
             } else {
                 //input ke table akun mahasiswa
                 $this->auth_model->buatAkun_mahasiswa();
-                $this->session->set_flashdata('message', '<div class="flash-data" data-registrasi="Silahkan login!"></div>');
+                $this->session->set_flashdata('message', '<div class="flash-data" data-registrasi="Silahkan login"></div>');
                 redirect('auth/login_mahasiswa');
             }
         }
@@ -335,6 +336,7 @@ class Auth extends My_Controller
     {
         $this->session->unset_userdata('id');
         $this->session->unset_userdata('email');
+        $this->session->unset_userdata('telepon');
         $this->session->unset_userdata('foto');
         $this->session->unset_userdata('nama');
         redirect('beranda');
@@ -481,11 +483,12 @@ class Auth extends My_Controller
                             'email' => $umum['email'],
                             'foto' => $umum['foto'],
                             'nama' => $umum['username'],
+                            'telepon' => $umum['telepon'],
                             'tipe' => $umum['tipe']
                         ];
                         // unset($umum['password_umum']);
                         $this->session->set_userdata($data);
-                        $this->session->set_flashdata('message', '<div class="flash-data" data-loginsuccess="Silahkan berbelanja!"></div>');
+                        $this->session->set_flashdata('message', '<div class="flash-data" data-loginsuccess="Selamat berbelanja"></div>');
                         redirect('beranda');
                     } else {
                         $this->session->set_flashdata('message', '<div class="flash-data" data-passworderror="Periksa kembali password anda"></div>');
@@ -538,7 +541,7 @@ class Auth extends My_Controller
         } else {
             //input ke table umum
             $this->auth_model->buatAkun_umum();
-            $this->session->set_flashdata('message', '<div class="flash-data" data-registrasi="Silahkan login!"></div>');
+            $this->session->set_flashdata('message', '<div class="flash-data" data-registrasi="Silahkan login"></div>');
             redirect('auth/login_umum');
         }
     }
@@ -547,8 +550,9 @@ class Auth extends My_Controller
     public function logout_umum()
     {
         $this->session->unset_userdata('id');
-        $this->session->unset_userdata('email');
         $this->session->unset_userdata('foto');
+        $this->session->unset_userdata('email');
+        $this->session->unset_userdata('telepon');
         redirect('beranda');
     }
 

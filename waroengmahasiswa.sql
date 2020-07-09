@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 06 Jul 2020 pada 10.19
+-- Waktu pembuatan: 09 Jul 2020 pada 11.25
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.2
 
@@ -43,7 +43,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `username_admin`, `password_admin`, `email_admin`, `nama_admin`, `foto_admin`, `id_level`) VALUES
-(1, 'bkmcic', '$2y$10$X8KJfcBdVtkWz0jyFRfJrOAG8HD8quQB06.Msjn/Wx5usIx3yqheW', 'alfianrenz25@gmail.com', 'BKM CIC', 'BKM_CIC.jpg', 1);
+(1, 'bkmcic', '$2y$10$CeTzMI6JdzSTDwVYepC7JOk7m/iINKtVYAPd1F/yxm3Xe/qpkuTfa', 'bkmcic.official@gmail.com', 'BKM CIC', 'BKM_CIC.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -97,7 +97,41 @@ CREATE TABLE `akun_umum` (
 --
 
 INSERT INTO `akun_umum` (`id_umum`, `username`, `email`, `telepon`, `password`, `foto`, `tanggal_daftar`, `status_aktif`, `tipe`) VALUES
-(1, 'jenyver', 'alfianrenz25@gmail.com', '6289626551599', '$2y$10$09mRsje4Rp.2t67pLUuh2OXzpJbRVuAY1V1RM2uknlEFCl/AtR8AS', 'jenyver.jpg', '2020-07-02 06:40:22', 1, 2);
+(1, 'jenyver', 'alfianrenz25@gmail.com', '6289626551599', '$2y$10$09mRsje4Rp.2t67pLUuh2OXzpJbRVuAY1V1RM2uknlEFCl/AtR8AS', 'jenyver.jpg', '2020-07-02 06:40:22', 1, 2),
+(2, 'dimas', 'dimasaulia@gmail.com', '62812908899097', '$2y$10$4hN8kFWZ3R9nc0tAXyWoTOhl9qc50GLYmcNfTFb4MTvrtNr0K31Rq', 'dimas.jpg', '2020-07-09 10:13:58', 1, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `bantuan`
+--
+
+CREATE TABLE `bantuan` (
+  `id` int(11) NOT NULL,
+  `bantuan1` text NOT NULL,
+  `bantuan2` text NOT NULL,
+  `bantuan3` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `bantuan`
+--
+
+INSERT INTO `bantuan` (`id`, `bantuan1`, `bantuan2`, `bantuan3`) VALUES
+(1, '<p><strong>Langkah-langkah berbelanja di Waroeng Mahasiswa</strong></p>\r\n\r\n<ol>\r\n	<li><strong>Login, </strong>masukkan&nbsp;nim bagi mahasiswa dan username/email&nbsp;bagi pengguna umum serta password. Apabila belum mempunyai akun dapat membuat akun terlebih dahulu.</li>\r\n	<li><strong>Pilih Produk</strong>, cari dan pilih produk yang diinginkan.</li>\r\n	<li><strong>Masukkan ke Keranjang</strong>, masukkan produk yang telah&nbsp;dipilih tersebut&nbsp;kedalam keranjang belanja dengan&nbsp;meneakan tombol &quot;tambahkan keranjang&quot;.</li>\r\n	<li><strong>Kelola Keranjang</strong>, atur kuantitas atau jumlah produk yang&nbsp;akan dibeli.</li>\r\n	<li><strong>Checkout</strong>, pada halaman checkout&nbsp;pembeli wajib mengisi&nbsp;identitas, alamat lengkap pengiriman serta jasa kurir.</li>\r\n	<li><strong>Pembayaran</strong>, setelah mengisi&nbsp;data diri serta alamat&nbsp;pengiriman, pembeli dapat memilih metode pembayaran&nbsp;yang&nbsp;telah di sediakan.</li>\r\n	<li><strong>Konfirmasi Terima Barang</strong>, setelah barang diterima lakukan konfirmasi terima barang pada halaman pesanan. Transaksi akan dianggap selesai setelah pembeli memberikan&nbsp;konfirmasi kepada penjual yang bersangkutan.</li>\r\n</ol>', '<p><strong>Jenis-jenis pembayaran di Waroeng Mahasiswa</strong></p>\r\n\r\n<ol>\r\n	<li><strong>Payment Gateway</strong>, pembeli dapat melakukan pembayaran dengan menggunakan kartu kredit, melalui alfamart, indomaret dan GoPay</li>\r\n	<li><strong>Cash on Delivery</strong>, apabila ingin melakukan pembayaran cash kepada penjual, pembeli dapat memilih metode Cash on Delivery kemudian atur jadwal transaksi dan lokasi transaksi.&nbsp;</li>\r\n</ol>', '<p>Berjualan di Waroeng Mahasiswa itu mudah dan nyaman. Yuk simak caranya menjadi penjual di Waroeng Mahasiswa</p>\r\n\r\n<ol>\r\n	<li><strong>Mahasiswa UCIC</strong>, syarat pertama yaitu penjual merupakan mahasiswa Universitas Catur Insan Cendekia.</li>\r\n	<li><strong>Daftar,&nbsp;</strong>buat akun sebagai mahasiswa. Akun ini dapat juga digunakan sebagai akun pembeli.</li>\r\n	<li><strong>Login</strong>, sebelum masuk ke halaman penjual harus melakukan login terlebih dahulu.</li>\r\n	<li><strong>Kelola Produk</strong>, jual produk yang diinginkan dan lengkapi deskripsi data produk.</li>\r\n	<li><strong>Kelola Transaksi</strong>, penjual dapat mengelola transaksi di lapakmu.</li>\r\n	<li><strong>Kirim Barang</strong>, penjual wajib mengirim barang kepada pembeli apabila produk yang dipesan telah dibayar lunas.</li>\r\n	<li><strong>Terima Uang</strong>, terima uangmu setelah pembeli melakukan konfirmasi terima barang.</li>\r\n</ol>');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `detail_keranjang`
+--
+
+CREATE TABLE `detail_keranjang` (
+  `id_detail` int(11) NOT NULL,
+  `id_keranjang` int(11) NOT NULL,
+  `id_produk` int(11) NOT NULL,
+  `kuantitas` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -155,10 +189,7 @@ CREATE TABLE `keranjang` (
   `id_keranjang` int(11) NOT NULL,
   `id_pembeli` int(11) NOT NULL,
   `tipe_pembeli` int(11) NOT NULL,
-  `id_produk` int(11) NOT NULL,
-  `kuantitas` int(11) NOT NULL,
-  `subtotal` int(11) NOT NULL,
-  `total_belanja` int(11) NOT NULL
+  `status_keranjang` tinyint(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -339,7 +370,25 @@ CREATE TABLE `tentang_warma` (
 --
 
 INSERT INTO `tentang_warma` (`id`, `tentang`, `tujuan`) VALUES
-(1, '<p>Warma atau Waroeng Mahasiswa adalah sebuah wadah bagi mahasiswa UCIC yang memiliki usaha di bidang jasa atau produk yang dijual dan dapat dipasarkan melalui internal kampus ataupun eksternal kampus melalui media berbasis website. Warma merupakan salah satu bentuk produk yang dihasilkan oleh BKM CIC yang dikontribusikan melalui pelayanan BKM CIC kepada mahasiswa yang memiliki usaha. Dengan adanya warma diharapkan mahasiswa UCIC dapat menunjukan eksistensi dan prestasinya sebagai seorang enterpreneur</p>', '<p>Waroeng Mahasiswa memiliki beberapa tujuan yang pertama yaitu untuk mengembangkan minat bagi mahasiswa yang memiliki usaha di bidang jasa atau produk, kedua untuk menghargai bentuk karya mahasiswa yang ingin berkesempatan menjadi seorang enterpreneur, ketiga untuk menunjukkan prestasi dan eksistensi sebagai seorang enterprenenur dan untuk memasarkan produk atau jasa yang dijual oleh mahasiswa untuk dapat di perluas didalam atau luar kampus UCIC</p>');
+(1, '<p>Warma atau Waroeng Mahasiswa adalah sebuah wadah bagi mahasiswa UCIC yang memiliki usaha di bidang jasa atau produk yang dijual dan dapat dipasarkan melalui internal kampus ataupun eksternal kampus melalui media berbasis website. Warma merupakan salah satu bentuk produk yang dihasilkan oleh BKM CIC yang dikontribusikan melalui pelayanan BKM CIC kepada mahasiswa yang memiliki usaha. Dengan adanya warma diharapkan mahasiswa UCIC dapat menunjukan eksistensi dan prestasinya sebagai seorang enterpreneur</p>', '<ol>\r\n	<li>Untuk mengembangkan minat bagi mahasiswa yang memiliki usaha di bidang jasa atau produk.</li>\r\n	<li>Untuk menghargai bentuk karya mahasiswa yang ingin berkesempatan menjadi seorang <em>entrepreneur</em>.</li>\r\n	<li>Untuk menunjukkan prestasi dan eksistensi sebagai seorang <em>entreprenenur</em></li>\r\n	<li>Untuk memasarkan produk atau jasa yang dijual oleh mahasiswa untuk dapat di perluas didalam atau luar kampus Universitas Catur Insan Cendekia.</li>\r\n</ol>');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `transaksi`
+--
+
+CREATE TABLE `transaksi` (
+  `id_transaksi` int(11) NOT NULL,
+  `id_pesanan` int(30) NOT NULL,
+  `nama_pelanggan` varchar(100) NOT NULL,
+  `email_pelanggan` varchar(100) NOT NULL,
+  `alamat_pelanggan` varchar(100) NOT NULL,
+  `kota_pelanggan` varchar(50) NOT NULL,
+  `telepon_pelanggan` varchar(50) NOT NULL,
+  `total_belanja` int(20) NOT NULL,
+  `status_pesanan` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -385,6 +434,18 @@ ALTER TABLE `akun_mahasiswa`
 --
 ALTER TABLE `akun_umum`
   ADD PRIMARY KEY (`id_umum`);
+
+--
+-- Indeks untuk tabel `bantuan`
+--
+ALTER TABLE `bantuan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `detail_keranjang`
+--
+ALTER TABLE `detail_keranjang`
+  ADD PRIMARY KEY (`id_detail`);
 
 --
 -- Indeks untuk tabel `fakultas`
@@ -441,6 +502,12 @@ ALTER TABLE `tentang_warma`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indeks untuk tabel `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD PRIMARY KEY (`id_transaksi`);
+
+--
 -- Indeks untuk tabel `user_token`
 --
 ALTER TABLE `user_token`
@@ -466,7 +533,19 @@ ALTER TABLE `akun_mahasiswa`
 -- AUTO_INCREMENT untuk tabel `akun_umum`
 --
 ALTER TABLE `akun_umum`
-  MODIFY `id_umum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_umum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `bantuan`
+--
+ALTER TABLE `bantuan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `detail_keranjang`
+--
+ALTER TABLE `detail_keranjang`
+  MODIFY `id_detail` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `fakultas`
@@ -515,6 +594,12 @@ ALTER TABLE `slider`
 --
 ALTER TABLE `tentang_warma`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `transaksi`
+--
+ALTER TABLE `transaksi`
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `user_token`

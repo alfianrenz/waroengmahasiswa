@@ -18,6 +18,7 @@
     <!-- Product Details Area -->
     <div class="product-details-area bg-white ptb-30">
         <div class="container">
+            <?= $this->session->userdata('message'); ?>
             <div class="pdetails">
                 <div class="row">
                     <div class="col-lg-6">

@@ -56,14 +56,13 @@
                                 <i class="icon feather icon-download f-30 text-c-green"></i>
                             </div>
                             <div class="col-auto">
-                                <h6 class="text-muted m-b-10">Transaksi Hari Ini</h6>
+                                <h6 class="text-muted m-b-10">Transaksi</h6>
                                 <h2 class="m-b-0">5</h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="col-xl-3 col-md-6">
                 <div class="card">
                     <div class="card-body">
