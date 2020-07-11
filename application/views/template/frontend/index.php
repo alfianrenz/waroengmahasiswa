@@ -105,8 +105,11 @@
     <script src="<?= base_url(); ?>assets/sweetalert/script_sweetalert.js"></script>
 
     <!-- Snap Midtrans -->
-    <!-- <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-r3Il2sHQSHWzr--h"></script> -->
-    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-iomHsitSHcf_BPl5"></script>
+    <!-- client key sendiri -->
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-r3Il2sHQSHWzr--h"></script>
+
+
+    <!-- <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-iomHsitSHcf_BPl5"></script> -->
 
     <!-- Snap Token -->
     <script type="text/javascript">

@@ -20,8 +20,8 @@ class Checkout_model extends CI_Model
     public function dataOrder()
     {
         // Set your Merchant Server Key
-        // \Midtrans\Config::$serverKey = 'SB-Mid-server-kbDhOYnPE-xqkkyHUaPf4kKy';
-        \Midtrans\Config::$serverKey = 'SB-Mid-server-B_hy-Sg8R6YVJ9oLmHqaQoia';
+        \Midtrans\Config::$serverKey = 'SB-Mid-server-kbDhOYnPE-xqkkyHUaPf4kKy';
+        // \Midtrans\Config::$serverKey = 'SB-Mid-server-B_hy-Sg8R6YVJ9oLmHqaQoia';
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
         \Midtrans\Config::$isProduction = false;
         // Set sanitization on (default)
