@@ -77,7 +77,7 @@ class Checkout extends My_Controller
         $transaction = $notif->transaction_status;
         $fraud = $notif->fraud_status;
 
-        log_message("Order ID $notif->order_id: " . "transaction status = $transaction, fraud staus = $fraud", false);
+        // log_message("Order ID $notif->order_id: " . "transaction status = $transaction, fraud staus = $fraud", false);
 
         if ($transaction == 'capture') {
             if ($fraud == 'challenge') {
@@ -125,6 +125,9 @@ class Checkout extends My_Controller
         ];
         $this->db->where('id_pesanan', $notif->order_id);
         $this->db->update('transaksi', $data);
+
+
+        $this->paggingFrontend('frontend/callback', $data);
     }
 
     // public function invoice()
