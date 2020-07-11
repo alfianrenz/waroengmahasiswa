@@ -64,70 +64,85 @@ class Checkout extends My_Controller
         // $this->paggingFrontend('frontend/callback', $data);
         // Set your Merchant Server Key
 
-        \Midtrans\Config::$serverKey = 'SB-Mid-server-kbDhOYnPE-xqkkyHUaPf4kKy';
-        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
-        \Midtrans\Config::$isProduction = false;
-        // Set sanitization on (default)
-        \Midtrans\Config::$isSanitized = true;
-        // Set 3DS transaction for credit card to true
-        \Midtrans\Config::$is3ds = true;
+        // \Midtrans\Config::$serverKey = 'SB-Mid-server-kbDhOYnPE-xqkkyHUaPf4kKy';
+        // // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        // \Midtrans\Config::$isProduction = false;
+        // // Set sanitization on (default)
+        // \Midtrans\Config::$isSanitized = true;
+        // // Set 3DS transaction for credit card to true
+        // \Midtrans\Config::$is3ds = true;
 
-        $notif = new \Midtrans\Notification();
+        // $notif = new \Midtrans\Notification();
 
-        $transaction = $notif->transaction_status;
-        $fraud = $notif->fraud_status;
+        // $transaction = $notif->transaction_status;
+        // $fraud = $notif->fraud_status;
+
+
+        // $transaction = $this->input->get('transaction_status');
+
 
         // log_message("Order ID $notif->order_id: " . "transaction status = $transaction, fraud staus = $fraud", false);
 
-        if ($transaction == 'capture') {
-            if ($fraud == 'challenge') {
-                // TODO Set payment status in merchant's database to 'challenge
-                $data = [
-                    'status_pesanan' => 'challenge'
-                ];
-                $this->db->where('id_pesanan', $notif->order_id);
-                $this->db->update('transaksi', $data);
-            } else if ($fraud == 'accept') {
-                // TODO Set payment status in merchant's database to 'success'
-                $data = [
-                    'status_pesanan' => 'success'
-                ];
-                $this->db->where('id_pesanan', $notif->order_id);
-                $this->db->update('transaksi', $data);
-            }
-        } else if ($transaction == 'cancel') {
-            if ($fraud == 'challenge') {
-                // TODO Set payment status in merchant's database to 'failure'
-                $data = [
-                    'status_pesanan' => 'failure'
-                ];
-                $this->db->where('id_pesanan', $notif->order_id);
-                $this->db->update('transaksi', $data);
-            } else if ($fraud == 'accept') {
-                // TODO Set payment status in merchant's database to 'failure'
-                $data = [
-                    'status_pesanan' => 'failure'
-                ];
-                $this->db->where('id_pesanan', $notif->order_id);
-                $this->db->update('transaksi', $data);
-            }
-        } else if ($transaction == 'deny') {
-            // TODO Set payment status in merchant's database to 'failure'
-            $data = [
-                'status_pesanan' => 'failure'
-            ];
-            $this->db->where('id_pesanan', $notif->order_id);
-            $this->db->update('transaksi', $data);
-        }
+        // if ($transaction == 200) {
+        //     if ($fraud == 'challenge') {
+        //         // TODO Set payment status in merchant's database to 'challenge
+        //         $data = [
+        //             'status_pesanan' => 'challenge'
+        //         ];
+        //         $this->db->where('id_pesanan', $notif);
+        //         $this->db->update('transaksi', $data);
+        //     } else if ($fraud == 'accept') {
+        //         // TODO Set payment status in merchant's database to 'success'
+        //         $data = [
+        //             'status_pesanan' => 'success'
+        //         ];
+        //         $this->db->where('id_pesanan', $notif);
+        //         $this->db->update('transaksi', $data);
+        //     }
+        // } else if ($transaction == 'cancel') {
+        //     if ($fraud == 'challenge') {
+        //         // TODO Set payment status in merchant's database to 'failure'
+        //         $data = [
+        //             'status_pesanan' => 'failure'
+        //         ];
+        //         $this->db->where('id_pesanan', $notif);
+        //         $this->db->update('transaksi', $data);
+        //     } else if ($fraud == 'accept') {
+        //         // TODO Set payment status in merchant's database to 'failure'
+        //         $data = [
+        //             'status_pesanan' => 'failure'
+        //         ];
+        //         $this->db->where('id_pesanan', $notif);
+        //         $this->db->update('transaksi', $data);
+        //     }
+        // } else if ($transaction == 'deny') {
+        //     // TODO Set payment status in merchant's database to 'failure'
+        //     $data = [
+        //         'status_pesanan' => 'failure'
+        //     ];
+        //     $this->db->where('id_pesanan', $notif);
+        //     $this->db->update('transaksi', $data);
+        // }
 
+        // $data = [
+        //     'status_pesanan' => 'settlement'
+        // ];
+
+        $transaction = $this->input->get('status_code');
+        $notif = $this->input->get('order_id');
         $data = [
-            'status_pesanan' => 'settlement'
+            'status_pesanan' => $this->input->get('transaction_status')
         ];
-        $this->db->where('id_pesanan', $notif->order_id);
-        $this->db->update('transaksi', $data);
+
+        if ($transaction == 200) {
+            $this->db->where('id_pesanan', $notif);
+            $this->db->update('transaksi', $data);
 
 
-        $this->paggingFrontend('frontend/callback', $data);
+            $this->paggingFrontend('frontend/callback', $data);
+        } else {
+            $this->paggingFrontend('frontend/error', $data);
+        }
     }
 
     // public function invoice()
