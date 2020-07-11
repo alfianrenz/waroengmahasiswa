@@ -26,7 +26,7 @@
                         <?php } else { ?>
                             <div class="pro-head">
                                 <img src="<?= base_url('upload/foto_user/' . $s_umum['foto']); ?>" class="img-radius" alt="User-Profile-Image">
-                                <span><?= $s_umum['username']; ?></span>
+                                <span><?= $s_umum['nama']; ?></span>
                             </div>
                         <?php } ?>
 

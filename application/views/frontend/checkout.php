@@ -57,7 +57,7 @@
                                 <option value="go_send">Go Send</option>
                             </select>
                         </div>
-                        <small class="text-muted">* Biaya ongkir ditanggung pembeli saat kurir sampai ditempat tujuan</small>
+                        <small class="text-muted">* Catatan : Biaya ongkos kirim ditanggung pembeli saat kurir sampai ditempat tujuan</small>
 
                     </div>
 

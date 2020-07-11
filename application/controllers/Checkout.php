@@ -38,4 +38,14 @@ class Checkout extends My_Controller
         } else {
         }
     }
+
+    public function invoice()
+    {
+        if (!$this->session->userdata('id')) {
+            redirect('auth/login_mahasiswa');
+        }
+
+        $data['title'] = 'Warma CIC | Invoice';
+        $this->paggingFrontend('frontend/invoice', $data);
+    }
 }

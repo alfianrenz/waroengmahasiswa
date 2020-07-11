@@ -35,7 +35,7 @@
                                 <form action="<?= site_url('auth/login_umum'); ?>" method="POST">
                                     <div class="form-group">
                                         <label for="inputEmail3" class="col-form-label col-form-label-sm">Email / Username</label>
-                                        <input type="text" class="form-control form-control-sm" id="username" name="username" placeholder="" value="">
+                                        <input type="text" class="form-control form-control-sm" id="username" name="username" placeholder="" value="<?= set_value('username'); ?>">
                                         <?= form_error('username', '<small class="text-danger">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">

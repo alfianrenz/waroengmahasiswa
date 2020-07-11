@@ -40,11 +40,12 @@
                     </a>
                 </li>
                 <!-- Laporan -->
-                <li class="nav-item">
-                    <a href="" class="nav-link ">
-                        <span class="pcoded-micon"><i class="feather icon-file"></i></span>
-                        <span class="pcoded-mtext">Laporan</span>
-                    </a>
+                <li class="nav-item pcoded-hasmenu <?= active_menu('laporan'); ?>">
+                    <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file"></i></span><span class="pcoded-mtext"> Laporan</span></a>
+                    <ul class="pcoded-submenu">
+                        <li class=""><a href="">Penjualan</a></li>
+                        <li class=""><a href="">Penghasilan</a></li>
+                    </ul>
                 </li>
 
                 <li class="nav-item pcoded-menu-caption">

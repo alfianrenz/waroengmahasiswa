@@ -482,7 +482,7 @@ class Auth extends My_Controller
                             'id' => $umum['id_umum'],
                             'email' => $umum['email'],
                             'foto' => $umum['foto'],
-                            'nama' => $umum['username'],
+                            'nama' => $umum['nama'],
                             'telepon' => $umum['telepon'],
                             'tipe' => $umum['tipe']
                         ];
@@ -517,6 +517,9 @@ class Auth extends My_Controller
             'valid_email'  => 'Email tidak valid',
             'is_unique' => 'Email sudah terdaftar'
         ]);
+        $this->form_validation->set_rules('nama', 'nama', 'required|trim', [
+            'required' => 'Form ini tidak boleh kosong'
+        ]);
         $this->form_validation->set_rules('username', 'username', 'required|trim', [
             'required' => 'Form ini tidak boleh kosong'
         ]);
@@ -550,6 +553,7 @@ class Auth extends My_Controller
     public function logout_umum()
     {
         $this->session->unset_userdata('id');
+        $this->session->unset_userdata('nama');
         $this->session->unset_userdata('foto');
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('telepon');

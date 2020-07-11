@@ -16,7 +16,7 @@
                     <div class="main-menu-header">
                         <img class="img-radius" src="<?= base_url('upload/foto_user/' . $s_umum['foto']); ?>" alt="User-Profile-Image">
                         <div class="user-details">
-                            <div id="more-details"><?= $s_umum['username']; ?></div>
+                            <div id="more-details"><?= $s_umum['nama']; ?></div>
                         </div>
                     </div>
                 </div>

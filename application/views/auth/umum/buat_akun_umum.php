@@ -31,17 +31,21 @@
                     <div class="login-form-wrapper">
                         <div class="card">
                             <div class="card-body">
-
                                 <form action="<?= site_url('auth/buat_akun_umum'); ?>" method="POST">
                                     <div class="form-group">
-                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Email</label>
-                                        <input type="text" class="form-control form-control-sm" id="email" name="email" placeholder="" value="<?= set_value('email'); ?>">
-                                        <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
+                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Nama Lengkap</label>
+                                        <input type="text" class="form-control form-control-sm" id="nama" name="nama" placeholder="" value="<?= set_value('nama'); ?>">
+                                        <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputEmail3" class="col-form-label col-form-label-sm">Username</label>
                                         <input type="text" class="form-control form-control-sm" id="username" name="username" placeholder="" value="<?= set_value('username'); ?>">
                                         <?= form_error('username', '<small class="text-danger">', '</small>'); ?>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Email</label>
+                                        <input type="text" class="form-control form-control-sm" id="email" name="email" placeholder="" value="<?= set_value('email'); ?>">
+                                        <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputEmail3" class="col-form-label col-form-label-sm">Nomor Telepon</label>

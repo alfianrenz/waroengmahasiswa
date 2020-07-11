@@ -72,8 +72,10 @@
                                     <li><a href="<?= site_url('keranjang/halaman_keranjang'); ?>">Keranjang</a></li>
 
                                     <?php if ($this->session->userdata('tipe') == 1) { ?>
+                                        <li><a href="<?= site_url('profile/profile_mahasiswa'); ?>">Profile</a></li>
                                         <li><a href="<?= site_url('auth/logout_mahasiswa'); ?>">Logout</a></li>
                                     <?php } else { ?>
+                                        <li><a href="<?= site_url('profile/profile_umum'); ?>">Profile</a></li>
                                         <li><a href="<?= site_url('auth/logout_umum'); ?>">Logout</a></li>
                                     <?php } ?>
                                 </ul>
