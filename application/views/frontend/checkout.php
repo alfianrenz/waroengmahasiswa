@@ -14,12 +14,11 @@
 <main class="page-content">
 
     <!-- Shop Page Area -->
-    <div class="checkout-area bg-white pb-30">
+    <div class="checkout-area bg-white ptb-30">
         <div class="container">
 
             <form id="checkout">
                 <div class="row">
-                    <!-- Alamat Pengiriman -->
                     <div class="col-lg-6">
                         <h3 class="small-title">PENERIMA</h3>
                         <table class="table table-sm table-borderless">
@@ -64,7 +63,6 @@
                             </select>
                         </div>
                         <small class="text-muted">* Catatan : Biaya ongkos kirim ditanggung pembeli saat kurir sampai ditempat tujuan</small> -->
-
                     </div>
 
                     <?php
@@ -116,7 +114,6 @@
                     </div>
                 </div>
             </form>
-
         </div>
     </div>
 </main>
