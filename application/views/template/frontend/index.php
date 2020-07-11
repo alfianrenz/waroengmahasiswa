@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="<?= base_url(); ?>assets/frontend/style.css">
     <!-- Custom Styles -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/frontend/css/custom.css">
+
 </head>
 
 <body>
@@ -103,6 +104,59 @@
     <script src="<?= base_url(); ?>assets/sweetalert/sweetalert2.all.min.js"></script>
     <script src="<?= base_url(); ?>assets/sweetalert/script_sweetalert.js"></script>
 
+    <!-- Snap Midtrans -->
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js" data-client-key="SB-Mid-client-r3Il2sHQSHWzr--h"></script>
+
+    <!-- Snap Token -->
+    <script type="text/javascript">
+        // var payButton = document.getElementById('pembayaran');
+        // payButton.addEventListener('click', function() {
+        // });
+
+        // console.log('asdsad');
+
+        $('#checkout').submit(function(e) {
+
+            e.preventDefault();
+            var form = $(this);
+            var formData = false;
+            if (window.FormData) {
+                formdata = new FormData(form[0]);
+            }
+
+            $.ajax({
+                url: "<?= site_url('checkout/getToken'); ?>",
+                data: formdata ? formdata : form.serialize(),
+                cache: false,
+                contentType: false,
+                processData: false,
+                type: 'POST',
+                success: function(data, status, jqXHR) {
+                    console.log(data);
+                    if (data.error) {
+                        if (data.validasi_kota != '') {
+                            $('#validasi_kota').html(data.validasi_kota);
+                        } else {
+                            $('#validasi_kota').html('');
+                        }
+                        if (data.validasi_kode_pos != '') {
+                            $('#validasi_kode_pos').html(data.validasi_kode_pos);
+                        } else {
+                            $('#validasi_kode_pos').html('');
+                        }
+                        if (data.validasi_alamat != '') {
+                            $('#validasi_alamat').html(data.validasi_alamat);
+                        } else {
+                            $('#validasi_alamat').html('');
+                        }
+                    } else {
+                        snap.pay(data.token);
+                    }
+                }
+            });
+        });
+    </script>
+
     <!-- Untuk Detail Produk di Modal -->
     <script type="text/javascript">
         const showDetailProduk = (id_produk) => {
@@ -132,6 +186,7 @@
             $("#detail-keranjang-" + id_detail).submit();
         }
     </script>
+
 
 </body>
 

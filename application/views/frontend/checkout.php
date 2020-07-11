@@ -17,7 +17,7 @@
     <div class="checkout-area bg-white pb-30">
         <div class="container">
 
-            <form action="<?= site_url('checkout'); ?>" class="billing-info" method="post">
+            <form id="checkout">
                 <div class="row">
                     <!-- Alamat Pengiriman -->
                     <div class="col-lg-6">
@@ -42,14 +42,20 @@
                         <div class="form-group">
                             <label class="floating-label">Kota</label>
                             <input type="text" class="form-control form-control-sm" id="kota" name="kota" value="<?= set_value('kota'); ?>">
-                            <?= form_error('kota', '<small class="text-danger">', '</small>'); ?>
+                            <span id="validasi_kota" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label class="floating-label">Alamat</label>
-                            <input type="text" class="form-control" id="alamat" name="alamat" value="<?= set_value('alamat'); ?>">
-                            <?= form_error('alamat', '<small class="text-danger">', '</small>'); ?>
+                            <input type="text" class="form-control form-control-sm" id="alamat" name="alamat" value="<?= set_value('alamat'); ?>">
+                            <span id="validasi_alamat" class="text-danger"></span>
                         </div>
                         <div class="form-group">
+                            <label class="floating-label">Kode Pos</label>
+                            <input type="text" class="form-control form-control-sm" id="kode_pos" name="kode_pos" value="<?= set_value('kode_pos'); ?>">
+                            <span id="validasi_kode_pos" class="text-danger"></span>
+                        </div>
+
+                        <!-- <div class="form-group">
                             <label class="floating-label">Jasa Kurir</label>
                             <select class="form-control form-control-sm" id=kurir name="kurir">
                                 <option>Pilih Kurir</option>
@@ -57,7 +63,7 @@
                                 <option value="go_send">Go Send</option>
                             </select>
                         </div>
-                        <small class="text-muted">* Catatan : Biaya ongkos kirim ditanggung pembeli saat kurir sampai ditempat tujuan</small>
+                        <small class="text-muted">* Catatan : Biaya ongkos kirim ditanggung pembeli saat kurir sampai ditempat tujuan</small> -->
 
                     </div>
 
