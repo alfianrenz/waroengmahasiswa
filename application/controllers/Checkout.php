@@ -48,4 +48,10 @@ class Checkout extends My_Controller
         $data['title'] = 'Warma CIC | Invoice';
         $this->paggingFrontend('frontend/invoice', $data);
     }
+
+    public function callback()
+    {
+        $data['title'] = 'Warma CIC |Callback';
+        $this->paggingFrontend('frontend/callback', $data);
+    }
 }
