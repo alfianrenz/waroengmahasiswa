@@ -20,7 +20,8 @@ class Checkout_model extends CI_Model
     public function dataOrder()
     {
         // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = 'SB-Mid-server-kbDhOYnPE-xqkkyHUaPf4kKy';
+        // \Midtrans\Config::$serverKey = 'SB-Mid-server-kbDhOYnPE-xqkkyHUaPf4kKy';
+        \Midtrans\Config::$serverKey = 'SB-Mid-server-B_hy-Sg8R6YVJ9oLmHqaQoia';
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
         \Midtrans\Config::$isProduction = false;
         // Set sanitization on (default)
@@ -86,12 +87,6 @@ class Checkout_model extends CI_Model
             'billing_address'     => $billing_address,
             'shipping_address'    => $shipping_address
         ];
-
-
-        // var_dump($item_details);
-        // var_dump($transaction_details);
-
-        // die;
 
         $data = [
             'id_pesanan'        => $transaction_details['order_id'],
