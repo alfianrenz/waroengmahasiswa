@@ -16,6 +16,15 @@ class Checkout_model extends CI_Model
         return $this->db->get()->result_array();
     }
 
+    //get data transaksi
+    public function get_transaksi()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->where('id_pembeli', $this->session->userdata('id'));
+        return $this->db->get()->result_array();
+    }
+
     //get token midtrans
     public function token()
     {
@@ -101,6 +110,7 @@ class Checkout_model extends CI_Model
         //Insert database
         $data_transaksi = [
             'order_id'          => $order_id,
+            'id_pembeli'        => $produk[0]['id_pembeli'],
             'nama_pelanggan'    => $this->session->userdata('nama'),
             'email_pelanggan'   => $this->session->userdata('email'),
             'alamat_pelanggan'  => $this->input->post('alamat'),

@@ -29,13 +29,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Status Pembayaran</td>
-                                                <td>:&nbsp;&nbsp;
-                                                    <?php if ($transaksi->status_bayar == 'pending') { ?>
-                                                        <span>Belum Bayar</span>
-                                                    <?php } else { ?>
-                                                        <span>Sudah Bayar</span>
-                                                    <?php } ?>
-                                                </td>
+                                                <td>:&nbsp;&nbsp;<?= $transaksi->status_bayar; ?></td>
                                             </tr>
                                             <tr>
                                                 <td>Tipe Pembayaran</td>
@@ -43,7 +37,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Total Pembayaran</td>
-                                                <td>:&nbsp;&nbsp;<?= $transaksi->total_bayar; ?></td>
+                                                <td>:&nbsp;&nbsp;<?= number_format($transaksi->total_bayar, 0, ',', '.'); ?></td>
                                             </tr>
                                         </tbody>
                                     </table>

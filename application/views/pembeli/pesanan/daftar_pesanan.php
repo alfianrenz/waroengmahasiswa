@@ -50,17 +50,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="text-center align-middle"></td>
-                                        <td class="align-middle"></td>
-                                        <td class="align-middle"></td>
-                                        <td class="align-middle"></td>
-                                        <td class="align-middle"></td>
-                                        <td class="align-middle text-center"></td>
-                                        <td class="align-middle text-center">
-                                            <a href="" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
-                                        </td>
-                                    </tr>
+                                    <?php foreach ($transaksi as $t) : ?>
+                                        <tr>
+                                            <td class="text-center align-middle"></td>
+                                            <td class="align-middle"><?= $t['tipe_pembayaran']; ?></td>
+                                            <td class="align-middle"><?= $t['waktu_transaksi']; ?></td>
+                                            <td class="align-middle"><?= $t['email_pelanggan']; ?></td>
+                                            <td class="align-middle"><?= $t['total_bayar']; ?></td>
+                                            <td class="align-middle text-center">
+                                                <?php if ($t['status_bayar'] == 'pending') { ?>
+                                                    <label class="badge badge-warning">Belum Bayar</label>
+                                                <?php } else { ?>
+                                                    <label class="badge badge-success">Dikirim</label>
+                                                <?php } ?>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <a href="" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
