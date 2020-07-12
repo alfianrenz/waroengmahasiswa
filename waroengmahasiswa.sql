@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Jul 2020 pada 11.25
+-- Waktu pembuatan: 11 Jul 2020 pada 14.39
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.2
 
@@ -83,6 +83,7 @@ INSERT INTO `akun_mahasiswa` (`id_mahasiswa`, `nim`, `email_mahasiswa`, `passwor
 CREATE TABLE `akun_umum` (
   `id_umum` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
+  `nama` varchar(60) NOT NULL,
   `email` varchar(70) NOT NULL,
   `telepon` varchar(20) NOT NULL,
   `password` varchar(256) NOT NULL,
@@ -96,9 +97,10 @@ CREATE TABLE `akun_umum` (
 -- Dumping data untuk tabel `akun_umum`
 --
 
-INSERT INTO `akun_umum` (`id_umum`, `username`, `email`, `telepon`, `password`, `foto`, `tanggal_daftar`, `status_aktif`, `tipe`) VALUES
-(1, 'jenyver', 'alfianrenz25@gmail.com', '6289626551599', '$2y$10$09mRsje4Rp.2t67pLUuh2OXzpJbRVuAY1V1RM2uknlEFCl/AtR8AS', 'jenyver.jpg', '2020-07-02 06:40:22', 1, 2),
-(2, 'dimas', 'dimasaulia@gmail.com', '62812908899097', '$2y$10$4hN8kFWZ3R9nc0tAXyWoTOhl9qc50GLYmcNfTFb4MTvrtNr0K31Rq', 'dimas.jpg', '2020-07-09 10:13:58', 1, 2);
+INSERT INTO `akun_umum` (`id_umum`, `username`, `nama`, `email`, `telepon`, `password`, `foto`, `tanggal_daftar`, `status_aktif`, `tipe`) VALUES
+(1, 'jenyver', 'Jenyver', 'alfianrenz25@gmail.com', '6289626551599', '$2y$10$09mRsje4Rp.2t67pLUuh2OXzpJbRVuAY1V1RM2uknlEFCl/AtR8AS', 'jenyver.jpg', '2020-07-02 06:40:22', 1, 2),
+(2, 'dimas', 'Dimas Aulia', 'dimasaulia@gmail.com', '62812908899097', '$2y$10$4hN8kFWZ3R9nc0tAXyWoTOhl9qc50GLYmcNfTFb4MTvrtNr0K31Rq', 'dimas.jpg', '2020-07-09 10:13:58', 1, 2),
+(3, 'Indra', 'Indra Romadhon', 'indra@gmail.com', '681267889098', '$2y$10$KFk7dbMj8tiA.AjorQDL3uBfBURp8qbNPZQKUJvxlBGT6p7kigUou', 'default.png', '2020-07-10 19:47:01', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -385,9 +387,10 @@ CREATE TABLE `transaksi` (
   `email_pelanggan` varchar(100) NOT NULL,
   `alamat_pelanggan` varchar(100) NOT NULL,
   `kota_pelanggan` varchar(50) NOT NULL,
+  `kode_pos` int(11) NOT NULL,
   `telepon_pelanggan` varchar(50) NOT NULL,
   `total_belanja` int(20) NOT NULL,
-  `status_pesanan` int(11) NOT NULL
+  `status_pesanan` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -533,7 +536,7 @@ ALTER TABLE `akun_mahasiswa`
 -- AUTO_INCREMENT untuk tabel `akun_umum`
 --
 ALTER TABLE `akun_umum`
-  MODIFY `id_umum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_umum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `bantuan`

@@ -16,24 +16,23 @@ class Checkout_model extends CI_Model
         return $this->db->get()->result_array();
     }
 
-    //data order untuk checkout ke midtrans
-    public function dataOrder()
+    //get token midtrans
+    public function token()
     {
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = 'SB-Mid-server-kbDhOYnPE-xqkkyHUaPf4kKy';
-        // \Midtrans\Config::$serverKey = 'SB-Mid-server-B_hy-Sg8R6YVJ9oLmHqaQoia';
-        // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
+        // Set to Development/Sandbox Environment (default). Set to true for Production Environment
         \Midtrans\Config::$isProduction = false;
         // Set sanitization on (default)
         \Midtrans\Config::$isSanitized = true;
         // Set 3DS transaction for credit card to true
         \Midtrans\Config::$is3ds = true;
 
-        //Data detail keranjang
+        //detail keranjang
         $produk = $this->getdetail_keranjang();
         $total_belanja = 0;
 
-        //hitung subtotal dan total belanja
+        //subtotal dan total belanja
         foreach ($produk as $p) {
             $harga_produk = $p['harga_produk'];
             $kuantitas = $p['kuantitas'];
@@ -41,9 +40,7 @@ class Checkout_model extends CI_Model
             $total_belanja += $subtotal;
         }
 
-        // var_dump($produk);
-        // die;
-        //data transaksi
+        //required
         $transaction_details = [
             'order_id' => rand(),
             'gross_amount' => $total_belanja
@@ -54,32 +51,44 @@ class Checkout_model extends CI_Model
         foreach ($produk as $p) {
             $item_details[] = [
                 'id' => $p['id_detail'],
-                'price' => $subtotal * $p['kuantitas'],
+                'price' => $p['harga_produk'],
                 'quantity' => $p['kuantitas'],
                 'name' => $p['nama_produk']
             ];
         }
 
-        //customer detail, billing address, shipping address
-        $data = [
-            'first_name'  => $this->session->userdata('nama'),
-            'email'       => $this->session->userdata('email'),
-            'address'     => $this->input->post('alamat'),
-            'postal_code' => $this->input->post('kode_pos'),
-            'city'        => $this->input->post('kota'),
-            'phone'       => $this->session->userdata('telepon'),
-        ];
+        // Optional
+        $billing_address = array(
+            'first_name'    => $this->session->userdata('nama'),
+            'address'       => $this->input->post('alamat'),
+            'city'          => $this->input->post('kota'),
+            'postal_code'   => $this->input->post('kode_pos'),
+            'phone'         => $this->session->userdata('telepon')
+        );
 
-        $customer_details = $data;
-        $billing_address = $data;
-        $shipping_address = $data;
+        // Optional
+        $shipping_address = array(
+            'first_name'    => $this->session->userdata('nama'),
+            'address'       => $this->input->post('alamat'),
+            'city'          => $this->input->post('kota'),
+            'postal_code'   => $this->input->post('kode_pos'),
+            'phone'         => $this->session->userdata('telepon')
+        );
 
+        // Optional
+        $customer_details = array(
+            'first_name'    => $this->session->userdata('nama'),
+            'email'         => $this->session->userdata('email'),
+            'phone'         => $this->session->userdata('telepon'),
+            'billing_address'  => $billing_address,
+            'shipping_address' => $shipping_address
+        );
 
         $enable_payments = [
-            'credit_card', 'cimb_clicks', 'mandiri_clickpay', 'echannel', 'alfamart', 'bca_klikbca', 'bca_klikpay', 'bri_epay', 'echannel', 'permata_va', 'bca_va', 'bni_va', 'other_va', 'gopay', 'indomaret', 'danamon_online', 'akulaku'
+            'credit_card', 'alfamart', 'bri_epay', 'echannel', 'permata_va', 'bca_va', 'bni_va', 'other_va', 'gopay', 'indomaret'
         ];
 
-        $transaction = [
+        $transaction_data = [
             'enabled_payments'    => $enable_payments,
             'customer_details'    => $customer_details,
             'item_details'        => $item_details,
@@ -88,8 +97,26 @@ class Checkout_model extends CI_Model
             'shipping_address'    => $shipping_address
         ];
 
-        $data = [
-            'id_pesanan'        => $transaction_details['order_id'],
+        $snapToken = \Midtrans\Snap::getSnapToken($transaction_data);
+        return $snapToken;
+    }
+
+    //Insert transaksi
+    public function insert_transaksi()
+    {
+        $produk = $this->getdetail_keranjang();
+        $total_belanja = 0;
+
+        //subtotal dan total belanja
+        foreach ($produk as $p) {
+            $harga_produk = $p['harga_produk'];
+            $kuantitas = $p['kuantitas'];
+            $subtotal = $harga_produk * $kuantitas;
+            $total_belanja += $subtotal;
+        }
+
+        $data_transaksi = [
+            'id_pesanan'        => $this->input->get('order_id'),
             'nama_pelanggan'    => $this->session->userdata('nama'),
             'email_pelanggan'   => $this->session->userdata('email'),
             'alamat_pelanggan'  => $this->input->post('alamat'),
@@ -97,12 +124,8 @@ class Checkout_model extends CI_Model
             'kode_pos'          => $this->input->post('kode_pos'),
             'telepon_pelanggan' => $this->session->userdata('telepon'),
             'total_belanja'     => $total_belanja,
-            'status_pesanan'    => 'pending'
+            'status_pesanan'    => $this->input->get('transaction_status')
         ];
-
-        $this->db->insert('transaksi', $data);
-
-        $snapToken = \Midtrans\Snap::getSnapToken($transaction);
-        return $snapToken;
+        $this->db->insert('transaksi', $data_transaksi);
     }
 }

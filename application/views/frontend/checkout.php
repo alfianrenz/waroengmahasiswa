@@ -14,7 +14,7 @@
 <main class="page-content">
 
     <!-- Shop Page Area -->
-    <div class="checkout-area bg-white pb-30">
+    <div class="checkout-area bg-white ptb-30">
         <div class="container">
 
             <form id="checkout">
@@ -25,46 +25,35 @@
                         <table class="table table-sm table-borderless">
                             <tbody>
                                 <tr>
-                                    <td>Nama Penerima</td>
+                                    <td>Nama</td>
                                     <td>:&nbsp;&nbsp; <?= $this->session->userdata('nama'); ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Nomor Telepon</td>
+                                    <td>Telepon</td>
                                     <td>:&nbsp;&nbsp; <?= $this->session->userdata('telepon'); ?></td>
                                 </tr>
                                 <tr>
-                                    <td>Email Penerima</td>
+                                    <td>Email</td>
                                     <td>:&nbsp;&nbsp; <?= $this->session->userdata('email'); ?></td>
                                 </tr>
                             </tbody>
                         </table>
                         <h3 class="small-title mt-30">PENGIRIMAN</h3>
                         <div class="form-group">
-                            <label class="floating-label">Kota</label>
+                            <label class="floating-label">Kabupaten / Kota</label>
                             <input type="text" class="form-control form-control-sm" id="kota" name="kota" value="<?= set_value('kota'); ?>">
-                            <span id="validasi_kota" class="text-danger"></span>
+                            <small id="validasi_kota" class="text-danger"></small>
                         </div>
                         <div class="form-group">
-                            <label class="floating-label">Alamat</label>
+                            <label class="floating-label">Alamat Lengkap</label>
                             <input type="text" class="form-control form-control-sm" id="alamat" name="alamat" value="<?= set_value('alamat'); ?>">
-                            <span id="validasi_alamat" class="text-danger"></span>
+                            <small id="validasi_alamat" class="text-danger"></small>
                         </div>
                         <div class="form-group">
                             <label class="floating-label">Kode Pos</label>
                             <input type="text" class="form-control form-control-sm" id="kode_pos" name="kode_pos" value="<?= set_value('kode_pos'); ?>">
-                            <span id="validasi_kode_pos" class="text-danger"></span>
+                            <small id="validasi_kode_pos" class="text-danger"></small>
                         </div>
-
-                        <!-- <div class="form-group">
-                            <label class="floating-label">Jasa Kurir</label>
-                            <select class="form-control form-control-sm" id=kurir name="kurir">
-                                <option>Pilih Kurir</option>
-                                <option value="grab_express">Grab Express</option>
-                                <option value="go_send">Go Send</option>
-                            </select>
-                        </div>
-                        <small class="text-muted">* Catatan : Biaya ongkos kirim ditanggung pembeli saat kurir sampai ditempat tujuan</small> -->
-
                     </div>
 
                     <?php
