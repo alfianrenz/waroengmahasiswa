@@ -25,19 +25,19 @@
                                         <tbody>
                                             <tr>
                                                 <td>Kode Pembayaran</td>
-                                                <td>:&nbsp;&nbsp;<?= $data->payment_code; ?></td>
+                                                <td>:&nbsp;&nbsp;<?= $data['payment_code']; ?></td>
                                             </tr>
                                             <tr>
                                                 <td>Status Pesanan</td>
-                                                <td>:&nbsp;&nbsp;<?= $data->transaction_status; ?></td>
+                                                <td>:&nbsp;&nbsp;<?= $data['transaction_status']; ?></td>
                                             </tr>
                                             <tr>
                                                 <td>Metode Pembayaran</td>
-                                                <td>:&nbsp;&nbsp;<?= $data->payment_type; ?></td>
+                                                <td>:&nbsp;&nbsp;<?= $data['payment_type']; ?></td>
                                             </tr>
                                             <tr>
                                                 <td>Total Pembayaran</td>
-                                                <td>:&nbsp;&nbsp;<?= $data->gross_amount; ?></td>
+                                                <td>:&nbsp;&nbsp;<?= $data['gross_amount']; ?></td>
                                             </tr>
                                         </tbody>
                                     </table>
