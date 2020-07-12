@@ -104,11 +104,10 @@ class Checkout_model extends CI_Model
             'nama_pelanggan'    => $this->session->userdata('nama'),
             'email_pelanggan'   => $this->session->userdata('email'),
             'alamat_pelanggan'  => $this->input->post('alamat'),
-            'payment_type'      => '',
             'kota_pelanggan'    => $this->input->post('kota'),
             'kode_pos'          => $this->input->post('kode_pos'),
             'telepon_pelanggan' => $this->session->userdata('telepon'),
-            'total_belanja'     => $total_belanja,
+            'gross_amount'      => $total_belanja,
             'status_pesanan'    => 'pending'
         ];
         $this->db->insert('transaksi', $data_transaksi);

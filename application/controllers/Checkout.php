@@ -62,22 +62,24 @@ class Checkout extends My_Controller
     //Halaman callback
     public function callback()
     {
-
         $data = json_decode(file_get_contents('php://input'));
 
         $status = $data->transaction_status;
         $order_id = $data->order_id;
         $payment_type = $data->payment_type;
+        $payment_code = $data->payment_code;
+        $transaction_time = $data->transaction_time;
+        $gross_amount = $data->gross_amount;
 
         $data = [
-            'status_pesanan' => $status,
-            'payment_type'   => $payment_type
+            'status_pesanan'   => $status,
+            'payment_type'     => $payment_type,
+            'payment_code'     => $payment_code,
+            'transaction_time' => $transaction_time,
+            'gross_amount'     => $gross_amount
         ];
 
-        // $data = $this->input->post();
-        // var_dump($data->payment_type);
-        // die;
-
+        //insert database
         if ($status == 'pending') {
             $this->db->where('order_id', $order_id);
             $this->db->update('transaksi', $data);
@@ -98,7 +100,7 @@ class Checkout extends My_Controller
             $this->db->update('transaksi', $data);
         }
 
-        $this->paggingFrontend('frontend/callback', $data);
+        // $this->paggingFrontend('frontend/callback', $data);
 
         // $transaction = $this->input->get('status_code');
         // $notif = $this->input->get('order_id');
@@ -113,5 +115,23 @@ class Checkout extends My_Controller
         // } else {
         //     $this->paggingFrontend('frontend/error', $data);
         // }
+    }
+
+    public function redirect()
+    {
+        $data = json_decode(file_get_contents('php://input'));
+        $transaction = $this->input->get('status_code');
+        $order_id = $this->input->get('order_id');
+        $data = [
+            'status_pesanan' => $this->input->get('transaction_status')
+        ];
+
+        if ($transaction == 200) {
+            $this->db->where('id_pesanan', $order_id);
+            // $this->db->update('transaksi', $data);
+            $this->paggingFrontend('frontend/callback', $data);
+        } else {
+            $this->paggingFrontend('frontend/error', $data);
+        }
     }
 }
