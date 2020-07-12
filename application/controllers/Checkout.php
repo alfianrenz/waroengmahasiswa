@@ -1,4 +1,7 @@
 <?php
+
+use phpDocumentor\Reflection\Types\True_;
+
 defined('BASEPATH') or exit('No direct script access allowed');
 
 require_once(APPPATH . '/midtrans/Midtrans.php');
@@ -15,7 +18,7 @@ class Checkout extends My_Controller
     //              CHECKOUT MIDTRANS
     //==========================================
 
-    //halaman checkout
+    //Halaman Checkout
     public function index()
     {
         if (!$this->session->userdata('id')) {
@@ -27,6 +30,7 @@ class Checkout extends My_Controller
         $this->paggingFrontend('frontend/checkout', $data);
     }
 
+    //Get Token Midtrans
     public function getToken()
     {
         $this->form_validation->set_rules('kota', 'kota', 'required|trim', [
@@ -55,7 +59,7 @@ class Checkout extends My_Controller
         }
     }
 
-
+    //Halaman callback
     public function callback()
     {
         $status = $this->input->get('transaction_status');

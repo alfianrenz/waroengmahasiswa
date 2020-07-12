@@ -19,7 +19,6 @@
 
             <form id="checkout">
                 <div class="row">
-                    <!-- Alamat Pengiriman -->
                     <div class="col-lg-6">
                         <h3 class="small-title">PENERIMA</h3>
                         <table class="table table-sm table-borderless">
@@ -105,7 +104,6 @@
                     </div>
                 </div>
             </form>
-
         </div>
     </div>
 </main>
