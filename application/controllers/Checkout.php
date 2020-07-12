@@ -58,8 +58,32 @@ class Checkout extends My_Controller
 
     public function callback()
     {
-        $data['title'] = 'Warma CIC | Callback';
-        // $data['transaksi'] = $this->checkout_model->insert_transaksi();
+        $status = $this->input->get('transaction_status');
+        $order_id = $this->input->get('order_id');
+        $data = [
+            'status_pesanan' => $this->input->get('transaction_status')
+        ];
+
+        if ($status == 'pending') {
+            $this->db->where('order_id', $order_id);
+            $this->db->update('transaksi', $data);
+        } else if ($status == 'capture') {
+            $this->db->where('order_id', $order_id);
+            $this->db->update('transaksi', $data);
+        }
+        else if ($status == 'deny') {
+            $this->db->where('order_id', $order_id);
+            $this->db->update('transaksi', $data);
+        }
+        else if ($status == 'challenge') {
+            $this->db->where('order_id', $order_id);
+            $this->db->update('transaksi', $data);
+        }
+        else {
+            $this->db->where('order_id', $order_id);
+            $this->db->update('transaksi', $data);
+        }
+
         $this->paggingFrontend('frontend/callback', $data);
 
         // $transaction = $this->input->get('status_code');

@@ -97,26 +97,9 @@ class Checkout_model extends CI_Model
             'shipping_address'    => $shipping_address
         ];
 
-        $snapToken = \Midtrans\Snap::getSnapToken($transaction_data);
-        return $snapToken;
-    }
-
-    //Insert transaksi
-    public function insert_transaksi()
-    {
-        $produk = $this->getdetail_keranjang();
-        $total_belanja = 0;
-
-        //subtotal dan total belanja
-        foreach ($produk as $p) {
-            $harga_produk = $p['harga_produk'];
-            $kuantitas = $p['kuantitas'];
-            $subtotal = $harga_produk * $kuantitas;
-            $total_belanja += $subtotal;
-        }
-
+        //Insert database
         $data_transaksi = [
-            'id_pesanan'        => $this->input->get('order_id'),
+            'order_id'          => $transaction_details['order_id'],
             'nama_pelanggan'    => $this->session->userdata('nama'),
             'email_pelanggan'   => $this->session->userdata('email'),
             'alamat_pelanggan'  => $this->input->post('alamat'),
@@ -124,8 +107,11 @@ class Checkout_model extends CI_Model
             'kode_pos'          => $this->input->post('kode_pos'),
             'telepon_pelanggan' => $this->session->userdata('telepon'),
             'total_belanja'     => $total_belanja,
-            'status_pesanan'    => $this->input->get('transaction_status')
+            'status_pesanan'    => 'pending'
         ];
         $this->db->insert('transaksi', $data_transaksi);
+
+        $snapToken = \Midtrans\Snap::getSnapToken($transaction_data);
+        return $snapToken;
     }
 }
