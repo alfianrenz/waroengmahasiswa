@@ -31,6 +31,7 @@ class Checkout_model extends CI_Model
         //detail keranjang
         $produk = $this->getdetail_keranjang();
         $total_belanja = 0;
+        $order_id = rand();
 
         //subtotal dan total belanja
         foreach ($produk as $p) {
@@ -42,7 +43,7 @@ class Checkout_model extends CI_Model
 
         //required
         $transaction_details = [
-            'order_id' => rand(),
+            'order_id' => $order_id,
             'gross_amount' => $total_belanja
         ];
 
@@ -99,10 +100,11 @@ class Checkout_model extends CI_Model
 
         //Insert database
         $data_transaksi = [
-            'order_id'          => $transaction_details['order_id'],
+            'order_id'          => $order_id,
             'nama_pelanggan'    => $this->session->userdata('nama'),
             'email_pelanggan'   => $this->session->userdata('email'),
             'alamat_pelanggan'  => $this->input->post('alamat'),
+            'payment_type'      => '',
             'kota_pelanggan'    => $this->input->post('kota'),
             'kode_pos'          => $this->input->post('kode_pos'),
             'telepon_pelanggan' => $this->session->userdata('telepon'),

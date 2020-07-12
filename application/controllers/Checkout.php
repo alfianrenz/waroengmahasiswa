@@ -62,11 +62,21 @@ class Checkout extends My_Controller
     //Halaman callback
     public function callback()
     {
-        $status = $this->input->get('transaction_status');
-        $order_id = $this->input->get('order_id');
+
+        $data = json_decode(file_get_contents('php://input'));
+
+        $status = $data->transaction_status;
+        $order_id = $data->order_id;
+        $payment_type = $data->payment_type;
+
         $data = [
-            'status_pesanan' => $this->input->get('transaction_status')
+            'status_pesanan' => $status,
+            'payment_type'   => $payment_type
         ];
+
+        // $data = $this->input->post();
+        // var_dump($data->payment_type);
+        // die;
 
         if ($status == 'pending') {
             $this->db->where('order_id', $order_id);
