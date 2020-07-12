@@ -20,7 +20,7 @@
                         <img src="<?= base_url(); ?>assets/frontend/images/logo/logo-warma-blue.png" alt="" width="200px" class="mt-3">
                         <div class="card mt-30">
                             <div class="card-body">
-                                <?php if ($transaksi['tipe_pembayaran'] == 'cstore') { ?>
+                                <?php if ($transaksi->tipe_pembayaran == 'cstore') { ?>
                                     <div class="table-responsive">
                                         <table class="table table-sm table-borderless mb-0" style="border-style: none;">
                                             <tbody>

@@ -56,7 +56,7 @@
                                             <td class="align-middle"><?= $t['waktu_transaksi']; ?></td>
                                             <td class="align-middle text-center">Rp<?= number_format($t['total_bayar'], 0, ',', '.'); ?></td>
                                             <td class="align-middle text-center">
-                                                <?php if ($transaksi['status_bayar'] == 'pending') { ?>
+                                                <?php if ($t['status_bayar'] == 'pending') { ?>
                                                     <span class="badge badge-warning">Belum Bayar</span>
                                                 <?php } else { ?>
                                                     <span class="badge badge-primary">Dikirim</span>
