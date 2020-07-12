@@ -29,7 +29,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Status Pesanan</td>
-                                                <td>:&nbsp;&nbsp;<?= $data['transaction_status']; ?></td>
+                                                <td>:&nbsp;&nbsp;<?= $data['status_pesanan']; ?></td>
                                             </tr>
                                             <tr>
                                                 <td>Metode Pembayaran</td>
