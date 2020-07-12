@@ -120,18 +120,20 @@ class Checkout extends My_Controller
     public function redirect()
     {
         $data = json_decode(file_get_contents('php://input'));
-        $transaction = $this->input->get('status_code');
-        $order_id = $this->input->get('order_id');
-        $data = [
-            'status_pesanan' => $this->input->get('transaction_status')
-        ];
+        $this->paggingFrontend('frontend/redirect', $data);
+        // $transaction = $this->input->get('status_code');
 
-        if ($transaction == 200) {
-            $this->db->where('id_pesanan', $order_id);
-            // $this->db->update('transaksi', $data);
-            $this->paggingFrontend('frontend/callback', $data);
-        } else {
-            $this->paggingFrontend('frontend/error', $data);
-        }
+        // $order_id = $this->input->get('order_id');
+        // $data = [
+        //     'status_pesanan' => $this->input->get('transaction_status')
+        // ];
+
+        // if ($transaction == 200) {
+        //     $this->db->where('id_pesanan', $order_id);
+        //     // $this->db->update('transaksi', $data);
+        //     $this->paggingFrontend('frontend/callback', $data);
+        // } else {
+        //     $this->paggingFrontend('frontend/error', $data);
+        // }
     }
 }
