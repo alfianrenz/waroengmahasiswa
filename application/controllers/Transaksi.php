@@ -13,7 +13,7 @@ class Transaksi extends My_Controller
     public function data_transaksi()
     {
         $data['title'] = 'Warma CIC | Data Transaksi';
-        $data['transaksi'] = $this->checkout_model->get_transaksi();
+        $data['transaksi'] = $this->checkout_model->getAll_transaksi();
         $this->paggingAdmin('admin/transaksi/data_transaksi', $data);
     }
 }

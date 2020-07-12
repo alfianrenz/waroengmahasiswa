@@ -16,8 +16,16 @@ class Checkout_model extends CI_Model
         return $this->db->get()->result_array();
     }
 
-    //get data transaksi
-    public function get_transaksi()
+    //get All data transaksi
+    public function getAll_transaksi()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        return $this->db->get()->result_array();
+    }
+
+    //get data transaksi berdasarkan id mahasiswa
+    public function getTransaksi_byID()
     {
         $this->db->select('*');
         $this->db->from('transaksi');
@@ -120,8 +128,6 @@ class Checkout_model extends CI_Model
             'id_keranjang'      => $produk[0]['id_keranjang'],
             'total_bayar'       => $total_bayar,
             'status_bayar'      => 'pending',
-            'status_pesanan'    => 'Belum Bayar'
-
         ];
         $this->db->insert('transaksi', $data_transaksi);
 

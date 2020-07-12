@@ -57,7 +57,7 @@
                                 <option value="<?= $k['id_kategori']; ?>"><?= $k['nama_kategori']; ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <input type="text" name="keyword" placeholder="Ingin belanja apa ya hari ini?">
+                        <input type="text" name="keyword" placeholder="Ingin belanja apa hari ini?">
                         <button type="submit"><i class="lnr lnr-magnifier"></i></button>
                     </form>
                 </div>

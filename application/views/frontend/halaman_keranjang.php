@@ -32,7 +32,7 @@
                     <tbody>
 
                         <?php
-                        $total_belanja = 0;
+                        $total_bayar = 0;
                         $no = 1;
                         ?>
 
@@ -68,7 +68,7 @@
                                     $harga_produk = $k['harga_produk'];
                                     $kuantitas = $k['kuantitas'];
                                     $subtotal = $harga_produk * $kuantitas;
-                                    $total_belanja = $total_belanja + $subtotal;
+                                    $total_bayar = $total_bayar + $subtotal;
                                     ?>
                                     <span id="subtotal" name="subtotal">Rp<?= number_format($subtotal, 0, ',', '.'); ?></span>
                                 </td>
@@ -95,8 +95,8 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-12 mb-3">
                         <div class="cart-content-right">
-                            <h4>TOTAL BELANJA</h4>
-                            <h1 class="text-primary" id="total">Rp<?= number_format($total_belanja, 0, ',', '.'); ?></h1>
+                            <h4>TOTAL BAYAR</h4>
+                            <h1 class="text-primary" id="total">Rp<?= number_format($total_bayar, 0, ',', '.'); ?></h1>
                             <a href="<?= site_url('checkout'); ?>">
                                 <button class="ho-button">
                                     <span>Checkout</span>

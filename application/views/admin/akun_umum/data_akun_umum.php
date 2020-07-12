@@ -23,7 +23,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Data Pengguna Umum</h5>
+                        <h5>Pengguna Umum</h5>
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">

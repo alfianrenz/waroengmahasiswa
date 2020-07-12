@@ -57,7 +57,7 @@
                             </div>
                             <div class="col-auto">
                                 <h6 class="text-muted m-b-10">Transaksi</h6>
-                                <h2 class="m-b-0">5</h2>
+                                <h2 class="m-b-0"><?= $jumlahtransaksi; ?></h2>
                             </div>
                         </div>
                     </div>

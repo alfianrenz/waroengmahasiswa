@@ -13,6 +13,7 @@ class Dashboard extends My_Controller
         $data['title'] = 'Warma CIC | Dashboard';
         $data['jumlahakunmahasiswa'] = $this->db->get('akun_mahasiswa')->num_rows();
         $data['jumlahakunumum'] = $this->db->get('akun_umum')->num_rows();
+        $data['jumlahtransaksi'] = $this->db->get('transaksi')->num_rows();
         $this->paggingAdmin('admin/dashboard/dashboard', $data);
     }
 

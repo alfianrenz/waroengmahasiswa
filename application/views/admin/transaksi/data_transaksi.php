@@ -29,11 +29,11 @@
                                 <thead>
                                     <tr>
                                         <th>Order ID</th>
-                                        <th>Payment Type</th>
+                                        <th>Tipe Pembayaran</th>
+                                        <th>Nama Pelanggan</th>
                                         <th>Tanggal & Waktu</th>
-                                        <th>Email Pelanggan</th>
-                                        <th>Jumlah Bayar</th>
-                                        <th class="text-center">Status</th>
+                                        <th>Total Bayar</th>
+                                        <th class="text-center">Status Bayar</th>
                                         <th width="8%">Action</th>
                                     </tr>
                                 </thead>
@@ -42,14 +42,14 @@
                                         <tr>
                                             <td class="text-center align-middle"><?= $t['order_id']; ?></td>
                                             <td class="align-middle text-center"><?= $t['tipe_pembayaran']; ?></td>
+                                            <td class="align-middle"><?= $t['nama_pelanggan']; ?></td>
                                             <td class="align-middle"><?= $t['waktu_transaksi']; ?></td>
-                                            <td class="align-middle"><?= $t['email_pelanggan']; ?></td>
                                             <td class="align-middle text-center">Rp<?= number_format($t['total_bayar'], 0, ',', '.'); ?></td>
                                             <td class="align-middle text-center">
                                                 <?php if ($t['status_bayar'] == 'pending') { ?>
-                                                    <span class="badge badge-warning">Belum Bayar</span>
+                                                    <span class="badge badge-warning">Pending</span>
                                                 <?php } else { ?>
-                                                    <span class="badge badge-success">Dikirim</span>
+                                                    <span class="badge badge-success">Settlement</span>
                                                 <?php } ?>
                                             </td>
                                             <td class="align-middle text-center">

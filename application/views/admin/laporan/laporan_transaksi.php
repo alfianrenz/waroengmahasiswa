@@ -23,7 +23,7 @@
                 <!-- Filter -->
                 <div class="card">
                     <div class="card-header">
-                        <h5>Filter Data</h5>
+                        <h5>Pencarian Data</h5>
                     </div>
                     <div class="card-body">
                         <form action="" method="POST">
@@ -57,7 +57,7 @@
                 <!-- Data Laporan -->
                 <div class="card">
                     <div class="card-header">
-                        <h5>Laporan Transaksi</h5>
+                        <h5>Hasil Laporan</h5>
                         <div class="card-header-right">
                             <a href="<?= site_url('profile/edit_profile_admin'); ?>" class="btn waves-effect waves-light btn-primary">
                                 <i class="feather icon-printer"></i>

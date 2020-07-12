@@ -33,7 +33,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h5>Pesanan</h5>
+                        <h5>Daftar Pesanan</h5>
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">
@@ -43,9 +43,8 @@
                                         <th>Order ID</th>
                                         <th>Tipe Pembayaran</th>
                                         <th>Tanggal & Waktu</th>
-                                        <th>Email Pelanggan</th>
-                                        <th>Jumlah Bayar</th>
-                                        <th class="text-center">Status</th>
+                                        <th>Total Bayar</th>
+                                        <th class="text-center">Status Pesanan</th>
                                         <th width="8%">Action</th>
                                     </tr>
                                 </thead>
@@ -55,13 +54,12 @@
                                             <td class="text-center align-middle"><?= $t['order_id']; ?></td>
                                             <td class="align-middle text-center"><?= $t['tipe_pembayaran']; ?></td>
                                             <td class="align-middle"><?= $t['waktu_transaksi']; ?></td>
-                                            <td class="align-middle"><?= $t['email_pelanggan']; ?></td>
                                             <td class="align-middle text-center">Rp<?= number_format($t['total_bayar'], 0, ',', '.'); ?></td>
                                             <td class="align-middle text-center">
-                                                <?php if ($t['status_bayar'] == 'pending') { ?>
+                                                <?php if ($transaksi['status_bayar'] == 'pending') { ?>
                                                     <span class="badge badge-warning">Belum Bayar</span>
                                                 <?php } else { ?>
-                                                    <span class="badge badge-success">Dikirim</span>
+                                                    <span class="badge badge-primary">Dikirim</span>
                                                 <?php } ?>
                                             </td>
                                             <td class="align-middle text-center">

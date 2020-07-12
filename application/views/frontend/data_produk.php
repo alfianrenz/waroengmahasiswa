@@ -16,11 +16,10 @@
     <!-- Shop Page Area -->
     <div class="shop-page-area bg-white ptb-30">
         <div class="container">
-
-            <?= $this->session->userdata('message'); ?>
-
             <div class="row">
                 <div class="col-lg-9 order-1 order-lg-2">
+
+                    <?= $this->session->userdata('message'); ?>
 
                     <!-- Header --->
                     <div class="shop-filters">
