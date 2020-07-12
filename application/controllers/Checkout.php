@@ -112,6 +112,10 @@ class Checkout extends My_Controller
         $this->db->where('id_keranjang', $detail_keranjang['id_keranjang']);
         $this->db->delete('detail_keranjang');
 
+        $this->db->where('id_keranjang', $detail_keranjang['id_keranjang']);
+        $this->db->delete('keranjang');
+
+
         $this->paggingFrontend('frontend/redirect', $data);
         // $transaction = $this->input->get('status_code');
 
