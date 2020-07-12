@@ -58,7 +58,10 @@
                                             <td class="align-middle text-center">
                                                 <?php if ($t['status_bayar'] == 'pending') { ?>
                                                     <span class="badge badge-warning">Belum Bayar</span>
-                                                <?php } else { ?>
+                                                <?php } else if ($t['status_bayar'] == 'cancel') { ?>
+                                                    <span class="badge badge-danger">Batal</span>
+                                                <?php }
+                                                else { ?>
                                                     <span class="badge badge-primary">Dikirim</span>
                                                 <?php } ?>
                                             </td>

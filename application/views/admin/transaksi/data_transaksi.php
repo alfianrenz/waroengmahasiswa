@@ -48,7 +48,10 @@
                                             <td class="align-middle text-center">
                                                 <?php if ($t['status_bayar'] == 'pending') { ?>
                                                     <span class="badge badge-warning">Pending</span>
-                                                <?php } else { ?>
+                                                <?php } else if ($t['status_bayar'] == 'cancel') { ?>
+                                                    <span class="badge badge-danger">Cancel</span>
+                                                <?php }
+                                                else { ?>
                                                     <span class="badge badge-success">Settlement</span>
                                                 <?php } ?>
                                             </td>

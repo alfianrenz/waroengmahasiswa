@@ -30,8 +30,8 @@ class Checkout_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('transaksi');
-        $this->db->where('id_pembeli', $this->session->userdata('id'));
         $this->db->order_by('waktu_transaksi', 'DESC');
+        $this->db->where('id_pembeli', $this->session->userdata('id'));
         return $this->db->get()->result_array();
     }
 
