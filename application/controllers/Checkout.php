@@ -121,8 +121,9 @@ class Checkout extends My_Controller
     {
         // $data = json_decode(file_get_contents('php://input'));
         $order_id = $this->input->get('order_id');
-        $transaksi = $this->db->get_where('transaksi', ['order_id' => $order_id])->result();
-        $this->paggingFrontend('frontend/redirect', array('data' => $transaksi));
+        $data['data'] = $this->db->get_where('transaksi', ['order_id' => $order_id])->row();
+
+        $this->paggingFrontend('frontend/redirect', $data);
         // $transaction = $this->input->get('status_code');
 
         // $order_id = $this->input->get('order_id');

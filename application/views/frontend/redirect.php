@@ -18,26 +18,26 @@
                 <div class="col-sm-6 mx-auto">
                     <div class="text-center">
                         <img src="<?= base_url(); ?>assets/frontend/images/logo/logo-warma-blue.png" alt="" width="200px" class="mt-3">
-                        <div class="card">
+                        <div class="card mt-30">
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-sm table-borderless mb-0" style="border-style: none;">
                                         <tbody>
                                             <tr>
                                                 <td>Kode Pembayaran</td>
-                                                <td>:&nbsp;&nbsp;<?= $data['payment_code']; ?></td>
+                                                <td>:&nbsp;&nbsp;<?= $data->payment_code; ?></td>
                                             </tr>
                                             <tr>
                                                 <td>Status Pesanan</td>
-                                                <td>:&nbsp;&nbsp;<?= $data['status_pesanan']; ?></td>
+                                                <td>:&nbsp;&nbsp;<?= $data->status_pesanan; ?></td>
                                             </tr>
                                             <tr>
                                                 <td>Metode Pembayaran</td>
-                                                <td>:&nbsp;&nbsp;<?= $data['payment_type']; ?></td>
+                                                <td>:&nbsp;&nbsp;<?= $data->payment_type; ?></td>
                                             </tr>
                                             <tr>
                                                 <td>Total Pembayaran</td>
-                                                <td>:&nbsp;&nbsp;<?= $data['gross_amount']; ?></td>
+                                                <td>:&nbsp;&nbsp;<?= $data->gross_amount; ?></td>
                                             </tr>
                                         </tbody>
                                     </table>
