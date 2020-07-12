@@ -102,7 +102,7 @@
                                             <img src="<?= base_url(); ?>assets/frontend/images/others/cart.png" width="180px">
                                         </div>
                                         <div>
-                                            <h5 class="text-dark text-center mb-2">Lho, Kok Kosong?</h5>
+                                            <h5 class="text-dark text-center mb-2">Hah Kosong?</h5>
                                             <p class="text-muted text-center mb-4">Mau di isi apa ya keranjang sebesar ini?</p>
                                         </div>
                                     </div>

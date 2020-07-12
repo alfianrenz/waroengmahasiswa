@@ -40,8 +40,8 @@
                             <table id="simpletable" class="table table-de nowrap">
                                 <thead>
                                     <tr>
-                                        <th>ID Pesanan</th>
-                                        <th>Payment Type</th>
+                                        <th>Order ID</th>
+                                        <th>Tipe Pembayaran</th>
                                         <th>Tanggal & Waktu</th>
                                         <th>Email Pelanggan</th>
                                         <th>Jumlah Bayar</th>
@@ -52,16 +52,16 @@
                                 <tbody>
                                     <?php foreach ($transaksi as $t) : ?>
                                         <tr>
-                                            <td class="text-center align-middle"></td>
-                                            <td class="align-middle"><?= $t['tipe_pembayaran']; ?></td>
+                                            <td class="text-center align-middle"><?= $t['order_id']; ?></td>
+                                            <td class="align-middle text-center"><?= $t['tipe_pembayaran']; ?></td>
                                             <td class="align-middle"><?= $t['waktu_transaksi']; ?></td>
                                             <td class="align-middle"><?= $t['email_pelanggan']; ?></td>
-                                            <td class="align-middle"><?= $t['total_bayar']; ?></td>
+                                            <td class="align-middle text-center">Rp<?= number_format($t['total_bayar'], 0, ',', '.'); ?></td>
                                             <td class="align-middle text-center">
                                                 <?php if ($t['status_bayar'] == 'pending') { ?>
-                                                    <label class="badge badge-warning">Belum Bayar</label>
+                                                    <span class="badge badge-warning">Belum Bayar</span>
                                                 <?php } else { ?>
-                                                    <label class="badge badge-success">Dikirim</label>
+                                                    <span class="badge badge-success">Dikirim</span>
                                                 <?php } ?>
                                             </td>
                                             <td class="align-middle text-center">
