@@ -18,8 +18,6 @@
                 <div class="col-sm-6 mx-auto">
                     <div class="text-center">
                         <img src="<?= base_url(); ?>assets/frontend/images/logo/logo-warma-blue.png" alt="" width="200px" class="mt-3">
-                        <p class="mt-30 mb-0">Batas Akhir Pembayaran</p>
-                        <h3>23 Juli 2020</h3>
                         <div class="card">
                             <div class="card-body">
                                 <div class="table-responsive">

@@ -119,7 +119,7 @@ class Checkout extends My_Controller
 
     public function redirect()
     {
-        $data = json_decode(file_get_contents('php://input'));
+        $data['data'] = json_decode(file_get_contents('php://input'));
         $this->paggingFrontend('frontend/redirect', $data);
         // $transaction = $this->input->get('status_code');
 
