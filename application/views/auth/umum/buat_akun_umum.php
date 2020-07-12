@@ -4,7 +4,7 @@
         <div class="ho-breadcrumb">
             <ul>
                 <li><a href="<?= site_url('home'); ?>">Beranda</a></li>
-                <li>Login Mahasiswa</li>
+                <li>Buat Akun</li>
             </ul>
         </div>
     </div>

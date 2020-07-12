@@ -30,7 +30,7 @@ class Checkout_model extends CI_Model
 
         //detail keranjang
         $produk = $this->getdetail_keranjang();
-        $total_belanja = 0;
+        $total_bayar = 0;
         $order_id = rand();
 
         //subtotal dan total belanja
@@ -38,13 +38,13 @@ class Checkout_model extends CI_Model
             $harga_produk = $p['harga_produk'];
             $kuantitas = $p['kuantitas'];
             $subtotal = $harga_produk * $kuantitas;
-            $total_belanja += $subtotal;
+            $total_bayar += $subtotal;
         }
 
         //required
         $transaction_details = [
             'order_id' => $order_id,
-            'gross_amount' => $total_belanja
+            'gross_amount' => $total_bayar
         ];
 
         //produk
@@ -104,12 +104,14 @@ class Checkout_model extends CI_Model
             'nama_pelanggan'    => $this->session->userdata('nama'),
             'email_pelanggan'   => $this->session->userdata('email'),
             'alamat_pelanggan'  => $this->input->post('alamat'),
+            'telepon_pelanggan' => $this->session->userdata('telepon'),
             'kota_pelanggan'    => $this->input->post('kota'),
             'kode_pos'          => $this->input->post('kode_pos'),
-            'telepon_pelanggan' => $this->session->userdata('telepon'),
-            'gross_amount'      => $total_belanja,
-            'status_pesanan'    => 'pending',
             'id_keranjang'      => $produk[0]['id_keranjang'],
+            'total_bayar'       => $total_bayar,
+            'status_bayar'      => 'pending',
+            'status_pesanan'    => 'Belum Bayar'
+
         ];
         $this->db->insert('transaksi', $data_transaksi);
 

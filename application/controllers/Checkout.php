@@ -64,7 +64,7 @@ class Checkout extends My_Controller
     {
         $data = json_decode(file_get_contents('php://input'));
 
-        $status = $data->transaction_status;
+        $status_bayar = $data->transaction_status;
         $order_id = $data->order_id;
         $payment_type = $data->payment_type;
         $payment_code = $data->payment_code;
@@ -72,26 +72,26 @@ class Checkout extends My_Controller
         $gross_amount = $data->gross_amount;
 
         $data = [
-            'status_pesanan'   => $status,
-            'payment_type'     => $payment_type,
-            'payment_code'     => $payment_code,
-            'transaction_time' => $transaction_time,
-            'gross_amount'     => $gross_amount
+            'status_bayar'     => $status_bayar,
+            'tipe_pembayaran'  => $payment_type,
+            'kode_pembayaran'  => $payment_code,
+            'waktu_transaksi'  => $transaction_time,
+            'total_bayar'      => $gross_amount
         ];
 
         //insert database
-        if ($status == 'pending') {
+        if ($status_bayar == 'pending') {
             $this->db->where('order_id', $order_id);
             $this->db->update('transaksi', $data);
-        } else if ($status == 'capture') {
-            $this->db->where('order_id', $order_id);
-            $this->db->update('transaksi', $data);
-        }
-        else if ($status == 'deny') {
+        } else if ($status_bayar == 'capture') {
             $this->db->where('order_id', $order_id);
             $this->db->update('transaksi', $data);
         }
-        else if ($status == 'challenge') {
+        else if ($status_bayar == 'deny') {
+            $this->db->where('order_id', $order_id);
+            $this->db->update('transaksi', $data);
+        }
+        else if ($status_bayar == 'challenge') {
             $this->db->where('order_id', $order_id);
             $this->db->update('transaksi', $data);
         }
@@ -105,31 +105,17 @@ class Checkout extends My_Controller
     {
         // $data = json_decode(file_get_contents('php://input'));
         $order_id = $this->input->get('order_id');
-        $data['data'] = $this->db->get_where('transaksi', ['order_id' => $order_id])->row();
+        $data['transaksi'] = $this->db->get_where('transaksi', ['order_id' => $order_id])->row();
         $detail_keranjang = $this->db->get('detail_keranjang')->row_array();
 
         //hapus detail_keranjang
         $this->db->where('id_keranjang', $detail_keranjang['id_keranjang']);
         $this->db->delete('detail_keranjang');
 
+        //hapus_keranjang
         $this->db->where('id_keranjang', $detail_keranjang['id_keranjang']);
         $this->db->delete('keranjang');
 
-
         $this->paggingFrontend('frontend/redirect', $data);
-        // $transaction = $this->input->get('status_code');
-
-        // $order_id = $this->input->get('order_id');
-        // $data = [
-        //     'status_pesanan' => $this->input->get('transaction_status')
-        // ];
-
-        // if ($transaction == 200) {
-        //     $this->db->where('id_pesanan', $order_id);
-        //     // $this->db->update('transaksi', $data);
-        //     $this->paggingFrontend('frontend/callback', $data);
-        // } else {
-        //     $this->paggingFrontend('frontend/error', $data);
-        // }
     }
 }

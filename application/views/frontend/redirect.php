@@ -25,19 +25,25 @@
                                         <tbody>
                                             <tr>
                                                 <td>Kode Pembayaran</td>
-                                                <td>:&nbsp;&nbsp;<?= $data->payment_code; ?></td>
+                                                <td>:&nbsp;&nbsp;<?= $transaksi->kode_pembayaran; ?></td>
                                             </tr>
                                             <tr>
-                                                <td>Status Pesanan</td>
-                                                <td>:&nbsp;&nbsp;<?= $data->status_pesanan; ?></td>
+                                                <td>Status Pembayaran</td>
+                                                <td>:&nbsp;&nbsp;
+                                                    <?php if ($transaksi->status_bayar == 'pending') { ?>
+                                                        <span>Belum Bayar</span>
+                                                    <?php } else { ?>
+                                                        <span>Sudah Bayar</span>
+                                                    <?php } ?>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>Metode Pembayaran</td>
-                                                <td>:&nbsp;&nbsp;<?= $data->payment_type; ?></td>
+                                                <td>Tipe Pembayaran</td>
+                                                <td>:&nbsp;&nbsp;<?= $transaksi->tipe_pembayaran; ?></td>
                                             </tr>
                                             <tr>
                                                 <td>Total Pembayaran</td>
-                                                <td>:&nbsp;&nbsp;<?= $data->gross_amount; ?></td>
+                                                <td>:&nbsp;&nbsp;<?= $transaksi->total_bayar; ?></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -45,7 +51,7 @@
                             </div>
 
                         </div>
-                        <a href="" class="ho-button col-sm-12 mt-3 text-white mb-30">Lihat Pesanan</a>
+                        <a href="<?= site_url('pesanan/daftar_pesanan_pembeli'); ?>" class="ho-button col-sm-12 mt-3 text-white mb-30">Lihat Pesanan</a>
                     </div>
                 </div>
             </div>
