@@ -28,7 +28,7 @@
                             <table id="simpletable" class="table table-de nowrap">
                                 <thead>
                                     <tr>
-                                        <th>ID Pesanan</th>
+                                        <th>Order ID</th>
                                         <th>Payment Type</th>
                                         <th>Tanggal & Waktu</th>
                                         <th>Email Pelanggan</th>
@@ -38,17 +38,25 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class="text-center align-middle"></td>
-                                        <td class="align-middle"></td>
-                                        <td class="align-middle"></td>
-                                        <td class="align-middle"></td>
-                                        <td class="align-middle"></td>
-                                        <td class="align-middle text-center"></td>
-                                        <td class="align-middle text-center">
-                                            <a href="" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
-                                        </td>
-                                    </tr>
+                                    <?php foreach ($transaksi as $t) : ?>
+                                        <tr>
+                                            <td class="text-center align-middle"><?= $t['order_id']; ?></td>
+                                            <td class="align-middle text-center"><?= $t['tipe_pembayaran']; ?></td>
+                                            <td class="align-middle"><?= $t['waktu_transaksi']; ?></td>
+                                            <td class="align-middle"><?= $t['email_pelanggan']; ?></td>
+                                            <td class="align-middle text-center">Rp<?= number_format($t['total_bayar'], 0, ',', '.'); ?></td>
+                                            <td class="align-middle text-center">
+                                                <?php if ($t['status_bayar'] == 'pending') { ?>
+                                                    <span class="badge badge-warning">Belum Bayar</span>
+                                                <?php } else { ?>
+                                                    <span class="badge badge-success">Dikirim</span>
+                                                <?php } ?>
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <a href="" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
                                 </tbody>
                             </table>
                         </div>
