@@ -119,9 +119,8 @@ class Checkout extends My_Controller
 
     public function redirect()
     {
-        $data = json_decode(file_get_contents('php://input'));
-        $order_id = $data->order_id;
-
+        // $data = json_decode(file_get_contents('php://input'));
+        $order_id = $this->input->get('order_id');
         $transaksi = $this->db->get_where('transaksi', ['order_id' => $order_id])->result();
 
         $this->paggingFrontend('frontend/redirect', array('data' => $transaksi));
