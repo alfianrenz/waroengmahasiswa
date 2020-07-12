@@ -108,7 +108,8 @@ class Checkout_model extends CI_Model
             'kode_pos'          => $this->input->post('kode_pos'),
             'telepon_pelanggan' => $this->session->userdata('telepon'),
             'gross_amount'      => $total_belanja,
-            'status_pesanan'    => 'pending'
+            'status_pesanan'    => 'pending',
+            'id_keranjang'      => $produk[0]['id_keranjang'],
         ];
         $this->db->insert('transaksi', $data_transaksi);
 

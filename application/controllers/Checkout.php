@@ -99,22 +99,6 @@ class Checkout extends My_Controller
             $this->db->where('order_id', $order_id);
             $this->db->update('transaksi', $data);
         }
-
-        // $this->paggingFrontend('frontend/callback', $data);
-
-        // $transaction = $this->input->get('status_code');
-        // $notif = $this->input->get('order_id');
-        // $data = [
-        //     'status_pesanan' => $this->input->get('transaction_status')
-        // ];
-
-        // if ($transaction == 200) {
-        //     $this->db->where('id_pesanan', $notif);
-        //     $this->db->update('transaksi', $data);
-        //     $this->paggingFrontend('frontend/callback', $data);
-        // } else {
-        //     $this->paggingFrontend('frontend/error', $data);
-        // }
     }
 
     public function redirect()
@@ -122,6 +106,11 @@ class Checkout extends My_Controller
         // $data = json_decode(file_get_contents('php://input'));
         $order_id = $this->input->get('order_id');
         $data['data'] = $this->db->get_where('transaksi', ['order_id' => $order_id])->row();
+        $detail_keranjang = $this->db->get('detail_keranjang')->row_array();
+
+        //hapus detail_keranjang
+        $this->db->where('id_keranjang', $detail_keranjang['id_keranjang']);
+        $this->db->delete('detail_keranjang');
 
         $this->paggingFrontend('frontend/redirect', $data);
         // $transaction = $this->input->get('status_code');
