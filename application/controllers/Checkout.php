@@ -73,7 +73,7 @@ class Checkout extends My_Controller
         $store = $data->store;
 
         $data = [
-            'status_bayar'     => $status_bayar,
+            'status_bayar'     => $this->input->get('transaction_status'),
             'tipe_pembayaran'  => $payment_type,
             'kode_pembayaran'  => $payment_code,
             'waktu_transaksi'  => $transaction_time,
@@ -85,10 +85,10 @@ class Checkout extends My_Controller
         if ($status_bayar == 'pending') {
             $this->db->where('order_id', $order_id);
             $this->db->update('transaksi', $data);
-        } else if ($status_bayar == 'capture') {
+        } else if ($status_bayar == 'settlement') {
             $this->db->where('order_id', $order_id);
             $this->db->update('transaksi', $data);
-        } else if ($status_bayar == 'settlement') {
+        } else if ($status_bayar == 'capture') {
             $this->db->where('order_id', $order_id);
             $this->db->update('transaksi', $data);
         } else if ($status_bayar == 'challenge') {
