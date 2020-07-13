@@ -70,15 +70,13 @@ class Checkout extends My_Controller
         $payment_code = $data->payment_code;
         $transaction_time = $data->transaction_time;
         $gross_amount = $data->gross_amount;
-        $store = $data->store;
 
         $data = [
             'status_bayar'     => $status_bayar,
             'tipe_pembayaran'  => $payment_type,
             'kode_pembayaran'  => $payment_code,
             'waktu_transaksi'  => $transaction_time,
-            'total_bayar'      => $gross_amount,
-            'store'            => $store
+            'total_bayar'      => $gross_amount
         ];
 
         //insert database
@@ -88,16 +86,13 @@ class Checkout extends My_Controller
         } else if ($status_bayar == 'capture') {
             $this->db->where('order_id', $order_id);
             $this->db->update('transaksi', $data);
-        }
-        else if ($status_bayar == 'settlement') {
+        } else if ($status_bayar == 'settlement') {
             $this->db->where('order_id', $order_id);
             $this->db->update('transaksi', $data);
-        }
-        else if ($status_bayar == 'challenge') {
+        } else if ($status_bayar == 'challenge') {
             $this->db->where('order_id', $order_id);
             $this->db->update('transaksi', $data);
-        }
-        else {
+        } else {
             $this->db->where('order_id', $order_id);
             $this->db->update('transaksi', $data);
         }
