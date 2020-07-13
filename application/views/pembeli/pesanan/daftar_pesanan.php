@@ -60,12 +60,10 @@
                                                     <span class="badge badge-warning">Belum Bayar</span>
                                                 <?php } else if ($t['status_bayar'] == 'cancel') { ?>
                                                     <span class="badge badge-danger">Batal</span>
-                                                <?php }
-                                                else if ($t['status_bayar'] == 'failure') { ?>
+                                                <?php } else if ($t['status_bayar'] == 'failure') { ?>
                                                     <span class="badge badge-secondary">Gagal</span>
-                                                <?php }
-                                                else { ?>
-                                                    <span class="badge badge-primary">Dikirim</span>
+                                                <?php } else { ?>
+                                                    <span class="badge badge-primary">Diproses</span>
                                                 <?php } ?>
                                             </td>
                                             <td class="align-middle text-center">

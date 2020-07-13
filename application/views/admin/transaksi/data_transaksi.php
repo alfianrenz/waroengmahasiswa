@@ -50,11 +50,9 @@
                                                     <span class="badge badge-warning">Pending</span>
                                                 <?php } else if ($t['status_bayar'] == 'cancel') { ?>
                                                     <span class="badge badge-danger">Cancel</span>
-                                                <?php }
-                                                else if ($t['status_bayar'] == 'failure') { ?>
+                                                <?php } else if ($t['status_bayar'] == 'failure') { ?>
                                                     <span class="badge badge-secondary">Gagal</span>
-                                                <?php }
-                                                else { ?>
+                                                <?php } else { ?>
                                                     <span class="badge badge-success">Settlement</span>
                                                 <?php } ?>
                                             </td>
