@@ -163,8 +163,7 @@ class Produk_model extends CI_Model
             $this->db->order_by('tanggal_input', 'DESC');
         } else if ($sortby == "termahal") {
             $this->db->order_by('harga_produk', 'DESC');
-        }
-        else if ($sortby == "termurah") {
+        } else if ($sortby == "termurah") {
             $this->db->order_by('harga_produk', 'ASC');
         }
         $this->db->where(['status_produk' => 1]);
