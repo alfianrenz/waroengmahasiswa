@@ -51,6 +51,9 @@
                                                 <?php } else if ($t['status_bayar'] == 'cancel') { ?>
                                                     <span class="badge badge-danger">Cancel</span>
                                                 <?php }
+                                                else if ($t['status_bayar'] == 'failure') { ?>
+                                                    <span class="badge badge-secondary">Gagal</span>
+                                                <?php }
                                                 else { ?>
                                                     <span class="badge badge-success">Settlement</span>
                                                 <?php } ?>

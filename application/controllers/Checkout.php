@@ -89,7 +89,7 @@ class Checkout extends My_Controller
             $this->db->where('order_id', $order_id);
             $this->db->update('transaksi', $data);
         }
-        else if ($status_bayar == 'deny') {
+        else if ($status_bayar == 'settlement') {
             $this->db->where('order_id', $order_id);
             $this->db->update('transaksi', $data);
         }
