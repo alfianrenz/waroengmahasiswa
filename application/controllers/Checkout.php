@@ -73,7 +73,7 @@ class Checkout extends My_Controller
         $store = $data->store;
 
         $data = [
-            'status_bayar'     => $this->input->get('transaction_status'),
+            'status_bayar'     => $status_bayar,
             'tipe_pembayaran'  => $payment_type,
             'kode_pembayaran'  => $payment_code,
             'waktu_transaksi'  => $transaction_time,
