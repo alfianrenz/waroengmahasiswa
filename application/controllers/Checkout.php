@@ -70,13 +70,15 @@ class Checkout extends My_Controller
         $payment_code = $data->payment_code;
         $transaction_time = $data->transaction_time;
         $gross_amount = $data->gross_amount;
+        $store = $data->store;
 
         $data = [
             'status_bayar'     => $status_bayar,
             'tipe_pembayaran'  => $payment_type,
             'kode_pembayaran'  => $payment_code,
             'waktu_transaksi'  => $transaction_time,
-            'total_bayar'      => $gross_amount
+            'total_bayar'      => $gross_amount,
+            'store'            => $store,
         ];
 
         //insert database
