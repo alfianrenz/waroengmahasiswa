@@ -14,14 +14,14 @@
                                 <button class="select-currency-current">Masuk</button>
                                 <ul class="select-currency-list dropdown-list">
                                     <li><a href="<?= site_url('auth/login_mahasiswa'); ?>">Mahasiswa</a></li>
-                                    <li><a href="<?= site_url('auth/login_umum'); ?>">Umum</a></li>
+                                    <li><a href="<?= site_url('auth/login_umum'); ?>">Pengguna Umum</a></li>
                                 </ul>
                             </div>
                             <div class="select-language">
                                 <button class="select-language-current">Daftar</button>
                                 <ul class="select-language-list dropdown-list">
                                     <li><a href="<?= site_url('auth/buat_akun_mahasiswa'); ?>">Mahasiswa</a></li>
-                                    <li><a href="<?= site_url('auth/buat_akun_umum'); ?>">Umum</a></li>
+                                    <li><a href="<?= site_url('auth/buat_akun_umum'); ?>">Pengguna Umum</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                             </div>
                         <?php } else { ?>
                             <div class="header-account">
-                                <a href=""><button class="header-accountbox-trigger"><span class="lnr lnr-user"></span> Akun Saya</button></a>
+                                <a href=""><button class="header-accountbox-trigger harap-login"><span class=" lnr lnr-user"></span> My Account</button></a>
                             </div>
                         <?php } ?>
 

@@ -40,14 +40,14 @@
                 <li class="nav-item <?= active_menu('pesanan'); ?>">
                     <a href="<?= site_url('pesanan/daftar_pesanan_pembeli'); ?>" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
-                        <span class="pcoded-mtext">Pesanan Saya</span>
+                        <span class="pcoded-mtext">Daftar Pesanan</span>
                     </a>
                 </li>
 
                 <!-- Akun Saya -->
                 <?php if ($this->session->userdata('tipe') == 1) { ?>
                     <li class="nav-item pcoded-hasmenu <?= active_menu('profile'); ?>">
-                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext"> Akun Saya</span></a>
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext"> Kelola Akun</span></a>
                         <ul class="pcoded-submenu">
                             <li class="<?php echo $this->uri->segment(2) == 'profile_mahasiswa' || $this->uri->segment(2) == 'edit_profile_mahasiswa' ? 'active' : '' ?>"><a href="<?= site_url('profile/profile_mahasiswa'); ?>">Profile</a></li>
                             <li class="<?php echo $this->uri->segment(2) == 'ubah_password_mahasiswa' ? 'active' : '' ?>"><a href="<?= site_url('profile/ubah_password_mahasiswa'); ?>">Ubah Password</a></li>
@@ -55,7 +55,7 @@
                     </li>
                 <?php } else { ?>
                     <li class="nav-item pcoded-hasmenu <?= active_menu('profile'); ?>">
-                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext"> Akun Saya</span></a>
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext"> Kelola Akun</span></a>
                         <ul class="pcoded-submenu">
                             <li class="<?php echo $this->uri->segment(2) == 'profile_umum' || $this->uri->segment(2) == 'edit_profile_umum' ? 'active' : '' ?>"><a href="<?= site_url('profile/profile_umum'); ?>">Profile</a></li>
                             <li class="<?php echo $this->uri->segment(2) == 'ubah_password_umum' ? 'active' : '' ?>"><a href="<?= site_url('profile/ubah_password_umum'); ?>">Ubah Password</a></li>
@@ -72,7 +72,7 @@
                     <li class="nav-item">
                         <a href="<?= site_url('dashboard/penjual'); ?>" class="nav-link">
                             <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                            <span class="pcoded-mtext">Waroeng Saya</span>
+                            <span class="pcoded-mtext">Menu Penjual</span>
                         </a>
                     </li>
                 <?php } ?>

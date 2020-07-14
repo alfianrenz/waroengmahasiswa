@@ -27,7 +27,7 @@
 
                 <!-- Data Akun -->
                 <li class="nav-item pcoded-hasmenu <?= active_menu('akun'); ?>">
-                    <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext"> Pengguna</span></a>
+                    <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext"> Data Pengguna</span></a>
                     <ul class="pcoded-submenu">
                         <li class="<?php echo $this->uri->segment(2) == 'data_akun_mahasiswa' || $this->uri->segment(2) == 'detail_akun_mahasiswa' || $this->uri->segment(2) == 'detail_produk_mahasiswa' || $this->uri->segment(2) == 'view_detail_produk' ? 'active' : '' ?>"><a href="<?= site_url('akun/data_akun_mahasiswa'); ?>">Mahasiswa</a></li>
                         <li class="<?php echo $this->uri->segment(2) == 'data_akun_umum' || $this->uri->segment(2) == 'detail_akun_umum' ? 'active' : '' ?>"><a href="<?= site_url('akun/data_akun_umum'); ?>">Pengguna Umum</a></li>
@@ -37,26 +37,19 @@
                 <li class="nav-item <?= active_menu('transaksi'); ?>">
                     <a href="<?= site_url('transaksi/data_transaksi'); ?>" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
-                        <span class="pcoded-mtext">Transaksi</span>
-                    </a>
-                </li>
-                <!-- Laporan -->
-                <li class="nav-item <?= active_menu('laporan'); ?>">
-                    <a href="<?= site_url('laporan/laporan_transaksi'); ?>" class="nav-link ">
-                        <span class="pcoded-micon"><i class="feather icon-file"></i></span>
-                        <span class="pcoded-mtext">Laporan</span>
+                        <span class="pcoded-mtext">Data Transaksi</span>
                     </a>
                 </li>
                 <!-- Kategori -->
                 <li class="nav-item <?= active_menu('kategori'); ?>">
                     <a href="<?= site_url('kategori'); ?>" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-edit"></i></span>
-                        <span class="pcoded-mtext">Kategori</span>
+                        <span class="pcoded-mtext">Kelola Kategori</span>
                     </a>
                 </li>
                 <!-- Website -->
                 <li class="nav-item pcoded-hasmenu <?= active_menu('website'); ?>">
-                    <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-life-buoy"></i></span><span class="pcoded-mtext"> Website</span></a>
+                    <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-life-buoy"></i></span><span class="pcoded-mtext"> Kelola Website</span></a>
                     <ul class="pcoded-submenu">
                         <li class="<?php echo $this->uri->segment(2) == 'data_slider' || $this->uri->segment(2) == 'tambah_slider' || $this->uri->segment(2) == 'edit_slider' ? 'active' : '' ?>"><a href="<?= site_url('website/data_slider'); ?>"> Slider</a></li>
                         <li class="<?= $this->uri->segment(2) == 'edit_profile_website' ? 'active' : '' ?>"><a href="<?= site_url('website/edit_profile_website'); ?>">Profile</a></li>
@@ -65,6 +58,13 @@
                         <li class=""><a href="<?= site_url('beranda'); ?>" target="blank">Lihat Website</a></li>
                     </ul>
                 </li>
+                <!-- Laporan -->
+                <li class="nav-item <?= active_menu('laporan'); ?>">
+                    <a href="<?= site_url('laporan/laporan_transaksi'); ?>" class="nav-link ">
+                        <span class="pcoded-micon"><i class="feather icon-file"></i></span>
+                        <span class="pcoded-mtext">Laporan Transaksi</span>
+                    </a>
+                </li>
 
                 <li class="nav-item pcoded-menu-caption">
                     <label>Pengaturan</label>
@@ -72,7 +72,7 @@
 
                 <!-- Profile-->
                 <li class="nav-item pcoded-hasmenu <?= active_menu('profile'); ?>">
-                    <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext"> Akun Saya</span></a>
+                    <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext"> Kelola Akun</span></a>
                     <ul class="pcoded-submenu">
                         <li class="<?php echo $this->uri->segment(2) == 'index' || $this->uri->segment(2) == 'edit_profile_admin' ? 'active' : '' ?>"><a href="<?= site_url('profile/index'); ?>">Profile</a></li>
                         <li class="<?php echo $this->uri->segment(2) == 'ubah_password_admin' ? 'active' : '' ?>"><a href="<?= site_url('profile/ubah_password_admin'); ?>">Ubah Password</a></li>

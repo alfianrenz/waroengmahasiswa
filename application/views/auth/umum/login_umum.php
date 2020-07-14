@@ -4,7 +4,7 @@
         <div class="ho-breadcrumb">
             <ul>
                 <li><a href="<?= site_url('home'); ?>">Beranda</a></li>
-                <li>Login Umum</li>
+                <li>Login Pengguna Umum</li>
             </ul>
         </div>
     </div>
@@ -26,7 +26,7 @@
 
                 <!-- Form Login -->
                 <div class="col-lg-6 mt-30 mt-lg-0">
-                    <h2>LOGIN UMUM</h2>
+                    <h2>LOGIN PENGGUNA UMUM</h2>
                     <?= $this->session->userdata('message'); ?>
                     <div class="login-form-wrapper">
                         <div class="card">

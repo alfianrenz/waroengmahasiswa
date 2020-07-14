@@ -285,3 +285,15 @@ $('.tombol-aktifproduk').on('click', function (e) {
         }
     });
 });
+
+//Sweet alert harap login
+$('.harap-login').on('click', function (e) {
+    e.preventDefault();
+
+    Swal.fire({
+        title: 'Harap Login',
+        text: 'Login untuk dapat melihat akun anda',
+        type: 'warning',
+    })
+});
+

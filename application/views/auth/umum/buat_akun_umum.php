@@ -26,7 +26,7 @@
 
                 <!-- Form Login -->
                 <div class="col-lg-6 mt-30 mt-lg-0">
-                    <h2>BUAT AKUN UMUM</h2>
+                    <h2>BUAT AKUN PENGGUNA UMUM</h2>
                     <?= $this->session->userdata('message'); ?>
                     <div class="login-form-wrapper">
                         <div class="card">
