@@ -195,9 +195,12 @@ class Auth extends My_Controller
         } else if ($type == 'forgot_umum') {
             $this->email->subject('Reset Password');
             $this->email->message('Klik untuk mereset password : <a href="' . base_url() . 'auth/reset_password_umum?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Reset Password</a>');
-        } else if ($type == 'verify') {
+        } else if ($type == 'verify_mahasiswa') {
             $this->email->subject('Aktivasi akun');
-            $this->email->message('Klik untuk mengaktifkan akun : <a href="' . base_url() . 'auth/verify?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Aktifkan akun</a>');
+            $this->email->message('Klik untuk mengaktifkan akun : <a href="' . base_url() . 'auth/verify_mahasiswa?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Aktifkan akun</a>');
+        } else if ($type == 'verify_umum') {
+            $this->email->subject('Aktivasi akun');
+            $this->email->message('Klik untuk mengaktifkan akun : <a href="' . base_url() . 'auth/verify_umum?email=' . $this->input->post('email') . '&token=' . urlencode($token) . '">Aktifkan akun</a>');
         }
 
         if ($this->email->send()) {
@@ -267,7 +270,7 @@ class Auth extends My_Controller
                         redirect('auth/login_mahasiswa');
                     }
                 } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" align="center" role="alert">Akun anda tidak aktif</div>');
+                    $this->session->set_flashdata('message', '<div class="flash-data" data-akuntidakaktif="Periksa email untuk mengaktifkan akun"></div>');
                     redirect('auth/login_mahasiswa');
                 }
             } else {
@@ -325,9 +328,51 @@ class Auth extends My_Controller
             } else {
                 //input ke table akun mahasiswa
                 $this->auth_model->buatAkun_mahasiswa();
-                $this->session->set_flashdata('message', '<div class="flash-data" data-registrasi="Silahkan login"></div>');
+
+                // //siapkan token
+                // $token = base64_encode(random_bytes(32));
+                // $user_token = [
+                //     'email' => $this->input->post('email'),
+                //     'token' => $token,
+                //     'date_created' => time()
+                // ];
+                // $this->db->insert('user_token', $user_token);
+
+                // //kirim ke email
+                // $this->_sendEmail($token, 'verify_mahasiswa');
+
+                $this->session->set_flashdata('message', '<div class="flash-data" data-registrasi="Silahkan Login"></div>');
                 redirect('auth/login_mahasiswa');
             }
+        }
+    }
+
+    //verifikasi akun
+    public function verify_mahasiswa()
+    {
+        $email = $this->input->get('email');
+        $token = $this->input->get('token');
+
+        $mahasiswa = $this->db->get_where('akun_mahasiswa', ['email_mahasiswa' => $email])->row_array();
+
+        if ($mahasiswa) {
+            $user_token = $this->db->get_where('user_token', ['token' => $token])->row_array();
+
+            if ($user_token) {
+                $this->db->set('status_aktif', 1);
+                $this->db->where('email_mahasiswa', $email);
+                $this->db->update('akun_mahasiswa');
+
+                $this->db->delete('user_token', ['email' => $email]);
+                $this->session->set_flashdata('message', '<div class="flash-data" data-verifikasiakun="Silahkan login"></div>');
+                redirect('auth/login_mahasiswa');
+            } else {
+                $this->session->set_flashdata('message', '<div class="alert alert-danger" align="center" role="alert">Token salah</div>');
+                redirect('auth/login_mahasiswa');
+            }
+        } else {
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" align="center" role="alert">Aktivasi gagal! email salah!</div>');
+            redirect('auth/login_mahasiswa');
         }
     }
 

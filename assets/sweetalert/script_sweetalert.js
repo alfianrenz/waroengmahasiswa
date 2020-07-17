@@ -30,6 +30,11 @@ const tambahKeranjang = $('.flash-data').data('tambahkeranjang');
 const keranjangGagal = $('.flash-data').data('keranjanggagal');
 // Sweet alert registrasi gagal
 const registrasiGagal = $('.flash-data').data('registrasigagal');
+// Sweet alert berhasil verifikasi
+const verifikasiAkun = $('.flash-data').data('verifikasiakun');
+// Sweet alert akun tidak aktif
+const akunTidakAktif = $('.flash-data').data('akuntidakaktif');
+
 
 
 // Sweet alert flashData
@@ -172,6 +177,24 @@ if (registrasiGagal) {
     Swal.fire({
         title: 'Registrasi Gagal',
         text: registrasiGagal,
+        type: 'error',
+    });
+}
+
+//Sweet alert verifikasi akun
+if (verifikasiAkun) {
+    Swal.fire({
+        title: 'Berhasil Diaktifkan',
+        text: verifikasiAkun,
+        type: 'success',
+    });
+}
+
+//Sweet alert verifikasi akun
+if (akunTidakAktif) {
+    Swal.fire({
+        title: 'Akun Tidak Aktif',
+        text: akunTidakAktif,
         type: 'error',
     });
 }
