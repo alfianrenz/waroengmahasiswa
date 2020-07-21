@@ -82,7 +82,6 @@ class Checkout_model extends CI_Model
             'first_name'    => $this->session->userdata('nama'),
             'address'       => $this->input->post('alamat'),
             'city'          => $this->input->post('kota'),
-            'postal_code'   => $this->input->post('kode_pos'),
             'phone'         => $this->session->userdata('telepon')
         );
 
@@ -91,7 +90,6 @@ class Checkout_model extends CI_Model
             'first_name'    => $this->session->userdata('nama'),
             'address'       => $this->input->post('alamat'),
             'city'          => $this->input->post('kota'),
-            'postal_code'   => $this->input->post('kode_pos'),
             'phone'         => $this->session->userdata('telepon')
         );
 
@@ -126,10 +124,10 @@ class Checkout_model extends CI_Model
             'alamat_pelanggan'  => $this->input->post('alamat'),
             'telepon_pelanggan' => $this->session->userdata('telepon'),
             'kota_pelanggan'    => $this->input->post('kota'),
-            'kode_pos'          => $this->input->post('kode_pos'),
             'id_keranjang'      => $produk[0]['id_keranjang'],
             'total_bayar'       => $total_bayar,
-            'status_bayar'      => 'pending'
+            'status_bayar'      => 'pending',
+            'jasa_kurir'        => $this->input->post('kurir')
         ];
         $this->db->insert('transaksi', $data_transaksi);
 

@@ -39,9 +39,8 @@ class Checkout extends My_Controller
         $this->form_validation->set_rules('alamat', 'alamat', 'required|trim', [
             'required' => 'Form ini tidak boleh kosong'
         ]);
-        $this->form_validation->set_rules('kode_pos', 'kode_pos', 'required|trim|numeric', [
-            'required' => 'Form ini tidak boleh kosong',
-            'numeric' => 'Harus di isi dengan angka'
+        $this->form_validation->set_rules('kurir', 'kurir', 'required|trim', [
+            'required' => 'Form ini tidak boleh kosong'
         ]);
 
         if ($this->form_validation->run() == FALSE) {
@@ -50,7 +49,7 @@ class Checkout extends My_Controller
                 'error' => true,
                 'validasi_alamat' => form_error('alamat'),
                 'validasi_kota' => form_error('kota'),
-                'validasi_kode_pos' => form_error('kode_pos')
+                'validasi_kurir' => form_error('kurir')
             ));
         } else {
             header('Content-Type: application/json');

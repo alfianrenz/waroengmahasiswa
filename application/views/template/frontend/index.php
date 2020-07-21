@@ -133,15 +133,20 @@
                         } else {
                             $('#validasi_kota').html('');
                         }
-                        if (data.validasi_kode_pos != '') {
-                            $('#validasi_kode_pos').html(data.validasi_kode_pos);
-                        } else {
-                            $('#validasi_kode_pos').html('');
-                        }
+                        // if (data.validasi_kode_pos != '') {
+                        //     $('#validasi_kode_pos').html(data.validasi_kode_pos);
+                        // } else {
+                        //     $('#validasi_kode_pos').html('');
+                        // }
                         if (data.validasi_alamat != '') {
                             $('#validasi_alamat').html(data.validasi_alamat);
                         } else {
                             $('#validasi_alamat').html('');
+                        }
+                        if (data.validasi_kurir != '') {
+                            $('#validasi_kurir').html(data.validasi_kurir);
+                        } else {
+                            $('#validasi_kurir').html('');
                         }
                     } else {
                         snap.pay(data.token);
