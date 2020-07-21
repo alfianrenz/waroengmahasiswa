@@ -55,7 +55,7 @@
                     <div class="card-body">
                         <div class="row align-items-center m-l-0">
                             <div class="col-auto">
-                                <i class="icon feather icon-external-link f-30 text-c-yellow"></i>
+                                <i class="icon feather icon-navigation-2 f-30 text-c-yellow"></i>
                             </div>
                             <div class="col-auto">
                                 <h6 class="text-muted m-b-10">Dikirim</h6>

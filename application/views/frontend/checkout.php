@@ -98,7 +98,7 @@
                                 </table>
                             </div>
                             <button class="ho-button ho-button-fullwidth" type="submit">
-                                <span>Pembayaran</span>
+                                <span>Bayar</span>
                             </button>
                         </div>
                     </div>

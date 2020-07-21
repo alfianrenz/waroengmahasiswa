@@ -121,7 +121,7 @@
                                           <h5 class="hoproduct-title"><a id="nama-produk-<?= $p['id_produk'] ?>" href="product-details.html"><?= $p['nama_produk']; ?></a></h5>
                                           <div class="hoproduct-pricebox">
                                               <div class="pricebox">
-                                                  <span class="price" id="price-produk-<?= $p['id_produk'] ?>">Rp <?= number_format($p['harga_produk'], 0, ',', '.'); ?></span>
+                                                  <span class="price" id="price-produk-<?= $p['id_produk'] ?>">Rp<?= number_format($p['harga_produk'], 0, ',', '.'); ?></span>
                                               </div>
                                           </div>
                                           <p class="hoproduct-content-description" style="display: none;">

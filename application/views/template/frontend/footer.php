@@ -57,7 +57,7 @@
     <div class="footer-bottomarea">
         <div class="container">
             <div class="footer-copyright">
-                <p class="copyright">Copyright &copy; <a href="<?= site_url('beranda'); ?>"><?= $website['nama_website']; ?></a> By Alfian</p>
+                <p class="copyright">Copyright &copy; <a href="<?= site_url('beranda'); ?>"><?= $website['nama_website']; ?></a> by Alfian</p>
             </div>
         </div>
     </div>
