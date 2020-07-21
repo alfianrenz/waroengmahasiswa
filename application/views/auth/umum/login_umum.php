@@ -21,7 +21,7 @@
 
                 <!-- Images  -->
                 <div class="col-lg-6">
-                    <img src="<?= base_url(); ?>assets/frontend/images/others/daftar_mahasiswa.png" alt="">
+                    <img src="<?= base_url(); ?>assets/frontend/images/others/login_pengguna_umum.png" alt="">
                 </div>
 
                 <!-- Form Login -->
@@ -34,12 +34,12 @@
 
                                 <form action="<?= site_url('auth/login_umum'); ?>" method="POST">
                                     <div class="form-group">
-                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Email / Username</label>
+                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Username <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control form-control-sm" id="username" name="username" placeholder="" value="<?= set_value('username'); ?>">
                                         <?= form_error('username', '<small class="text-danger">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Password</label>
+                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Password <span class="text-danger">*</span></label>
                                         <input type="password" class="form-control form-control-sm" id="password" name="password" placeholder="" value="">
                                         <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
                                     </div>

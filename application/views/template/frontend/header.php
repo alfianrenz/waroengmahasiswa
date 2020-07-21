@@ -57,7 +57,7 @@
                                 <option value="<?= $k['id_kategori']; ?>"><?= $k['nama_kategori']; ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <input type="text" name="keyword" placeholder="Ingin belanja apa hari ini?">
+                        <input type="text" name="keyword" placeholder="Cari di Waroeng Mahasiswa...">
                         <button type="submit"><i class="lnr lnr-magnifier"></i></button>
                     </form>
                 </div>
@@ -66,7 +66,7 @@
 
                         <?php if ($this->session->userdata('id')) { ?>
                             <div class="header-account">
-                                <button class="header-accountbox-trigger"><span class="lnr lnr-user"></span> My Account <i class="ion ion-ios-arrow-down"></i></button>
+                                <button class="header-accountbox-trigger"><span class="lnr lnr-user"></span> <?= $this->session->userdata('nama'); ?> <i class="ion ion-ios-arrow-down"></i></button>
                                 <ul class="header-accountbox dropdown-list">
                                     <li><a href="<?= site_url('dashboard/pembeli'); ?>">Dashboard</a></li>
                                     <li><a href="<?= site_url('keranjang/halaman_keranjang'); ?>">Keranjang</a></li>
@@ -82,7 +82,7 @@
                             </div>
                         <?php } else { ?>
                             <div class="header-account">
-                                <a href=""><button class="header-accountbox-trigger harap-login"><span class=" lnr lnr-user"></span> My Account</button></a>
+                                <a href=""><button class="header-accountbox-trigger harap-login"><span class=" lnr lnr-user"></span> Akun Saya</button></a>
                             </div>
                         <?php } ?>
 
@@ -102,8 +102,8 @@
                                             <img src="<?= base_url(); ?>assets/frontend/images/others/cart.png" width="180px">
                                         </div>
                                         <div>
-                                            <h5 class="text-dark text-center mb-2">Hah Kosong?</h5>
-                                            <p class="text-muted text-center mb-4">Mau di isi apa ya keranjang sebesar ini?</p>
+                                            <h5 class="text-dark text-center mb-2">Keranjang Anda Kosong</h5>
+                                            <p class="text-muted text-center mb-4">Coba lihat daftar produk siapa tau berminat</p>
                                         </div>
                                     </div>
                                     <div class="minicart-footer">
@@ -167,7 +167,7 @@
                             <li class="<?= active_menu('beranda'); ?>"><a href="<?= site_url('beranda'); ?>">Beranda</a></li>
                             <li class="<?= active_menu('produk'); ?>"><a href="<?= site_url('produk/data_produk_frontend'); ?>">Produk</a></li>
                             <li class="<?= active_menu('penjual'); ?>"><a href="<?= site_url('penjual/data_penjual'); ?>">Penjual</a></li>
-                            <li class="<?= active_menu('tentang_warma'); ?>"><a href="<?= site_url('tentang_warma'); ?>">Tentang Warma</a></li>
+                            <li class="<?= active_menu('tentang_warma'); ?>"><a href="<?= site_url('tentang_warma'); ?>">Tentang Kami</a></li>
                             <li class="<?= active_menu('website'); ?>"><a href="<?= site_url('website/bantuan'); ?>">Bantuan</a></li>
                         </ul>
                     </nav>
@@ -176,7 +176,7 @@
                     <div class="header-contactinfo">
                         <a href="https://api.whatsapp.com/send?phone=<?= $website['telepon']; ?>" target="_blank">
                             <i class="flaticon-support text-white"></i>
-                            <span class="text-white">Contact Person :</span>
+                            <span class="text-white">Hubungi Kami :</span>
                             <b class="text-white">+<?= $website['telepon']; ?></b>
                         </a>
                     </div>

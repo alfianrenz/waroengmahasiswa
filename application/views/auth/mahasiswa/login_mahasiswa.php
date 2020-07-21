@@ -35,12 +35,12 @@
 
                                 <form action="<?= site_url('auth/login_mahasiswa'); ?>" method="POST">
                                     <div class="form-group">
-                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Nomor Induk Mahasiswa</label>
+                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Nomor Induk Mahasiswa <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control form-control-sm" id="nim" name="nim" placeholder="" value="">
                                         <?= form_error('nim', '<small class="text-danger">', '</small>'); ?>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Password</label>
+                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Password <span class="text-danger">*</span></label>
                                         <input type="password" class="form-control form-control-sm" id="password" name="password" placeholder="" value="">
                                         <?= form_error('password', '<small class="text-danger">', '</small>'); ?>
                                     </div>

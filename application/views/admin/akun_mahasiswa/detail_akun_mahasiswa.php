@@ -24,7 +24,7 @@
                     <div class="card-header">
                         <div class="nav nav-pills" role="tablist">
                             <a href="<?= site_url('akun/detail_akun_mahasiswa'); ?>/<?= $mahasiswa['id_mahasiswa']; ?>" class="nav-link active">Detail Mahasiswa</a>
-                            <a href="<?= site_url('akun/detail_produk_mahasiswa'); ?>/<?= $mahasiswa['id_mahasiswa']; ?>" class="nav-link">Detail Produk</a>
+                            <a href="<?= site_url('akun/detail_produk_mahasiswa'); ?>/<?= $mahasiswa['id_mahasiswa']; ?>" class="nav-link">Daftar Produk</a>
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                                     </tr>
                                     <tr>
                                         <td>Tanggal Daftar</td>
-                                        <td>:&nbsp;&nbsp; <?= date('d M Y', strtotime($mahasiswa['tanggal_daftar'])); ?></td>
+                                        <td>:&nbsp;&nbsp; <?= $mahasiswa['tanggal_daftar']; ?></td>
                                     </tr>
                                     <tr>
                                         <td>Status</td>

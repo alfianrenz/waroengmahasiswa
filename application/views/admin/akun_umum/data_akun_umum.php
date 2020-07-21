@@ -32,7 +32,7 @@
                                     <tr>
                                         <th width="5%">No</th>
                                         <th width="5%">Foto</th>
-                                        <th>Username</th>
+                                        <th>Nama Pengguna</th>
                                         <th>Email</th>
                                         <th>Telepon</th>
                                         <th class="text-center">Tanggal Daftar</th>
@@ -49,10 +49,10 @@
                                             <td class="align-middle text-center">
                                                 <img src="<?= base_url('upload/foto_user/' . $u['foto']); ?>" alt="contact-img" title="contact-img" class="img-radius mr-3" height="48" width="48" style="object-fit: cover">
                                             </td>
-                                            <td class="align-middle"><?= $u['username']; ?></td>
+                                            <td class="align-middle"><?= $u['nama']; ?></td>
                                             <td class="align-middle"><?= $u['email']; ?></td>
                                             <td class="align-middle"><?= $u['telepon']; ?></td>
-                                            <td class="align-middle text-center"><?= date('d M Y', strtotime($u['tanggal_daftar'])); ?></td>
+                                            <td class="align-middle text-center"><?= $u['tanggal_daftar']; ?></td>
                                             <td class="align-middle text-center">
                                                 <?php if ($u['status_aktif'] == 1) { ?>
                                                     <a href="<?= site_url('akun/nonaktifkan_statusakun_umum/' . $u['id_umum']); ?>" class="badge badge-success tombol-nonaktif">Aktif</a>

@@ -16,7 +16,7 @@
               </div>
               <div class="herobanner-box" style="margin-left:50px">
                   <a href="<?= site_url('tentang_warma'); ?>" class="ho-button">
-                      <span>Tentang Warma</span>
+                      <span>Tentang Kami</span>
                   </a>
               </div>
           </div>
@@ -33,7 +33,7 @@
                   <h1 style="color:#363636;"><b>Seorang</b> <span style="color:#0B88EE"><b>Entrepeneur</b></span></h1>
               </div>
               <div class="herobanner-box" style="margin-left:50px">
-                  <p style="color:#7e7e7e">Daftarkan dirimu dan jadilah pengusaha puda</p>
+                  <p style="color:#7e7e7e">Daftarkan dirimu dan jadilah pengusaha muda</p>
               </div>
               <div class="herobanner-box" style="margin-left:50px">
                   <a href="<?= site_url('auth/buat_akun_mahasiswa'); ?>" class="ho-button">
@@ -60,7 +60,7 @@
                   <div class="col-lg-4 col-md-6 col-12">
                       <div class="featurebox">
                           <i class="flaticon-support-1"></i>
-                          <h5>Setia 24 Jam</h5>
+                          <h5>Aktif 24 Jam</h5>
                           <p>Jika ada kesulitan hubungi kontak kami</p>
                       </div>
                   </div>

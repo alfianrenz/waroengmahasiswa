@@ -22,13 +22,13 @@
 
                 <!-- Images  -->
                 <div class="col-lg-6">
-                    <img src="<?= base_url(); ?>assets/frontend/images/others/daftar_mahasiswa.png" alt="">
+                    <img src="<?= base_url(); ?>assets/frontend/images/others/forgot_password.png" alt="">
                 </div>
 
                 <!-- Form Login -->
                 <div class="col-lg-6 mt-30 mt-lg-0">
-                    <h2>RESET PASSWORD</h2>
-                    <p>Masukkan email yang terdaftar di Waroeng Mahasiswa. Kami akan mengirimkan email verifikasi untuk mereset password lama anda</p>
+                    <h2>LUPA PASSWORD</h2>
+                    <P>Masukkan email yang terdaftar, kemudian kami akan mengirimkan kepada anda email verifikasi untuk mengatur ulang password lama. </P>
                     <?= $this->session->userdata('message'); ?>
                     <div class="login-form-wrapper">
                         <div class="card">
@@ -36,7 +36,7 @@
 
                                 <form action="<?= site_url('auth/lupa_password_umum'); ?>" method="POST">
                                     <div class="form-group">
-                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Email</label>
+                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Email <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control form-control-sm" id="email" name="email" placeholder="" value="">
                                         <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
                                     </div>

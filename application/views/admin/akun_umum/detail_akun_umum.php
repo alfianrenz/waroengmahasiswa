@@ -29,7 +29,7 @@
                                 </a>
                             </div>
                         </div>
-                        <h5 class="mt-4"><?= $umum['username']; ?></h5>
+                        <h5 class="mt-4"><?= $umum['nama']; ?></h5>
                         <p class="text-muted" style="margin-bottom: 17px;"><?= $umum['email']; ?></p>
                     </div>
                 </div>
@@ -51,8 +51,8 @@
                             <table class="table table-sm table-borderless mb-0">
                                 <tbody>
                                     <tr>
-                                        <td>Username</td>
-                                        <td>:&nbsp;&nbsp; <?= $umum['username']; ?></td>
+                                        <td>Nama Pengguna</td>
+                                        <td>:&nbsp;&nbsp; <?= $umum['nama']; ?></td>
                                     </tr>
                                     <tr>
                                         <td>Email</td>
@@ -64,7 +64,7 @@
                                     </tr>
                                     <tr>
                                         <td>Tanggal Daftar</td>
-                                        <td>:&nbsp;&nbsp; <?= date('d M Y', strtotime($umum['tanggal_daftar'])); ?></td>
+                                        <td>:&nbsp;&nbsp; <?= $umum['tanggal_daftar']; ?></td>
                                     </tr>
                                     <tr>
                                         <td>Status</td>

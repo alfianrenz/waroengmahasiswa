@@ -22,7 +22,7 @@
                             <li><a href="#">&nbsp;&nbsp;Alfamart</a></li>
                             <li><a href="#">&nbsp;&nbsp;Indomaret</a></li>
                             <li><a href="#">&nbsp;&nbsp;Bank Transfer</a></li>
-                            <li><a href="#">&nbsp;&nbsp;Gopay</a></li>
+                            <li><a href="#">&nbsp;&nbsp;Pembayaran QR</a></li>
                         </ul>
 
                     </div>

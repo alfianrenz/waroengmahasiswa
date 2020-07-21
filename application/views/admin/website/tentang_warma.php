@@ -5,11 +5,11 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Tentang Warma</h5>
+                            <h5 class="m-b-10">Tentang Kami</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?= site_url('dashboard'); ?>"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#!">Tentang Warma</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Tentang Kami</a></li>
                         </ul>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5>Halaman Tentang Warma</h5>
+                        <h5>Halaman Tentang Kami</h5>
                     </div>
                     <div class="card-body">
                         <form action="<?= site_url('website/edit_tentang_warma'); ?>" method="POST">

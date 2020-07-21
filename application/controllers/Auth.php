@@ -51,6 +51,7 @@ class Auth extends My_Controller
                         'foto' => $admin['foto_admin']
                     ];
                     $this->session->set_userdata($data);
+                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat Datang BKM CIC di Halaman Administrator!</div>');
                     redirect('dashboard');
                 } else {
                     $this->session->set_flashdata('message', '<div class="flash-data" data-passworderror="Periksa kembali password anda"></div>');
@@ -274,7 +275,7 @@ class Auth extends My_Controller
                     redirect('auth/login_mahasiswa');
                 }
             } else {
-                $this->session->set_flashdata('message', '<div class="flash-data" data-nimempty="Periksa kembali NIM anda"></div>');
+                $this->session->set_flashdata('message', '<div class="flash-data" data-nimempty="Nomor Induk Mahasiswa belum terdaftar"></div>');
                 redirect('auth/login_mahasiswa');
             }
         }
@@ -308,11 +309,6 @@ class Auth extends My_Controller
         $this->form_validation->set_rules('password1', 'password1', 'required|min_length[3]', [
             'required' => 'Form ini tidak boleh kosong',
             'min_length'  => 'Minimal di isi dengan 3 karakter'
-        ]);
-        $this->form_validation->set_rules('password2', 'password2', 'required|min_length[3]|matches[password1]', [
-            'required' => 'Form ini tidak boleh kosong',
-            'min_length'  => 'Minimal di isi dengan 3 karakter',
-            'matches' => 'Password tidak sama'
         ]);
 
         //jika validasi salah
@@ -577,11 +573,6 @@ class Auth extends My_Controller
             'required' => 'Form ini tidak boleh kosong',
             'min_length'  => 'Minimal di isi dengan 3 karakter'
         ]);
-        $this->form_validation->set_rules('password2', 'password2', 'required|min_length[3]|matches[password1]', [
-            'required' => 'Form ini tidak boleh kosong',
-            'min_length'  => 'Minimal di isi dengan 3 karakter',
-            'matches' => 'Password tidak sama'
-        ]);
 
         //jika validasi salah
         if ($this->form_validation->run() == false) {
@@ -589,7 +580,7 @@ class Auth extends My_Controller
         } else {
             //input ke table umum
             $this->auth_model->buatAkun_umum();
-            $this->session->set_flashdata('message', '<div class="flash-data" data-registrasi="Silahkan login"></div>');
+            $this->session->set_flashdata('message', '<div class="flash-data" data-registrasi="Silahkan Login"></div>');
             redirect('auth/login_umum');
         }
     }

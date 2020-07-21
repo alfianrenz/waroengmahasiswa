@@ -103,7 +103,7 @@ if (nonActive) {
 // Sweet alert nim tidak terdaftar
 if (nimEmpty) {
     Swal.fire({
-        title: 'NIM Belum Terdaftar',
+        title: 'Login Gagal',
         text: nimEmpty,
         type: 'error',
     });
@@ -315,7 +315,7 @@ $('.harap-login').on('click', function (e) {
 
     Swal.fire({
         title: 'Harap Login',
-        text: 'Login untuk dapat melihat akun anda',
+        text: 'Untuk dapat melihat akun anda',
         type: 'warning',
     })
 });

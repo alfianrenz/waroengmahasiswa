@@ -21,7 +21,8 @@
 
                 <!-- Images  -->
                 <div class="col-lg-6">
-                    <img src="<?= base_url(); ?>assets/frontend/images/others/daftar_mahasiswa.png" alt="">
+                    <img src="<?= base_url(); ?>assets/frontend/images/others/daftar_mahasiswa.png" alt="" class="mb-2">
+                    <p style="text-align: center;">Waroeng Mahasiswa adalah sebuah wadah bagi mahasiswa UCIC yang memiliki usaha di bidang jasa atau produk yang dijual dan dapat dipasarkan melalui internal kampus ataupun eksternal kampus melalui media berbasis website. </p>
                 </div>
 
                 <!-- Form Login -->
@@ -57,11 +58,6 @@
                                         <label for="inputEmail3" class="col-form-label col-form-label-sm">Password</label>
                                         <input type="password" class="form-control form-control-sm" id="password1" name="password1" placeholder="" value="<?= set_value('password1'); ?>">
                                         <?= form_error('password1', '<small class="text-danger">', '</small>'); ?>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputEmail3" class="col-form-label col-form-label-sm">Ulangi Password</label>
-                                        <input type="password" class="form-control form-control-sm" id="password2" name="password2" placeholder="" value="">
-                                        <?= form_error('password2', '<small class="text-danger">', '</small>'); ?>
                                     </div>
                                     <div class="form-group mb-0">
                                         <button type="submit" class="col-sm-12 ho-button mt-2"><span>Buat Akun</span></button>

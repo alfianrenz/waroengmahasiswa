@@ -50,7 +50,7 @@
                                     <img src="<?= base_url(); ?>assets/frontend/images/others/produk_empty.png" alt="" width="400px">
                                 </div>
                                 <div class="col-sm-12 text-center" style="margin-top: 30px;">
-                                    <h2>TIDAK ADA PRODUK :(</h2>
+                                    <h2>TIDAK ADA PRODUK</h2>
                                 </div>
                             <?php } else { ?>
                                 <?php foreach ($produk as $p) : ?>

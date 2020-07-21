@@ -26,7 +26,7 @@
                     <div class="card-header">
                         <div class="nav nav-pills" role="tablist">
                             <a href="<?= site_url('akun/detail_akun_mahasiswa'); ?>/<?= $mahasiswa['id_mahasiswa']; ?>" class="nav-link">Detail Mahasiswa</a>
-                            <a href="#!" class="nav-link active">Detail Produk</a>
+                            <a href="#!" class="nav-link active">Daftar Produk</a>
                         </div>
                     </div>
                 </div>

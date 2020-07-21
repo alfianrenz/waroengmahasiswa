@@ -31,13 +31,13 @@
                 <div class="col-md-12">
                     <div class="card-body">
                         <h4 class="mb-2" style="font-size: 19px">Login Administrator</h4>
-                        <p class="text-muted mb-5">Akses untuk kelola Marketplace</p>
+                        <p class="text-muted mb-5">Akses untuk mengelola marketplace</p>
 
                         <?= $this->session->userdata('message'); ?>
 
                         <form id="validation-form123" action="<?= site_url('auth'); ?>" method="POST" class="text-left">
                             <div class="form-group mb-3">
-                                <label class="floating-label">Email / Username</label>
+                                <label class="floating-label">Username</label>
                                 <input type="text" class="form-control" id="username" name="username" placeholder="">
                             </div>
                             <div class="form-group mb-4">

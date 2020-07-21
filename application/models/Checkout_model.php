@@ -105,7 +105,7 @@ class Checkout_model extends CI_Model
         );
 
         $enable_payments = [
-            'credit_card', 'alfamart', 'bri_epay', 'echannel', 'permata_va', 'bca_va', 'bni_va', 'other_va', 'gopay', 'indomaret'
+            'credit_card', 'alfamart', 'bca_klikbca', 'bri_epay', 'echannel', 'permata_va', 'bca_va', 'bni_va', 'other_va', 'gopay', 'indomaret'
         ];
 
         $transaction_data = [
