@@ -92,7 +92,7 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center">Order ID</th>
-                                        <th class="text-center">Tipe Pembayaran</th>
+                                        <th class="text-center">Metode Pembayaran</th>
                                         <th>Tanggal & Waktu</th>
                                         <th class="text-center">Total Bayar</th>
                                         <th class="text-center">Status Pesanan</th>
@@ -102,19 +102,41 @@
                                 <tbody>
                                     <?php foreach ($transaksi as $t) : ?>
                                         <tr>
+                                            <!-- Order ID -->
                                             <td class="text-center align-middle"><?= $t['order_id']; ?></td>
-                                            <td class="align-middle text-center"><?= $t['tipe_pembayaran']; ?></td>
-                                            <td class="align-middle"><?= $t['waktu_transaksi']; ?></td>
-                                            <td class="align-middle text-center">Rp<?= number_format($t['total_bayar'], 0, ',', '.'); ?></td>
+
+                                            <!-- Metode Pembayaran -->
                                             <td class="align-middle text-center">
-                                                <?php if ($t['status_bayar'] == 'pending') { ?>
+                                                <?php if ($t['tipe_pembayaran'] == 'gopay') { ?>
+                                                    <span>GOPAY</span>
+                                                <?php } ?>
+
+                                                <?php if ($t['tipe_pembayaran'] == 'cstore') { ?>
+                                                    <span><?= $t['store']; ?></span>
+                                                <?php } ?>
+
+                                                <?php if ($t['tipe_pembayaran'] == 'bank_transfer') { ?>
+                                                    <span>Bank Transfer</span>
+                                                <?php } ?>
+                                            </td>
+
+                                            <!-- Waktu Transaksi -->
+                                            <td class="align-middle"><?= $t['waktu_transaksi']; ?>
+                                            </td>
+
+                                            <!-- Total Bayar -->
+                                            <td class="align-middle text-center">Rp<?= number_format($t['total_bayar'], 0, ',', '.'); ?></td>
+
+                                            <!-- Status Pesanan -->
+                                            <td class="align-middle text-center">
+                                                <?php if ($t['status_pesanan'] == 'Belum Bayar') { ?>
                                                     <span class="badge badge-warning">Belum Bayar</span>
-                                                <?php } else if ($t['status_bayar'] == 'cancel') { ?>
-                                                    <span class="badge badge-danger">Batal</span>
-                                                <?php } else if ($t['status_bayar'] == 'failure') { ?>
-                                                    <span class="badge badge-secondary">Gagal</span>
-                                                <?php } else { ?>
+                                                <?php } else if ($t['status_pesanan'] == 'Diproses') { ?>
                                                     <span class="badge badge-primary">Diproses</span>
+                                                <?php } else if ($t['status_pesanan'] == 'Dikirim') { ?>
+                                                    <span class="badge badge-secondary">Dikirim</span>
+                                                <?php } else { ?>
+                                                    <span class="badge badge-primary">Selesai</span>
                                                 <?php } ?>
                                             </td>
                                             <td class="align-middle text-center">
