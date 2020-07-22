@@ -114,15 +114,16 @@ class Checkout extends My_Controller
         // $data = json_decode(file_get_contents('php://input'));
         $order_id = $this->input->get('order_id');
         $data['transaksi'] = $this->db->get_where('transaksi', ['order_id' => $order_id])->row();
-        $detail_keranjang = $this->db->get('detail_keranjang')->row_array();
 
-        //hapus detail_keranjang
-        $this->db->where('id_keranjang', $detail_keranjang['id_keranjang']);
-        $this->db->delete('detail_keranjang');
+        // $detail_keranjang = $this->db->get('detail_keranjang')->row_array();
 
-        //hapus_keranjang
-        $this->db->where('id_keranjang', $detail_keranjang['id_keranjang']);
-        $this->db->delete('keranjang');
+        // //hapus detail_keranjang
+        // $this->db->where('id_keranjang', $detail_keranjang['id_keranjang']);
+        // $this->db->delete('detail_keranjang');
+
+        // //hapus_keranjang
+        // $this->db->where('id_keranjang', $detail_keranjang['id_keranjang']);
+        // $this->db->delete('keranjang');
 
         $this->paggingFrontend('frontend/redirect', $data);
     }

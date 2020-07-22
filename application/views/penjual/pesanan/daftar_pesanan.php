@@ -40,10 +40,10 @@
                             <table id="simpletable" class="table table-de nowrap">
                                 <thead>
                                     <tr>
-                                        <th>ID Pesanan</th>
-                                        <th>Payment Type</th>
+                                        <th>Order ID</th>
+                                        <th>Metode Pembayaran</th>
                                         <th>Tanggal & Waktu</th>
-                                        <th>Email Pelanggan</th>
+                                        <th>Nama Pelanggan</th>
                                         <th>Jumlah Bayar</th>
                                         <th class="text-center">Status</th>
                                         <th width="8%">Action</th>
