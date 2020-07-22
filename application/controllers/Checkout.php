@@ -71,6 +71,15 @@ class Checkout extends My_Controller
         $gross_amount = $data->gross_amount;
         $store = $data->store;
 
+        //Update status pesanan
+        if ($data->transaction_status == 'pending') {
+            $status_pesanan = 'Belum Bayar';
+        } else if ($data->transaction_status == 'settlement') {
+            $status_pesanan = 'Diproses';
+        } else {
+            $status_pesanan = 'Gagal';
+        }
+
         $data = [
             'status_bayar'     => $status_bayar,
             'tipe_pembayaran'  => $payment_type,
@@ -78,6 +87,7 @@ class Checkout extends My_Controller
             'waktu_transaksi'  => $transaction_time,
             'total_bayar'      => $gross_amount,
             'store'            => $store,
+            'status_pesanan'   => $status_pesanan
         ];
 
         //insert database
