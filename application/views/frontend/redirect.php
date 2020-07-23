@@ -17,8 +17,7 @@
             <div class="row">
                 <div class="col-sm-6 mx-auto">
                     <div class="text-center">
-                        <img src="<?= base_url(); ?>assets/frontend/images/others/settlement.png" alt="" width="350px" class="mt-3">
-                        <h2 class="mt-4">PESANAN BERHASIL</h2>
+                        <img src="<?= base_url(); ?>assets/frontend/images/logo/logo-warma-blue.png" alt="" width="200px" class="mt-3">
                         <div class="card mt-30">
                             <div class="card-body">
                                 <?php if ($transaksi->tipe_pembayaran == 'cstore') { ?>
