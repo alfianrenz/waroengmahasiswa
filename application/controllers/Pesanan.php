@@ -29,4 +29,11 @@ class Pesanan extends My_Controller
         $data['transaksi'] = $this->checkout_model->getTransaksi_byID();
         $this->paggingPembeli('pembeli/pesanan/daftar_pesanan', $data);
     }
+
+    public function detail_pesanan_pembeli($id)
+    {
+        $data['title'] = 'Warma CIC | Detail Pesanan';
+        $data['transaksi'] = $this->checkout_model->getDetail_transaksi($id);
+        $this->paggingPembeli('pembeli/pesanan/detail_pesanan', $data);
+    }
 }

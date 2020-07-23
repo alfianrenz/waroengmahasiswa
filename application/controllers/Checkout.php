@@ -39,17 +39,13 @@ class Checkout extends My_Controller
         $this->form_validation->set_rules('alamat', 'alamat', 'required|trim', [
             'required' => 'Form ini tidak boleh kosong'
         ]);
-        $this->form_validation->set_rules('kurir', 'kurir', 'required|trim', [
-            'required' => 'Form ini tidak boleh kosong'
-        ]);
 
         if ($this->form_validation->run() == FALSE) {
             header('Content-Type: application/json');
             echo json_encode(array(
                 'error' => true,
                 'validasi_alamat' => form_error('alamat'),
-                'validasi_kota' => form_error('kota'),
-                'validasi_kurir' => form_error('kurir')
+                'validasi_kota' => form_error('kota')
             ));
         } else {
             header('Content-Type: application/json');

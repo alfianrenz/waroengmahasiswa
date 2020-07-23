@@ -95,7 +95,7 @@
                                                 <?php } ?>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <a href="" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
+                                                <a href="<?= site_url('pesanan/detail_pesanan_pembeli/' . $t['order_id']); ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

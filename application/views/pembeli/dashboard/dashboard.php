@@ -108,11 +108,15 @@
                                             <!-- Metode Pembayaran -->
                                             <td class="align-middle text-center">
                                                 <?php if ($t['tipe_pembayaran'] == 'gopay') { ?>
-                                                    <span>GOPAY</span>
+                                                    <span>GO-PAY</span>
                                                 <?php } ?>
 
                                                 <?php if ($t['tipe_pembayaran'] == 'cstore') { ?>
-                                                    <span><?= $t['store']; ?></span>
+                                                    <?php if ($t['store'] == 'alfamart') { ?>
+                                                        <span>Alfamart</span>
+                                                    <?php } else { ?>
+                                                        <span>Indomaret</span>
+                                                    <?php } ?>
                                                 <?php } ?>
 
                                                 <?php if ($t['tipe_pembayaran'] == 'bank_transfer') { ?>

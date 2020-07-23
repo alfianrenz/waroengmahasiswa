@@ -52,15 +52,6 @@
                             <input type="text" class="form-control form-control-sm" id="alamat" name="alamat" value="<?= set_value('alamat'); ?>">
                             <small id="validasi_alamat" class="text-danger"></small>
                         </div>
-                        <div class="form-group">
-                            <label class="floating-label">Jasa Kurir</label>
-                            <select class="form-control" id="kurir" name="kurir">
-                                <option value="">Pilih Jasa Kurir</option>
-                                <option value="Grab Express">Grab Express</option>
-                                <option value="Go Send">Go Send</option>
-                            </select>
-                            <small id="validasi_kurir" class="text-danger"></small>
-                        </div>
                     </div>
 
                     <?php

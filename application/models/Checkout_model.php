@@ -127,7 +127,6 @@ class Checkout_model extends CI_Model
             'id_keranjang'      => $produk[0]['id_keranjang'],
             'total_bayar'       => $total_bayar,
             'status_bayar'      => 'pending',
-            'jasa_kurir'        => $this->input->post('kurir')
         ];
         $this->db->insert('transaksi', $data_transaksi);
 
