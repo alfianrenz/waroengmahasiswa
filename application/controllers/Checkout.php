@@ -87,7 +87,7 @@ class Checkout extends My_Controller
             'waktu_transaksi'  => $transaction_time,
             'total_bayar'      => $gross_amount,
             'store'            => $store,
-            'status_pesanan'   => $status_pesanan
+            'status_pesanan'   => $status_pesanan,
         ];
 
         //insert database

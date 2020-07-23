@@ -57,11 +57,15 @@
                                             <!-- Metode Pembayaran -->
                                             <td class="align-middle text-center">
                                                 <?php if ($t['tipe_pembayaran'] == 'gopay') { ?>
-                                                    <span>GOPAY</span>
+                                                    <span>GO-PAY</span>
                                                 <?php } ?>
 
                                                 <?php if ($t['tipe_pembayaran'] == 'cstore') { ?>
-                                                    <span><?= $t['store']; ?></span>
+                                                    <?php if ($t['store'] == 'alfamart') { ?>
+                                                        <span>Alfamart</span>
+                                                    <?php } else { ?>
+                                                        <span>Indomaret</span>
+                                                    <?php } ?>
                                                 <?php } ?>
 
                                                 <?php if ($t['tipe_pembayaran'] == 'bank_transfer') { ?>
@@ -84,8 +88,10 @@
                                                     <span class="badge badge-primary">Diproses</span>
                                                 <?php } else if ($t['status_pesanan'] == 'Dikirim') { ?>
                                                     <span class="badge badge-secondary">Dikirim</span>
+                                                <?php } else if ($t['status_pesanan'] == 'Selesai') { ?>
+                                                    <span class="badge badge-success">Selesai</span>
                                                 <?php } else { ?>
-                                                    <span class="badge badge-primary">Selesai</span>
+                                                    <span class="badge badge-danger">Gagal</span>
                                                 <?php } ?>
                                             </td>
                                             <td class="align-middle text-center">
