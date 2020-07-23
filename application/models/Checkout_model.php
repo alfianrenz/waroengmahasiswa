@@ -16,24 +16,9 @@ class Checkout_model extends CI_Model
         return $this->db->get()->result_array();
     }
 
-    //get All data transaksi
-    public function getAll_transaksi()
-    {
-        $this->db->select('*');
-        $this->db->from('transaksi');
-        $this->db->order_by('waktu_transaksi', 'DESC');
-        return $this->db->get()->result_array();
-    }
-
-    //get data transaksi berdasarkan id mahasiswa
-    public function getTransaksi_byID()
-    {
-        $this->db->select('*');
-        $this->db->from('transaksi');
-        $this->db->order_by('waktu_transaksi', 'DESC');
-        $this->db->where('id_pembeli', $this->session->userdata('id'));
-        return $this->db->get()->result_array();
-    }
+    //=======================================
+    //                MIDTRANS
+    //=======================================
 
     //get token midtrans
     public function token()
@@ -132,5 +117,39 @@ class Checkout_model extends CI_Model
 
         $snapToken = \Midtrans\Snap::getSnapToken($transaction_data);
         return $snapToken;
+    }
+
+
+    //=======================================
+    //                 ADMIN
+    //=======================================
+
+    //get All data transaksi
+    public function getAll_transaksi()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->order_by('waktu_transaksi', 'DESC');
+        return $this->db->get()->result_array();
+    }
+
+
+    //========================================
+    //              PEMBELI
+    //========================================
+
+    //get data transaksi berdasarkan id mahasiswa
+    public function getTransaksi_byID()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->order_by('waktu_transaksi', 'DESC');
+        $this->db->where('id_pembeli', $this->session->userdata('id'));
+        return $this->db->get()->result_array();
+    }
+
+    //Detail transaksi bagian pembeli
+    public function getDetail_transaksi()
+    {
     }
 }
