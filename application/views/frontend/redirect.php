@@ -17,7 +17,8 @@
             <div class="row">
                 <div class="col-sm-6 mx-auto">
                     <div class="text-center">
-                        <img src="<?= base_url(); ?>assets/frontend/images/logo/logo-warma-blue.png" alt="" width="200px" class="mt-3">
+                        <img src="<?= base_url(); ?>assets/frontend/images/others/setlement.png" alt="" width="350px" class="mt-3">
+                        <h2 class="mt-4">PESANAN BERHASIL</h2>
                         <div class="card mt-30">
                             <div class="card-body">
                                 <?php if ($transaksi->tipe_pembayaran == 'cstore') { ?>
@@ -30,11 +31,23 @@
                                                 </tr>
                                                 <tr>
                                                     <td>Status Pembayaran</td>
-                                                    <td>:&nbsp;&nbsp;<?= $transaksi->status_bayar; ?></td>
+                                                    <td>:&nbsp;&nbsp;
+                                                        <?php if ($transaksi->status_bayar == 'settlement') { ?>
+                                                            <span>Settlement</span>
+                                                        <?php } else if ($transaksi->status_bayar == 'pending') { ?>
+                                                            <span>Belum Bayar</span>
+                                                        <?php } ?>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td>Tipe Pembayaran</td>
-                                                    <td>:&nbsp;&nbsp;<?= $transaksi->store; ?></td>
+                                                    <td>:&nbsp;&nbsp;
+                                                        <?php if ($transaksi->store == 'alfamart') { ?>
+                                                            <span>Alfamart</span>
+                                                        <?php } else { ?>
+                                                            <span>Indomaret</span>
+                                                        <?php } ?>
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td>Total Pembayaran</td>
@@ -49,11 +62,31 @@
                                             <tbody>
                                                 <tr>
                                                     <td>Status Pembayaran</td>
-                                                    <td>:&nbsp;&nbsp;<?= $transaksi->status_bayar; ?></td>
+                                                    <td>:&nbsp;&nbsp;
+                                                        <?php if ($transaksi->status_bayar == 'settlement') { ?>
+                                                            <span>Settlement</span>
+                                                        <?php } else if ($transaksi->status_bayar == 'pending') { ?>
+                                                            <span>Belum Bayar</span>
+                                                        <?php } ?>
+                                                    </td>
                                                 </tr>
                                                 <tr>
-                                                    <td>Tipe Pembayaran</td>
-                                                    <td>:&nbsp;&nbsp;<?= $transaksi->tipe_pembayaran; ?></td>
+                                                    <td>Jenis Pembayaran</td>
+                                                    <td>:&nbsp;&nbsp;
+
+                                                        <?php if ($transaksi->tipe_pembayaran == 'gopay') { ?>
+                                                            <span>GO-PAY</span>
+                                                        <?php } else if ($transaksi->tipe_pembayaran == 'dana') { ?>
+                                                            <span>Dana</span>
+                                                        <?php } else if ($transaksi->tipe_pembayaran == 'ovo') { ?>
+                                                            <span>OVO</span>
+                                                        <?php } else if ($transaski->tipe_pembayaran == 'bank_transfer') { ?>
+                                                            <span>Bank Transfer</span>
+                                                        <?php } else { ?>
+                                                            <span>Kartu Kredit</span>
+                                                        <?php } ?>
+
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td>Total Pembayaran</td>
@@ -65,7 +98,12 @@
                                 <?php } ?>
                             </div>
                         </div>
-                        <a href="<?= site_url('pesanan/daftar_pesanan_pembeli'); ?>" class="ho-button col-sm-12 mt-3 text-white mb-30">Lihat Pesanan</a>
+
+                        <!-- Button -->
+                        <a href="<?= site_url('pesanan/daftar_pesanan_pembeli'); ?>">
+                            <button class="ho-button col-sm-12 mt-3">Lihat Pesanan</button>
+                        </a>
+
                     </div>
                 </div>
             </div>

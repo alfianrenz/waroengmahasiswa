@@ -58,6 +58,10 @@
                                             <td class="align-middle text-center">
                                                 <?php if ($t['tipe_pembayaran'] == 'gopay') { ?>
                                                     <span>GO-PAY</span>
+                                                <?php } else if ($t['tipe_pembayaran'] == 'dana') { ?>
+                                                    <span>DANA</span>
+                                                <?php } else { ?>
+                                                    <span>OVO</span>
                                                 <?php } ?>
 
                                                 <?php if ($t['tipe_pembayaran'] == 'cstore') { ?>
