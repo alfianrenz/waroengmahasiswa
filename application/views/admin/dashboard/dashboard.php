@@ -101,7 +101,7 @@
                                 <thead>
                                     <tr>
                                         <th>Order ID</th>
-                                        <th class="text-center">Tipe Pembayaran</th>
+                                        <th class="text-center">Metode Pembayaran</th>
                                         <th>Nama Pelanggan</th>
                                         <th>Tanggal & Waktu</th>
                                         <th class="text-center">Total Bayar</th>
@@ -113,7 +113,23 @@
                                     <?php foreach ($transaksi as $t) : ?>
                                         <tr>
                                             <td class="text-center align-middle"><?= $t['order_id']; ?></td>
-                                            <td class="align-middle text-center"><?= $t['tipe_pembayaran']; ?></td>
+                                            <td class="align-middle text-center">
+                                                <?php if ($t['tipe_pembayaran'] == 'gopay') { ?>
+                                                    <span>GO-PAY</span>
+                                                <?php } ?>
+
+                                                <?php if ($t['tipe_pembayaran'] == 'cstore') { ?>
+                                                    <?php if ($t['store'] == 'alfamart') { ?>
+                                                        <span>Alfamart</span>
+                                                    <?php } else { ?>
+                                                        <span>Indomaret</span>
+                                                    <?php } ?>
+                                                <?php } ?>
+
+                                                <?php if ($t['tipe_pembayaran'] == 'bank_transfer') { ?>
+                                                    <span>Bank Transfer</span>
+                                                <?php } ?>
+                                            </td>
                                             <td class="align-middle"><?= $t['nama_pelanggan']; ?></td>
                                             <td class="align-middle"><?= $t['waktu_transaksi']; ?></td>
                                             <td class="align-middle text-center">Rp<?= number_format($t['total_bayar'], 0, ',', '.'); ?></td>
