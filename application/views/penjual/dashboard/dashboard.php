@@ -82,6 +82,44 @@
                     </div>
                 </div>
             </div>
+
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="mb-0">Pesanan</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="dt-responsive table-responsive">
+                            <table id="simpletable" class="table table-de nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Order ID</th>
+                                        <th>Metode Pembayaran</th>
+                                        <th>Tanggal & Waktu</th>
+                                        <th>Nama Pelanggan</th>
+                                        <th>Jumlah Bayar</th>
+                                        <th class="text-center">Status</th>
+                                        <th width="8%">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center align-middle"></td>
+                                        <td class="align-middle"></td>
+                                        <td class="align-middle"></td>
+                                        <td class="align-middle"></td>
+                                        <td class="align-middle"></td>
+                                        <td class="align-middle text-center"></td>
+                                        <td class="align-middle text-center">
+                                            <a href="" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

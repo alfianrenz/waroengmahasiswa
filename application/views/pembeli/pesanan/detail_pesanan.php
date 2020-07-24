@@ -19,59 +19,6 @@
         <!-- Main Content -->
         <div class="row">
 
-            <!-- Informasi Pengiriman -->
-            <div class="col-xl-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h6 class="mb-0">Informasi Pengiriman</h6>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-sm table-borderless mb-0 wrapper">
-                                <tbody>
-                                    <tr>
-                                        <td>Nama</td>
-                                        <td>:&nbsp;&nbsp; <?= $transaksi['nama_pelanggan']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Telepon</td>
-                                        <td>:&nbsp;&nbsp; <?= $transaksi['telepon_pelanggan']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Email</td>
-                                        <td>:&nbsp;&nbsp; <?= $transaksi['email_pelanggan']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Lokasi</td>
-                                        <td>:&nbsp;&nbsp; <?= $transaksi['kota_pelanggan']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Alamat</td>
-                                        <td>:&nbsp;&nbsp; <?= $transaksi['alamat_pelanggan']; ?></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Status Pesanan</td>
-                                        <td>:&nbsp;&nbsp;
-                                            <?php if ($transaksi['status_pesanan'] == 'Belum Bayar') { ?>
-                                                <span class="badge badge-warning">Belum Bayar</span>
-                                            <?php } else if ($transaksi['status_pesanan'] == 'Diproses') { ?>
-                                                <span class="badge badge-primary">Diproses</span>
-                                            <?php } else if ($transaksi['status_pesanan'] == 'Dikirim') { ?>
-                                                <span class="badge badge-secondary">Dikirim</span>
-                                            <?php } else if ($transaksi['status_pesanan'] == 'Selesai') { ?>
-                                                <span class="badge badge-success">Selesai</span>
-                                            <?php } else { ?>
-                                                <span class="badge badge-danger">Gagal</span>
-                                            <?php } ?>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <!-- Detail Transaksi -->
             <div class="col-xl-6">
                 <div class="card">
@@ -134,6 +81,59 @@
                                                 <span class="badge badge-success">Settlement</span>
                                             <?php } else { ?>
                                                 <span class="badge badge-danger">Cancel</span>
+                                            <?php } ?>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Informasi Pengiriman -->
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="mb-0">Informasi Pengiriman</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-sm table-borderless mb-0 wrapper">
+                                <tbody>
+                                    <tr>
+                                        <td>Nama</td>
+                                        <td>:&nbsp;&nbsp; <?= $transaksi['nama_pelanggan']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Telepon</td>
+                                        <td>:&nbsp;&nbsp; <?= $transaksi['telepon_pelanggan']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>:&nbsp;&nbsp; <?= $transaksi['email_pelanggan']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lokasi</td>
+                                        <td>:&nbsp;&nbsp; <?= $transaksi['kota_pelanggan']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alamat</td>
+                                        <td>:&nbsp;&nbsp; <?= $transaksi['alamat_pelanggan']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Status Pesanan</td>
+                                        <td>:&nbsp;&nbsp;
+                                            <?php if ($transaksi['status_pesanan'] == 'Belum Bayar') { ?>
+                                                <span class="badge badge-warning">Belum Bayar</span>
+                                            <?php } else if ($transaksi['status_pesanan'] == 'Diproses') { ?>
+                                                <span class="badge badge-primary">Diproses</span>
+                                            <?php } else if ($transaksi['status_pesanan'] == 'Dikirim') { ?>
+                                                <span class="badge badge-secondary">Dikirim</span>
+                                            <?php } else if ($transaksi['status_pesanan'] == 'Selesai') { ?>
+                                                <span class="badge badge-success">Selesai</span>
+                                            <?php } else { ?>
+                                                <span class="badge badge-danger">Gagal</span>
                                             <?php } ?>
                                         </td>
                                     </tr>
