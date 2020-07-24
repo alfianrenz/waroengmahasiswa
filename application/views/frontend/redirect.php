@@ -75,7 +75,7 @@
 
                                                         <?php if ($transaksi->tipe_pembayaran == 'gopay') { ?>
                                                             <span>GO-PAY</span>
-                                                        <?php } else if ($transaski->tipe_pembayaran == 'bank_transfer') { ?>
+                                                        <?php } else if ($transaksi->tipe_pembayaran == 'bank_transfer') { ?>
                                                             <span>Bank Transfer</span>
                                                         <?php } else { ?>
                                                             <span>Kartu Kredit</span>
