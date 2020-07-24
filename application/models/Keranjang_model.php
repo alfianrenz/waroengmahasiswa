@@ -4,14 +4,26 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Keranjang_model extends CI_Model
 {
     //get data keranjang
+    // public function data_keranjang()
+    // {
+    //     $this->db->select('*');
+    //     $this->db->from('detail_keranjang');
+    //     $this->db->join('keranjang', 'detail_keranjang.id_keranjang = keranjang.id_keranjang');
+    //     $this->db->join('produk', 'detail_keranjang.id_produk = produk.id_produk');
+    //     $this->db->where('id_pembeli', $this->session->userdata('id'));
+    //     $this->db->where('tipe_pembeli', $this->session->userdata('tipe'));
+    //     return $this->db->get()->result_array();
+    // }
+
+    //get data keranjang
     public function data_keranjang()
     {
         $this->db->select('*');
-        $this->db->from('detail_keranjang');
-        $this->db->join('keranjang', 'detail_keranjang.id_keranjang = keranjang.id_keranjang');
+        $this->db->from('keranjang');
+        $this->db->join('detail_keranjang', 'keranjang.id_keranjang = detail_keranjang.id_keranjang');
         $this->db->join('produk', 'detail_keranjang.id_produk = produk.id_produk');
-        $this->db->where('id_pembeli', $this->session->userdata('id'));
-        $this->db->where('tipe_pembeli', $this->session->userdata('tipe'));
+        $this->db->where('keranjang.id_pembeli', $this->session->userdata('id'));
+        $this->db->where('keranjang.tipe_pembeli', $this->session->userdata('tipe'));
         return $this->db->get()->result_array();
     }
 

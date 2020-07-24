@@ -101,9 +101,9 @@
                             </button>
                         </div>
                         <br>
-                        <div class="alert alert-success" role="alert">
+                        <!-- <div class="alert alert-success" role="alert">
                             <b>* Informasi : </b>Ongkos pengiriman ditentukan oleh pilihan Kabupaten Cirebon atau Kota Cirebon
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </form>

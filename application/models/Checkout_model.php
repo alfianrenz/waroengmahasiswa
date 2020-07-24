@@ -104,6 +104,7 @@ class Checkout_model extends CI_Model
         $data_transaksi = [
             'order_id'          => $order_id,
             'id_pembeli'        => $produk[0]['id_pembeli'],
+            'tipe_pembeli'      => $this->session->userdata('tipe'),
             'nama_pelanggan'    => $this->session->userdata('nama'),
             'email_pelanggan'   => $this->session->userdata('email'),
             'alamat_pelanggan'  => $this->input->post('alamat'),
