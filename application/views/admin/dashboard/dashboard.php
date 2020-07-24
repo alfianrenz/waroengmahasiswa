@@ -26,7 +26,7 @@
                         <div class="card-body">
                             <div class="row align-items-center m-l-0">
                                 <div class="col-auto">
-                                    <i class="icon feather icon-users f-30 text-c-purple"></i>
+                                    <i class="icon fas fa-user f-30 text-c-purple"></i>
                                 </div>
                                 <div class="col-auto">
                                     <h6 class="text-muted m-b-10">Mahasiswa</h6>
@@ -43,7 +43,7 @@
                         <div class="card-body">
                             <div class="row align-items-center m-l-0">
                                 <div class="col-auto">
-                                    <i class="icon feather icon-users f-30 text-c-yellow"></i>
+                                    <i class="icon fas fa-user-friends f-30 text-c-yellow"></i>
                                 </div>
                                 <div class="col-auto">
                                     <h6 class="text-muted m-b-10">Pengguna Umum</h6>
@@ -60,7 +60,7 @@
                         <div class="card-body">
                             <div class="row align-items-center m-l-0">
                                 <div class="col-auto">
-                                    <i class="icon feather icon-download f-30 text-c-green"></i>
+                                    <i class="icon fas fa-dollar-sign f-30 text-c-green"></i>
                                 </div>
                                 <div class="col-auto">
                                     <h6 class="text-muted m-b-10">Transaksi</h6>
@@ -77,7 +77,7 @@
                         <div class="card-body">
                             <div class="row align-items-center m-l-0">
                                 <div class="col-auto">
-                                    <i class="icon feather icon-edit f-30 text-c-blue"></i>
+                                    <i class="icon fas fa-pen f-30 text-c-blue"></i>
                                 </div>
                                 <div class="col-auto">
                                     <h6 class="text-muted m-b-10">Kategori</h6>

@@ -24,7 +24,7 @@
                         <div class="card-body">
                             <div class="row align-items-center m-l-0">
                                 <div class="col-auto">
-                                    <i class="icon feather icon-shopping-cart f-30 text-c-purple"></i>
+                                    <i class="icon fas fa-cart-plus f-30 text-c-purple"></i>
                                 </div>
                                 <div class="col-auto">
                                     <h6 class="text-muted m-b-10">Pesanan</h6>
@@ -41,7 +41,7 @@
                         <div class="card-body">
                             <div class="row align-items-center m-l-0">
                                 <div class="col-auto">
-                                    <i class="icon feather icon-box f-30 text-c-green"></i>
+                                    <i class="icon fas fa-dice-d6 f-30 text-c-green"></i>
                                 </div>
                                 <div class="col-auto">
                                     <h6 class="text-muted m-b-10">Produk</h6>
@@ -57,7 +57,7 @@
                     <div class="card-body">
                         <div class="row align-items-center m-l-0">
                             <div class="col-auto">
-                                <i class="icon feather icon-navigation-2 f-30 text-c-yellow"></i>
+                                <i class="icon fas fa-truck f-30 text-c-yellow"></i>
                             </div>
                             <div class="col-auto">
                                 <h6 class="text-muted m-b-10">Dikirim</h6>
@@ -72,10 +72,10 @@
                     <div class="card-body">
                         <div class="row align-items-center m-l-0">
                             <div class="col-auto">
-                                <i class="icon feather icon-pie-chart f-30 text-c-blue"></i>
+                                <i class="icon fas fa-paper-plane f-30 text-c-blue"></i>
                             </div>
                             <div class="col-auto">
-                                <h6 class="text-muted m-b-10">Total Penjualan</h6>
+                                <h6 class="text-muted m-b-10">Produk Terjual</h6>
                                 <h2 class="m-b-0">10</h2>
                             </div>
                         </div>

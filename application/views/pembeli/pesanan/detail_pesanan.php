@@ -5,11 +5,11 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Pesanan</h5>
+                            <h5 class="m-b-10">Detail Pesanan</h5>
                         </div>
                         <ul class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?= site_url('dashboard/penjual'); ?>"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#!">Pesanan</a></li>
+                            <li class="breadcrumb-item"><a href="<?= site_url('dashboard/pembeli'); ?>"><i class="feather icon-home"></i></a></li>
+                            <li class="breadcrumb-item"><a href="#!">Detail Pesanan</a></li>
                         </ul>
                     </div>
                 </div>
@@ -19,6 +19,174 @@
         <!-- Main Content -->
         <div class="row">
 
+            <!-- Informasi Pengiriman -->
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="mb-0">Informasi Pengiriman</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-sm table-borderless mb-0 wrapper">
+                                <tbody>
+                                    <tr>
+                                        <td>Nama</td>
+                                        <td>:&nbsp;&nbsp; <?= $transaksi['nama_pelanggan']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Telepon</td>
+                                        <td>:&nbsp;&nbsp; <?= $transaksi['telepon_pelanggan']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>:&nbsp;&nbsp; <?= $transaksi['email_pelanggan']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lokasi</td>
+                                        <td>:&nbsp;&nbsp; <?= $transaksi['kota_pelanggan']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alamat</td>
+                                        <td>:&nbsp;&nbsp; <?= $transaksi['alamat_pelanggan']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Status Pesanan</td>
+                                        <td>:&nbsp;&nbsp;
+                                            <?php if ($transaksi['status_pesanan'] == 'Belum Bayar') { ?>
+                                                <span class="badge badge-warning">Belum Bayar</span>
+                                            <?php } else if ($transaksi['status_pesanan'] == 'Diproses') { ?>
+                                                <span class="badge badge-primary">Diproses</span>
+                                            <?php } else if ($transaksi['status_pesanan'] == 'Dikirim') { ?>
+                                                <span class="badge badge-secondary">Dikirim</span>
+                                            <?php } else if ($transaksi['status_pesanan'] == 'Selesai') { ?>
+                                                <span class="badge badge-success">Selesai</span>
+                                            <?php } else { ?>
+                                                <span class="badge badge-danger">Gagal</span>
+                                            <?php } ?>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail Transaksi -->
+            <div class="col-xl-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="mb-0">Detail Transaksi</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-sm table-borderless mb-0 mt-0">
+                                <tbody>
+                                    <tr>
+                                        <td>Order ID</td>
+                                        <td>:&nbsp;&nbsp; <?= $transaksi['order_id']; ?></td>
+                                    </tr>
+                                    <?php if ($transaksi['tipe_pembayaran'] == 'cstore') { ?>
+                                        <tr>
+                                            <td>Kode Pembayaran</td>
+                                            <td>:&nbsp;&nbsp; <?= $transaksi['kode_pembayaran']; ?></td>
+                                        </tr>
+                                    <?php } ?>
+                                    <tr>
+                                        <td>Metode Pembayaran</td>
+                                        <td>:&nbsp;&nbsp;
+                                            <!-- Jika lewat GOPAY -->
+                                            <?php if ($transaksi['tipe_pembayaran'] == 'gopay') { ?>
+                                                <span>GO-PAY</span>
+                                            <?php } ?>
+
+                                            <!-- Lewat CSTORE -->
+                                            <?php if ($transaksi['tipe_pembayaran'] == 'cstore') { ?>
+                                                <?php if ($transaksi['store'] == 'alfamart') { ?>
+                                                    <span>Alfamart</span>
+                                                <?php } else { ?>
+                                                    <span>Indomaret</span>
+                                                <?php } ?>
+                                            <?php } ?>
+
+                                            <!-- Lewat Bank Transfer -->
+                                            <?php if ($transaksi['tipe_pembayaran'] == 'bank_transfer') { ?>
+                                                <span>Bank Transfer</span>
+                                            <?php } ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total Pembayaran</td>
+                                        <td>:&nbsp;&nbsp; Rp<?= number_format($transaksi['total_bayar'], 0, ',', '.'); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Waktu Pemesanan</td>
+                                        <td>:&nbsp;&nbsp; <?= $transaksi['waktu_transaksi']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Status Pembayaran</td>
+                                        <td>:&nbsp;&nbsp;
+                                            <?php if ($transaksi['status_bayar'] == 'pending') { ?>
+                                                <span class="badge badge-warning">Pending</span>
+                                            <?php } else if ($transaksi['status_bayar'] == 'failure') { ?>
+                                                <span class="badge badge-danger">Failure</span>
+                                            <?php } else if ($transaksi['status_bayar'] == 'settlement') { ?>
+                                                <span class="badge badge-success">Settlement</span>
+                                            <?php } else { ?>
+                                                <span class="badge badge-danger">Cancel</span>
+                                            <?php } ?>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detail Item -->
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="mb-0">Detail Item</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="dt-responsive table-responsive">
+                            <table id="simpletable" class="table table-de nowrap">
+                                <thead>
+                                    <tr>
+                                        <th width="5%">No</th>
+                                        <th>Nama Produk</th>
+                                        <th class="text-center">Harga Produk</th>
+                                        <th class="text-center">Kuantitas</th>
+                                        <th class="text-center">Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="text-center align-middle">1</td>
+                                        <td class="align-middle">Hijab Motif Kembang</td>
+                                        <td class="align-middle text-center">Rp10.000</td>
+                                        <td class="align-middle text-center">2</td>
+                                        <td class="align-middle text-center">Rp20.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center align-middle">2</td>
+                                        <td class="align-middle">Hijab Motif Kembang</td>
+                                        <td class="align-middle text-center">Rp10.000</td>
+                                        <td class="align-middle text-center">2</td>
+                                        <td class="align-middle text-center">Rp20.000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-bold" colspan="4">Total</td>
+                                        <td class="text-center font-weight-bold">Rp40.000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

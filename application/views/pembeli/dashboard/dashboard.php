@@ -24,7 +24,7 @@
                         <div class="card-body">
                             <div class="row align-items-center m-l-0">
                                 <div class="col-auto">
-                                    <i class="icon feather icon-shopping-cart f-30 text-c-purple"></i>
+                                    <i class="icon fas fa-cart-arrow-down f-30 text-c-purple"></i>
                                 </div>
                                 <div class="col-auto">
                                     <h6 class="text-muted m-b-10">Pesanan Saya</h6>
@@ -40,7 +40,7 @@
                     <div class="card-body">
                         <div class="row align-items-center m-l-0">
                             <div class="col-auto">
-                                <i class="icon feather icon-check-circle f-30 text-c-green"></i>
+                                <i class="icon fas fa-check-circle f-30 text-c-green"></i>
                             </div>
                             <div class="col-auto">
                                 <h6 class="text-muted m-b-10">Pesanan Selesai</h6>
@@ -55,7 +55,7 @@
                     <div class="card-body">
                         <div class="row align-items-center m-l-0">
                             <div class="col-auto">
-                                <i class="icon feather icon-navigation-2 f-30 text-c-yellow"></i>
+                                <i class="icon fas fa-truck f-30 text-c-yellow"></i>
                             </div>
                             <div class="col-auto">
                                 <h6 class="text-muted m-b-10">Dikirim</h6>
@@ -70,7 +70,7 @@
                     <div class="card-body">
                         <div class="row align-items-center m-l-0">
                             <div class="col-auto">
-                                <i class="icon feather icon-shopping-cart f-30 text-c-red"></i>
+                                <i class="icon fas fa-exclamation-circle f-30 text-c-red"></i>
                             </div>
                             <div class="col-auto">
                                 <h6 class="text-muted m-b-10">Belum Bayar</h6>
@@ -146,7 +146,7 @@
                                                 <?php } ?>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <a href="" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
+                                                <a href="<?= site_url('pesanan/detail_pesanan_pembeli/' . $t['order_id']); ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

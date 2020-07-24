@@ -149,7 +149,11 @@ class Checkout_model extends CI_Model
     }
 
     //Detail transaksi bagian pembeli
-    public function getDetail_transaksi()
+    public function getDetail_transaksi($id)
     {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->where('order_id', $id);
+        return $this->db->get()->row_array();
     }
 }

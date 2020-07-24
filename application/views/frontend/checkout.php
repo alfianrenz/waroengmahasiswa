@@ -102,7 +102,7 @@
                         </div>
                         <br>
                         <div class="alert alert-success" role="alert">
-                            <b>* Informasi : </b><br>Untuk ongkos pengiriman dibayar oleh pembeli saat kurir telah sampai ditempat
+                            <b>* Informasi : </b>Ongkos pengiriman ditentukan oleh pilihan Kabupaten Cirebon atau Kota Cirebon
                         </div>
                     </div>
                 </div>

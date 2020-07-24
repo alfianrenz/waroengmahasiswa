@@ -30,6 +30,7 @@ class Pesanan extends My_Controller
         $this->paggingPembeli('pembeli/pesanan/daftar_pesanan', $data);
     }
 
+    //get detail pesanan
     public function detail_pesanan_pembeli($id)
     {
         $data['title'] = 'Warma CIC | Detail Pesanan';
