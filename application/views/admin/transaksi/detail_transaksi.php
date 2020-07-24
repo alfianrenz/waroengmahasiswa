@@ -5,11 +5,11 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Detail Pesanan</h5>
+                            <h5 class="m-b-10">Detail Transaksi</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?= site_url('dashboard/pembeli'); ?>"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#!">Detail Pesanan</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Detail Transaksi</a></li>
                         </ul>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
             <div class="col-xl-6">
                 <div class="card">
                     <div class="card-header">
-                        <h6 class="mb-0">Detail Transaksi</h6>
+                        <h6 class="mb-0">Transaction Detail</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -95,7 +95,7 @@
             <div class="col-xl-6">
                 <div class="card">
                     <div class="card-header">
-                        <h6 class="mb-0">Informasi Pengiriman</h6>
+                        <h6 class="mb-0">Customer Details</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -195,6 +195,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

@@ -44,6 +44,7 @@ class Pesanan extends My_Controller
     {
         $data['title'] = 'Warma CIC | Detail Pesanan';
         $data['transaksi'] = $this->checkout_model->getDetail_transaksi($id);
+        $data['item'] = $this->checkout_model->detailitem_Pembeli($id);
         $this->paggingPembeli('pembeli/pesanan/detail_pesanan', $data);
     }
 }
