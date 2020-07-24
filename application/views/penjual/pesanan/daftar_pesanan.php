@@ -44,7 +44,6 @@
                                         <th class="text-center">Metode Pembayaran</th>
                                         <th class="text-center">Tanggal & Waktu</th>
                                         <th>Nama Pelanggan</th>
-                                        <!-- <th class="text-center">Total Bayar</th> -->
                                         <th class="text-center">Status</th>
                                         <th width="8%">Action</th>
                                     </tr>
@@ -52,7 +51,10 @@
                                 <tbody>
                                     <?php foreach ($transaksi as $t) : ?>
                                         <tr>
+                                            <!-- Order ID -->
                                             <td class="text-center align-middle"><?= $t['order_id']; ?></td>
+
+                                            <!-- Metode Pembayaran -->
                                             <td class="align-middle text-center">
                                                 <?php if ($t['tipe_pembayaran'] == 'gopay') { ?>
                                                     <span>GO-PAY</span>
@@ -70,9 +72,14 @@
                                                     <span>Bank Transfer</span>
                                                 <?php } ?>
                                             </td>
-                                            <td class="align-middle"><?= $t['waktu_transaksi']; ?></td>
+
+                                            <!-- Waktu Transaksi -->
+                                            <td class="align-middle text-center"><?= $t['waktu_transaksi']; ?></td>
+
+                                            <!-- Nama Pelanggan -->
                                             <td class="align-middle"><?= $t['nama_pelanggan']; ?></td>
 
+                                            <!-- Status Pembayaran -->
                                             <td class="align-middle text-center">
                                                 <?php if ($t['status_pesanan'] == 'Belum Bayar') { ?>
                                                     <span class="badge badge-warning">Belum Bayar</span>
@@ -86,6 +93,8 @@
                                                     <span class="badge badge-danger">Gagal</span>
                                                 <?php } ?>
                                             </td>
+
+                                            <!-- Button Detail -->
                                             <td class="align-middle text-center">
                                                 <a href="<?= site_url('pesanan/detail_pesanan_penjual/' . $t['order_id']); ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
                                             </td>
