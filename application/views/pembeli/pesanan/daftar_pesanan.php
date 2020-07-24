@@ -37,12 +37,12 @@
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">
-                            <table id="simpletable" class="table table-de nowrap">
+                            <table id="" class="table table-de nowrap">
                                 <thead>
                                     <tr>
                                         <th class="text-center">Order ID</th>
                                         <th class="text-center">Metode Pembayaran</th>
-                                        <th>Tanggal & Waktu</th>
+                                        <th class="text-center">Tanggal dan Waktu</th>
                                         <th class="text-center">Total Bayar</th>
                                         <th class="text-center">Status Pesanan</th>
                                         <th width="8%">Action</th>
@@ -51,6 +51,7 @@
                                 <tbody>
                                     <?php foreach ($transaksi as $t) : ?>
                                         <tr>
+
                                             <!-- Order ID -->
                                             <td class="text-center align-middle"><?= $t['order_id']; ?></td>
 
@@ -74,7 +75,7 @@
                                             </td>
 
                                             <!-- Waktu Transaksi -->
-                                            <td class="align-middle"><?= $t['waktu_transaksi']; ?>
+                                            <td class="align-middle text-center"><?= $t['waktu_transaksi']; ?>
                                             </td>
 
                                             <!-- Total Bayar -->
