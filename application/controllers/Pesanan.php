@@ -29,6 +29,8 @@ class Pesanan extends My_Controller
             $data['transaksi']['total_bayar'] = $p['total_bayar'];
         }
 
+        var_dump($data['transaksi']);
+
 
 
         $this->paggingPenjual('penjual/pesanan/daftar_pesanan', $data);
