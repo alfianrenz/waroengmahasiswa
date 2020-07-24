@@ -44,7 +44,7 @@
                                         <th class="text-center">Metode Pembayaran</th>
                                         <th class="text-center">Tanggal & Waktu</th>
                                         <th>Nama Pelanggan</th>
-                                        <th class="text-center">Total Bayar</th>
+                                        <!-- <th class="text-center">Total Bayar</th> -->
                                         <th class="text-center">Status</th>
                                         <th width="8%">Action</th>
                                     </tr>
@@ -72,9 +72,6 @@
                                             </td>
                                             <td class="align-middle"><?= $t['waktu_transaksi']; ?></td>
                                             <td class="align-middle"><?= $t['nama_pelanggan']; ?></td>
-
-                                            <!-- Total Bayar -->
-                                            <td class="align-middle text-center">Rp<?= number_format($t['harga_produk'], 0, ',', '.'); ?></td>
 
                                             <td class="align-middle text-center">
                                                 <?php if ($t['status_pesanan'] == 'Belum Bayar') { ?>

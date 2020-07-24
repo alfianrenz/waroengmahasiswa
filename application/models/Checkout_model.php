@@ -146,7 +146,7 @@ class Checkout_model extends CI_Model
         $this->db->join('produk', 'detail_keranjang.id_produk = produk.id_produk');
         $this->db->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa');
         $this->db->where('produk.id_mahasiswa', $this->session->userdata('id'));
-        // $this->db->group_by('transaksi.order_id');
+        $this->db->group_by('transaksi.order_id');
         return $this->db->get()->result_array();
     }
 
