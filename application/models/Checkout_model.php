@@ -149,6 +149,27 @@ class Checkout_model extends CI_Model
         return $this->db->get()->result_array();
     }
 
+    //get detail transaksi
+    public function getDetail_transaksiPenjual($id)
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->where('order_id', $id);
+        return $this->db->get()->row_array();
+    }
+
+    //get detail item
+    public function detailitem_Penjual($id)
+    {
+        $this->db->select('*');
+        $this->db->from('detail_keranjang');
+        $this->db->join('produk', 'detail_keranjang.id_produk = produk.id_produk');
+        $this->db->join('transaksi', 'detail_keranjang.id_keranjang = transaksi.id_keranjang');
+        $this->db->where('produk.id_mahasiswa', $this->session->userdata('id'));
+        $this->db->where('transaksi.order_id', $id);
+        return $this->db->get()->result_array();
+    }
+
     //========================================
     //                PEMBELI
     //========================================
