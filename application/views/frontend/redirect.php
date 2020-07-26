@@ -95,7 +95,7 @@
                         </div>
 
                         <!-- Button -->
-                        <a href="<?= site_url('pesanan/daftar_pesanan_pembeli'); ?>">
+                        <a href="<?= site_url('pesanan/daftar_pesanan_pembeli/all'); ?>">
                             <button class="ho-button col-sm-12 mt-3">Lihat Pesanan</button>
                         </a>
 

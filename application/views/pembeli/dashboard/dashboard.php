@@ -19,7 +19,7 @@
         <!-- Main Content -->
         <div class="row">
             <div class="col-xl-3 col-md-6">
-                <a href="<?= site_url('pesanan/daftar_pesanan_pembeli'); ?>">
+                <a href="<?= site_url('pesanan/daftar_pesanan_pembeli/all'); ?>">
                     <div class="card">
                         <div class="card-body">
                             <div class="row align-items-center m-l-0">
@@ -36,49 +36,55 @@
                 </a>
             </div>
             <div class="col-xl-3 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row align-items-center m-l-0">
-                            <div class="col-auto">
-                                <i class="icon fas fa-check-circle f-30 text-c-green"></i>
-                            </div>
-                            <div class="col-auto">
-                                <h6 class="text-muted m-b-10">Pesanan Selesai</h6>
-                                <h2 class="m-b-0">3</h2>
+                <a href="<?= site_url('pesanan/daftar_pesanan_pembeli/selesai'); ?>">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center m-l-0">
+                                <div class="col-auto">
+                                    <i class="icon fas fa-check-circle f-30 text-c-green"></i>
+                                </div>
+                                <div class="col-auto">
+                                    <h6 class="text-muted m-b-10">Pesanan Selesai</h6>
+                                    <h2 class="m-b-0">3</h2>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-xl-3 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row align-items-center m-l-0">
-                            <div class="col-auto">
-                                <i class="icon fas fa-truck f-30 text-c-yellow"></i>
-                            </div>
-                            <div class="col-auto">
-                                <h6 class="text-muted m-b-10">Dikirim</h6>
-                                <h2 class="m-b-0">3</h2>
+                <a href="<?= site_url('pesanan/daftar_pesanan_pembeli/dikirim'); ?>">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center m-l-0">
+                                <div class="col-auto">
+                                    <i class="icon fas fa-truck f-30 text-c-yellow"></i>
+                                </div>
+                                <div class="col-auto">
+                                    <h6 class="text-muted m-b-10">Pesanan Dikirim</h6>
+                                    <h2 class="m-b-0">3</h2>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-xl-3 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row align-items-center m-l-0">
-                            <div class="col-auto">
-                                <i class="icon fas fa-exclamation-circle f-30 text-c-red"></i>
-                            </div>
-                            <div class="col-auto">
-                                <h6 class="text-muted m-b-10">Belum Bayar</h6>
-                                <h2 class="m-b-0">1</h2>
+                <a href="<?= site_url('pesanan/daftar_pesanan_pembeli/belum_bayar'); ?>">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row align-items-center m-l-0">
+                                <div class="col-auto">
+                                    <i class="icon fas fa-exclamation-circle f-30 text-c-red"></i>
+                                </div>
+                                <div class="col-auto">
+                                    <h6 class="text-muted m-b-10">Belum Bayar</h6>
+                                    <h2 class="m-b-0">1</h2>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <div class="col-xl-12">
