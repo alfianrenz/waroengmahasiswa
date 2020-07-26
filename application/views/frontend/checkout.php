@@ -38,7 +38,7 @@
                             </tbody>
                         </table>
                         <h3 class="small-title mt-30">PENGIRIMAN</h3>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label class="floating-label">Kabupaten / Kota</label>
                             <select class="form-control" id="kota" name="kota">
                                 <option value="">Pilih Kabupaten / Kota</option>
@@ -46,12 +46,29 @@
                                 <option value="Kota Cirebon">Kota Cirebon</option>
                             </select>
                             <small id="validasi_kota" class="text-danger"></small>
+                        </div> -->
+                        <div class="form-group">
+                            <label class="floating-label">Kabupaten / Kota</label>
+                            <select class="form-control" id="lokasi" name="lokasi">
+                                <option value="">Pilih Kabupaten / Kota</option>
+                                <?php foreach ($lokasi as $l) : ?>
+                                    <option value="<?= $l['id_lokasi']; ?>"><?= $l['nama_lokasi']; ?></option>
+                                <?php endforeach; ?>
+                            </select>
+                            <small id="validasi_lokasi" class="text-danger"></small>
                         </div>
                         <div class="form-group">
                             <label class="floating-label">Alamat / Kecamatan</label>
                             <input type="text" class="form-control form-control-sm" id="alamat" name="alamat" value="<?= set_value('alamat'); ?>">
                             <small id="validasi_alamat" class="text-danger"></small>
                         </div>
+                        <!-- <div class="form-group">
+                            <label class="floating-label">Ongkos Kirim</label>
+                            <select class="form-control" name="jumlah_ongkir" id="jumlah_ongkir">
+
+                            </select>
+                            <small id="validasi_ongkir" class="text-danger"></small>
+                        </div> -->
                     </div>
 
                     <?php
@@ -101,9 +118,9 @@
                             </button>
                         </div>
                         <br>
-                        <!-- <div class="alert alert-success" role="alert">
-                            <b>* Informasi : </b>Ongkos pengiriman ditentukan oleh pilihan Kabupaten Cirebon atau Kota Cirebon
-                        </div> -->
+                        <div class="alert alert-success" role="alert">
+                            <b>* Informasi : </b>Ongkos pengiriman ditentukan berdasarkan pilihan Kabupaten Cirebon atau Kota Cirebon
+                        </div>
                     </div>
                 </div>
             </form>

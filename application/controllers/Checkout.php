@@ -27,25 +27,39 @@ class Checkout extends My_Controller
 
         $data['title'] = 'Warma CIC | Checkout';
         $data['detail_keranjang'] = $this->checkout_model->getdetail_keranjang();
+        $data['lokasi'] = $this->db->get('lokasi')->result_array();
         $this->paggingFrontend('frontend/checkout', $data);
     }
+
+    // function cek_ongkir()
+    // {
+    //     $ongkir = $this->db->get_where('ongkir', ['id_lokasi' => $this->input->post('kota')])->result_array();
+    //     echo '<option> Cek Ongkir </option>';
+    //     foreach ($ongkir as $o) {
+    //         echo '<option value="' . $o['id_ongkir'] . '">' . $o['jumlah_ongkir'] . '</option>';
+    //     }
+    // }
 
     //Get Token Midtrans
     public function getToken()
     {
-        $this->form_validation->set_rules('kota', 'kota', 'required|trim', [
+        $this->form_validation->set_rules('lokasi', 'lokasi', 'required|trim', [
             'required' => 'Form ini tidak boleh kosong'
         ]);
         $this->form_validation->set_rules('alamat', 'alamat', 'required|trim', [
             'required' => 'Form ini tidak boleh kosong'
         ]);
+        // $this->form_validation->set_rules('ongkir', 'ongkir', 'required|trim', [
+        //     'required' => 'Form ini tidak boleh kosong'
+        // ]);
 
         if ($this->form_validation->run() == FALSE) {
             header('Content-Type: application/json');
             echo json_encode(array(
                 'error' => true,
                 'validasi_alamat' => form_error('alamat'),
-                'validasi_kota' => form_error('kota')
+                'validasi_lokasi' => form_error('lokasi'),
+                // 'validasi_ongkir' => form_error('ongkir'),
             ));
         } else {
             header('Content-Type: application/json');

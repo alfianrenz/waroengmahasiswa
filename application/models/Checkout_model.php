@@ -37,6 +37,13 @@ class Checkout_model extends CI_Model
         $total_bayar = 0;
         $order_id = rand();
 
+        //kabupaten/lokasi
+        $input = $this->input->post('lokasi');
+        $lokasi = $this->db->select('*')
+            ->from('lokasi')
+            ->where('id_lokasi', $input)
+            ->get()->row_array();
+
         //subtotal dan total belanja
         foreach ($produk as $p) {
             $harga_produk = $p['harga_produk'];
@@ -66,7 +73,7 @@ class Checkout_model extends CI_Model
         $billing_address = array(
             'first_name'    => $this->session->userdata('nama'),
             'address'       => $this->input->post('alamat'),
-            'city'          => $this->input->post('kota'),
+            'city'          => $lokasi['nama_lokasi'],
             'phone'         => $this->session->userdata('telepon')
         );
 
@@ -74,7 +81,7 @@ class Checkout_model extends CI_Model
         $shipping_address = array(
             'first_name'    => $this->session->userdata('nama'),
             'address'       => $this->input->post('alamat'),
-            'city'          => $this->input->post('kota'),
+            'city'          => $lokasi['nama_lokasi'],
             'phone'         => $this->session->userdata('telepon')
         );
 
@@ -109,7 +116,7 @@ class Checkout_model extends CI_Model
             'email_pelanggan'   => $this->session->userdata('email'),
             'alamat_pelanggan'  => $this->input->post('alamat'),
             'telepon_pelanggan' => $this->session->userdata('telepon'),
-            'kota_pelanggan'    => $this->input->post('kota'),
+            'kota_pelanggan'    => $lokasi['nama_lokasi'],
             'id_keranjang'      => $produk[0]['id_keranjang'],
             'total_bayar'       => $total_bayar,
             'status_bayar'      => 'pending',

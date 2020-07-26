@@ -128,25 +128,20 @@
                 success: function(data, status, jqXHR) {
                     console.log(data);
                     if (data.error) {
-                        if (data.validasi_kota != '') {
-                            $('#validasi_kota').html(data.validasi_kota);
+                        if (data.validasi_lokasi != '') {
+                            $('#validasi_lokasi').html(data.validasi_lokasi);
                         } else {
-                            $('#validasi_kota').html('');
+                            $('#validasi_lokasi').html('');
                         }
-                        // if (data.validasi_kode_pos != '') {
-                        //     $('#validasi_kode_pos').html(data.validasi_kode_pos);
-                        // } else {
-                        //     $('#validasi_kode_pos').html('');
-                        // }
                         if (data.validasi_alamat != '') {
                             $('#validasi_alamat').html(data.validasi_alamat);
                         } else {
                             $('#validasi_alamat').html('');
                         }
-                        if (data.validasi_kurir != '') {
-                            $('#validasi_kurir').html(data.validasi_kurir);
+                        if (data.validasi_ongkir != '') {
+                            $('#validasi_ongkir').html(data.validasi_ongkir);
                         } else {
-                            $('#validasi_kurir').html('');
+                            $('#validasi_ongkir').html('');
                         }
                     } else {
                         snap.pay(data.token);
@@ -185,6 +180,49 @@
             $("#detail-keranjang-" + id_detail).submit();
         }
     </script>
+
+    <!-- Cek Ongkir -->
+    <!-- <script>
+        $('select[name="kota"]').on('change', function() {
+            $.ajax({
+                type: 'POST',
+                url: '<?php echo site_url('checkout/cek_ongkir'); ?>',
+                data: {
+                    kota: $(this).val()
+                },
+                success: function(option) {
+                    $('select[name="jumlah_ongkir"]').html(option);
+                }
+            });
+        });
+    </script> -->
+
+    <!-- <script type="text/javascript">
+        $(document).ready(function() {
+            $('#kota').change(function() {
+                var id = $($this).val();
+                $.ajax({
+                    url: "<?php echo site_url('checkout/cek_ongkir'); ?>",
+                    method: "POST",
+                    data: {
+                        id: id
+                    },
+                    async: true,
+                    dataType: 'json',
+                    success: function(data) {
+
+                        var html = '';
+                        var i;
+                        for (i = 0; i < data.length; i++) {
+                            html += '<option value=' + data[i].id_ongkir + '>' + data[i].jumlah_ongkir + '</option>';
+                        }
+                        $('#jumlah_ongkir').html(html);
+                    }
+                });
+                return false;
+            });
+        });
+    </script> -->
 
 </body>
 
