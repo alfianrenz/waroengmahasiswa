@@ -38,7 +38,7 @@
 
                 <!-- Pesanan -->
                 <li class="nav-item <?= active_menu('pesanan'); ?>">
-                    <a href="<?= site_url('pesanan/daftar_pesanan_pembeli'); ?>" class="nav-link ">
+                    <a href="<?= site_url('pesanan/daftar_pesanan_pembeli/all'); ?>" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
                         <span class="pcoded-mtext">Daftar Pesanan</span>
                     </a>

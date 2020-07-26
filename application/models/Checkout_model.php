@@ -209,10 +209,19 @@ class Checkout_model extends CI_Model
     //========================================
 
     //get data transaksi berdasarkan id mahasiswa
-    public function getTransaksi_pembeli()
+    public function getTransaksi_pembeli($sortby)
     {
         $this->db->select('*');
         $this->db->from('transaksi');
+        if ($sortby == "belum_bayar") {
+            $this->db->where(['status_pesanan' => 'Belum Bayar']);
+        } else if ($sortby == "diproses") {
+            $this->db->where(['status_pesanan' => 'Diproses']);
+        } else if ($sortby == "dikirim") {
+            $this->db->where(['status_pesanan' => 'Dikirim']);
+        } else if ($sortby == "selesai") {
+            $this->db->where(['status_pesanan' => 'Selesai']);
+        }
         $this->db->order_by('waktu_transaksi', 'DESC');
         $this->db->where('id_pembeli', $this->session->userdata('id'));
         return $this->db->get()->result_array();

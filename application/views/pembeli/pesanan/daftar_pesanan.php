@@ -22,11 +22,11 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="nav nav-pills" role="tablist">
-                            <a href="" class="nav-link active">Daftar Pesanan</a>
-                            <a href="" class="nav-link">Belum Bayar</a>
-                            <a href="" class="nav-link">Diproses</a>
-                            <a href="" class="nav-link">Dikirim</a>
-                            <a href="" class="nav-link">Selesai</a>
+                            <a href="<?= site_url('pesanan/daftar_pesanan_pembeli/all'); ?>" class="nav-link <?php echo $this->uri->segment(3) == 'all' ? 'active' : ''; ?><?= active_menu('pesanan/daftar_pesanan_pembeli'); ?>">Daftar Pesanan</a>
+                            <a href="<?= site_url('pesanan/daftar_pesanan_pembeli/belum_bayar'); ?>" class="nav-link <?php echo $this->uri->segment(3) == 'belum_bayar' ? 'active' : ''; ?><?= active_menu('pesanan/daftar_pesanan_pembeli'); ?>">Belum Bayar</a>
+                            <a href="<?= site_url('pesanan/daftar_pesanan_pembeli/diproses'); ?>" class="nav-link <?php echo $this->uri->segment(3) == 'diproses' ? 'active' : ''; ?><?= active_menu('pesanan/daftar_pesanan_pembeli'); ?>">Diproses</a>
+                            <a href="<?= site_url('pesanan/daftar_pesanan_pembeli/dikirim'); ?>" class="nav-link <?php echo $this->uri->segment(3) == 'dikirim' ? 'active' : ''; ?><?= active_menu('pesanan/daftar_pesanan_pembeli'); ?>">Dikirim</a>
+                            <a href="<?= site_url('pesanan/daftar_pesanan_pembeli/selesai'); ?>" class="nav-link <?php echo $this->uri->segment(3) == 'selesai' ? 'active' : ''; ?><?= active_menu('pesanan/daftar_pesanan_pembeli'); ?>">Selesai</a>
                         </div>
                     </div>
                 </div>

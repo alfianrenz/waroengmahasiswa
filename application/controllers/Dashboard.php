@@ -38,10 +38,10 @@ class Dashboard extends My_Controller
     }
 
     //DASHBOARD PEMBELI
-    public function pembeli()
+    public function pembeli($sortby = '')
     {
         $data['title'] = 'Warma CIC | Dashboard Pembeli';
-        $data['transaksi'] = $this->checkout_model->getTransaksi_pembeli();
+        $data['transaksi'] = $this->checkout_model->getTransaksi_pembeli($sortby);
         $this->paggingPembeli('pembeli/dashboard/dashboard', $data);
     }
 }

@@ -32,10 +32,10 @@ class Pesanan extends My_Controller
     //                PEMBELI
     //========================================
 
-    public function daftar_pesanan_pembeli()
+    public function daftar_pesanan_pembeli($sortby = '')
     {
         $data['title'] = 'Warma CIC | Pesanan';
-        $data['transaksi'] = $this->checkout_model->getTransaksi_pembeli();
+        $data['transaksi'] = $this->checkout_model->getTransaksi_pembeli($sortby);
         $this->paggingPembeli('pembeli/pesanan/daftar_pesanan', $data);
     }
 
