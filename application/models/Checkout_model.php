@@ -169,13 +169,22 @@ class Checkout_model extends CI_Model
     //                PENJUAL
     //========================================
 
-    public function getTransaksi_penjual()
+    public function getTransaksi_penjual($sortby)
     {
         $this->db->select('*');
         $this->db->from('transaksi');
         $this->db->join('detail_keranjang', 'transaksi.id_keranjang = detail_keranjang.id_keranjang');
         $this->db->join('produk', 'detail_keranjang.id_produk = produk.id_produk');
         $this->db->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa');
+        if ($sortby == "belum_bayar") {
+            $this->db->where(['status_pesanan' => 'Belum Bayar']);
+        } else if ($sortby == "diproses") {
+            $this->db->where(['status_pesanan' => 'Diproses']);
+        } else if ($sortby == "dikirim") {
+            $this->db->where(['status_pesanan' => 'Dikirim']);
+        } else if ($sortby == "selesai") {
+            $this->db->where(['status_pesanan' => 'Selesai']);
+        }
         $this->db->where('produk.id_mahasiswa', $this->session->userdata('id'));
         $this->db->order_by('transaksi.waktu_transaksi', 'DESC');
         $this->db->group_by('transaksi.order_id');
@@ -201,6 +210,14 @@ class Checkout_model extends CI_Model
         $this->db->where('produk.id_mahasiswa', $this->session->userdata('id'));
         $this->db->where('transaksi.order_id', $id);
         return $this->db->get()->result_array();
+    }
+
+    public function input_pengiriman($id)
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->where('order_id', $id);
+        return $this->db->get()->row_array();
     }
 
 

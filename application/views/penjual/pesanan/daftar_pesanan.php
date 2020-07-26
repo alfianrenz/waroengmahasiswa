@@ -22,11 +22,11 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="nav nav-pills" role="tablist">
-                            <a href="" class="nav-link active">Daftar Pesanan</a>
-                            <a href="" class="nav-link">Belum Bayar</a>
-                            <a href="" class="nav-link">Diproses</a>
-                            <a href="" class="nav-link">Dikirim</a>
-                            <a href="" class="nav-link">Selesai</a>
+                            <a href="<?= site_url('pesanan/daftar_pesanan_penjual/all'); ?>" class="nav-link <?php echo $this->uri->segment(3) == 'all' ? 'active' : ''; ?><?= active_menu('pesanan/daftar_pesanan_penjual'); ?>">Daftar Pesanan</a>
+                            <a href="<?= site_url('pesanan/daftar_pesanan_penjual/belum_bayar'); ?>" class="nav-link <?php echo $this->uri->segment(3) == 'belum_bayar' ? 'active' : ''; ?><?= active_menu('pesanan/daftar_pesanan_penjual'); ?>">Belum Bayar</a>
+                            <a href="<?= site_url('pesanan/daftar_pesanan_penjual/diproses'); ?>" class="nav-link <?php echo $this->uri->segment(3) == 'diproses' ? 'active' : ''; ?><?= active_menu('pesanan/daftar_pesanan_penjual'); ?>">Diproses</a>
+                            <a href="<?= site_url('pesanan/daftar_pesanan_penjual/dikirim'); ?>" class="nav-link <?php echo $this->uri->segment(3) == 'dikirim' ? 'active' : ''; ?><?= active_menu('pesanan/daftar_pesanan_penjual'); ?>">Dikirim</a>
+                            <a href="<?= site_url('pesanan/daftar_pesanan_penjual/selesai'); ?>" class="nav-link <?php echo $this->uri->segment(3) == 'selesai' ? 'active' : ''; ?><?= active_menu('pesanan/daftar_pesanan_penjual'); ?>">Selesai</a>
                         </div>
                     </div>
                 </div>
@@ -94,9 +94,12 @@
                                                 <?php } ?>
                                             </td>
 
-                                            <!-- Button Detail -->
+                                            <!-- Button Action -->
                                             <td class="align-middle text-center">
                                                 <a href="<?= site_url('pesanan/detail_pesanan_penjual/' . $t['order_id']); ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
+                                                <?php if ($this->uri->segment(3) == 'diproses' ? 'active' : '') { ?>
+                                                    <a href="<?= site_url('pesanan/input_pengiriman/' . $t['order_id']); ?>" class="btn btn-sm btn-success rounded"><i class="feather icon-navigation"></i> Kirim</a>
+                                                <?php } ?>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

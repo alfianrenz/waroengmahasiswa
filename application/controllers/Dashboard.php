@@ -29,11 +29,11 @@ class Dashboard extends My_Controller
     }
 
     //DASHBOARD PENJUAL
-    public function penjual()
+    public function penjual($sortby = '')
     {
         $data['title'] = 'Warma CIC | Dashboard Penjual';
         $data['jumlahproduk'] = $this->db->get_where('produk', ['id_mahasiswa' => $this->session->userdata('id')])->num_rows();
-        $data['transaksi'] = $this->checkout_model->getTransaksi_penjual();
+        $data['transaksi'] = $this->checkout_model->getTransaksi_penjual($sortby);
         $this->paggingPenjual('penjual/dashboard/dashboard', $data);
     }
 
