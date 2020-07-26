@@ -16,6 +16,12 @@
             </div>
         </div>
 
+        <?= $this->session->userdata('message'); ?>
+
+        <?php if ($this->uri->segment(3) == 'diproses' ? 'active' : '') { ?>
+            <div class="alert alert-success">Harap memilih tombol kirim apabila produk sedang atau telah dikirim</div>
+        <?php } ?>
+
         <!-- Main Content -->
         <div class="row">
             <div class="col-sm-12">
@@ -86,7 +92,7 @@
                                                 <?php } else if ($t['status_pesanan'] == 'Diproses') { ?>
                                                     <span class="badge badge-primary">Diproses</span>
                                                 <?php } else if ($t['status_pesanan'] == 'Dikirim') { ?>
-                                                    <span class="badge badge-secondary">Dikirim</span>
+                                                    <span class="badge badge-info">Dikirim</span>
                                                 <?php } else if ($t['status_pesanan'] == 'Selesai') { ?>
                                                     <span class="badge badge-success">Selesai</span>
                                                 <?php } else { ?>
@@ -98,7 +104,7 @@
                                             <td class="align-middle text-center">
                                                 <a href="<?= site_url('pesanan/detail_pesanan_penjual/' . $t['order_id']); ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
                                                 <?php if ($this->uri->segment(3) == 'diproses' ? 'active' : '') { ?>
-                                                    <a href="<?= site_url('pesanan/input_pengiriman/' . $t['order_id']); ?>" class="btn btn-sm btn-success rounded"><i class="feather icon-navigation"></i> Kirim</a>
+                                                    <a href="<?= site_url('pesanan/input_pengiriman/' . $t['order_id']); ?>" class="btn btn-sm btn-success rounded tombol-kirim"><i class="feather icon-navigation"></i> Kirim</a>
                                                 <?php } ?>
                                             </td>
                                         </tr>

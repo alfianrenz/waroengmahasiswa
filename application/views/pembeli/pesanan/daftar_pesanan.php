@@ -16,6 +16,12 @@
             </div>
         </div>
 
+        <?= $this->session->userdata('message'); ?>
+
+        <?php if ($this->uri->segment(3) == 'dikirim' ? 'active' : '') { ?>
+            <div class="alert alert-success">Harap memilih tombol konfirmasi apabila produk sudah diterima</div>
+        <?php } ?>
+
         <!-- Main Content -->
         <div class="row">
             <div class="col-sm-12">
@@ -88,7 +94,7 @@
                                                 <?php } else if ($t['status_pesanan'] == 'Diproses') { ?>
                                                     <span class="badge badge-primary">Diproses</span>
                                                 <?php } else if ($t['status_pesanan'] == 'Dikirim') { ?>
-                                                    <span class="badge badge-secondary">Dikirim</span>
+                                                    <span class="badge badge-info">Dikirim</span>
                                                 <?php } else if ($t['status_pesanan'] == 'Selesai') { ?>
                                                     <span class="badge badge-success">Selesai</span>
                                                 <?php } else { ?>
@@ -97,6 +103,9 @@
                                             </td>
                                             <td class="align-middle text-center">
                                                 <a href="<?= site_url('pesanan/detail_pesanan_pembeli/' . $t['order_id']); ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
+                                                <?php if ($this->uri->segment(3) == 'dikirim' ? 'active' : '') { ?>
+                                                    <a href="<?= site_url('pesanan/konfirmasi_barang/' . $t['order_id']); ?>" class="btn btn-sm btn-success rounded tombol-konfirmasi"><i class="feather icon-check-circle"></i> Konfirmasi</a>
+                                                <?php } ?>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

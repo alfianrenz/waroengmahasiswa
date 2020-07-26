@@ -117,10 +117,6 @@
                                 <span>Bayar</span>
                             </button>
                         </div>
-                        <br>
-                        <div class="alert alert-success" role="alert">
-                            <b>* Informasi : </b>Ongkos pengiriman ditentukan berdasarkan pilihan Kabupaten Cirebon atau Kota Cirebon
-                        </div>
                     </div>
                 </div>
             </form>

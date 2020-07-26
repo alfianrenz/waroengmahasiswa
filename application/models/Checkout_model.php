@@ -212,12 +212,14 @@ class Checkout_model extends CI_Model
         return $this->db->get()->result_array();
     }
 
+    //input pengiriman
     public function input_pengiriman($id)
     {
-        $this->db->select('*');
-        $this->db->from('transaksi');
+        $data = [
+            'status_pesanan' => 'Dikirim'
+        ];
         $this->db->where('order_id', $id);
-        return $this->db->get()->row_array();
+        $this->db->update('transaksi', $data);
     }
 
 
@@ -265,5 +267,15 @@ class Checkout_model extends CI_Model
         $this->db->where('transaksi.id_pembeli', $this->session->userdata('id'));
         $this->db->where('transaksi.order_id', $id);
         return $this->db->get()->result_array();
+    }
+
+    //konfirmasi barang
+    public function konfirmasi_barang($id)
+    {
+        $data = [
+            'status_pesanan' => 'Selesai'
+        ];
+        $this->db->where('order_id', $id);
+        $this->db->update('transaksi', $data);
     }
 }

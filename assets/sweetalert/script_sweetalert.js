@@ -34,6 +34,10 @@ const registrasiGagal = $('.flash-data').data('registrasigagal');
 const verifikasiAkun = $('.flash-data').data('verifikasiakun');
 // Sweet alert akun tidak aktif
 const akunTidakAktif = $('.flash-data').data('akuntidakaktif');
+// Sweet alert input pengiriman
+const inputKirim = $('.flash-data').data('inputpengiriman');
+// Sweet alert konfirmasi barang
+const konfirmasiBarang = $('.flash-data').data('konfirmasibarang');
 
 
 
@@ -199,6 +203,24 @@ if (akunTidakAktif) {
     });
 }
 
+//Sweet alert input kirim
+if (inputKirim) {
+    Swal.fire({
+        title: 'Success',
+        text: inputKirim,
+        type: 'success',
+    });
+}
+
+//Sweet alert konfirmasi barang
+if (konfirmasiBarang) {
+    Swal.fire({
+        title: 'Success',
+        text: konfirmasiBarang,
+        type: 'success',
+    });
+}
+
 //Sweet alert hapus
 $('.tombol-hapus').on('click', function (e) {
 
@@ -318,5 +340,49 @@ $('.harap-login').on('click', function (e) {
         text: 'Untuk dapat melihat akun anda',
         type: 'warning',
     })
+});
+
+//Sweet alert kirim barang
+$('.tombol-kirim').on('click', function (e) {
+
+    e.preventDefault();
+    const href = $(this).attr('href');
+
+    Swal.fire({
+        title: 'Kirim',
+        text: 'Ubah status menjadi dikirim?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085D6',
+        cancelButtonColor: '#D33',
+        confirmButtonText: 'Kirim',
+        cancelButtonText: 'Kembali'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
+    });
+});
+
+//Sweet alert tombol konfirmasi
+$('.tombol-konfirmasi').on('click', function (e) {
+
+    e.preventDefault();
+    const href = $(this).attr('href');
+
+    Swal.fire({
+        title: 'Konfirmasi',
+        text: 'Anda yakin ingin mengkonfirmasi pesanan?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085D6',
+        cancelButtonColor: '#D33',
+        confirmButtonText: 'Konfirmasi',
+        cancelButtonText: 'Kembali'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
+    });
 });
 

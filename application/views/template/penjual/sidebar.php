@@ -40,12 +40,11 @@
                     </a>
                 </li>
                 <!-- Laporan -->
-                <li class="nav-item pcoded-hasmenu <?= active_menu('laporan'); ?>">
-                    <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file"></i></span><span class="pcoded-mtext"> Kelola Laporan</span></a>
-                    <ul class="pcoded-submenu">
-                        <li class=""><a href="">Laporan Penjualan</a></li>
-                        <li class=""><a href="">Laporan Penghasilan</a></li>
-                    </ul>
+                <li class="nav-item <?= active_menu('laporan'); ?>">
+                    <a href="<?= site_url('laporan/saldo_penghasilan'); ?>" class="nav-link ">
+                        <span class="pcoded-micon"><i class="feather icon-download"></i></span>
+                        <span class="pcoded-mtext">Saldo Penghasilan</span>
+                    </a>
                 </li>
 
                 <li class="nav-item pcoded-menu-caption">

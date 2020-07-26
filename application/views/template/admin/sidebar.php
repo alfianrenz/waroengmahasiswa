@@ -61,8 +61,8 @@
                 <!-- Laporan -->
                 <li class="nav-item <?= active_menu('laporan'); ?>">
                     <a href="<?= site_url('laporan/laporan_transaksi'); ?>" class="nav-link ">
-                        <span class="pcoded-micon"><i class="feather icon-file"></i></span>
-                        <span class="pcoded-mtext">Laporan Transaksi</span>
+                        <span class="pcoded-micon"><i class="feather icon-download"></i></span>
+                        <span class="pcoded-mtext">Penghasilan Penjual</span>
                     </a>
                 </li>
 

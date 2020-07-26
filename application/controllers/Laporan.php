@@ -3,10 +3,13 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Laporan extends My_Controller
 {
-    //Laporan transaksi pada halaman admin
-    public function laporan_transaksi()
+    //===========================================
+    //                  PENJUAL
+    //===========================================
+
+    public function saldo_penghasilan()
     {
-        $data['title'] = 'Warma CIC | Laporan Transaksi';
-        $this->paggingAdmin('admin/laporan/laporan_transaksi', $data);
+        $data['title'] = 'Warma CIC | Saldo Penghasilan';
+        $this->paggingPenjual('penjual/laporan/saldo_penghasilan', $data);
     }
 }

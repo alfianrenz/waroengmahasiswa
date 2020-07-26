@@ -30,9 +30,9 @@ class Pesanan extends My_Controller
 
     public function input_pengiriman($id)
     {
-        $data['title'] = 'Warma CIC | Pesanan';
-        $data['transaksi'] = $this->checkout_model->input_pengiriman($id);
-        $this->paggingPenjual('penjual/pesanan/input_pengiriman', $data);
+        $this->checkout_model->input_pengiriman($id);
+        $this->session->set_flashdata('message', '<div class="flash-data" data-inputpengiriman="Produk sedang dikirim"></div>');
+        echo '<script>window.history.back();</script>';
     }
 
     //========================================
@@ -53,5 +53,12 @@ class Pesanan extends My_Controller
         $data['transaksi'] = $this->checkout_model->getDetail_transaksi($id);
         $data['item'] = $this->checkout_model->detailitem_Pembeli($id);
         $this->paggingPembeli('pembeli/pesanan/detail_pesanan', $data);
+    }
+
+    public function konfirmasi_barang($id)
+    {
+        $this->checkout_model->konfirmasi_barang($id);
+        $this->session->set_flashdata('message', '<div class="flash-data" data-konfirmasibarang="Barang telah diterima"></div>');
+        echo '<script>window.history.back();</script>';
     }
 }
