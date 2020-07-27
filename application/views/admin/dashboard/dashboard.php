@@ -20,73 +20,57 @@
 
         <!-- Main Content -->
         <div class="row">
-            <div class="col-xl-3 col-md-6">
-                <a href="<?= site_url('akun/data_akun_mahasiswa'); ?>">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row align-items-center m-l-0">
-                                <div class="col-auto">
-                                    <i class="icon fas fa-user f-30 text-c-purple"></i>
-                                </div>
-                                <div class="col-auto">
-                                    <h6 class="text-muted m-b-10">Mahasiswa</h6>
-                                    <h2 class="m-b-0"><?= $jumlahakunmahasiswa; ?></h2>
-                                </div>
-                            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="card widget-statstic-card">
+                    <div class="card-body">
+                        <div class="card-header-left mb-3">
+                            <h5 class="mb-0">Mahasiswa</h5>
+                        </div>
+                        <i class="feather icon-user st-icon bg-c-purple"></i>
+                        <div class="text-left">
+                            <h3 class="d-inline-block text-c-purple"><?= $jumlahakunmahasiswa; ?></h3>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
-            <div class="col-xl-3 col-md-6">
-                <a href="<?= site_url('akun/data_akun_umum'); ?>">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row align-items-center m-l-0">
-                                <div class="col-auto">
-                                    <i class="icon fas fa-user-friends f-30 text-c-yellow"></i>
-                                </div>
-                                <div class="col-auto">
-                                    <h6 class="text-muted m-b-10">Pengguna Umum</h6>
-                                    <h2 class="m-b-0"><?= $jumlahakunumum; ?></h2>
-                                </div>
-                            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="card widget-statstic-card">
+                    <div class="card-body">
+                        <div class="card-header-left mb-3">
+                            <h5 class="mb-0">Pengguna Umum</h5>
+                        </div>
+                        <i class="feather icon-users st-icon bg-c-red txt-lite-color"></i>
+                        <div class="text-left">
+                            <h3 class="d-inline-block text-c-red"><?= $jumlahakunumum; ?></h3>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
-            <div class="col-xl-3 col-md-6">
-                <a href="<?= site_url('transaksi/data_transaksi'); ?>">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row align-items-center m-l-0">
-                                <div class="col-auto">
-                                    <i class="icon fas fa-dollar-sign f-30 text-c-green"></i>
-                                </div>
-                                <div class="col-auto">
-                                    <h6 class="text-muted m-b-10">Transaksi</h6>
-                                    <h2 class="m-b-0"><?= $jumlahtransaksi; ?></h2>
-                                </div>
-                            </div>
+            <div class="col-md-12 col-xl-3">
+                <div class="card widget-statstic-card">
+                    <div class="card-body">
+                        <div class="card-header-left mb-3">
+                            <h5 class="mb-0">Transaksi</h5>
+                        </div>
+                        <i class="feather icon-shopping-cart st-icon bg-c-green"></i>
+                        <div class="text-left">
+                            <h3 class="d-inline-block text-success"><?= $jumlahtransaksi; ?></h3>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
-            <div class="col-xl-3 col-md-6">
-                <a href="<?= site_url('kategori'); ?>">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row align-items-center m-l-0">
-                                <div class="col-auto">
-                                    <i class="icon fas fa-pen f-30 text-c-blue"></i>
-                                </div>
-                                <div class="col-auto">
-                                    <h6 class="text-muted m-b-10">Kategori</h6>
-                                    <h2 class="m-b-0"><?= $jumlahkategori; ?></h2>
-                                </div>
-                            </div>
+            <div class="col-md-6 col-xl-3">
+                <div class="card widget-statstic-card">
+                    <div class="card-body">
+                        <div class="card-header-left mb-3">
+                            <h5 class="mb-0">Kategori</h5>
+                        </div>
+                        <i class="feather icon-edit st-icon bg-c-yellow txt-lite-color"></i>
+                        <div class="text-left">
+                            <h3 class="d-inline-block text-c-yellow"><?= $jumlahkategori; ?></h3>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
 
             <!-- Data Transaksi -->

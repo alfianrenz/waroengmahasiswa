@@ -51,7 +51,6 @@ class Auth extends My_Controller
                         'foto' => $admin['foto_admin']
                     ];
                     $this->session->set_userdata($data);
-                    $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Selamat Datang BKM CIC di Halaman Administrator!</div>');
                     redirect('dashboard');
                 } else {
                     $this->session->set_flashdata('message', '<div class="flash-data" data-passworderror="Periksa kembali password anda"></div>');

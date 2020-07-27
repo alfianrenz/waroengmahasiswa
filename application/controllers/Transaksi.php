@@ -10,10 +10,10 @@ class Transaksi extends My_Controller
     }
 
     //Data transaksi pada halaman admin
-    public function data_transaksi()
+    public function data_transaksi($sortby = '')
     {
         $data['title'] = 'Warma CIC | Data Transaksi';
-        $data['transaksi'] = $this->checkout_model->getAll_transaksi();
+        $data['transaksi'] = $this->checkout_model->getAll_transaksi($sortby);
         $this->paggingAdmin('admin/transaksi/data_transaksi', $data);
     }
 

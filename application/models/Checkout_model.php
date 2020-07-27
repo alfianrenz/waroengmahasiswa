@@ -133,10 +133,17 @@ class Checkout_model extends CI_Model
     //=======================================
 
     //get All data transaksi
-    public function getAll_transaksi()
+    public function getAll_transaksi($sortby)
     {
         $this->db->select('*');
         $this->db->from('transaksi');
+        if ($sortby == "settlement") {
+            $this->db->where(['status_bayar' => 'settlement']);
+        } else if ($sortby == "pending") {
+            $this->db->where(['status_bayar' => 'pending']);
+        } else if ($sortby == "failure") {
+            $this->db->where(['status_bayar' => 'expire']);
+        }
         $this->db->order_by('waktu_transaksi', 'DESC');
         return $this->db->get()->result_array();
     }

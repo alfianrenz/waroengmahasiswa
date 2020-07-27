@@ -42,7 +42,7 @@
                 <!-- Laporan -->
                 <li class="nav-item <?= active_menu('laporan'); ?>">
                     <a href="<?= site_url('laporan/saldo_penghasilan'); ?>" class="nav-link ">
-                        <span class="pcoded-micon"><i class="feather icon-download"></i></span>
+                        <span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span>
                         <span class="pcoded-mtext">Saldo Penghasilan</span>
                     </a>
                 </li>

@@ -12,7 +12,7 @@ class Dashboard extends My_Controller
     }
 
     //DASHBOARD ADMIN
-    public function index()
+    public function index($sortby = '')
     {
         if (!$this->session->userdata('id')) {
             redirect('auth');
@@ -24,7 +24,7 @@ class Dashboard extends My_Controller
         $data['jumlahtransaksi'] = $this->db->get('transaksi')->num_rows();
         $data['jumlahkategori'] = $this->db->get('kategori')->num_rows();
         $data['mahasiswa'] = $this->user_model->getAkun_Mahasiswa();
-        $data['transaksi'] = $this->checkout_model->getAll_transaksi();
+        $data['transaksi'] = $this->checkout_model->getAll_transaksi($sortby);
         $this->paggingAdmin('admin/dashboard/dashboard', $data);
     }
 

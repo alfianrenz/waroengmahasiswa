@@ -98,7 +98,7 @@
                                                 <?php } else if ($t['status_pesanan'] == 'Selesai') { ?>
                                                     <span class="badge badge-success">Selesai</span>
                                                 <?php } else { ?>
-                                                    <span class="badge badge-danger">Gagal</span>
+                                                    <span class="badge badge-danger">Batal</span>
                                                 <?php } ?>
                                             </td>
                                             <td class="align-middle text-center">

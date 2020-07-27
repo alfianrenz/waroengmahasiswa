@@ -24,7 +24,7 @@
 
 </head>
 
-<body class="background-img-4">
+<body class="background-grd-dark">
     <div class="loader-bg">
         <div class="loader-track">
             <div class="loader-fill"></div>

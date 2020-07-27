@@ -21,6 +21,17 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
+                        <div class="nav nav-pills" role="tablist">
+                            <a href="<?= site_url('transaksi/data_transaksi/all'); ?>" class="nav-link <?php echo $this->uri->segment(3) == 'all' ? 'active' : ''; ?><?= active_menu('transaksi/data_transaksi'); ?>">All Transaction</a>
+                            <a href="<?= site_url('transaksi/data_transaksi/settlement'); ?>" class="nav-link <?php echo $this->uri->segment(3) == 'settlement' ? 'active' : ''; ?><?= active_menu('transaksi/data_transaksi'); ?>">Settlement</a>
+                            <a href="<?= site_url('transaksi/data_transaksi/pending'); ?>" class="nav-link <?php echo $this->uri->segment(3) == 'pending' ? 'active' : ''; ?><?= active_menu('transaksi/data_transaksi'); ?>">Pending</a>
+                            <a href="<?= site_url('transaksi/data_transaksi/failure'); ?>" class="nav-link <?php echo $this->uri->segment(3) == 'failure' ? 'active' : ''; ?><?= active_menu('transaksi/data_transaksi'); ?>">Failure</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
                         <h5>Data Transaksi</h5>
                     </div>
                     <div class="card-body">

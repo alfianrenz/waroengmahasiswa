@@ -144,11 +144,11 @@
                                                 <?php } else if ($t['status_pesanan'] == 'Diproses') { ?>
                                                     <span class="badge badge-primary">Diproses</span>
                                                 <?php } else if ($t['status_pesanan'] == 'Dikirim') { ?>
-                                                    <span class="badge badge-secondary">Dikirim</span>
+                                                    <span class="badge badge-info">Dikirim</span>
                                                 <?php } else if ($t['status_pesanan'] == 'Selesai') { ?>
                                                     <span class="badge badge-success">Selesai</span>
                                                 <?php } else { ?>
-                                                    <span class="badge badge-danger">Gagal</span>
+                                                    <span class="badge badge-danger">Batal</span>
                                                 <?php } ?>
                                             </td>
                                             <td class="align-middle text-center">
