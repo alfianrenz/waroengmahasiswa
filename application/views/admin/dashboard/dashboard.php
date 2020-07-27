@@ -136,12 +136,12 @@
                                             <td class="align-middle text-center">
                                                 <?php if ($t['status_bayar'] == 'pending') { ?>
                                                     <span class="badge badge-warning">Pending</span>
-                                                <?php } else if ($t['status_bayar'] == 'cancel') { ?>
-                                                    <span class="badge badge-danger">Cancel</span>
-                                                <?php } else if ($t['status_bayar'] == 'failure') { ?>
-                                                    <span class="badge badge-secondary">Gagal</span>
-                                                <?php } else { ?>
+                                                <?php } else if ($t['status_bayar'] == 'expire') { ?>
+                                                    <span class="badge badge-danger">Failure</span>
+                                                <?php } else if ($t['status_bayar'] == 'settlement') { ?>
                                                     <span class="badge badge-success">Settlement</span>
+                                                <?php } else { ?>
+                                                    <span class="badge badge-danger">Cancel</span>
                                                 <?php } ?>
                                             </td>
                                             <td class="align-middle text-center">

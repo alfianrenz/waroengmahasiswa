@@ -75,7 +75,7 @@
                                         <td>:&nbsp;&nbsp;
                                             <?php if ($transaksi['status_bayar'] == 'pending') { ?>
                                                 <span class="badge badge-warning">Pending</span>
-                                            <?php } else if ($transaksi['status_bayar'] == 'failure') { ?>
+                                            <?php } else if ($transaksi['status_bayar'] == 'expire') { ?>
                                                 <span class="badge badge-danger">Failure</span>
                                             <?php } else if ($transaksi['status_bayar'] == 'settlement') { ?>
                                                 <span class="badge badge-success">Settlement</span>
