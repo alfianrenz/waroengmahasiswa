@@ -57,10 +57,10 @@
                     <div class="card-body">
                         <form action="<?= site_url('laporan/laporan_transaksi'); ?>" method="POST">
                             <div class="row">
-                                <div class="col-sm-7">
+                                <div class="col-sm-9 mx-auto">
                                     <div class="form-group row">
                                         <label for="inputEmail3" class="col-sm-3 col-form-label">Filter Berdasarkan</label>
-                                        <div class="col-sm-9">
+                                        <div class="col-sm-7">
                                             <select class="form-control" id="status" name="status">
                                                 <option>Status Pembayaran</option>
                                                 <option value="settlement"> Settlement</option>
@@ -68,13 +68,16 @@
                                                 <option value="expire"> Failure</option>
                                             </select>
                                         </div>
+                                        <div class="col-sm-2">
+                                            <button type="submit" class="btn btn-primary">Filter</button>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-2">
+                                <!-- <div class="col-sm-2">
                                     <div class="form-group">
                                         <button type="submit" class="btn btn-primary"><i class="feather icon-search"></i>&nbsp;&nbsp;Filter</button>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </form>
                     </div>

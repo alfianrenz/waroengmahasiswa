@@ -18,10 +18,6 @@
 
         <?= $this->session->userdata('message'); ?>
 
-        <?php if ($this->uri->segment(3) == 'diproses' ? 'active' : '') { ?>
-            <div class="alert alert-success">Harap memilih tombol kirim apabila produk sedang atau telah dikirim</div>
-        <?php } ?>
-
         <!-- Main Content -->
         <div class="row">
             <div class="col-sm-12">
@@ -42,6 +38,9 @@
                         <h5>Pesanan</h5>
                     </div>
                     <div class="card-body">
+                        <?php if ($this->uri->segment(3) == 'diproses' ? 'active' : '') { ?>
+                            <div class="alert alert-success">Harap mengkonfirmasi pengiriman </div>
+                        <?php } ?>
                         <div class="dt-responsive table-responsive">
                             <table id="" class="table table-de nowrap">
                                 <thead>

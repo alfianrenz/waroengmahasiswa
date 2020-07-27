@@ -18,73 +18,68 @@
 
         <!-- Main Content -->
         <div class="row">
-            <div class="col-xl-3 col-md-6">
-                <a href="<?= site_url('pesanan/daftar_pesanan_penjual/all'); ?>">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row align-items-center m-l-0">
-                                <div class="col-auto">
-                                    <i class="icon fas fa-cart-plus f-30 text-c-purple"></i>
-                                </div>
-                                <div class="col-auto">
-                                    <h6 class="text-muted m-b-10">Pesanan</h6>
-                                    <h2 class="m-b-0">2</h2>
-                                </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h4 class="text-c-blue">2</h4>
+                                <h6 class="text-muted m-b-0">Pesanan Masuk</h6>
+                            </div>
+                            <div class="col-4 text-right">
+                                <i class="fas fa-cart-plus f-28 text-c-blue"></i>
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
-            <div class="col-xl-3 col-md-6">
-                <a href="<?= site_url('produk/data_produk'); ?>">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row align-items-center m-l-0">
-                                <div class="col-auto">
-                                    <i class="icon fas fa-dice-d6 f-30 text-c-green"></i>
-                                </div>
-                                <div class="col-auto">
-                                    <h6 class="text-muted m-b-10">Produk</h6>
-                                    <h2 class="m-b-0"><?= $jumlahproduk; ?></h2>
-                                </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h4 class="text-c-red">3</h4>
+                                <h6 class="text-muted m-b-0">Belum Bayar</h6>
+                            </div>
+                            <div class="col-4 text-right">
+                                <i class="fas fa-dollar-sign f-28 text-c-red"></i>
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
-            <div class="col-xl-3 col-md-6">
-                <a href="<?= site_url('pesanan/daftar_pesanan_penjual/dikirim'); ?>">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row align-items-center m-l-0">
-                                <div class="col-auto">
-                                    <i class="icon fas fa-truck f-30 text-c-yellow"></i>
-                                </div>
-                                <div class="col-auto">
-                                    <h6 class="text-muted m-b-10">Dikirim</h6>
-                                    <h2 class="m-b-0">1</h2>
-                                </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h4 class="text-c-yellow">3</h4>
+                                <h6 class="text-muted m-b-0">Dikirim</h6>
+                            </div>
+                            <div class="col-4 text-right">
+                                <i class="fas fa-truck f-28 text-c-yellow"></i>
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
-            <div class="col-xl-3 col-md-6">
-                <a href="<?= site_url('pesanan/daftar_pesanan_penjual/selesai'); ?>">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row align-items-center m-l-0">
-                                <div class="col-auto">
-                                    <i class="icon fas fa-check-circle f-30 text-c-green"></i>
-                                </div>
-                                <div class="col-auto">
-                                    <h6 class="text-muted m-b-10">Pesanan Selesai</h6>
-                                    <h2 class="m-b-0">10</h2>
-                                </div>
+
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h4 class="text-c-green">Rp20.000</h4>
+                                <h6 class="text-muted m-b-0">Saldo Saya</h6>
+                            </div>
+                            <div class="col-4 text-right">
+                                <i class="fas fa-dollar-sign f-28 text-c-green"></i>
                             </div>
                         </div>
                     </div>
-                </a>
+                </div>
             </div>
 
             <div class="col-xl-12">

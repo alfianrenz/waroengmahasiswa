@@ -18,34 +18,47 @@
 
         <!-- Main Content -->
         <div class="row">
-            <div class="col-md-6 col-xl-6">
-                <div class="card widget-statstic-card">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="mb-0">Penjualan Saya</h6>
+                    </div>
                     <div class="card-body">
-                        <div class="card-header-left mb-3">
-                            <h5 class="mb-0">Penghasilan Saya</h5>
+                        <div class="dt-responsive table-responsive">
+                            <table id="" class="table table-de nowrap">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">No</th>
+                                        <th class="text-center">Nama Produk</th>
+                                        <th class="text-center">Harga Produk</th>
+                                        <th class="text-center">Terjual</th>
+                                        <th class="text-center">Subtotal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <!-- Order ID -->
+                                        <td class="text-center align-middle"></td>
 
-                        </div>
-                        <i class="feather icon-users st-icon bg-c-green txt-lite-color"></i>
-                        <div class="text-left">
-                            <h3 class="d-inline-block text-c-green">Rp20.000</h3>
+                                        <!-- Metode Pembayaran -->
+                                        <td class="align-middle text-center"></td>
+
+                                        <!-- Waktu Transaksi -->
+                                        <td class="align-middle text-center"></td>
+
+                                        <!-- Nama Pelanggan -->
+                                        <td class="align-middle"></td>
+
+                                        <!-- Status Pembayaran -->
+                                        <td class="align-middle text-center"></td>
+
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-xl-6">
-                <div class="card widget-statstic-card">
-                    <div class="card-body">
-                        <div class="card-header-left mb-3">
-                            <h5 class="mb-0">Akan Dicairkan</h5>
-                        </div>
-                        <i class="feather icon-shopping-cart st-icon bg-c-yellow"></i>
-                        <div class="text-left">
-                            <h3 class="d-inline-block text-c-yellow">Rp30.000</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 </div>
