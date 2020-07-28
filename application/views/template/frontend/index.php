@@ -117,6 +117,7 @@
             if (window.FormData) {
                 formdata = new FormData(form[0]);
             }
+            console.log(formdata);
 
             $.ajax({
                 url: "<?= site_url('checkout/getToken'); ?>",
@@ -138,11 +139,11 @@
                         } else {
                             $('#validasi_alamat').html('');
                         }
-                        if (data.validasi_ongkir != '') {
-                            $('#validasi_ongkir').html(data.validasi_ongkir);
-                        } else {
-                            $('#validasi_ongkir').html('');
-                        }
+                        // if (data.validasi_ongkir != '') {
+                        //     $('#validasi_ongkir').html(data.validasi_ongkir);
+                        // } else {
+                        //     $('#validasi_ongkir').html('');
+                        // }
                     } else {
                         snap.pay(data.token);
                     }
@@ -183,44 +184,31 @@
 
     <!-- Cek Ongkir -->
     <!-- <script>
-        $('select[name="kota"]').on('change', function() {
-            $.ajax({
-                type: 'POST',
-                url: '<?php echo site_url('checkout/cek_ongkir'); ?>',
-                data: {
-                    kota: $(this).val()
-                },
-                success: function(option) {
-                    $('select[name="jumlah_ongkir"]').html(option);
-                }
-            });
-        });
-    </script> -->
+        function formatUangs(element) {
+            var numberString = element.toString();
+            var split = numberString.split(',');
+            var sisa = split[0].length % 3;
+            var rupiah = split[0].substr(0, sisa);
+            var ribuan = split[0].substr(sisa).match(/\d{1,3}/gi);
 
-    <!-- <script type="text/javascript">
-        $(document).ready(function() {
-            $('#kota').change(function() {
-                var id = $($this).val();
-                $.ajax({
-                    url: "<?php echo site_url('checkout/cek_ongkir'); ?>",
-                    method: "POST",
-                    data: {
-                        id: id
-                    },
-                    async: true,
-                    dataType: 'json',
-                    success: function(data) {
+            if (ribuan) {
+                separator = sisa ? '.' : '';
+                rupiah += separator + ribuan.join('.');
+            }
 
-                        var html = '';
-                        var i;
-                        for (i = 0; i < data.length; i++) {
-                            html += '<option value=' + data[i].id_ongkir + '>' + data[i].jumlah_ongkir + '</option>';
-                        }
-                        $('#jumlah_ongkir').html(html);
-                    }
-                });
-                return false;
-            });
+            ribuan = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return ribuan;
+        }
+
+        $('select[name="lokasi"]').on('change', function() {
+            var ongkir = $("select[name=lokasi] > option:selected").attr('data-ongkir');
+            var total_belanja = $("#total_belanja").text();
+
+            var total_bayar = parseInt(total_belanja) + parseInt(ongkir);
+            $("input[name=jumlah_ongkir]").val(ongkir);
+            $("#ongkir").text(formatUangs(ongkir));
+            $("#total_bayar").text(formatUangs(total_bayar));
+            $("input[name=total_belanja]").val(total_bayar);
         });
     </script> -->
 

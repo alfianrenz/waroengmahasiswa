@@ -27,18 +27,16 @@ class Checkout extends My_Controller
 
         $data['title'] = 'Warma CIC | Checkout';
         $data['detail_keranjang'] = $this->checkout_model->getdetail_keranjang();
-        $data['lokasi'] = $this->db->get('lokasi')->result_array();
+
+        //Lokasi
+        $lokasi = $this->db->select('*')
+            ->from('lokasi')
+            ->join('ongkir', 'lokasi.id_lokasi = ongkir.id_lokasi')
+            ->get()->result_array();
+
+        $data['lokasi'] = $lokasi;
         $this->paggingFrontend('frontend/checkout', $data);
     }
-
-    // function cek_ongkir()
-    // {
-    //     $ongkir = $this->db->get_where('ongkir', ['id_lokasi' => $this->input->post('kota')])->result_array();
-    //     echo '<option> Cek Ongkir </option>';
-    //     foreach ($ongkir as $o) {
-    //         echo '<option value="' . $o['id_ongkir'] . '">' . $o['jumlah_ongkir'] . '</option>';
-    //     }
-    // }
 
     //Get Token Midtrans
     public function getToken()
@@ -49,7 +47,7 @@ class Checkout extends My_Controller
         $this->form_validation->set_rules('alamat', 'alamat', 'required|trim', [
             'required' => 'Form ini tidak boleh kosong'
         ]);
-        // $this->form_validation->set_rules('ongkir', 'ongkir', 'required|trim', [
+        // $this->form_validation->set_rules('jumlah_ongkir', 'jumlah_ongkir', 'required|trim', [
         //     'required' => 'Form ini tidak boleh kosong'
         // ]);
 
@@ -59,7 +57,7 @@ class Checkout extends My_Controller
                 'error' => true,
                 'validasi_alamat' => form_error('alamat'),
                 'validasi_lokasi' => form_error('lokasi'),
-                // 'validasi_ongkir' => form_error('ongkir'),
+                // 'validasi_ongkir' => form_error('jumlah_ongkir'),
             ));
         } else {
             header('Content-Type: application/json');
@@ -126,10 +124,6 @@ class Checkout extends My_Controller
         $data['transaksi'] = $this->db->get_where('transaksi', ['order_id' => $order_id])->row();
 
         $detail_keranjang = $this->db->get('detail_keranjang')->row_array();
-
-        // //hapus detail_keranjang
-        // $this->db->where('id_keranjang', $detail_keranjang['id_keranjang']);
-        // $this->db->delete('detail_keranjang');
 
         //hapus_keranjang
         $this->db->where('id_keranjang', $detail_keranjang['id_keranjang']);

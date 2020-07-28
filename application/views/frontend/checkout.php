@@ -38,19 +38,10 @@
                             </tbody>
                         </table>
                         <h3 class="small-title mt-30">PENGIRIMAN</h3>
-                        <!-- <div class="form-group">
-                            <label class="floating-label">Kabupaten / Kota</label>
-                            <select class="form-control" id="kota" name="kota">
-                                <option value="">Pilih Kabupaten / Kota</option>
-                                <option value="Kabupaten Cirebon">Kabupaten Cirebon</option>
-                                <option value="Kota Cirebon">Kota Cirebon</option>
-                            </select>
-                            <small id="validasi_kota" class="text-danger"></small>
-                        </div> -->
                         <div class="form-group">
-                            <label class="floating-label">Kabupaten / Kota</label>
+                            <label class="floating-label">Tujuan Pengiriman</label>
                             <select class="form-control" id="lokasi" name="lokasi">
-                                <option value="">Pilih Kabupaten / Kota</option>
+                                <option value="">Pilih Lokasi</option>
                                 <?php foreach ($lokasi as $l) : ?>
                                     <option value="<?= $l['id_lokasi']; ?>"><?= $l['nama_lokasi']; ?></option>
                                 <?php endforeach; ?>
@@ -64,9 +55,7 @@
                         </div>
                         <!-- <div class="form-group">
                             <label class="floating-label">Ongkos Kirim</label>
-                            <select class="form-control" name="jumlah_ongkir" id="jumlah_ongkir">
-
-                            </select>
+                            <input type="number" class="form-control form-control-sm" name="jumlah_ongkir" id="jumlah_ongkir" />
                             <small id="validasi_ongkir" class="text-danger"></small>
                         </div> -->
                     </div>
@@ -102,11 +91,10 @@
 
                                                 <td class="text-right">Rp<?= number_format($subtotal, 0, ',', '.'); ?></td>
                                             </tr>
-
                                         <?php endforeach; ?>
                                     </tbody>
                                     <tfoot>
-                                        <tr class="total-price">
+                                        <tr class=" total-price">
                                             <th class="text-left">TOTAL BAYAR</th>
                                             <td class="text-right">Rp<?= number_format($total_belanja, 0, ',', '.'); ?></td>
                                         </tr>

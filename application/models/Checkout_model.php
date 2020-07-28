@@ -34,6 +34,7 @@ class Checkout_model extends CI_Model
 
         //detail keranjang
         $produk = $this->getdetail_keranjang();
+
         $total_bayar = 0;
         $order_id = rand();
 
@@ -44,13 +45,15 @@ class Checkout_model extends CI_Model
             ->where('id_lokasi', $input)
             ->get()->row_array();
 
-        //subtotal dan total belanja
+        // subtotal dan total belanja
         foreach ($produk as $p) {
             $harga_produk = $p['harga_produk'];
             $kuantitas = $p['kuantitas'];
             $subtotal = $harga_produk * $kuantitas;
             $total_bayar += $subtotal;
         }
+
+        // $total_belanja = $this->input->post('ongkir');
 
         //required
         $transaction_details = [
