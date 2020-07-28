@@ -51,9 +51,9 @@ class Laporan extends My_Controller
     //                  PENJUAL
     //===========================================
 
-    public function saldo_penghasilan()
+    public function laporan_penjualan()
     {
-        $data['title'] = 'Warma CIC | Saldo Penghasilan';
-        $this->paggingPenjual('penjual/laporan/saldo_penghasilan', $data);
+        $data['title'] = 'Warma CIC | Laporan Penjualan';
+        $this->paggingPenjual('penjual/laporan/laporan_penjualan', $data);
     }
 }

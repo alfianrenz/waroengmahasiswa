@@ -41,9 +41,9 @@
                 </li>
                 <!-- Laporan -->
                 <li class="nav-item <?= active_menu('laporan'); ?>">
-                    <a href="<?= site_url('laporan/saldo_penghasilan'); ?>" class="nav-link ">
+                    <a href="<?= site_url('laporan/laporan_penjualan'); ?>" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span>
-                        <span class="pcoded-mtext">Saldo Penghasilan</span>
+                        <span class="pcoded-mtext">Laporan Penjualan</span>
                     </a>
                 </li>
 
