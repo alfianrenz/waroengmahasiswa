@@ -43,7 +43,8 @@ class Keranjang_model extends CI_Model
         //TIDAK DAPAT MEMBELI PPRODUK SENDIRI
         if ($tipe_pembeli == 1) {
             $cek_produk = $this->db->select("*")
-                ->from('produk')->where('id_mahasiswa', $id_pembeli)
+                ->from('produk')
+                ->where('id_mahasiswa', $id_pembeli)
                 ->where('id_produk', $id_produk)
                 ->get()->num_rows();
 

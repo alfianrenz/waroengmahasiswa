@@ -69,15 +69,10 @@
                                             </select>
                                         </div>
                                         <div class="col-sm-2">
-                                            <button type="submit" class="btn btn-primary">Filter</button>
+                                            <button type="submit" class="btn btn-primary"><i class="feather icon-search"></i>&nbsp;&nbsp;Filter</button>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- <div class="col-sm-2">
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-primary"><i class="feather icon-search"></i>&nbsp;&nbsp;Filter</button>
-                                    </div>
-                                </div> -->
                             </div>
                         </form>
                     </div>

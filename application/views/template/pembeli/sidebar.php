@@ -71,8 +71,8 @@
                 <?php if ($this->session->userdata('tipe') == 1) { ?>
                     <li class="nav-item">
                         <a href="<?= site_url('dashboard/penjual'); ?>" class="nav-link">
-                            <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-                            <span class="pcoded-mtext">Menu Penjual</span>
+                            <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
+                            <span class="pcoded-mtext">Warma Seller</span>
                         </a>
                     </li>
                 <?php } ?>
