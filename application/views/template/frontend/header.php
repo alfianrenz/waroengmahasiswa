@@ -66,7 +66,7 @@
 
                         <?php if ($this->session->userdata('id')) { ?>
                             <div class="header-account">
-                                <button class="header-accountbox-trigger"><span class="lnr lnr-user"></span> <?= $this->session->userdata('nama'); ?> <i class="ion ion-ios-arrow-down"></i></button>
+                                <button class="header-accountbox-trigger"><span class="lnr lnr-user"></span> My Profile <i class="ion ion-ios-arrow-down"></i></button>
                                 <ul class="header-accountbox dropdown-list">
                                     <li><a href="<?= site_url('dashboard/pembeli'); ?>">Dashboard</a></li>
                                     <li><a href="<?= site_url('keranjang/halaman_keranjang'); ?>">Keranjang</a></li>

@@ -5,11 +5,11 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10">Informasi Penghasilan</h5>
+                            <h5 class="m-b-10">Laporan Penjualan</h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?= site_url('dashboard/penjual'); ?>"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#!">Informasi Penghasilan</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Laporan Penjualan</a></li>
                         </ul>
                     </div>
                 </div>
@@ -28,28 +28,34 @@
                             <table id="" class="table table-de nowrap">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">No</th>
-                                        <th class="text-center">Nama Produk</th>
+                                        <th class="text-center" width="3%">No</th>
+                                        <th class="text-center">Foto</th>
+                                        <th>Nama Produk</th>
                                         <th class="text-center">Harga Produk</th>
-                                        <th class="text-center">Terjual</th>
+                                        <th class="text-center">Jumlah Terjual</th>
                                         <th class="text-center">Subtotal</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <!-- Order ID -->
+                                        <!-- No -->
                                         <td class="text-center align-middle"></td>
 
-                                        <!-- Metode Pembayaran -->
-                                        <td class="align-middle text-center"></td>
+                                        <!-- Foto Produk -->
+                                        <td class="align-middle text-center">
+                                            <img src="<?= base_url('upload/foto_produk'); ?>" alt="contact-img" title="contact-img" class="rounded mr-3" height="48" width="48" style="object-fit: cover">
+                                        </td>
 
-                                        <!-- Waktu Transaksi -->
-                                        <td class="align-middle text-center"></td>
-
-                                        <!-- Nama Pelanggan -->
+                                        <!-- Nama Produk -->
                                         <td class="align-middle"></td>
 
-                                        <!-- Status Pembayaran -->
+                                        <!-- Harga Produk -->
+                                        <td class="align-middle text-center"></td>
+
+                                        <!-- Jumlah Terjual -->
+                                        <td class="align-middle"></td>
+
+                                        <!-- Subtotal -->
                                         <td class="align-middle text-center"></td>
 
                                     </tr>
