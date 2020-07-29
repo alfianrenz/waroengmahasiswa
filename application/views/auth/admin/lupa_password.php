@@ -17,7 +17,7 @@
     <!-- Favicon icon -->
     <link rel="icon" href="<?= base_url(); ?>assets/backend/images/logo/favicon-warma-blue.png" type="image/x-icon">
     <!-- vendor css -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/backend/css/style.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/backend/css/style-2.css">
 </head>
 
 <!-- Content-->

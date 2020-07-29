@@ -19,67 +19,65 @@
         <!-- Main Content -->
         <div class="row">
 
-            <div class="col-lg-3 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-8">
-                                <h4 class="text-c-blue">2</h4>
-                                <h6 class="text-muted m-b-0">Pesanan Masuk</h6>
+            <div class="col-md-6 col-xl-3">
+                <a href="<?= site_url('pesanan/daftar_pesanan_penjual/all'); ?>">
+                    <div class="card widget-statstic-card">
+                        <div class="card-body">
+                            <div class="card-header-left mb-3">
+                                <h5 class="mb-0">Pesanan</h5>
                             </div>
-                            <div class="col-4 text-right">
-                                <i class="fas fa-cart-plus f-28 text-c-blue"></i>
+                            <i class="feather icon-shopping-cart st-icon bg-c-purple"></i>
+                            <div class="text-left">
+                                <h3 class="d-inline-block text-c-purple"><?= $jml_pesanan; ?></h3>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-8">
-                                <h4 class="text-c-red">3</h4>
-                                <h6 class="text-muted m-b-0">Belum Bayar</h6>
+            <div class="col-md-6 col-xl-3">
+                <a href="<?= site_url('pesanan/daftar_pesanan_penjual/belum_bayar'); ?>">
+                    <div class="card widget-statstic-card">
+                        <div class="card-body">
+                            <div class="card-header-left mb-3">
+                                <h5 class="mb-0">Belum Bayar</h5>
                             </div>
-                            <div class="col-4 text-right">
-                                <i class="fas fa-dollar-sign f-28 text-c-red"></i>
+                            <i class="feather icon-user st-icon bg-c-red txt-lite-color"></i>
+                            <div class="text-left">
+                                <h3 class="d-inline-block text-c-red"><?= $belum_bayar; ?></h3>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-8">
-                                <h4 class="text-c-yellow">3</h4>
-                                <h6 class="text-muted m-b-0">Dikirim</h6>
+            <div class="col-md-12 col-xl-3">
+                <a href="<?= site_url('transaksi/data_transaksi/diproses'); ?>">
+                    <div class="card widget-statstic-card">
+                        <div class="card-body">
+                            <div class="card-header-left mb-3">
+                                <h5 class="mb-0">Diproses</h5>
                             </div>
-                            <div class="col-4 text-right">
-                                <i class="fas fa-truck f-28 text-c-yellow"></i>
+                            <i class="feather icon-shopping-cart st-icon bg-c-green"></i>
+                            <div class="text-left">
+                                <h3 class="d-inline-block text-success"><?= $diproses; ?></h3>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-
-            <div class="col-lg-3 col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-8">
-                                <h4 class="text-c-green">Rp20.000</h4>
-                                <h6 class="text-muted m-b-0">Saldo Saya</h6>
+            <div class="col-md-6 col-xl-3">
+                <a href="<?= site_url('laporan/laporan_penjualan'); ?>">
+                    <div class="card widget-statstic-card">
+                        <div class="card-body">
+                            <div class="card-header-left mb-3">
+                                <h5 class="mb-0">Penghasilan</h5>
                             </div>
-                            <div class="col-4 text-right">
-                                <i class="fas fa-dollar-sign f-28 text-c-green"></i>
+                            <i class="feather icon-external-link st-icon bg-c-yellow txt-lite-color"></i>
+                            <div class="text-left">
+                                <h3 class="d-inline-block text-c-yellow">Rp10.000</h3>
                             </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <div class="col-xl-12">

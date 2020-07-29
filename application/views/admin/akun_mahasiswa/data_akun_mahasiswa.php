@@ -32,8 +32,8 @@
                                     <tr>
                                         <th width="5%">No</th>
                                         <th width="5%">Foto</th>
+                                        <th>NIM</th>
                                         <th>Nama Mahasiswa</th>
-                                        <th>Email</th>
                                         <th>Program Studi</th>
                                         <th>Telepon</th>
                                         <th class="text-center">Status</th>
@@ -49,8 +49,8 @@
                                             <td class="align-middle text-center">
                                                 <img src="<?= base_url('upload/foto_user/' . $m['foto_mahasiswa']); ?>" alt="contact-img" title="contact-img" class="img-radius mr-3" height="48" width="48" style="object-fit: cover">
                                             </td>
+                                            <td class="align-middle"><?= $m['nim']; ?></td>
                                             <td class="align-middle"><?= $m['nama_mahasiswa']; ?></td>
-                                            <td class="align-middle"><?= $m['email_mahasiswa']; ?></td>
                                             <td class="align-middle"><?= $m['nama_prodi']; ?></td>
                                             <td class="align-middle"><?= $m['telepon_mahasiswa']; ?></td>
                                             <td class="align-middle text-center">

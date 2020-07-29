@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="col-auto">
                                     <h6 class="text-muted m-b-10">Pesanan Saya</h6>
-                                    <h2 class="m-b-0">2</h2>
+                                    <h2 class="m-b-0"><?= $jumlahpesanan; ?></h2>
                                 </div>
                             </div>
                         </div>
@@ -41,11 +41,11 @@
                         <div class="card-body">
                             <div class="row align-items-center m-l-0">
                                 <div class="col-auto">
-                                    <i class="icon fas fa-dollar-sign f-30 text-c-red"></i>
+                                    <i class="icon fas fa-user f-30 text-c-red"></i>
                                 </div>
                                 <div class="col-auto">
                                     <h6 class="text-muted m-b-10">Belum Bayar</h6>
-                                    <h2 class="m-b-0">3</h2>
+                                    <h2 class="m-b-0"><?= $belumbayar; ?></h2>
                                 </div>
                             </div>
                         </div>
@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="col-auto">
                                     <h6 class="text-muted m-b-10">Pesanan Dikirim</h6>
-                                    <h2 class="m-b-0">3</h2>
+                                    <h2 class="m-b-0"><?= $dikirim; ?></h2>
                                 </div>
                             </div>
                         </div>
@@ -75,11 +75,11 @@
                         <div class="card-body">
                             <div class="row align-items-center m-l-0">
                                 <div class="col-auto">
-                                    <i class="icon fas fa-check-circle f-30 text-c-green"></i>
+                                    <i class="icon fas fa-shopping-bag f-30 text-c-green"></i>
                                 </div>
                                 <div class="col-auto">
                                     <h6 class="text-muted m-b-10">Pesanan Selesai</h6>
-                                    <h2 class="m-b-0">1</h2>
+                                    <h2 class="m-b-0"><?= $selesai; ?></h2>
                                 </div>
                             </div>
                         </div>

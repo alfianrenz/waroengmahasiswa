@@ -32,8 +32,10 @@ class Dashboard extends My_Controller
     public function penjual($sortby = '')
     {
         $data['title'] = 'Warma CIC | Dashboard Penjual';
-        $data['jumlahproduk'] = $this->db->get_where('produk', ['id_mahasiswa' => $this->session->userdata('id')])->num_rows();
         $data['transaksi'] = $this->checkout_model->getTransaksi_penjual($sortby);
+        $data['jml_pesanan'] = $this->checkout_model->jumlah_pesanan();
+        $data['belum_bayar'] = $this->checkout_model->belum_bayar();
+        $data['diproses'] = $this->checkout_model->diproses();
         $this->paggingPenjual('penjual/dashboard/dashboard', $data);
     }
 
@@ -42,6 +44,18 @@ class Dashboard extends My_Controller
     {
         $data['title'] = 'Warma CIC | Dashboard Pembeli';
         $data['transaksi'] = $this->checkout_model->getTransaksi_pembeli($sortby);
+
+        $data['jumlahpesanan'] = $this->db->get_where('transaksi', ['id_pembeli' => $this->session->userdata('id')])->num_rows();
+
+        $data['belumbayar'] = $this->db->get_where('transaksi', ['id_pembeli' => $this->session->userdata('id'), 'status_pesanan' => 'Belum Bayar'])->num_rows();
+
+        $data['dikirim'] = $this->db->get_where('transaksi', ['id_pembeli' => $this->session->userdata('id'), 'status_pesanan' => 'Dikirim'])->num_rows();
+
+        $data['selesai'] = $this->db->get_where('transaksi', [
+            'id_pembeli' => $this->session->userdata('id'),
+            'status_pesanan' => 'Selesai'
+        ])->num_rows();
+
         $this->paggingPembeli('pembeli/dashboard/dashboard', $data);
     }
 }

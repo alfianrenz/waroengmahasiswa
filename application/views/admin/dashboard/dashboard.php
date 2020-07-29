@@ -21,56 +21,64 @@
         <!-- Main Content -->
         <div class="row">
             <div class="col-md-6 col-xl-3">
-                <div class="card widget-statstic-card">
-                    <div class="card-body">
-                        <div class="card-header-left mb-3">
-                            <h5 class="mb-0">Mahasiswa</h5>
-                        </div>
-                        <i class="feather icon-user st-icon bg-c-purple"></i>
-                        <div class="text-left">
-                            <h3 class="d-inline-block text-c-purple"><?= $jumlahakunmahasiswa; ?></h3>
+                <a href="<?= site_url('akun/data_akun_mahasiswa'); ?>">
+                    <div class="card widget-statstic-card">
+                        <div class="card-body">
+                            <div class="card-header-left mb-3">
+                                <h5 class="mb-0">Mahasiswa</h5>
+                            </div>
+                            <i class="feather icon-user st-icon bg-c-purple"></i>
+                            <div class="text-left">
+                                <h3 class="d-inline-block text-c-purple"><?= $jumlahakunmahasiswa; ?></h3>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-md-6 col-xl-3">
-                <div class="card widget-statstic-card">
-                    <div class="card-body">
-                        <div class="card-header-left mb-3">
-                            <h5 class="mb-0">Pengguna Umum</h5>
-                        </div>
-                        <i class="feather icon-users st-icon bg-c-red txt-lite-color"></i>
-                        <div class="text-left">
-                            <h3 class="d-inline-block text-c-red"><?= $jumlahakunumum; ?></h3>
+                <a href="<?= site_url('akun/data_akun_umum'); ?>">
+                    <div class="card widget-statstic-card">
+                        <div class="card-body">
+                            <div class="card-header-left mb-3">
+                                <h5 class="mb-0">Pengguna Umum</h5>
+                            </div>
+                            <i class="feather icon-users st-icon bg-c-red txt-lite-color"></i>
+                            <div class="text-left">
+                                <h3 class="d-inline-block text-c-red"><?= $jumlahakunumum; ?></h3>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-md-12 col-xl-3">
-                <div class="card widget-statstic-card">
-                    <div class="card-body">
-                        <div class="card-header-left mb-3">
-                            <h5 class="mb-0">Transaksi</h5>
-                        </div>
-                        <i class="feather icon-shopping-cart st-icon bg-c-green"></i>
-                        <div class="text-left">
-                            <h3 class="d-inline-block text-success"><?= $jumlahtransaksi; ?></h3>
+                <a href="<?= site_url('transaksi/data_transaksi/all'); ?>">
+                    <div class="card widget-statstic-card">
+                        <div class="card-body">
+                            <div class="card-header-left mb-3">
+                                <h5 class="mb-0">Transaksi</h5>
+                            </div>
+                            <i class="feather icon-shopping-cart st-icon bg-c-green"></i>
+                            <div class="text-left">
+                                <h3 class="d-inline-block text-success"><?= $jumlahtransaksi; ?></h3>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-md-6 col-xl-3">
-                <div class="card widget-statstic-card">
-                    <div class="card-body">
-                        <div class="card-header-left mb-3">
-                            <h5 class="mb-0">Kategori</h5>
-                        </div>
-                        <i class="feather icon-edit st-icon bg-c-yellow txt-lite-color"></i>
-                        <div class="text-left">
-                            <h3 class="d-inline-block text-c-yellow"><?= $jumlahkategori; ?></h3>
+                <a href="<?= site_url('kategori'); ?>">
+                    <div class="card widget-statstic-card">
+                        <div class="card-body">
+                            <div class="card-header-left mb-3">
+                                <h5 class="mb-0">Kategori</h5>
+                            </div>
+                            <i class="feather icon-edit st-icon bg-c-yellow txt-lite-color"></i>
+                            <div class="text-left">
+                                <h3 class="d-inline-block text-c-yellow"><?= $jumlahkategori; ?></h3>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
 
             <!-- Data Transaksi -->

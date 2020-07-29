@@ -58,18 +58,20 @@
                         <li class=""><a href="<?= site_url('beranda'); ?>" target="blank">Lihat Website</a></li>
                     </ul>
                 </li>
-                <!-- Saldo penjual -->
-                <li class="nav-item <?php echo $this->uri->segment(2) == 'saldo_penjual' ? 'active' : ''; ?><?= active_menu('laporan/saldo_penjual'); ?>">
-                    <a href="<?= site_url('laporan/saldo_penjual'); ?>" class="nav-link ">
-                        <span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span>
-                        <span class="pcoded-mtext">Saldo Penjual</span>
-                    </a>
-                </li>
+
                 <!-- Laporan -->
                 <li class="nav-item <?php echo $this->uri->segment(2) == 'laporan_transaksi' ? 'active' : ''; ?><?= active_menu('laporan/laporan_transaksi'); ?>">
                     <a href="<?= site_url('laporan/laporan_transaksi'); ?>" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-file"></i></span>
                         <span class="pcoded-mtext">Laporan Transaksi</span>
+                    </a>
+                </li>
+
+                <!-- Saldo penjual -->
+                <li class="nav-item <?php echo $this->uri->segment(2) == 'penghasilan_penjual' ? 'active' : ''; ?><?= active_menu('laporan/penghasilan_penjual'); ?>">
+                    <a href="<?= site_url('laporan/penghasilan_penjual'); ?>" class="nav-link ">
+                        <span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span>
+                        <span class="pcoded-mtext">Penghasilan Penjual</span>
                     </a>
                 </li>
 

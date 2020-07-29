@@ -55,7 +55,7 @@
                 <li class="nav-item">
                     <a href="<?= site_url('dashboard/pembeli'); ?>" class="nav-link">
                         <span class="pcoded-micon"><i class="feather icon-shopping-cart"></i></span>
-                        <span class="pcoded-mtext">Menu Pembeli</span>
+                        <span class="pcoded-mtext">Warma Buyer</span>
                     </a>
                 </li>
 

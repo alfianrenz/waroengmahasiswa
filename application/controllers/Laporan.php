@@ -14,20 +14,8 @@ class Laporan extends My_Controller
     //                  ADMIN
     //===========================================
 
-    public function laporan_transaksi($filter = NULL)
+    public function laporan_transaksi()
     {
-        // $filter = $this->input->post('status');
-        // if (isset($filter)) {
-        //     $data['title'] = 'Warma CIC | Laporan Transaksi';
-        //     $data['transaksi'] = $this->laporan_model->getLaporan_transaksi($filter);
-        //     $data['filter'] = $filter;
-        //     $this->paggingAdmin('admin/laporan/laporan_transaksi', $data);
-        // } else {
-        //     $data['title'] = 'Warma CIC | Laporan Transaksi';
-        //     $data['transaksi'] = $this->laporan_model->getLaporan_transaksi($filter = 9999);
-        //     $data['filter'] = $filter;
-        //     $this->paggingAdmin('admin/laporan/laporan_transaksi', $data);
-        // }
         $data = [
             'transaksi' => [],
             'tgl_awal' => "",
@@ -41,6 +29,7 @@ class Laporan extends My_Controller
                 ->from('transaksi')
                 ->where('DATE(waktu_transaksi) >=', $tgl_awal)
                 ->where('DATE(waktu_transaksi) <=', $tgl_akhir)
+                ->order_by('waktu_transaksi', 'DESC')
                 ->get()->result_array();
             //print_r($query);
             $data['transaksi'] = $query;
@@ -65,6 +54,7 @@ class Laporan extends My_Controller
                 ->from('transaksi')
                 ->where('DATE(waktu_transaksi) >=', $tgl_awal)
                 ->where('DATE(waktu_transaksi) <=', $tgl_akhir)
+                ->order_by('waktu_transaksi', 'DESC')
                 ->get()->result_array();
             //print_r($query);
             $data['transaksi'] = $query;
@@ -74,10 +64,10 @@ class Laporan extends My_Controller
     }
 
     //saldo penjual
-    public function saldo_penjual()
+    public function penghasilan_penjual()
     {
-        $data['title'] = 'Warma CIC | Saldo Penjual';
-        $this->paggingAdmin('admin/laporan/saldo_penjual', $data);
+        $data['title'] = 'Warma CIC | Penghasilan Penjual';
+        $this->paggingAdmin('admin/laporan/penghasilan_penjual', $data);
     }
 
 

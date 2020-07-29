@@ -234,6 +234,48 @@ class Checkout_model extends CI_Model
         $this->db->update('transaksi', $data);
     }
 
+    //jumlah pesanan (dashboard)
+    public function jumlah_pesanan()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->join('detail_keranjang', 'transaksi.id_keranjang = detail_keranjang.id_keranjang');
+        $this->db->join('produk', 'detail_keranjang.id_produk = produk.id_produk');
+        $this->db->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa');
+        $this->db->where('produk.id_mahasiswa', $this->session->userdata('id'));
+        $this->db->group_by('transaksi.order_id');
+        return $this->db->get()->num_rows();
+    }
+
+    //belum bayar (dashboard)
+    public function belum_bayar()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->join('detail_keranjang', 'transaksi.id_keranjang = detail_keranjang.id_keranjang');
+        $this->db->join('produk', 'detail_keranjang.id_produk = produk.id_produk');
+        $this->db->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa');
+        $this->db->where('produk.id_mahasiswa', $this->session->userdata('id'));
+        $this->db->where('transaksi.status_pesanan', 'Belum Bayar');
+        $this->db->group_by('transaksi.order_id');
+        return $this->db->get()->num_rows();
+    }
+
+
+    //diproses (dashboard)
+    public function diproses()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->join('detail_keranjang', 'transaksi.id_keranjang = detail_keranjang.id_keranjang');
+        $this->db->join('produk', 'detail_keranjang.id_produk = produk.id_produk');
+        $this->db->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa');
+        $this->db->where('produk.id_mahasiswa', $this->session->userdata('id'));
+        $this->db->where('transaksi.status_pesanan', 'Diproses');
+        $this->db->group_by('transaksi.order_id');
+        return $this->db->get()->num_rows();
+    }
+
 
     //========================================
     //                PEMBELI
