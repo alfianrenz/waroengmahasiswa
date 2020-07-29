@@ -123,13 +123,12 @@ class Checkout extends My_Controller
         $order_id = $this->input->get('order_id');
         $data['transaksi'] = $this->db->get_where('transaksi', ['order_id' => $order_id])->row();
 
-        // $detail_keranjang = $this->db->get('detail_keranjang')->row_array();
         $transaksi = $this->db->get('transaksi')->row_array();
-
-        //hapus_keranjang
-        // $this->db->where('id_keranjang', $detail_keranjang['id_keranjang']);
+        $data = [
+            'status_keranjang' => 1
+        ];
         $this->db->where('id_keranjang', $transaksi['id_keranjang']);
-        $this->db->delete('keranjang');
+        $this->db->delete('keranjang', $data);
 
         $this->paggingFrontend('frontend/redirect', $data);
     }
