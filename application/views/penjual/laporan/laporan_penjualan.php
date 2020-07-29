@@ -29,6 +29,7 @@
                                 <thead>
                                     <tr>
                                         <th class="text-center" width="3%">No</th>
+                                        <th class="text-center">Tanggal & Waktu</th>
                                         <th class="text-center">Foto</th>
                                         <th>Nama Produk</th>
                                         <th class="text-center">Harga Produk</th>

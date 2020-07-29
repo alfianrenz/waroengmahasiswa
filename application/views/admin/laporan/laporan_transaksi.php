@@ -26,12 +26,12 @@
                         <h5>Filter Data</h5>
                     </div>
 
-                    <!-- <div class="card-body">
-                        <form action="<?= site_url('laporan/laporan_transaksi'); ?>" method="POST">
+                    <div class="card-body">
+                        <form action="<?= site_url('laporan/laporan_transaksi'); ?>" method="GET">
                             <div class="row mx-auto">
                                 <div class="col-sm-5">
                                     <div class="form-group row">
-                                        <label for="inputEmail3" class="col-sm-3 col-form-label">Dari</label>
+                                        <label for="inputEmail3" class="col-sm-3 col-form-label">Tanggal Awal</label>
                                         <div class="col-sm-9">
                                             <input type="date" class="form-control" id="tgl_awal" name="tgl_awal">
                                         </div>
@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="col-sm-5">
                                     <div class="form-group row">
-                                        <label for="inputEmail3" class="col-sm-3 col-form-label">Sampai</label>
+                                        <label for="inputEmail3" class="col-sm-3 col-form-label">Tanggal Akhir</label>
                                         <div class="col-sm-9">
                                             <input type="date" class="form-control" id="tgl_akhir" name="tgl_akhir">
                                         </div>
@@ -52,9 +52,9 @@
                                 </div>
                             </div>
                         </form>
-                    </div> -->
+                    </div>
 
-                    <div class="card-body">
+                    <!-- <div class="card-body">
                         <form action="<?= site_url('laporan/laporan_transaksi'); ?>" method="POST">
                             <div class="row">
                                 <div class="col-sm-9 mx-auto">
@@ -75,7 +75,7 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    </div> -->
                 </div>
 
                 <!-- Data Laporan -->
@@ -83,8 +83,9 @@
                     <div class="card-header">
                         <h5>Hasil Laporan</h5>
                         <div class="card-header-right">
-                            <form method="POST" target="_blank" action="<?php echo site_url('laporan/print_laporan_transaksi/') ?>">
-                                <input type="hidden" name="filter" value="<?= $filter ?>">
+                            <form method="GET" target="_blank" action="<?php echo site_url('laporan/print_laporan_transaksi/') ?>">
+                                <input type="hidden" name="tgl_awal" value="<?= $tgl_awal; ?>">
+                                <input type="hidden" name="tgl_akhir" value="<?= $tgl_akhir; ?>">
                                 <button type="submit" class="btn btn-primary">
                                     <i class="feather icon-printer"></i>&nbsp;&nbsp; Print
                                 </button>
@@ -105,42 +106,44 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach ($transaksi as $t) : ?>
-                                        <tr>
-                                            <td class="text-center align-middle"><?= $t['order_id']; ?></td>
-                                            <td class="align-middle text-center">
-                                                <?php if ($t['tipe_pembayaran'] == 'gopay') { ?>
-                                                    <span>GO-PAY</span>
-                                                <?php } ?>
-
-                                                <?php if ($t['tipe_pembayaran'] == 'cstore') { ?>
-                                                    <?php if ($t['store'] == 'alfamart') { ?>
-                                                        <span>Alfamart</span>
-                                                    <?php } else { ?>
-                                                        <span>Indomaret</span>
+                                    <?php if (count($transaksi) > 0) : ?>
+                                        <?php foreach ($transaksi as $t) : ?>
+                                            <tr>
+                                                <td class="text-center align-middle"><?= $t['order_id']; ?></td>
+                                                <td class="align-middle text-center">
+                                                    <?php if ($t['tipe_pembayaran'] == 'gopay') { ?>
+                                                        <span>GO-PAY</span>
                                                     <?php } ?>
-                                                <?php } ?>
 
-                                                <?php if ($t['tipe_pembayaran'] == 'bank_transfer') { ?>
-                                                    <span>Bank Transfer</span>
-                                                <?php } ?>
-                                            </td>
-                                            <td class="align-middle"><?= $t['nama_pelanggan']; ?></td>
-                                            <td class="align-middle text-center"><?= $t['waktu_transaksi']; ?></td>
-                                            <td class="align-middle text-center">Rp<?= number_format($t['total_bayar'], 0, ',', '.'); ?></td>
-                                            <td class="align-middle text-center">
-                                                <?php if ($t['status_bayar'] == 'pending') { ?>
-                                                    <span class="badge badge-warning">Pending</span>
-                                                <?php } else if ($t['status_bayar'] == 'expire') { ?>
-                                                    <span class="badge badge-danger">Failure</span>
-                                                <?php } else if ($t['status_bayar'] == 'settlement') { ?>
-                                                    <span class="badge badge-success">Settlement</span>
-                                                <?php } else { ?>
-                                                    <span class="badge badge-danger">Cancel</span>
-                                                <?php } ?>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
+                                                    <?php if ($t['tipe_pembayaran'] == 'cstore') { ?>
+                                                        <?php if ($t['store'] == 'alfamart') { ?>
+                                                            <span>Alfamart</span>
+                                                        <?php } else { ?>
+                                                            <span>Indomaret</span>
+                                                        <?php } ?>
+                                                    <?php } ?>
+
+                                                    <?php if ($t['tipe_pembayaran'] == 'bank_transfer') { ?>
+                                                        <span>Bank Transfer</span>
+                                                    <?php } ?>
+                                                </td>
+                                                <td class="align-middle"><?= $t['nama_pelanggan']; ?></td>
+                                                <td class="align-middle text-center"><?= $t['waktu_transaksi']; ?></td>
+                                                <td class="align-middle text-center">Rp<?= number_format($t['total_bayar'], 0, ',', '.'); ?></td>
+                                                <td class="align-middle text-center">
+                                                    <?php if ($t['status_bayar'] == 'pending') { ?>
+                                                        <span class="badge badge-warning">Pending</span>
+                                                    <?php } else if ($t['status_bayar'] == 'expire') { ?>
+                                                        <span class="badge badge-danger">Failure</span>
+                                                    <?php } else if ($t['status_bayar'] == 'settlement') { ?>
+                                                        <span class="badge badge-success">Settlement</span>
+                                                    <?php } else { ?>
+                                                        <span class="badge badge-danger">Cancel</span>
+                                                    <?php } ?>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
                                 </tbody>
                             </table>
                         </div>
