@@ -126,7 +126,7 @@ class Checkout extends My_Controller
 
         $id = $this->db->get('transaksi')->row_array();
         $this->db->where('id_keranjang', $id['id_keranjang']);
-        $this->db->delete('keranjang', $data);
+        $this->db->update('keranjang', $data);
 
         $this->paggingFrontend('frontend/redirect', $data);
     }
