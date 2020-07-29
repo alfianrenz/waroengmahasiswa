@@ -122,11 +122,10 @@ class Checkout extends My_Controller
         // $data = json_decode(file_get_contents('php://input'));
         $order_id = $this->input->get('order_id');
         $data['transaksi'] = $this->db->get_where('transaksi', ['order_id' => $order_id])->row();
-        $data['status_keranjang'] = 1;
 
-        $id = $this->db->get('transaksi')->row_array();
-        $this->db->where('id_keranjang', $id['id_keranjang']);
-        $this->db->update('keranjang', $data);
+        // $id = $this->db->get('keranjang')->row_array();
+        $this->db->where('id_keranjang', $data['transaksi']->id_keranjang);
+        $this->db->update('keranjang', ['status_keranjang' => 1]);
 
         $this->paggingFrontend('frontend/redirect', $data);
     }
