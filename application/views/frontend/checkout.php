@@ -43,7 +43,7 @@
                             <select class="form-control" id="lokasi" name="lokasi">
                                 <option value="">Pilih Lokasi</option>
                                 <?php foreach ($lokasi as $l) : ?>
-                                    <option value="<?= $l['id_lokasi']; ?>"><?= $l['nama_lokasi']; ?></option>
+                                    <option data-ongkir="<?= $l['jumlah_ongkir']; ?>" value="<?= $l['id_lokasi']; ?>"><?= $l['nama_lokasi']; ?></option>
                                 <?php endforeach; ?>
                             </select>
                             <small id="validasi_lokasi" class="text-danger"></small>
@@ -53,11 +53,11 @@
                             <input type="text" class="form-control form-control-sm" id="alamat" name="alamat" value="<?= set_value('alamat'); ?>">
                             <small id="validasi_alamat" class="text-danger"></small>
                         </div>
-                        <!-- <div class="form-group">
+                        <div class="form-group">
                             <label class="floating-label">Ongkos Kirim</label>
                             <input type="number" class="form-control form-control-sm" name="jumlah_ongkir" id="jumlah_ongkir" />
                             <small id="validasi_ongkir" class="text-danger"></small>
-                        </div> -->
+                        </div>
                     </div>
 
                     <?php
@@ -94,12 +94,21 @@
                                         <?php endforeach; ?>
                                     </tbody>
                                     <tfoot>
+                                        <tr>
+                                            <th class="text-left">ONGKOS KIRIM</th>
+                                            <td class="text-right">
+                                                Rp<span id="ongkir"></span>
+                                            </td>
+                                        </tr>
                                         <tr class=" total-price">
                                             <th class="text-left">TOTAL BAYAR</th>
-                                            <td class="text-right">Rp<?= number_format($total_belanja, 0, ',', '.'); ?></td>
+                                            <!-- <td class="text-right">Rp<?= number_format($total_belanja, 0, ',', '.'); ?></td> -->
+                                            <td class="text-right">Rp<span id="total_bayar"></span> </td>
                                         </tr>
                                     </tfoot>
                                 </table>
+                                <span id="total_belanja" style="display: none;"><?= $total_belanja; ?></span>
+                                <input type="hidden" name="total_belanja">
                             </div>
                             <button class="ho-button ho-button-fullwidth" type="submit">
                                 <span>Bayar</span>

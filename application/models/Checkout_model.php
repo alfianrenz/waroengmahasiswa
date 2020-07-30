@@ -23,7 +23,7 @@ class Checkout_model extends CI_Model
     //=======================================
 
     //get token midtrans
-    public function token()
+    public function token($ongkir)
     {
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = 'SB-Mid-server-kbDhOYnPE-xqkkyHUaPf4kKy';
@@ -55,6 +55,7 @@ class Checkout_model extends CI_Model
             $total_bayar += $subtotal;
         }
 
+
         // $total_belanja = $this->input->post('ongkir');
 
         //required
@@ -73,6 +74,13 @@ class Checkout_model extends CI_Model
                 'name' => $p['nama_produk']
             ];
         }
+
+        $item_details[] = [
+            'id' => rand(),
+            'price' => $ongkir,
+            'quantity' => 1,
+            'name' => 'Ongkos Kirim'
+        ];
 
         // Optional
         $billing_address = array(

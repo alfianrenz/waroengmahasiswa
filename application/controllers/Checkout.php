@@ -47,9 +47,9 @@ class Checkout extends My_Controller
         $this->form_validation->set_rules('alamat', 'alamat', 'required|trim', [
             'required' => 'Form ini tidak boleh kosong'
         ]);
-        // $this->form_validation->set_rules('jumlah_ongkir', 'jumlah_ongkir', 'required|trim', [
-        //     'required' => 'Form ini tidak boleh kosong'
-        // ]);
+        $this->form_validation->set_rules('jumlah_ongkir', 'jumlah_ongkir', 'required|trim', [
+            'required' => 'Form ini tidak boleh kosong'
+        ]);
 
         if ($this->form_validation->run() == FALSE) {
             header('Content-Type: application/json');
@@ -57,11 +57,12 @@ class Checkout extends My_Controller
                 'error' => true,
                 'validasi_alamat' => form_error('alamat'),
                 'validasi_lokasi' => form_error('lokasi'),
-                // 'validasi_ongkir' => form_error('jumlah_ongkir'),
+                'validasi_ongkir' => form_error('jumlah_ongkir'),
             ));
         } else {
             header('Content-Type: application/json');
-            $transaksi = $this->checkout_model->token();
+            $ongkir = $this->input->post('jumlah_ongkir');
+            $transaksi = $this->checkout_model->token($ongkir);
             echo json_encode(array('error' => false, 'token' => $transaksi));
         }
     }

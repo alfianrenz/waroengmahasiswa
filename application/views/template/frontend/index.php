@@ -183,7 +183,8 @@
     </script>
 
     <!-- Cek Ongkir -->
-    <!-- <script>
+    <script>
+        //Format Uang
         function formatUangs(element) {
             var numberString = element.toString();
             var split = numberString.split(',');
@@ -200,6 +201,7 @@
             return ribuan;
         }
 
+        //Script ongkir
         $('select[name="lokasi"]').on('change', function() {
             var ongkir = $("select[name=lokasi] > option:selected").attr('data-ongkir');
             var total_belanja = $("#total_belanja").text();
@@ -210,7 +212,7 @@
             $("#total_bayar").text(formatUangs(total_bayar));
             $("input[name=total_belanja]").val(total_bayar);
         });
-    </script> -->
+    </script>
 
 </body>
 
