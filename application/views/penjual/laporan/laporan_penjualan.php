@@ -71,6 +71,7 @@
                             </form>
                         </div>
                     </div>
+
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">
                             <table id="" class="table table-de nowrap">
@@ -88,6 +89,10 @@
                                 </thead>
                                 <tbody>
 
+
+                                    <?php
+                                    $total_pendapatan = 0;
+                                    ?>
                                     <?php if (count($transaksi) > 0) : ?>
                                         <?php foreach ($transaksi as $t) : ?>
                                             <tr>
@@ -137,18 +142,18 @@
                                                 <!-- Total Bayar -->
                                                 <td class="align-middle text-center">Rp<?= number_format($t['total_bayar'], 0, ',', '.'); ?></td>
 
-                                                <!-- Action -->
-                                                <!-- <td class="align-middle text-center">
-                                                    <a href="<?= site_url('laporan/detail_laporan_penjualan/' . $t['order_id']); ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
-                                                </td> -->
                                             </tr>
+
+                                            <?php
+                                            $total_pendapatan = $total_pendapatan + $t['total_bayar'];
+                                            ?>
 
                                         <?php endforeach; ?>
                                     <?php endif; ?>
 
                                     <tr>
                                         <td class="font-weight-bold text-right" colspan="5" style="background-color: #ecf0f5; font-size:13px; font-weight:bold">TOTAL PENDAPATAN</td>
-                                        <td class="text-center font-weight-bold" style="background-color: #ecf0f5;">Rp</td>
+                                        <td class="text-center font-weight-bold" style="background-color: #ecf0f5;">Rp<?= number_format($total_pendapatan, 0, ',', '.'); ?></td>
                                     </tr>
 
                                 </tbody>
