@@ -186,6 +186,10 @@
                                         </tr>
                                     <?php endforeach; ?>
                                     <tr>
+                                        <td class="font-weight-bold" colspan="5">Ongkos Kirim</td>
+                                        <td class="text-center font-weight-bold">Rp</td>
+                                    </tr>
+                                    <tr>
                                         <td class="font-weight-bold" colspan="5">Total</td>
                                         <td class="text-center font-weight-bold">Rp<?= number_format($total_bayar, 0, ',', '.'); ?></td>
                                     </tr>

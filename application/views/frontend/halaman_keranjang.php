@@ -95,7 +95,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-12 mb-3">
                         <div class="cart-content-right">
-                            <h4>TOTAL BAYAR</h4>
+                            <h4>TOTAL BELANJA</h4>
                             <h1 class="text-primary" id="total">Rp<?= number_format($total_bayar, 0, ',', '.'); ?></h1>
                             <a href="<?= site_url('checkout'); ?>">
                                 <button class="ho-button">
