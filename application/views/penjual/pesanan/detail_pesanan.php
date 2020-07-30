@@ -177,12 +177,17 @@
                                             $harga = $i['harga_produk'];
                                             $kuantitas = $i['kuantitas'];
                                             $subtotal = $harga * $kuantitas;
-                                            $total_bayar = $total_bayar + $subtotal + $i['jumlah_ongkir'];
+                                            $total_bayar = $total_bayar + $subtotal;
                                             ?>
 
                                             <td class="align-middle text-center">Rp<?= number_format($subtotal, 0, ',', '.'); ?></td>
                                         </tr>
                                     <?php endforeach; ?>
+
+                                    <?php
+                                    $total_bayar = $total_bayar + $i['jumlah_ongkir'];
+                                    ?>
+
                                     <tr>
                                         <td class="font-weight-bold" colspan="4">Ongkir</td>
                                         <td class="text-center font-weight-bold">Rp<?= number_format($i['jumlah_ongkir'], 0, ',', '.'); ?></td>
