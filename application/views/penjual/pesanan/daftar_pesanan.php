@@ -49,6 +49,7 @@
                                         <th class="text-center">Metode Pembayaran</th>
                                         <th class="text-center">Tanggal & Waktu</th>
                                         <th>Nama Pelanggan</th>
+                                        <th class="text-center">Total Bayar</th>
                                         <th class="text-center">Status</th>
                                         <th width="8%">Action</th>
                                     </tr>
@@ -83,6 +84,10 @@
 
                                             <!-- Nama Pelanggan -->
                                             <td class="align-middle"><?= $t['nama_pelanggan']; ?></td>
+
+                                            <!-- Total Bayar -->
+                                            <td class="align-middle text-center">Rp<?= number_format($t['total_bayar'], 0, ',', '.'); ?></td>
+
 
                                             <!-- Status Pembayaran -->
                                             <td class="align-middle text-center">
