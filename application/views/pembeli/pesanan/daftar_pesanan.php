@@ -45,6 +45,7 @@
                                         <th class="text-center">Order ID</th>
                                         <th class="text-center">Metode Pembayaran</th>
                                         <th class="text-center">Tanggal dan Waktu</th>
+                                        <th class="text-center">Nama Penjual</th>
                                         <th class="text-center">Total Bayar</th>
                                         <th class="text-center">Status Pesanan</th>
                                         <th width="8%">Action</th>
@@ -78,6 +79,10 @@
 
                                             <!-- Waktu Transaksi -->
                                             <td class="align-middle text-center"><?= $t['waktu_transaksi']; ?>
+                                            </td>
+
+                                            <!-- Nama Penjual -->
+                                            <td class="align-middle text-center"><?= $t['nama_mahasiswa']; ?>
                                             </td>
 
                                             <!-- Total Bayar -->
