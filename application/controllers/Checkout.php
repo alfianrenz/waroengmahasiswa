@@ -80,9 +80,9 @@ class Checkout extends My_Controller
         $gross_amount = $data->gross_amount;
         $store = $data->store;
 
-        if ($data->va_numbers > 0) {
-            $bank = $data->va_numbers[0]['bank'];
-            $va_number = $data->va_numbers[0]['va_number'];
+        if ($data['va_numbers'] > 0) {
+            $bank = $data['va_numbers'][0]['bank'];
+            $va_number = $data['va_numbers'][0]['va_number'];
         }
 
         //Update status pesanan
