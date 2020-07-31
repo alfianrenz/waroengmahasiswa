@@ -136,7 +136,7 @@
                                             </td>
 
                                             <!-- Nama Penjual -->
-                                            <td class="align-middle"><?= $t['nama_mahasiswa']; ?>
+                                            <td class="align-middle text-center"><?= $t['nama_mahasiswa']; ?>
                                             </td>
 
                                             <!-- Total Bayar -->
