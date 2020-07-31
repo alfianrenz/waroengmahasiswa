@@ -44,8 +44,8 @@
                                         <th>Customer</th>
                                         <th>Seller</th>
                                         <th>Tanggal & Waktu</th>
-                                        <th class="text-center">Total Bayar</th>
-                                        <th class="text-center">Status Bayar</th>
+                                        <th class="text-center">Total</th>
+                                        <th class="text-center">Status</th>
                                         <th width="8%">Action</th>
                                     </tr>
                                 </thead>
