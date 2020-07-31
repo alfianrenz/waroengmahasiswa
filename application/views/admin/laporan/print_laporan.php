@@ -24,7 +24,8 @@
         <tr>
             <th>Order ID</th>
             <th>Metode Pembayaran</th>
-            <th>Nama Pelanggan</th>
+            <th>Customer</th>
+            <th>Seller</th>
             <th>Tanggal dan Waktu</th>
             <th>Total</th>
             <th>Status</th>
@@ -50,6 +51,7 @@
                     <?php } ?>
                 </td>
                 <td><?= $t['nama_pelanggan'] ?></td>
+                <td><?= $t['nama_mahasiswa'] ?></td>
                 <td><?= $t['waktu_transaksi'] ?></td>
                 <td>Rp<?= number_format($t['total_bayar'], 0, ',', '.'); ?></td>
                 <td>
