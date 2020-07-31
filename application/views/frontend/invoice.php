@@ -57,6 +57,12 @@
                                                             <?php } ?>
                                                         </td>
                                                     </tr>
+                                                    <tr>
+                                                        <td>Kode Pembayaran</td>
+                                                        <td>:&nbsp;&nbsp;
+                                                            <?= $transaksi->kode_pembayaran; ?>
+                                                        </td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
