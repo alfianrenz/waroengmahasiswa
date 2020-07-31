@@ -79,8 +79,8 @@ class Checkout extends My_Controller
         $transaction_time = $data->transaction_time;
         $gross_amount = $data->gross_amount;
         $store = $data->store;
-        $bank = $data->bank;
-        $va_number = $data->va_number;
+        $bank = $data->va_numbers['bank'];
+        $va_number = $data->va_numbers['va_number'];
 
         //Update status pesanan
         if ($data->transaction_status == 'pending') {
