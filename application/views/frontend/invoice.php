@@ -148,14 +148,14 @@
 
                                                 <?php endforeach; ?>
 
-                                                <!-- Jumlahin Onkir dengan Total Bayar -->
+                                                <!-- Jumlahin Ongkir dengan Total Bayar -->
                                                 <?php
-                                                $total_bayar = $total_bayar + $i['jumlah_ongkir'];
+                                                $total_bayar = $total_bayar + $item['jumlah_ongkir'];
                                                 ?>
 
                                                 <tr>
                                                     <td class="font-weight-bold" colspan="3">Ongkos Kirim</td>
-                                                    <td class="text-center font-weight-bold">Rp<?= $i['jumlah_ongkir']; ?></td>
+                                                    <td class="text-center font-weight-bold">Rp<?= $item['jumlah_ongkir']; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td class="font-weight-bold" colspan="3">Total Bayar</td>
