@@ -80,10 +80,10 @@ class Checkout extends My_Controller
         $gross_amount = $data->gross_amount;
         $store = $data->store;
 
-        if ($data['va_numbers'] > 0) {
-            $bank = $data['va_numbers'][0]['bank'];
-            $va_number = $data['va_numbers'][0]['va_number'];
-        }
+        // if ($data['va_numbers'] > 0) {
+        //     $bank = $data['va_numbers'][0]['bank'];
+        //     $va_number = $data['va_numbers'][0]['va_number'];
+        // }
 
         //Update status pesanan
         if ($data->transaction_status == 'pending') {
@@ -102,8 +102,8 @@ class Checkout extends My_Controller
             'total_bayar'      => $gross_amount,
             'store'            => $store,
             'status_pesanan'   => $status_pesanan,
-            'nama_bank'        => $bank,
-            'va_number'        => $va_number
+            // 'nama_bank'        => $bank,
+            // 'va_number'        => $va_number
         ];
 
         //insert database
