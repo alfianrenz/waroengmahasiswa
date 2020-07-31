@@ -15,101 +15,154 @@
     <div class="shop-page-area bg-white ptb-30">
         <div class="container">
             <div class="container">
-                <div>
+                <div class="col-sm-12 mx-auto">
                     <div class="card">
-                        <div class="row invoice-contact">
-                            <div class="col-md-12">
-                                <div class="invoice-box row">
-                                    <div class="col-sm-12">
-                                        <table class="table table-responsive invoice-table table-borderless p-l-20">
-                                            <tbody>
-                                                <tr>
-                                                    <td><a href="" class="b-brand">
-                                                            <img class="img-fluid" src="<?= base_url(); ?>assets/frontend/images/logo/logo-warma-blue.png" alt="Able pro Logo" width="200px">
-                                                        </a>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4"></div>
+                        <div class="card-header">
+                            <img src="<?= base_url(); ?>assets/frontend/images/logo/logo-warma-blue.png" alt="" width="200px">
                         </div>
-                        <div class="card-body">
-                            <div class="row invoive-info">
-                                <div class="col-md-4 col-xs-12 invoice-client-info">
-                                    <h6 class="m-0">Alfian</h6>
-                                    <p class="m-0 m-t-10">Jalan Kesambi, No.202 kota Cirebon</p>
-                                    <p class="m-0">081214674264</p>
-                                    <p><a class="text-secondary" href="mailto:demo@gmail.com" target="_top">alfianrenz25@gmail.com</a></p>
-                                </div>
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="table-responsive">
-                                        <table class="table table-sm table-borderless mb-0" style="border-style: none;">
-                                            <tbody>
-                                                <tr>
-                                                    <td>Tanggal</td>
-                                                    <td>:&nbsp;&nbsp;28 Jul 2020</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Status</td>
-                                                    <td>:&nbsp;&nbsp;Pending</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Id Pesanan</td>
-                                                    <td>:&nbsp;&nbsp;1280789</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                        <div class="row mb-0">
+
+                            <!-- Colom 1 -->
+                            <div class="col-sm-4">
+                                <div class="card-body">
+                                    <div class="">
+                                        <div class="table-responsive">
+                                            <table class="table table-sm table-borderless mb-0" style="border-style: none;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td width="34%" class="font-weight-bold">Order ID</td>
+                                                        <td>&nbsp;&nbsp;<?= $transaksi->order_id; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="34%" class="font-weight-bold">Tanggal</td>
+                                                        <td>&nbsp;&nbsp;<?= date('d M Y'); ?></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-sm-6">
-                                    <p>Invoice Number : <b>#12585</b></p>
-                                    <p>Batas Pembayaran : 29 Juli 2020</p>
+                            </div>
+
+                            <!-- Pembayaran -->
+                            <div class="col-sm-4">
+                                <div class="card-body">
+                                    <?php if ($transaksi->tipe_pembayaran == 'cstore') { ?>
+                                        <div class="table-responsive">
+                                            <table class="table table-sm table-borderless mb-0" style="border-style: none;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Kode Pembayaran</td>
+                                                        <td>:&nbsp;&nbsp;<?= $transaksi->kode_pembayaran; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Status Pembayaran</td>
+                                                        <td>:&nbsp;&nbsp;
+                                                            <?php if ($transaksi->status_bayar == 'settlement') { ?>
+                                                                <span>Settlement</span>
+                                                            <?php } else if ($transaksi->status_bayar == 'pending') { ?>
+                                                                <span>Belum Bayar</span>
+                                                            <?php } ?>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Metode Pembayaran</td>
+                                                        <td>:&nbsp;&nbsp;
+                                                            <?php if ($transaksi->store == 'alfamart') { ?>
+                                                                <span>Alfamart</span>
+                                                            <?php } else { ?>
+                                                                <span>Indomaret</span>
+                                                            <?php } ?>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    <?php } else { ?>
+                                        <div class="table-responsive">
+                                            <table class="table table-sm table-borderless mb-0" style="border-style: none;">
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Status Pembayaran</td>
+                                                        <td>:&nbsp;&nbsp;
+                                                            <?php if ($transaksi->status_bayar == 'settlement') { ?>
+                                                                <span>Settlement</span>
+                                                            <?php } else if ($transaksi->status_bayar == 'pending') { ?>
+                                                                <span>Belum Bayar</span>
+                                                            <?php } ?>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Metode Pembayaran</td>
+                                                        <td>:&nbsp;&nbsp;
+
+                                                            <?php if ($transaksi->tipe_pembayaran == 'gopay') { ?>
+                                                                <span>GO-PAY</span>
+                                                            <?php } else if ($transaksi->tipe_pembayaran == 'bank_transfer') { ?>
+                                                                <span>Bank Transfer</span>
+                                                            <?php } else { ?>
+                                                                <span>Kartu Kredit</span>
+                                                            <?php } ?>
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </div>
-                            <br>
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="table-responsive">
-                                        <table class="table invoice-detail-table">
+
+                            <!-- Tujuan Pengiriman -->
+                            <div class="col-sm-4">
+                                <div class="card-body">
+                                    <ul class="font-weight-bold">Tujuan Pengiriman</ul>
+                                    <ul>Dimas Aulia Pudjie</ul>
+                                    <ul>Jalan Kesambi, No. 202 - Kota Cirebon</ul>
+                                    <ul>62897789790</ul>
+                                </div>
+                            </div>
+
+                            <!-- Detail Item -->
+                            <div class="col-sm-12">
+                                <div class="card-body border-top">
+                                    <div class="dt-responsive table-responsive">
+                                        <table id="simpletable" class="table table-de nowrap">
                                             <thead>
-                                                <tr class="thead-default">
+                                                <tr>
                                                     <th>Nama Produk</th>
-                                                    <th class="text-center">Harga</th>
+                                                    <th>Harga Produk</th>
                                                     <th class="text-center">Kuantitas</th>
                                                     <th class="text-center">Subtotal</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td class="align-middle">Sepatu Nike</td>
-                                                    <td class="text-center">Rp50.000</td>
-                                                    <td class="text-center">2</td>
-                                                    <td class="text-center">Rp100.000</td>
+                                                    <td class="align-middle"></td>
+                                                    <td class="align-middle text-center"></td>
+                                                    <td class="align-middle text-center"></td>
+                                                    <td class="align-middle text-center"></td>
                                                 </tr>
                                                 <tr>
-                                                    <td style="font-weight:bold; text-align:center" colspan="3">TOTAL BELANJA</td>
-                                                    <td style="font-weight:bold; text-align:center">Rp100.000</td>
+                                                    <td class="font-weight-bold" colspan="3">Ongkos Kirim</td>
+                                                    <td class="text-center font-weight-bold"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="font-weight-bold" colspan="3">Total Bayar</td>
+                                                    <td class="text-center font-weight-bold">Rp</td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row text-center">
-                                <div class="col-sm-12">
 
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="col-sm-12 mt-3">
-                        <a href="" class="text-white ho-button ho-button-dark">&nbsp;&nbsp;Menu Pesanan</a>
-                        <a href="" class="ho-button text-white float-right"><i class="lnr lnr-printer"></i>&nbsp;&nbsp;Print</a>
-                    </div>
+                    <!-- Button -->
+                    <a href="<?= site_url('pesanan/daftar_pesanan_pembeli/all'); ?>">
+                        <button class="ho-button col-sm-12 mt-3">Lihat Pesanan</button>
+                    </a>
                 </div>
             </div>
         </div>

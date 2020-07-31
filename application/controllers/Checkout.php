@@ -126,12 +126,22 @@ class Checkout extends My_Controller
     {
         // $data = json_decode(file_get_contents('php://input'));
         $order_id = $this->input->get('order_id');
-        $data['transaksi'] = $this->db->get_where('transaksi', ['order_id' => $order_id])->row();
+
+        $transaksi = $this->db->select('*')
+            ->from('transaksi')
+            ->join('detail_keranjang', 'transaksi.id_keranjang = detail_keranjang.id_keranjang')
+            ->join('produk', 'detail_keranjang.id_produk = produk.id_produk')
+            ->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa')
+            ->where('transaksi.order_id', $order_id)
+            ->get()->row();
+
+        // $data['transaksi'] = $this->db->get_where('transaksi', ['order_id' => $order_id])->row();
+        $data['transaksi'] = $transaksi;
 
         // $id = $this->db->get('keranjang')->row_array();
         $this->db->where('id_keranjang', $data['transaksi']->id_keranjang);
         $this->db->update('keranjang', ['status_keranjang' => 1]);
 
-        $this->paggingFrontend('frontend/redirect', $data);
+        $this->paggingFrontend('frontend/invoice', $data);
     }
 }
