@@ -144,7 +144,7 @@ class Checkout extends My_Controller
             ->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa')
             ->join('mahasiswa', 'akun_mahasiswa.nim = mahasiswa.nim')
             ->join('transaksi', 'detail_keranjang.id_keranjang = transaksi.id_keranjang')
-            ->where('transaksi.id_pembeli', $this->session->userdata('id'))
+            ->where('transaksi.id_pembeli')
             ->where('transaksi.order_id', $order_id)
             ->get()->result_array();
 
