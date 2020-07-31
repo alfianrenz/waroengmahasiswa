@@ -18,7 +18,21 @@
 
         <!-- Main Content -->
         <div class="row">
-
+            <div class="col-md-6 col-xl-3">
+                <a href="<?= site_url('penjualan/info_penjualan'); ?>">
+                    <div class="card widget-statstic-card">
+                        <div class="card-body">
+                            <div class="card-header-left mb-3">
+                                <h5 class="mb-0">Penghasilan</h5>
+                            </div>
+                            <i class="feather icon-award st-icon bg-c-blue txt-lite-color"></i>
+                            <div class="text-left">
+                                <h3 class="d-inline-block text-c-blue">Rp<?= number_format($penghasilan, 0, ',', '.'); ?></h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
             <div class="col-md-6 col-xl-3">
                 <a href="<?= site_url('pesanan/daftar_pesanan_penjual/all'); ?>">
                     <div class="card widget-statstic-card">
@@ -26,9 +40,9 @@
                             <div class="card-header-left mb-3">
                                 <h5 class="mb-0">Pesanan</h5>
                             </div>
-                            <i class="feather icon-shopping-cart st-icon bg-c-purple"></i>
+                            <i class="feather icon-shopping-cart st-icon bg-c-green"></i>
                             <div class="text-left">
-                                <h3 class="d-inline-block text-c-purple"><?= $jml_pesanan; ?></h3>
+                                <h3 class="d-inline-block text-c-green"><?= $jml_pesanan; ?></h3>
                             </div>
                         </div>
                     </div>
@@ -50,40 +64,26 @@
                 </a>
             </div>
             <div class="col-md-12 col-xl-3">
-                <a href="<?= site_url('transaksi/data_transaksi/diproses'); ?>">
+                <a href="<?= site_url('pesanan/daftar_pesanan_penjual/diproses'); ?>">
                     <div class="card widget-statstic-card">
                         <div class="card-body">
                             <div class="card-header-left mb-3">
                                 <h5 class="mb-0">Diproses</h5>
                             </div>
-                            <i class="feather icon-shopping-cart st-icon bg-c-green"></i>
+                            <i class="feather icon-shopping-cart st-icon bg-c-yellow"></i>
                             <div class="text-left">
-                                <h3 class="d-inline-block text-success"><?= $diproses; ?></h3>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-3">
-                <a href="<?= site_url('laporan/laporan_penjualan'); ?>">
-                    <div class="card widget-statstic-card">
-                        <div class="card-body">
-                            <div class="card-header-left mb-3">
-                                <h5 class="mb-0">Penghasilan</h5>
-                            </div>
-                            <i class="feather icon-external-link st-icon bg-c-yellow txt-lite-color"></i>
-                            <div class="text-left">
-                                <h3 class="d-inline-block text-c-yellow">Rp10.000</h3>
+                                <h3 class="d-inline-block text-warning"><?= $diproses; ?></h3>
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
 
+
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header">
-                        <h6 class="mb-0">Pesanan</h6>
+                        <h6 class="mb-0">Pesanan Masuk</h6>
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">
@@ -136,7 +136,7 @@
                                                 <?php } else if ($t['status_pesanan'] == 'Diproses') { ?>
                                                     <span class="badge badge-primary">Diproses</span>
                                                 <?php } else if ($t['status_pesanan'] == 'Dikirim') { ?>
-                                                    <span class="badge badge-secondary">Dikirim</span>
+                                                    <span class="badge badge-info">Dikirim</span>
                                                 <?php } else if ($t['status_pesanan'] == 'Selesai') { ?>
                                                     <span class="badge badge-success">Selesai</span>
                                                 <?php } else { ?>

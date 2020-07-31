@@ -64,14 +64,6 @@ class Laporan extends My_Controller
         $this->load->view('admin/laporan/print_laporan', $data);
     }
 
-    //saldo penjual
-    public function penghasilan_penjual()
-    {
-        $data['title'] = 'Warma CIC | Penghasilan Penjual';
-        $this->paggingAdmin('admin/laporan/penghasilan_penjual', $data);
-    }
-
-
     //===========================================
     //                  PENJUAL
     //===========================================

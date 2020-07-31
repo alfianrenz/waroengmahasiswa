@@ -68,8 +68,8 @@
                 </li>
 
                 <!-- Saldo penjual -->
-                <li class="nav-item <?php echo $this->uri->segment(2) == 'penghasilan_penjual' ? 'active' : ''; ?><?= active_menu('laporan/penghasilan_penjual'); ?>">
-                    <a href="<?= site_url('laporan/penghasilan_penjual'); ?>" class="nav-link ">
+                <li class="nav-item <?php echo active_menu('penjualan'); ?>">
+                    <a href="<?= site_url('penjualan/penghasilan_penjual'); ?>" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span>
                         <span class="pcoded-mtext">Penghasilan Penjual</span>
                     </a>

@@ -20,11 +20,18 @@ class Dashboard extends My_Controller
 
         $data['title'] = 'Warma CIC | Dashboard';
         $data['jumlahakunmahasiswa'] = $this->db->get('akun_mahasiswa')->num_rows();
-        $data['jumlahakunumum'] = $this->db->get('akun_umum')->num_rows();
         $data['jumlahtransaksi'] = $this->db->get('transaksi')->num_rows();
-        $data['jumlahkategori'] = $this->db->get('kategori')->num_rows();
         $data['mahasiswa'] = $this->user_model->getAkun_Mahasiswa();
         $data['transaksi'] = $this->checkout_model->getAll_transaksi($sortby);
+
+        $volume = 0;
+        $transaksi = $data['transaksi'];
+        foreach ($transaksi as $t) {
+            $t['total_bayar'];
+            $volume = $volume + $t['total_bayar'];
+        }
+        $data['volume'] = $volume;
+
         $this->paggingAdmin('admin/dashboard/dashboard', $data);
     }
 
@@ -36,6 +43,15 @@ class Dashboard extends My_Controller
         $data['jml_pesanan'] = $this->checkout_model->jumlah_pesanan();
         $data['belum_bayar'] = $this->checkout_model->belum_bayar();
         $data['diproses'] = $this->checkout_model->diproses();
+
+        //Penghasilan
+        $penghasilan = 0;
+        $transaksi = $this->db->get_where('transaksi', ['status_pesanan' => 'Selesai'])->result_array();
+        foreach ($transaksi as $t) {
+            $penghasilan = $penghasilan + $t['total_bayar'];
+        }
+        $data['penghasilan'] = $penghasilan;
+
         $this->paggingPenjual('penjual/dashboard/dashboard', $data);
     }
 

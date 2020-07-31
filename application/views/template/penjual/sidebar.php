@@ -39,6 +39,13 @@
                         <span class="pcoded-mtext">Kelola Pesanan</span>
                     </a>
                 </li>
+                <!-- Info Keuangan -->
+                <li class="nav-item <?= active_menu('penjualan'); ?>">
+                    <a href="<?= site_url('penjualan/info_penjualan'); ?>" class="nav-link ">
+                        <span class="pcoded-micon"><i class="feather icon-award"></i></span>
+                        <span class="pcoded-mtext">Informasi Penjualan</span>
+                    </a>
+                </li>
                 <!-- Laporan -->
                 <li class="nav-item <?= active_menu('laporan'); ?>">
                     <a href="<?= site_url('laporan/laporan_penjualan'); ?>" class="nav-link ">

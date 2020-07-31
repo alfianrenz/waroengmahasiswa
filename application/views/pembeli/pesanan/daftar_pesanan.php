@@ -38,9 +38,6 @@
                         <h5>Daftar Pesanan</h5>
                     </div>
                     <div class="card-body">
-                        <?php if ($this->uri->segment(3) == 'dikirim' ? 'active' : '') { ?>
-                            <div class="alert alert-success">Harap mengkonfirmasi apabila barang sudah diterima</div>
-                        <?php } ?>
                         <div class="dt-responsive table-responsive">
                             <table id="" class="table table-de nowrap">
                                 <thead>

@@ -83,8 +83,7 @@
                                         <th class="text-center">Nama Pelanggan</th>
                                         <th class="text-center">Status</th>
                                         <th class="text-center">Total Bayar</th>
-
-                                        <!-- <th class="text-center">Action</th> -->
+                                        <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -142,6 +141,11 @@
                                                 <!-- Total Bayar -->
                                                 <td class="align-middle text-center">Rp<?= number_format($t['total_bayar'], 0, ',', '.'); ?></td>
 
+                                                <!-- Button -->
+                                                <td class="align-middle text-center">
+                                                    <a href="" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i>&nbsp;&nbsp;Detail</a>
+                                                </td>
+
                                             </tr>
 
                                             <?php
@@ -151,10 +155,10 @@
                                         <?php endforeach; ?>
                                     <?php endif; ?>
 
-                                    <tr>
-                                        <td class="font-weight-bold text-right" colspan="5" style="background-color: #ecf0f5; font-size:13px; font-weight:bold">TOTAL PENDAPATAN</td>
+                                    <!-- <tr>
+                                        <td class="font-weight-bold text-left" colspan="5" style="background-color: #ecf0f5; font-size:13px; font-weight:bold">PENGHASILAN</td>
                                         <td class="text-center font-weight-bold" style="background-color: #ecf0f5;">Rp<?= number_format($total_pendapatan, 0, ',', '.'); ?></td>
-                                    </tr>
+                                    </tr> -->
 
                                 </tbody>
                             </table>
