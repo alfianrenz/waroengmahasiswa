@@ -58,6 +58,11 @@ class Laporan extends My_Controller
 
             $query = $this->db->select('*')
                 ->from('transaksi')
+                ->join('detail_keranjang', 'transaksi.id_keranjang = detail_keranjang.id_keranjang')
+                ->join('produk', 'detail_keranjang.id_produk = produk.id_produk')
+                ->join('keranjang', 'transaksi.id_keranjang = keranjang.id_keranjang')
+                ->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa')
+                ->join('mahasiswa', 'akun_mahasiswa.nim = mahasiswa.nim')
                 ->where('DATE(waktu_transaksi) >=', $tgl_awal)
                 ->where('DATE(waktu_transaksi) <=', $tgl_akhir)
                 ->order_by('waktu_transaksi', 'DESC')
