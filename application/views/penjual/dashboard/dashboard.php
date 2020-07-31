@@ -93,7 +93,8 @@
                                         <th class="text-center">Order ID</th>
                                         <th class="text-center">Metode Pembayaran</th>
                                         <th class="text-center">Tanggal & Waktu</th>
-                                        <th>Nama Pelanggan</th>
+                                        <th class="text-center">Nama Pelanggan</th>
+                                        <th class="text-center">Total Bayar</th>
                                         <th class="text-center">Status</th>
                                         <th width="8%">Action</th>
                                     </tr>
@@ -127,7 +128,10 @@
                                             <td class="align-middle text-center"><?= $t['waktu_transaksi']; ?></td>
 
                                             <!-- Nama Pelanggan -->
-                                            <td class="align-middle"><?= $t['nama_pelanggan']; ?></td>
+                                            <td class="align-middle text-center"><?= $t['nama_pelanggan']; ?></td>
+
+                                            <!-- Total Bayar -->
+                                            <td class="align-middle text-center"><?= number_format($t['total_bayar'], 0, ',', '.'); ?></td>
 
                                             <!-- Status Pesanan -->
                                             <td class="align-middle text-center">
