@@ -41,9 +41,9 @@
                                     <tr>
                                         <th class="text-center">Order ID</th>
                                         <th class="text-center">Metode Pembayaran</th>
-                                        <th>Customer</th>
-                                        <th>Seller</th>
-                                        <th>Tanggal & Waktu</th>
+                                        <th class="text-center">Customer</th>
+                                        <th class="text-center">Seller</th>
+                                        <th class="text-center">Tanggal & Waktu</th>
                                         <th class="text-center">Total</th>
                                         <th class="text-center">Status</th>
                                         <th width="8%">Action</th>
