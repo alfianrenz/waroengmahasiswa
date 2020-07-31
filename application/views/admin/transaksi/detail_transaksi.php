@@ -157,7 +157,6 @@
                                     <tr>
                                         <th width="5%">No</th>
                                         <th>Nama Produk</th>
-                                        <th>Nama Penjual</th>
                                         <th class="text-center">Harga Produk</th>
                                         <th class="text-center">Kuantitas</th>
                                         <th class="text-center">Subtotal</th>
@@ -171,7 +170,6 @@
                                         <tr>
                                             <td class="text-center align-middle"><?= $no++; ?></td>
                                             <td class="align-middle"><?= $i['nama_produk']; ?></td>
-                                            <td class="align-middle"><?= $i['nama_mahasiswa']; ?></td>
                                             <td class="align-middle text-center">Rp<?= number_format($i['harga_produk'], 0, ',', '.'); ?></td>
                                             <td class="align-middle text-center"><?= $i['kuantitas']; ?></td>
 
@@ -185,8 +183,17 @@
                                             <td class="align-middle text-center">Rp<?= number_format($subtotal, 0, ',', '.'); ?></td>
                                         </tr>
                                     <?php endforeach; ?>
+
+                                    <?php
+                                    $total_bayar = $total_bayar + $i['jumlah_ongkir'];
+                                    ?>
+
                                     <tr>
-                                        <td class="font-weight-bold" colspan="5">Total</td>
+                                        <td class="font-weight-bold" colspan="4">Ongkos Kirim</td>
+                                        <td class="text-center font-weight-bold">Rp<?= number_format($i['jumlah_ongkir'], 0, ',', '.'); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="font-weight-bold" colspan="4">Total Bayar</td>
                                         <td class="text-center font-weight-bold">Rp<?= number_format($total_bayar, 0, ',', '.'); ?></td>
                                     </tr>
                                 </tbody>
