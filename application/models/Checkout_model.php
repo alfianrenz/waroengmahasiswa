@@ -304,6 +304,7 @@ class Checkout_model extends CI_Model
         $this->db->join('detail_keranjang', 'transaksi.id_keranjang = detail_keranjang.id_keranjang');
         $this->db->join('produk', 'detail_keranjang.id_produk = produk.id_produk');
         $this->db->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa');
+        $this->db->join('mahasiswa', 'akun_mahasiswa.nim = mahasiswa.nim');
         if ($sortby == "belum_bayar") {
             $this->db->where(['status_pesanan' => 'Belum Bayar']);
         } else if ($sortby == "diproses") {
