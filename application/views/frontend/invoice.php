@@ -22,38 +22,20 @@
                         </div>
                         <div class="row mb-0">
 
-                            <!-- Colom 1 -->
-                            <div class="col-sm-4">
-                                <div class="card-body">
-                                    <div class="">
-                                        <div class="table-responsive">
-                                            <table class="table table-sm table-borderless mb-0" style="border-style: none;">
-                                                <tbody>
-                                                    <tr>
-                                                        <td width="34%" class="font-weight-bold">Order ID</td>
-                                                        <td>&nbsp;&nbsp;<?= $transaksi->order_id; ?></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td width="34%" class="font-weight-bold">Tanggal</td>
-                                                        <td>&nbsp;&nbsp;<?= date('d M Y'); ?></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                             <!-- Pembayaran -->
-                            <div class="col-sm-4">
+                            <div class="col-sm-6">
                                 <div class="card-body">
                                     <?php if ($transaksi->tipe_pembayaran == 'cstore') { ?>
                                         <div class="table-responsive">
                                             <table class="table table-sm table-borderless mb-0" style="border-style: none;">
                                                 <tbody>
                                                     <tr>
-                                                        <td>Kode Pembayaran</td>
-                                                        <td>:&nbsp;&nbsp;<?= $transaksi->kode_pembayaran; ?></td>
+                                                        <td>Order ID</td>
+                                                        <td>:&nbsp;&nbsp;<?= $transaksi->order_id; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tanggal</td>
+                                                        <td>:&nbsp;&nbsp;<?= date('d M Y'); ?></td>
                                                     </tr>
                                                     <tr>
                                                         <td>Status Pembayaran</td>
@@ -82,6 +64,14 @@
                                         <div class="table-responsive">
                                             <table class="table table-sm table-borderless mb-0" style="border-style: none;">
                                                 <tbody>
+                                                    <tr>
+                                                        <td>Order ID</td>
+                                                        <td>:&nbsp;&nbsp;<?= $transaksi->order_id; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Tanggal</td>
+                                                        <td>:&nbsp;&nbsp;<?= date('d M Y'); ?></td>
+                                                    </tr>
                                                     <tr>
                                                         <td>Status Pembayaran</td>
                                                         <td>:&nbsp;&nbsp;
@@ -114,12 +104,12 @@
                             </div>
 
                             <!-- Tujuan Pengiriman -->
-                            <div class="col-sm-4">
+                            <div class="col-sm-6">
                                 <div class="card-body">
                                     <ul class="font-weight-bold">Tujuan Pengiriman</ul>
-                                    <ul>Dimas Aulia Pudjie</ul>
-                                    <ul>Jalan Kesambi, No. 202 - Kota Cirebon</ul>
-                                    <ul>62897789790</ul>
+                                    <ul><?= $transaksi->nama_pelanggan; ?></ul>
+                                    <ul><?= $transaksi->alamat_pelanggan; ?> - <?= $transaksi->kota_pelanggan; ?></ul>
+                                    <ul><?= $transaksi->telepon_pelanggan; ?></ul>
                                 </div>
                             </div>
 
@@ -137,19 +127,39 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
-                                                    <td class="align-middle"></td>
-                                                    <td class="align-middle text-center"></td>
-                                                    <td class="align-middle text-center"></td>
-                                                    <td class="align-middle text-center"></td>
-                                                </tr>
+
+                                                <?php
+                                                $total_bayar = 0;
+                                                foreach ($item as $i) : ?>
+                                                    <tr>
+                                                        <td class="align-middle"><?= $i['nama_produk']; ?></td>
+                                                        <td class="align-middle text-center"><?= $i['harga_produk']; ?></td>
+                                                        <td class="align-middle text-center"><?= $i['kuantitas']; ?></td>
+
+                                                        <?php
+                                                        $harga = $i['harga_produk'];
+                                                        $kuantitas = $i['kuantitas'];
+                                                        $subtotal = $harga * $kuantitas;
+                                                        $total_bayar = $total_bayar + $subtotal;
+                                                        ?>
+
+                                                        <td class="align-middle text-center">Rp<?= number_format($subtotal, 0, ',', '.'); ?></td>
+                                                    </tr>
+
+                                                <?php endforeach; ?>
+
+                                                <!-- Jumlahin Onkir dengan Total Bayar -->
+                                                <?php
+                                                $total_bayar = $total_bayar + $i['jumlah_ongkir'];
+                                                ?>
+
                                                 <tr>
                                                     <td class="font-weight-bold" colspan="3">Ongkos Kirim</td>
-                                                    <td class="text-center font-weight-bold"></td>
+                                                    <td class="text-center font-weight-bold">Rp<?= $i['jumlah_ongkir']; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td class="font-weight-bold" colspan="3">Total Bayar</td>
-                                                    <td class="text-center font-weight-bold">Rp</td>
+                                                    <td class="text-center font-weight-bold">Rp<?= number_format($total_bayar, 0, ',', '.'); ?></td>
                                                 </tr>
                                             </tbody>
                                         </table>

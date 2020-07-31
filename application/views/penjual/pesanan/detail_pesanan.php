@@ -195,11 +195,11 @@
                                     ?>
 
                                     <tr>
-                                        <td class="font-weight-bold" colspan="4">Ongkir</td>
+                                        <td class="font-weight-bold" colspan="4">Ongkos Kirim</td>
                                         <td class="text-center font-weight-bold">Rp<?= number_format($i['jumlah_ongkir'], 0, ',', '.'); ?></td>
                                     </tr>
                                     <tr>
-                                        <td class="font-weight-bold" colspan="4">Total</td>
+                                        <td class="font-weight-bold" colspan="4">Total Bayar</td>
                                         <td class="text-center font-weight-bold">Rp<?= number_format($total_bayar, 0, ',', '.'); ?></td>
                                     </tr>
                                 </tbody>
