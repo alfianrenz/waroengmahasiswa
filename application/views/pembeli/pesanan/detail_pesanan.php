@@ -58,10 +58,16 @@
 
                                             <!-- Lewat Bank Transfer -->
                                             <?php if ($transaksi['tipe_pembayaran'] == 'bank_transfer') { ?>
-                                                <span>Bank Transfer</span>
+                                                <span>Bank Transfer - <?= $transaksi['nama_bank']; ?></span>
                                             <?php } ?>
                                         </td>
                                     </tr>
+                                    <?php if ($transaksi['tipe_pembayaran'] == 'bank_transfer') { ?>
+                                        <tr>
+                                            <td>VA Number</td>
+                                            <td>:&nbsp;&nbsp; <?= $transaksi['va_number']; ?></td>
+                                        </tr>
+                                    <?php } ?>
                                     <tr>
                                         <td>Total Pembayaran</td>
                                         <td>:&nbsp;&nbsp; Rp<?= number_format($transaksi['total_bayar'], 0, ',', '.'); ?></td>

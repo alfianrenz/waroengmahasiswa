@@ -89,7 +89,7 @@
 
                             <?php if (!$produk) { ?>
                                 <div class="col-sm-12 text-center mt-3">
-                                    <img src="<?= base_url(); ?>assets/frontend/images/others/produk_empty.png" alt="" width="400px">
+                                    <img src="<?= base_url(); ?>assets/frontend/images/others/produk_empty.png" alt="" width="300px">
                                 </div>
                                 <div class="col-sm-12 text-center" style="margin-top: 30px;">
                                     <h2>BELUM ADA PRODUK :(</h2>
