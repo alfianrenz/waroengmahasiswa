@@ -191,6 +191,21 @@ class Checkout_model extends CI_Model
         return $this->db->get()->result_array();
     }
 
+    //count volume transaksi
+    public function volume_transaksi()
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->join('detail_keranjang', 'transaksi.id_keranjang = detail_keranjang.id_keranjang');
+        $this->db->join('produk', 'detail_keranjang.id_produk = produk.id_produk');
+        $this->db->join('keranjang', 'transaksi.id_keranjang = keranjang.id_keranjang');
+        $this->db->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa');
+        $this->db->join('mahasiswa', 'akun_mahasiswa.nim = mahasiswa.nim');
+        $this->db->where(['transaksi.status_bayar' => 'settlement']);
+        $this->db->order_by('waktu_transaksi', 'DESC');
+        $this->db->group_by('transaksi.order_id');
+        return $this->db->get()->result_array();
+    }
 
 
     //========================================
@@ -349,6 +364,17 @@ class Checkout_model extends CI_Model
     {
         $data = [
             'status_pesanan' => 'Selesai'
+        ];
+        $this->db->where('order_id', $id);
+        $this->db->update('transaksi', $data);
+    }
+
+    //cancel pesanan
+    public function cancel_pesanan($id)
+    {
+        $data = [
+            'status_pesanan' => 'Batal',
+            'status_bayar'   => 'cancel'
         ];
         $this->db->where('order_id', $id);
         $this->db->update('transaksi', $data);

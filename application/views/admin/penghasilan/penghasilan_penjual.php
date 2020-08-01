@@ -18,7 +18,54 @@
 
         <!-- Main Content -->
         <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Data Mahasiswa</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="dt-responsive table-responsive">
+                            <table id="simpletable" class="table table-de nowrap">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">No</th>
+                                        <th class="text-center">Foto</th>
+                                        <th class="text-center">NIM</th>
+                                        <th class="text-center">Nama Mahasiswa</th>
+                                        <th class="text-center">Program Studi</th>
+                                        <th class="text-center">Telepon</th>
+                                        <th class="text-center">Total Pendapatan</th>
+                                        <th width="8%">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $no = 1;
+                                    foreach ($mahasiswa as $m) : ?>
+                                        <tr>
+                                            <td class="text-center align-middle"><?= $no++; ?></td>
+                                            <td class="align-middle text-center">
+                                                <img src="<?= base_url('upload/foto_user/' . $m['foto_mahasiswa']); ?>" alt="contact-img" title="contact-img" class="img-radius mr-3" height="48" width="48" style="object-fit: cover">
+                                            </td>
+                                            <td class="align-middle"><?= $m['nim']; ?></td>
+                                            <td class="align-middle"><?= $m['nama_mahasiswa']; ?></td>
+                                            <td class="align-middle"><?= $m['nama_prodi']; ?></td>
+                                            <td class="align-middle"><?= $m['telepon_mahasiswa']; ?></td>
+                                            <td class="align-middle text-center">
+                                                Rp10.000
+                                            </td>
+                                            <td class="align-middle text-center">
+                                                <a href="<?= site_url('akun/detail_akun_mahasiswa'); ?>/<?= $m['id_mahasiswa']; ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach; ?>
 
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

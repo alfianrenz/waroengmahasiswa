@@ -38,6 +38,8 @@ const akunTidakAktif = $('.flash-data').data('akuntidakaktif');
 const inputKirim = $('.flash-data').data('inputpengiriman');
 // Sweet alert konfirmasi barang
 const konfirmasiBarang = $('.flash-data').data('konfirmasibarang');
+// Sweet alert cancel pesanan sukses
+const cancelPesanan = $('.flash-data').data('cancelpesanan');
 
 
 
@@ -221,6 +223,15 @@ if (konfirmasiBarang) {
     });
 }
 
+//Sweet alert cancel pesanan
+if (cancelPesanan) {
+    Swal.fire({
+        title: 'Success',
+        text: cancelPesanan,
+        type: 'success',
+    });
+}
+
 //Sweet alert hapus
 $('.tombol-hapus').on('click', function (e) {
 
@@ -378,6 +389,28 @@ $('.tombol-konfirmasi').on('click', function (e) {
         confirmButtonColor: '#3085D6',
         cancelButtonColor: '#D33',
         confirmButtonText: 'Konfirmasi',
+        cancelButtonText: 'Kembali'
+    }).then((result) => {
+        if (result.value) {
+            document.location.href = href;
+        }
+    });
+});
+
+//Sweet alert tombol cancel pesanan
+$('.tombol-cancel').on('click', function (e) {
+
+    e.preventDefault();
+    const href = $(this).attr('href');
+
+    Swal.fire({
+        title: 'Batalkan?',
+        text: 'Anda yakin ingin membatalkan pesanan?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085D6',
+        cancelButtonColor: '#D33',
+        confirmButtonText: 'Batalkan',
         cancelButtonText: 'Kembali'
     }).then((result) => {
         if (result.value) {

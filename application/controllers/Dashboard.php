@@ -25,7 +25,7 @@ class Dashboard extends My_Controller
         $data['transaksi'] = $this->checkout_model->getAll_transaksi($sortby);
 
         $volume = 0;
-        $transaksi = $data['transaksi'];
+        $transaksi = $this->checkout_model->volume_transaksi();
         foreach ($transaksi as $t) {
             $t['total_bayar'];
             $volume = $volume + $t['total_bayar'];

@@ -106,6 +106,8 @@
                                                 <a href="<?= site_url('pesanan/detail_pesanan_pembeli/' . $t['order_id']); ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
                                                 <?php if ($this->uri->segment(3) == 'dikirim' ? 'active' : '') { ?>
                                                     <a href="<?= site_url('pesanan/konfirmasi_barang/' . $t['order_id']); ?>" class="btn btn-sm btn-success rounded tombol-konfirmasi"><i class="feather icon-check-circle"></i> Konfirmasi</a>
+                                                <?php } else if ($this->uri->segment(3) == 'belum_bayar' ? 'active' : '') { ?>
+                                                    <a href="<?= site_url('pesanan/cancel_pesanan/' . $t['order_id']); ?>" class="btn btn-sm btn-danger rounded tombol-cancel"><i class="feather icon-x-circle"></i> Cancel</a>
                                                 <?php } ?>
                                             </td>
                                         </tr>

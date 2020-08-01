@@ -61,4 +61,11 @@ class Pesanan extends My_Controller
         $this->session->set_flashdata('message', '<div class="flash-data" data-konfirmasibarang="Barang telah diterima"></div>');
         echo '<script>window.history.back();</script>';
     }
+
+    public function cancel_pesanan($id)
+    {
+        $this->checkout_model->cancel_pesanan($id);
+        $this->session->set_flashdata('message', '<div class="flash-data" data-cancelpesanan="Pesanan Berhasil Dibatalkan"></div>');
+        echo '<script>window.history.back();</script>';
+    }
 }

@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Laporan Transaksi</title>
+    <title>Laporan Transaksi Waroeng Mahasiswa</title>
     <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/dist/img/logo/cic_putih.png">
 </head>
 
@@ -19,7 +19,7 @@
     </div>
     <hr size="2" style="background-color:black">
     <br>
-    <h3>Laporan Transaksi</h3>
+    <h3>Data Transaksi</h3>
     <table border=1 cellspadding=0 cellspacing=0 style="width: 100%">
         <tr>
             <th>Order ID</th>
@@ -68,6 +68,7 @@
             </tr>
         <?php endforeach; ?>
     </table>
+
     <br>
     <br>
     <br>
