@@ -316,6 +316,7 @@ class Checkout_model extends CI_Model
             $this->db->where(['status_pesanan' => 'Selesai']);
         }
         $this->db->order_by('waktu_transaksi', 'DESC');
+        $this->db->group_by('transaksi.order_id');
         $this->db->where('id_pembeli', $this->session->userdata('id'));
         return $this->db->get()->result_array();
     }
