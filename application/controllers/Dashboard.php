@@ -54,7 +54,8 @@ class Dashboard extends My_Controller
             ->join('produk', 'detail_keranjang.id_produk = produk.id_produk')
             ->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa')
             ->where('produk.id_mahasiswa', $this->session->userdata('id'))
-            ->where('transaksi.status_pesanan', 'Selesai')
+            ->where(['transaksi.status_pesanan' => 'Selesai'])
+            ->group_by('transaksi.order_id')
             ->get()->result_array();
 
         foreach ($transaksi as $t) {
