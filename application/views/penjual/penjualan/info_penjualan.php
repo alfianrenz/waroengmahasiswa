@@ -50,7 +50,7 @@
                                         <th>Nama Produk</th>
                                         <th class="text-center">Harga</th>
                                         <th class="text-center">Terjual</th>
-                                        <th width="8%">Total</th>
+                                        <th class="text-center">Total</th>
                                     </tr>
                                 </thead>
                                 <tbody>

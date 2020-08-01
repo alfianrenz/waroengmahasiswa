@@ -35,6 +35,7 @@ class Laporan extends My_Controller
                 ->join('mahasiswa', 'akun_mahasiswa.nim = mahasiswa.nim')
                 ->where('DATE(waktu_transaksi) >=', $tgl_awal)
                 ->where('DATE(waktu_transaksi) <=', $tgl_akhir)
+                ->group_by('transaksi.order_id')
                 ->order_by('waktu_transaksi', 'DESC')
                 ->get()->result_array();
             //print_r($query);
@@ -65,6 +66,7 @@ class Laporan extends My_Controller
                 ->join('mahasiswa', 'akun_mahasiswa.nim = mahasiswa.nim')
                 ->where('DATE(waktu_transaksi) >=', $tgl_awal)
                 ->where('DATE(waktu_transaksi) <=', $tgl_akhir)
+                ->group_by('transaksi.order_id')
                 ->order_by('waktu_transaksi', 'DESC')
                 ->get()->result_array();
             //print_r($query);
