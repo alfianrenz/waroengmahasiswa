@@ -103,7 +103,7 @@
                                                 <?php } ?>
                                             </td>
                                             <td class="align-middle text-center">
-                                                <!-- <a href="<?= site_url('pesanan/detail_pesanan_pembeli/' . $t['order_id']); ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a> -->
+                                                <a href="<?= site_url('pesanan/detail_pesanan_pembeli/' . $t['order_id']); ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
                                                 <?php if ($this->uri->segment(3) == 'dikirim' ? 'active' : '') { ?>
                                                     <a href="<?= site_url('pesanan/konfirmasi_barang/' . $t['order_id']); ?>" class="btn btn-sm btn-success rounded tombol-konfirmasi"><i class="feather icon-check-circle"></i> Konfirmasi</a>
                                                 <?php } ?>
