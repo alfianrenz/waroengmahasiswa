@@ -46,7 +46,17 @@ class Dashboard extends My_Controller
 
         //Penghasilan
         $penghasilan = 0;
-        $transaksi = $this->db->get_where('transaksi', ['status_pesanan' => 'Selesai'])->result_array();
+        // $transaksi = $this->db->get_where('transaksi', ['status_pesanan' => 'Selesai'])->result_array();
+
+        $transaksi = $this->db->select('*')
+            ->from('transaksi')
+            ->join('detail_keranjang', 'transaksi.id_keranjang = detail_keranjang.id_keranjang')
+            ->join('produk', 'detail_keranjang.id_produk = produk.id_produk')
+            ->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa')
+            ->where('produk.id_mahasiswa', $this->session->userdata('id'))
+            ->where(['transaksi.status_pesanan' => 'Selesai'])
+            ->get()->result_array();
+
         foreach ($transaksi as $t) {
             $penghasilan = $penghasilan + $t['total_bayar'];
         }
