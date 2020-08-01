@@ -165,6 +165,7 @@ class Checkout_model extends CI_Model
             $this->db->where(['status_bayar' => 'expire']);
         }
         $this->db->order_by('waktu_transaksi', 'DESC');
+        $this->db->group_by('transaksi.order_id');
         return $this->db->get()->result_array();
     }
 
