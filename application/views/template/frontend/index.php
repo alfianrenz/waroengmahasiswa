@@ -139,11 +139,11 @@
                         } else {
                             $('#validasi_alamat').html('');
                         }
-                        // if (data.validasi_ongkir != '') {
-                        //     $('#validasi_ongkir').html(data.validasi_ongkir);
-                        // } else {
-                        //     $('#validasi_ongkir').html('');
-                        // }
+                        if (data.validasi_ongkir != '') {
+                            $('#validasi_ongkir').html(data.validasi_ongkir);
+                        } else {
+                            $('#validasi_ongkir').html('');
+                        }
                     } else {
                         snap.pay(data.token);
                     }
