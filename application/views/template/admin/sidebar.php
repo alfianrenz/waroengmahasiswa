@@ -70,7 +70,7 @@
                 <!-- Saldo penjual -->
                 <li class="nav-item <?php echo active_menu('penjualan'); ?>">
                     <a href="<?= site_url('penjualan/penghasilan_penjual'); ?>" class="nav-link ">
-                        <span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span>
+                        <span class="pcoded-micon"><i class="feather icon-user"></i></span>
                         <span class="pcoded-mtext">Penghasilan Penjual</span>
                     </a>
                 </li>
