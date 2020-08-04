@@ -42,17 +42,17 @@
                 <!-- Info Keuangan -->
                 <li class="nav-item <?= active_menu('penjualan'); ?>">
                     <a href="<?= site_url('penjualan/info_penjualan'); ?>" class="nav-link ">
-                        <span class="pcoded-micon"><i class="feather icon-award"></i></span>
-                        <span class="pcoded-mtext">Informasi Penjualan</span>
-                    </a>
-                </li>
-                <!-- Laporan -->
-                <li class="nav-item <?= active_menu('laporan'); ?>">
-                    <a href="<?= site_url('laporan/laporan_penjualan'); ?>" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span>
                         <span class="pcoded-mtext">Laporan Penjualan</span>
                     </a>
                 </li>
+                <!-- Laporan -->
+                <!-- <li class="nav-item <?= active_menu('laporan'); ?>">
+                    <a href="<?= site_url('laporan/laporan_penjualan'); ?>" class="nav-link ">
+                        <span class="pcoded-micon"><i class="feather icon-pie-chart"></i></span>
+                        <span class="pcoded-mtext">Laporan Penjualan</span>
+                    </a>
+                </li> -->
 
                 <li class="nav-item pcoded-menu-caption">
                     <label>Utilities</label>

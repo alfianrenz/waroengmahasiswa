@@ -26,7 +26,7 @@ class Penjualan extends My_Controller
     public function info_penjualan()
     {
         $data['title'] = 'Warma CIC | Penjualan';
-        $data['produk'] = $this->laporan_model->get_penjualan();
+        $data['penjualan'] = $this->laporan_model->get_penjualan();
         $data['website'] = $this->db->get('profile_website')->row_array();
 
         //Penghasilan
