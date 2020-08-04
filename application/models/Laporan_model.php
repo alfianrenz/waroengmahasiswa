@@ -18,6 +18,7 @@ class Laporan_model extends CI_Model
         $this->db->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa');
         $this->db->join('mahasiswa', 'akun_mahasiswa.nim = mahasiswa.nim');
         $this->db->join('prodi', 'mahasiswa.id_prodi = prodi.id_prodi');
+        $this->db->where(['transaksi.status_pesanan' => "Selesai"]);
         $this->db->group_by('akun_mahasiswa.id_mahasiswa');
         return $this->db->get()->result_array();
     }

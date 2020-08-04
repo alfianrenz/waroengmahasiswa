@@ -15,7 +15,7 @@ class Penjualan extends My_Controller
     public function penghasilan_penjual()
     {
         $data['title'] = 'Warma CIC | Penghasilan Penjual';
-        $data['mahasiswa'] = $this->laporan_model->penghasilan_penjual();
+        $data['penghasilan'] = $this->laporan_model->penghasilan_penjual();
         $this->paggingAdmin('admin/penghasilan/penghasilan_penjual', $data);
     }
 

@@ -52,7 +52,7 @@
   <main class="page-content">
 
       <!-- Features Area -->
-      <div class="ho-section features-area bg-white ptb-30">
+      <div class="ho-section features-area bg-white pt-30">
           <div class="container">
               <div class="row">
 
@@ -79,7 +79,7 @@
                       <div class="featurebox">
                           <i class="flaticon-credit-card"></i>
                           <h5>Payment Gateway</h5>
-                          <p>Bisa bayar lewat alfamart dan Indomaret</p>
+                          <p>Bisa bayar lewat Go-Pay dan Indomaret</p>
                       </div>
                   </div>
               </div>
@@ -94,9 +94,9 @@
                       <li class="nav-item">
                           <a class="nav-link active" id="bstab3-area1-tab" data-toggle="tab" href="#bstab3-area1" role="tab" aria-controls="bstab3-area1" aria-selected="true">PRODUK TERBARU</a>
                       </li>
-                      <li class="nav-item">
+                      <!-- <li class="nav-item">
                           <a class="nav-link" id="bstab3-area2-tab" data-toggle="tab" href="#bstab3-area2" role="tab" aria-controls="bstab3-area2" aria-selected="false">PRODUK TERLARIS</a>
-                      </li>
+                      </li> -->
                   </ul>
               </div>
 
@@ -137,10 +137,10 @@
                   </div>
 
                   <!-- Produk Terlaris -->
-                  <div class="tab-pane fade" id="bstab3-area2" role="tabpanel" aria-labelledby="bstab3-area2-tab">
+                  <!-- <div class="tab-pane fade" id="bstab3-area2" role="tabpanel" aria-labelledby="bstab3-area2-tab">
                       <div class="product-slider new-best-featured-slider slider-navigation-2">
                           <div class="product-slider-col">
-                              <!-- Single Product -->
+
                               <article class="hoproduct">
                                   <div class="hoproduct-image">
                                       <a class="hoproduct-thumb" href="product-details.html">
@@ -165,11 +165,11 @@
                                       </div>
                                   </div>
                               </article>
-                              <!--// Single Product -->
+
                           </div>
 
                           <div class="product-slider-col">
-                              <!-- Single Product -->
+
                               <article class="hoproduct">
                                   <div class="hoproduct-image">
                                       <a class="hoproduct-thumb" href="product-details.html">
@@ -194,11 +194,11 @@
                                       </div>
                                   </div>
                               </article>
-                              <!--// Single Product -->
+
                           </div>
 
                           <div class="product-slider-col">
-                              <!-- Single Product -->
+
                               <article class="hoproduct">
                                   <div class="hoproduct-image">
                                       <a class="hoproduct-thumb" href="product-details.html">
@@ -223,11 +223,11 @@
                                       </div>
                                   </div>
                               </article>
-                              <!--// Single Product -->
+
                           </div>
 
                           <div class="product-slider-col">
-                              <!-- Single Product -->
+
                               <article class="hoproduct">
                                   <div class="hoproduct-image">
                                       <a class="hoproduct-thumb" href="product-details.html">
@@ -253,11 +253,11 @@
                                       </div>
                                   </div>
                               </article>
-                              <!--// Single Product -->
+
                           </div>
 
                           <div class="product-slider-col">
-                              <!-- Single Product -->
+
                               <article class="hoproduct">
                                   <div class="hoproduct-image">
                                       <a class="hoproduct-thumb" href="product-details.html">
@@ -283,11 +283,11 @@
                                       </div>
                                   </div>
                               </article>
-                              <!--// Single Product -->
+
                           </div>
 
                           <div class="product-slider-col">
-                              <!-- Single Product -->
+
                               <article class="hoproduct">
                                   <div class="hoproduct-image">
                                       <a class="hoproduct-thumb" href="product-details.html">
@@ -313,11 +313,11 @@
                                       </div>
                                   </div>
                               </article>
-                              <!--// Single Product -->
+
                           </div>
 
                           <div class="product-slider-col">
-                              <!-- Single Product -->
+
                               <article class="hoproduct">
                                   <div class="hoproduct-image">
                                       <a class="hoproduct-thumb" href="product-details.html">
@@ -343,11 +343,11 @@
                                       </div>
                                   </div>
                               </article>
-                              <!--// Single Product -->
+
                           </div>
 
                           <div class="product-slider-col">
-                              <!-- Single Product -->
+
                               <article class="hoproduct">
                                   <div class="hoproduct-image">
                                       <a class="hoproduct-thumb" href="product-details.html">
@@ -372,11 +372,11 @@
                                       </div>
                                   </div>
                               </article>
-                              <!--// Single Product -->
+
                           </div>
 
                           <div class="product-slider-col">
-                              <!-- Single Product -->
+
                               <article class="hoproduct">
                                   <div class="hoproduct-image">
                                       <a class="hoproduct-thumb" href="product-details.html">
@@ -402,11 +402,11 @@
                                       </div>
                                   </div>
                               </article>
-                              <!--// Single Product -->
+
                           </div>
 
                           <div class="product-slider-col">
-                              <!-- Single Product -->
+
                               <article class="hoproduct">
                                   <div class="hoproduct-image">
                                       <a class="hoproduct-thumb" href="product-details.html">
@@ -432,11 +432,11 @@
                                       </div>
                                   </div>
                               </article>
-                              <!--// Single Product -->
+
                           </div>
 
                           <div class="product-slider-col">
-                              <!-- Single Product -->
+
                               <article class="hoproduct">
                                   <div class="hoproduct-image">
                                       <a class="hoproduct-thumb" href="product-details.html">
@@ -462,10 +462,10 @@
                                       </div>
                                   </div>
                               </article>
-                              <!--// Single Product -->
+
                           </div>
                       </div>
-                  </div>
+                  </div> -->
               </div>
           </div>
       </div>

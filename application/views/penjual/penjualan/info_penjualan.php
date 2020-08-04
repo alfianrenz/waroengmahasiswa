@@ -80,7 +80,11 @@
                                             <?php
                                             $kuantitas = $p['kuantitas'];
                                             ?>
-                                            <td class="text-center align-middle"></td>
+
+                                            <td class="text-center align-middle">
+
+
+                                            </td>
 
                                             <td class="text-center align-middle"></td>
 
