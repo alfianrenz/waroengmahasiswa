@@ -75,15 +75,25 @@ class Checkout extends My_Controller
         $status_bayar = $data->transaction_status;
         $order_id = $data->order_id;
         $payment_type = $data->payment_type;
-        $payment_code = $data->payment_code;
+
+        $payment_code = '';
+        $store = '';
+
+        if (isset($data->payment_code)) {
+            $payment_code = $data->payment_code;
+            $store = $data->store;
+        }
         $transaction_time = $data->transaction_time;
         $gross_amount = $data->gross_amount;
-        $store = $data->store;
 
-        if (count($data['va_numbers']) > 0) {
-            $bank = $data['va_numbers'][0]['bank'];
-            $va_number = $data['va_numbers'][0]['va_number'];
+
+        if (count($data->va_numbers)) {
+            $bank = $data->va_numbers[0]->bank;
+            $va_number = $data->va_numbers[0]->va_number;
         }
+
+        // var_dump(count($data->va_numbers));
+        // die();
 
         //Update status pesanan
         if ($data->transaction_status == 'pending') {

@@ -79,7 +79,7 @@
                                             <td class="text-center align-middle"><?= $p['terjual']; ?></td>
 
                                             <td class="text-center align-middle">
-                                                <a href="<?= site_url('produk/detail_produk'); ?>/<?= $p['id_produk']; ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
+                                                <a href="<?= site_url('penjualan/detail_info_penjualan'); ?>/<?= $p['id_produk']; ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
