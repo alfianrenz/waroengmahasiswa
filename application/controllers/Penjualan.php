@@ -16,6 +16,10 @@ class Penjualan extends My_Controller
     {
         $data['title'] = 'Warma CIC | Penghasilan Penjual';
         $data['penghasilan'] = $this->laporan_model->penghasilan_penjual();
+        for ($i = 0; $i < count($data['penghasilan']); $i++) {
+            $id = $data['penghasilan'][$i]['id_mahasiswa'];
+            $data['penghasilan'][$i]['total_penghasilan'] = $this->laporan_model->hitung_penghasilan($id);
+        }
         $this->paggingAdmin('admin/penghasilan/penghasilan_penjual', $data);
     }
 
@@ -26,27 +30,19 @@ class Penjualan extends My_Controller
     public function info_penjualan()
     {
         $data['title'] = 'Warma CIC | Penjualan';
-        $data['penjualan'] = $this->laporan_model->get_penjualan();
-        $data['website'] = $this->db->get('profile_website')->row_array();
-
-        //Penghasilan
-        $penghasilan = 0;
-        // $transaksi = $this->db->get_where('transaksi', ['status_pesanan' => 'Selesai'])->result_array();
-
-        $transaksi = $this->db->select('*')
-            ->from('transaksi')
-            ->join('detail_keranjang', 'transaksi.id_keranjang = detail_keranjang.id_keranjang')
-            ->join('produk', 'detail_keranjang.id_produk = produk.id_produk')
-            ->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa')
-            ->where('produk.id_mahasiswa', $this->session->userdata('id'))
-            ->where(['transaksi.status_pesanan' => 'Selesai'])
-            ->group_by('transaksi.order_id')
-            ->get()->result_array();
-
-        foreach ($transaksi as $t) {
-            $penghasilan = $penghasilan + $t['total_bayar'];
+        $penjualan = $this->laporan_model->get_penjualan();
+        $produk_terjual = 0;
+        for ($i = 0; $i < count($penjualan); $i++) {
+            $id_produk = $penjualan[$i]['id_produk'];
+            $penjualan[$i]['terjual'] = $this->db->query("SELECT SUM(kuantitas) AS terjual FROM detail_keranjang JOIN keranjang USING (id_keranjang) JOIN transaksi USING (id_keranjang) WHERE id_produk = '$id_produk' AND status_pesanan = 'Selesai'")->row()->terjual;
+            $produk_terjual += $penjualan[$i]['terjual'];
         }
-        $data['penghasilan'] = $penghasilan;
+
+        $data['penjualan'] = $penjualan;
+        $data['produk_terjual'] = $produk_terjual;
+
+        $id = $this->session->userdata('id');
+        $data['penghasilan'] = $this->laporan_model->hitung_penghasilan($id);
 
         $this->paggingPenjual('penjual/penjualan/info_penjualan', $data);
     }

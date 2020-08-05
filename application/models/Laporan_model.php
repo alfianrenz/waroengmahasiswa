@@ -23,6 +23,28 @@ class Laporan_model extends CI_Model
         return $this->db->get()->result_array();
     }
 
+
+    public function hitung_penghasilan($id)
+    {
+
+        $penghasilan = 0;
+        $transaksi = $this->db->select('*')
+            ->from('transaksi')
+            ->join('detail_keranjang', 'transaksi.id_keranjang = detail_keranjang.id_keranjang')
+            ->join('produk', 'detail_keranjang.id_produk = produk.id_produk')
+            ->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa')
+            ->where('produk.id_mahasiswa', $id)
+            ->where(['transaksi.status_pesanan' => 'Selesai'])
+            ->group_by('transaksi.order_id')
+            ->get()->result_array();
+
+        foreach ($transaksi as $t) {
+            $penghasilan = $penghasilan + $t['total_bayar'];
+        }
+        return $penghasilan;
+    }
+
+
     //==========================================
     //              PENJUAL
     //==========================================

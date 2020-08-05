@@ -30,7 +30,7 @@
             <div class="col-sm-6">
                 <div class="card bg-c-white text-white widget-visitor-card">
                     <div class="card-body text-center">
-                        <h2 class="text-success">8</h2>
+                        <h2 class="text-success"><?= $produk_terjual; ?></h2>
                         <h6 class="text-success">Produk Terjual</h6>
                         <i class="feather icon-box text-success"></i>
                     </div>
@@ -53,7 +53,6 @@
                                         <th class="text-center">Kategori</th>
                                         <th class="text-center">Harga</th>
                                         <th class="text-center">Terjual</th>
-                                        <th class="text-center">Total</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -77,16 +76,7 @@
 
                                             <td class="text-center align-middle">Rp<?= number_format($p['harga_produk'], 0, ',', '.'); ?></td>
 
-                                            <?php
-                                            $kuantitas = $p['kuantitas'];
-                                            ?>
-
-                                            <td class="text-center align-middle">
-
-
-                                            </td>
-
-                                            <td class="text-center align-middle"></td>
+                                            <td class="text-center align-middle"><?= $p['terjual']; ?></td>
 
                                             <td class="text-center align-middle">
                                                 <a href="<?= site_url('produk/detail_produk'); ?>/<?= $p['id_produk']; ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>

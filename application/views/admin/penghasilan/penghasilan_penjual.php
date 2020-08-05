@@ -53,7 +53,7 @@
                                             <td class="align-middle"><?= $p['nama_prodi']; ?></td>
                                             <td class="align-middle"><?= $p['telepon_mahasiswa']; ?></td>
 
-                                            <td class="align-middle text-center"></td>
+                                            <td class="align-middle text-center">Rp<?= number_format($p['total_penghasilan'], 0, ',', '.'); ?></td>
                                             <td class="align-middle text-center">
                                                 <a href="<?= site_url('akun/detail_akun_mahasiswa'); ?>/<?= $p['id_mahasiswa']; ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
                                             </td>
