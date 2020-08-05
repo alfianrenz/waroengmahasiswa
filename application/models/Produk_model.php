@@ -205,4 +205,15 @@ class Produk_model extends CI_Model
         $this->db->where('kategori.id_kategori', $kategori);
         return $this->db->get()->result_array();
     }
+
+    //produk terlaris
+    public function getdata_produkTerlaris()
+    {
+        $this->db->select('*');
+        $this->db->from('produk');
+        $this->db->join('kategori', 'produk.id_kategori = kategori.id_kategori');
+        $this->db->where(['status_produk' => 1]);
+        $this->db->order_by('produk.tanggal_input', 'ASC');
+        return $this->db->get()->result_array();
+    }
 }

@@ -94,9 +94,9 @@
                       <li class="nav-item">
                           <a class="nav-link active" id="bstab3-area1-tab" data-toggle="tab" href="#bstab3-area1" role="tab" aria-controls="bstab3-area1" aria-selected="true">PRODUK TERBARU</a>
                       </li>
-                      <!-- <li class="nav-item">
+                      <li class="nav-item">
                           <a class="nav-link" id="bstab3-area2-tab" data-toggle="tab" href="#bstab3-area2" role="tab" aria-controls="bstab3-area2" aria-selected="false">PRODUK TERLARIS</a>
-                      </li> -->
+                      </li>
                   </ul>
               </div>
 
@@ -137,337 +137,42 @@
                   </div>
 
                   <!-- Produk Terlaris -->
-                  <!-- <div class="tab-pane fade" id="bstab3-area2" role="tabpanel" aria-labelledby="bstab3-area2-tab">
+                  <div class="tab-pane fade" id="bstab3-area2" role="tabpanel" aria-labelledby="bstab3-area2-tab">
                       <div class="product-slider new-best-featured-slider slider-navigation-2">
-                          <div class="product-slider-col">
 
-                              <article class="hoproduct">
-                                  <div class="hoproduct-image">
-                                      <a class="hoproduct-thumb" href="product-details.html">
-                                          <img class="hoproduct-frontimage" src="<?= base_url(); ?>assets/frontend/images/product/product-image-4.jpg" alt="product image">
-                                      </a>
-                                      <ul class="hoproduct-actionbox">
-                                          <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
-                                          <li><a href="#" class="quickview-trigger"><i class="lnr lnr-eye"></i></a></li>
-                                          <li><a href="#"><i class="lnr lnr-heart"></i></a></li>
-                                      </ul>
-
-                                  </div>
-                                  <div class="hoproduct-content">
-                                      <h5 class="hoproduct-title"><a href="product-details.html">SonicFuel
-                                              Wireless Over-Ear Headphones</a></h5>
-
-                                      <div class="hoproduct-pricebox">
-                                          <div class="pricebox">
-
-                                              <span class="price">$34.11</span>
-                                          </div>
+                          <?php foreach ($produk as $p) : ?>
+                              <div class="product-slider-col">
+                                  <!-- Single Product -->
+                                  <article class="hoproduct">
+                                      <div class="hoproduct-image">
+                                          <a class="hoproduct-thumb" href="<?= site_url('produk/detail_produk_frontend/' . $p['id_produk']); ?>">
+                                              <img id="foto-produk-<?= $p['id_produk'] ?>" class="hoproduct-frontimage" src="<?= base_url('upload/foto_produk/' . $p['foto_produk']); ?>" alt="product image">
+                                          </a>
+                                          <ul class="hoproduct-actionbox">
+                                              <li><a href="<?= site_url('keranjang/tambah_keranjang/' . $p['id_produk']); ?>"><i class="lnr lnr-cart"></i></a></li>
+                                              <li><a href="#" onclick="showDetailProduk(<?= $p['id_produk'] ?>)"><i class="lnr lnr-eye"></i></a></li>
+                                          </ul>
                                       </div>
-                                  </div>
-                              </article>
-
-                          </div>
-
-                          <div class="product-slider-col">
-
-                              <article class="hoproduct">
-                                  <div class="hoproduct-image">
-                                      <a class="hoproduct-thumb" href="product-details.html">
-                                          <img class="hoproduct-frontimage" src="<?= base_url(); ?>assets/frontend/images/product/product-image-5.jpg" alt="product image">
-                                      </a>
-                                      <ul class="hoproduct-actionbox">
-                                          <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
-                                          <li><a href="#" class="quickview-trigger"><i class="lnr lnr-eye"></i></a></li>
-                                          <li><a href="#"><i class="lnr lnr-heart"></i></a></li>
-                                      </ul>
-
-                                  </div>
-                                  <div class="hoproduct-content">
-                                      <h5 class="hoproduct-title"><a href="product-details.html">SonicFuel
-                                              Wireless Over-Ear Headphones</a></h5>
-
-                                      <div class="hoproduct-pricebox">
-                                          <div class="pricebox">
-
-                                              <span class="price">$34.11</span>
+                                      <div class="hoproduct-content">
+                                          <h5 class="hoproduct-title"><a id="nama-produk-<?= $p['id_produk'] ?>" href="product-details.html"><?= $p['nama_produk']; ?></a></h5>
+                                          <div class="hoproduct-pricebox">
+                                              <div class="pricebox">
+                                                  <span class="price" id="price-produk-<?= $p['id_produk'] ?>">Rp<?= number_format($p['harga_produk'], 0, ',', '.'); ?></span>
+                                              </div>
                                           </div>
+                                          <p class="hoproduct-content-description" style="display: none;">
+                                              Kategori : <span id="nama-kategori-produk-<?= $p['id_produk'] ?>"><?= $p['nama_kategori']; ?></span><br>
+                                              Stok Produk : <span id="stok_produk-<?= $p['id_produk'] ?>"><?= $p['stok_produk']; ?></span> buah
+                                              <textarea style="display: none;" id="deskripsi-produk-<?= $p['id_produk'] ?>" class="is-invisible"><?= $p['deskripsi_produk'] ?></textarea>
+                                          </p>
                                       </div>
-                                  </div>
-                              </article>
+                                  </article>
+                              </div>
+                          <?php endforeach; ?>
 
-                          </div>
-
-                          <div class="product-slider-col">
-
-                              <article class="hoproduct">
-                                  <div class="hoproduct-image">
-                                      <a class="hoproduct-thumb" href="product-details.html">
-                                          <img class="hoproduct-frontimage" src="<?= base_url(); ?>assets/frontend/images/product/product-image-15.jpg" alt="product image">
-                                      </a>
-                                      <ul class="hoproduct-actionbox">
-                                          <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
-                                          <li><a href="#" class="quickview-trigger"><i class="lnr lnr-eye"></i></a></li>
-                                          <li><a href="#"><i class="lnr lnr-heart"></i></a></li>
-                                      </ul>
-
-                                  </div>
-                                  <div class="hoproduct-content">
-                                      <h5 class="hoproduct-title"><a href="product-details.html">SonicFuel
-                                              Wireless Over-Ear Headphones</a></h5>
-
-                                      <div class="hoproduct-pricebox">
-                                          <div class="pricebox">
-
-                                              <span class="price">$34.11</span>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </article>
-
-                          </div>
-
-                          <div class="product-slider-col">
-
-                              <article class="hoproduct">
-                                  <div class="hoproduct-image">
-                                      <a class="hoproduct-thumb" href="product-details.html">
-                                          <img class="hoproduct-frontimage" src="<?= base_url(); ?>assets/frontend/images/product/product-image-12.jpg" alt="product image">
-                                          <img class="hoproduct-backimage" src="<?= base_url(); ?>assets/frontend/images/product/product-image-13.jpg" alt="product image">
-                                      </a>
-                                      <ul class="hoproduct-actionbox">
-                                          <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
-                                          <li><a href="#" class="quickview-trigger"><i class="lnr lnr-eye"></i></a></li>
-                                          <li><a href="#"><i class="lnr lnr-heart"></i></a></li>
-                                      </ul>
-
-                                  </div>
-                                  <div class="hoproduct-content">
-                                      <h5 class="hoproduct-title"><a href="product-details.html">SonicFuel
-                                              Wireless Over-Ear Headphones</a></h5>
-
-                                      <div class="hoproduct-pricebox">
-                                          <div class="pricebox">
-
-                                              <span class="price">$34.11</span>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </article>
-
-                          </div>
-
-                          <div class="product-slider-col">
-
-                              <article class="hoproduct">
-                                  <div class="hoproduct-image">
-                                      <a class="hoproduct-thumb" href="product-details.html">
-                                          <img class="hoproduct-frontimage" src="<?= base_url(); ?>assets/frontend/images/product/product-image-1.jpg" alt="product image">
-                                          <img class="hoproduct-backimage" src="<?= base_url(); ?>assets/frontend/images/product/product-image-22.jpg" alt="product image">
-                                      </a>
-                                      <ul class="hoproduct-actionbox">
-                                          <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
-                                          <li><a href="#" class="quickview-trigger"><i class="lnr lnr-eye"></i></a></li>
-                                          <li><a href="#"><i class="lnr lnr-heart"></i></a></li>
-                                      </ul>
-
-                                  </div>
-                                  <div class="hoproduct-content">
-                                      <h5 class="hoproduct-title"><a href="product-details.html">SonicFuel
-                                              Wireless Over-Ear Headphones</a></h5>
-
-                                      <div class="hoproduct-pricebox">
-                                          <div class="pricebox">
-
-                                              <span class="price">$34.11</span>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </article>
-
-                          </div>
-
-                          <div class="product-slider-col">
-
-                              <article class="hoproduct">
-                                  <div class="hoproduct-image">
-                                      <a class="hoproduct-thumb" href="product-details.html">
-                                          <img class="hoproduct-frontimage" src="<?= base_url(); ?>assets/frontend/images/product/product-image-7.jpg" alt="product image">
-                                          <img class="hoproduct-backimage" src="<?= base_url(); ?>assets/frontend/images/product/product-image-8.jpg" alt="product image">
-                                      </a>
-                                      <ul class="hoproduct-actionbox">
-                                          <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
-                                          <li><a href="#" class="quickview-trigger"><i class="lnr lnr-eye"></i></a></li>
-                                          <li><a href="#"><i class="lnr lnr-heart"></i></a></li>
-                                      </ul>
-
-                                  </div>
-                                  <div class="hoproduct-content">
-                                      <h5 class="hoproduct-title"><a href="product-details.html">SonicFuel
-                                              Wireless Over-Ear Headphones</a></h5>
-
-                                      <div class="hoproduct-pricebox">
-                                          <div class="pricebox">
-
-                                              <span class="price">$34.11</span>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </article>
-
-                          </div>
-
-                          <div class="product-slider-col">
-
-                              <article class="hoproduct">
-                                  <div class="hoproduct-image">
-                                      <a class="hoproduct-thumb" href="product-details.html">
-                                          <img class="hoproduct-frontimage" src="<?= base_url(); ?>assets/frontend/images/product/product-image-18.jpg" alt="product image">
-                                          <img class="hoproduct-backimage" src="<?= base_url(); ?>assets/frontend/images/product/product-image-19.jpg" alt="product image">
-                                      </a>
-                                      <ul class="hoproduct-actionbox">
-                                          <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
-                                          <li><a href="#" class="quickview-trigger"><i class="lnr lnr-eye"></i></a></li>
-                                          <li><a href="#"><i class="lnr lnr-heart"></i></a></li>
-                                      </ul>
-
-                                  </div>
-                                  <div class="hoproduct-content">
-                                      <h5 class="hoproduct-title"><a href="product-details.html">SonicFuel
-                                              Wireless Over-Ear Headphones</a></h5>
-
-                                      <div class="hoproduct-pricebox">
-                                          <div class="pricebox">
-
-                                              <span class="price">$34.11</span>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </article>
-
-                          </div>
-
-                          <div class="product-slider-col">
-
-                              <article class="hoproduct">
-                                  <div class="hoproduct-image">
-                                      <a class="hoproduct-thumb" href="product-details.html">
-                                          <img class="hoproduct-frontimage" src="<?= base_url(); ?>assets/frontend/images/product/product-image-15.jpg" alt="product image">
-                                      </a>
-                                      <ul class="hoproduct-actionbox">
-                                          <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
-                                          <li><a href="#" class="quickview-trigger"><i class="lnr lnr-eye"></i></a></li>
-                                          <li><a href="#"><i class="lnr lnr-heart"></i></a></li>
-                                      </ul>
-
-                                  </div>
-                                  <div class="hoproduct-content">
-                                      <h5 class="hoproduct-title"><a href="product-details.html">SonicFuel
-                                              Wireless Over-Ear Headphones</a></h5>
-
-                                      <div class="hoproduct-pricebox">
-                                          <div class="pricebox">
-
-                                              <span class="price">$34.11</span>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </article>
-
-                          </div>
-
-                          <div class="product-slider-col">
-
-                              <article class="hoproduct">
-                                  <div class="hoproduct-image">
-                                      <a class="hoproduct-thumb" href="product-details.html">
-                                          <img class="hoproduct-frontimage" src="<?= base_url(); ?>assets/frontend/images/product/product-image-12.jpg" alt="product image">
-                                          <img class="hoproduct-backimage" src="<?= base_url(); ?>assets/frontend/images/product/product-image-13.jpg" alt="product image">
-                                      </a>
-                                      <ul class="hoproduct-actionbox">
-                                          <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
-                                          <li><a href="#" class="quickview-trigger"><i class="lnr lnr-eye"></i></a></li>
-                                          <li><a href="#"><i class="lnr lnr-heart"></i></a></li>
-                                      </ul>
-
-                                  </div>
-                                  <div class="hoproduct-content">
-                                      <h5 class="hoproduct-title"><a href="product-details.html">SonicFuel
-                                              Wireless Over-Ear Headphones</a></h5>
-
-                                      <div class="hoproduct-pricebox">
-                                          <div class="pricebox">
-
-                                              <span class="price">$34.11</span>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </article>
-
-                          </div>
-
-                          <div class="product-slider-col">
-
-                              <article class="hoproduct">
-                                  <div class="hoproduct-image">
-                                      <a class="hoproduct-thumb" href="product-details.html">
-                                          <img class="hoproduct-frontimage" src="<?= base_url(); ?>assets/frontend/images/product/product-image-10.jpg" alt="product image">
-                                          <img class="hoproduct-backimage" src="<?= base_url(); ?>assets/frontend/images/product/product-image-11.jpg" alt="product image">
-                                      </a>
-                                      <ul class="hoproduct-actionbox">
-                                          <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
-                                          <li><a href="#" class="quickview-trigger"><i class="lnr lnr-eye"></i></a></li>
-                                          <li><a href="#"><i class="lnr lnr-heart"></i></a></li>
-                                      </ul>
-
-                                  </div>
-                                  <div class="hoproduct-content">
-                                      <h5 class="hoproduct-title"><a href="product-details.html">SonicFuel
-                                              Wireless Over-Ear Headphones</a></h5>
-
-                                      <div class="hoproduct-pricebox">
-                                          <div class="pricebox">
-
-                                              <span class="price">$34.11</span>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </article>
-
-                          </div>
-
-                          <div class="product-slider-col">
-
-                              <article class="hoproduct">
-                                  <div class="hoproduct-image">
-                                      <a class="hoproduct-thumb" href="product-details.html">
-                                          <img class="hoproduct-frontimage" src="<?= base_url(); ?>assets/frontend/images/product/product-image-7.jpg" alt="product image">
-                                          <img class="hoproduct-backimage" src="<?= base_url(); ?>assets/frontend/images/product/product-image-8.jpg" alt="product image">
-                                      </a>
-                                      <ul class="hoproduct-actionbox">
-                                          <li><a href="#"><i class="lnr lnr-cart"></i></a></li>
-                                          <li><a href="#" class="quickview-trigger"><i class="lnr lnr-eye"></i></a></li>
-                                          <li><a href="#"><i class="lnr lnr-heart"></i></a></li>
-                                      </ul>
-
-                                  </div>
-                                  <div class="hoproduct-content">
-                                      <h5 class="hoproduct-title"><a href="product-details.html">SonicFuel
-                                              Wireless Over-Ear Headphones</a></h5>
-
-                                      <div class="hoproduct-pricebox">
-                                          <div class="pricebox">
-
-                                              <span class="price">$34.11</span>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </article>
-
-                          </div>
                       </div>
-                  </div> -->
+                  </div>
               </div>
           </div>
       </div>
-
   </main>

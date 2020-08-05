@@ -55,7 +55,7 @@
 
                                             <td class="align-middle text-center">Rp<?= number_format($p['total_penghasilan'], 0, ',', '.'); ?></td>
                                             <td class="align-middle text-center">
-                                                <a href="<?= site_url('akun/detail_akun_mahasiswa'); ?>/<?= $p['id_mahasiswa']; ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
+                                                <a href="<?= site_url('penjualan/detail_penghasilan'); ?>/<?= $p['id_mahasiswa']; ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

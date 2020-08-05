@@ -62,4 +62,19 @@ class Laporan_model extends CI_Model
         $this->db->group_by('produk.id_produk');
         return $this->db->get()->result_array();
     }
+
+    public function get_detailPenjualan($id)
+    {
+        $this->db->select('*');
+        $this->db->from('transaksi');
+        $this->db->join('detail_keranjang', 'transaksi.id_keranjang = detail_keranjang.id_keranjang');
+        $this->db->join('produk', 'detail_keranjang.id_produk = produk.id_produk');
+        $this->db->join('kategori', 'produk.id_kategori = kategori.id_kategori');
+        $this->db->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa');
+        $this->db->where('produk.id_produk', $id);
+        $this->db->where('produk.id_mahasiswa', $this->session->userdata('id'));
+        $this->db->where(['transaksi.status_pesanan' => "Selesai"]);
+        $this->db->order_by('transaksi.waktu_transaksi', 'DESC');
+        return $this->db->get()->result_array();
+    }
 }

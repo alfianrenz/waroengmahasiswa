@@ -15,6 +15,7 @@ class Beranda extends My_Controller
         $data['title'] = 'Selamat Datang di Waroeng Mahasiswa';
         $data['slider'] = $this->website_model->getData_slider();
         $data['produk'] = $this->produk_model->getdata_produkFrontend('terbaru');
+        $data['produk_terlaris'] = $this->produk_model->getdata_produkTerlaris();
         $this->paggingFrontend('frontend/beranda', $data);
     }
 }

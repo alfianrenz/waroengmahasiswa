@@ -40,7 +40,13 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h6 class="mb-0">Rincian Penjualan</h6>
+                        <h6>Laporan Penjualan</h6>
+                        <div class="card-header-right">
+                            <a href="<?= site_url('produk/tambah_produk'); ?>" class="btn waves-effect waves-light btn-primary">
+                                <i class="feather icon-printer"></i>
+                                &nbsp;Print Laporan
+                            </a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">
@@ -51,7 +57,7 @@
                                         <th width="5%">Foto</th>
                                         <th>Nama Produk</th>
                                         <th class="text-center">Kategori</th>
-                                        <th class="text-center">Harga</th>
+                                        <th class="text-center">Harga Produk</th>
                                         <th class="text-center">Terjual</th>
                                         <th class="text-center">Action</th>
                                     </tr>
@@ -79,7 +85,7 @@
                                             <td class="text-center align-middle"><?= $p['terjual']; ?></td>
 
                                             <td class="text-center align-middle">
-                                                <a href="<?= site_url('penjualan/detail_info_penjualan'); ?>/<?= $p['id_produk']; ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
+                                                <a href="<?= site_url('penjualan/detail_penjualan'); ?>/<?= $p['id_produk']; ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail Penjualan</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

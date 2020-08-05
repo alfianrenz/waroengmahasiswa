@@ -23,6 +23,12 @@ class Penjualan extends My_Controller
         $this->paggingAdmin('admin/penghasilan/penghasilan_penjual', $data);
     }
 
+    public function detail_penghasilan()
+    {
+        $data['title'] = 'Warma CIC | Penghasilan Penjual';
+        $this->paggingAdmin('admin/penghasilan/detail_penghasilan');
+    }
+
 
     //=======================================
     //               PENJUAL
@@ -45,5 +51,12 @@ class Penjualan extends My_Controller
         $data['penghasilan'] = $this->laporan_model->hitung_penghasilan($id);
 
         $this->paggingPenjual('penjual/penjualan/info_penjualan', $data);
+    }
+
+    public function detail_penjualan($id)
+    {
+        $data['title'] = 'Warma CIC | Penjualan';
+        $data['penjualan'] = $this->laporan_model->get_detailPenjualan($id);
+        $this->paggingPenjual('penjual/penjualan/detail_penjualan', $data);
     }
 }
