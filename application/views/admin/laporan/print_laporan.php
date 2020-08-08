@@ -27,7 +27,11 @@
             <th>Customer</th>
             <th>Seller</th>
             <th>Tanggal dan Waktu</th>
-            <th>Total</th>
+            <th>Nama Produk</th>
+            <th>Harga Produk</th>
+            <th>Kuantitas</th>
+            <th>Subtotal</th>
+            <th>Total Bayar</th>
             <th>Status</th>
         </tr>
         <?php foreach ($transaksi as $t) : ?>
@@ -53,6 +57,10 @@
                 <td><?= $t['nama_pelanggan'] ?></td>
                 <td><?= $t['nama_mahasiswa'] ?></td>
                 <td><?= $t['waktu_transaksi'] ?></td>
+                <td><?= $t['nama_produk']; ?></td>
+                <td><?= $t['harga_produk']; ?></td>
+                <td><?= $t['kuantitas']; ?></td>
+                <td></td>
                 <td>Rp<?= number_format($t['total_bayar'], 0, ',', '.'); ?></td>
                 <td>
                     <?php if ($t['status_bayar'] == 'pending') { ?>

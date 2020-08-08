@@ -33,7 +33,7 @@
                                     <div class="form-group row">
                                         <label for="inputEmail3" class="col-sm-4 col-form-label">Tanggal Awal</label>
                                         <div class="col-sm-8">
-                                            <input type="date" class="form-control" id="tgl_awal" name="tgl_awal">
+                                            <input type="date" class="form-control" id="tgl_awal" name="tgl_awal" value="">
                                         </div>
                                     </div>
                                 </div>
@@ -81,6 +81,7 @@
                                         <th class="text-center">Tanggal & Waktu</th>
                                         <th class="text-center">Total</th>
                                         <th class="text-center">Status</th>
+                                        <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -119,6 +120,9 @@
                                                     <?php } else { ?>
                                                         <span class="badge badge-danger">Cancel</span>
                                                     <?php } ?>
+                                                </td>
+                                                <td class="align-middle text-center">
+                                                    <a href="<?= site_url('laporan/detail_laporan_transaksi'); ?>/<?= $t['order_id']; ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>

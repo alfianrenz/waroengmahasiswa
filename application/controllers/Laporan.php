@@ -49,6 +49,15 @@ class Laporan extends My_Controller
         $this->paggingAdmin('admin/laporan/laporan_transaksi', $data);
     }
 
+    //detail laporan transaksi
+    public function detail_laporan_transaksi($id)
+    {
+        $data['title'] = 'Warma CIC | Laporan Transaksi';
+        $data['transaksi'] = $this->checkout_model->detail_transaksiAdmin($id);
+        $data['item'] = $this->checkout_model->detail_itemAdmin($id);
+        $this->paggingAdmin('admin/laporan/detail_laporan', $data);
+    }
+
     //print laporan transaksi
     public function print_laporan_transaksi()
     {

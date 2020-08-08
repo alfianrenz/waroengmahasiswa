@@ -19,6 +19,42 @@
         <!-- Main Content -->
         <div class="row">
             <div class="col-sm-12">
+
+                <!-- Filter -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Filter Data</h5>
+                    </div>
+
+                    <div class="card-body">
+                        <form action="<?= site_url('penjualan/penghasilan_penjual'); ?>" method="GET">
+                            <div class="row mx-auto">
+                                <div class="col-sm-5">
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-4 col-form-label">Tanggal Awal</label>
+                                        <div class="col-sm-8">
+                                            <input type="date" class="form-control" id="tgl_awal" name="tgl_awal">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-4 col-form-label">Tanggal Akhir</label>
+                                        <div class="col-sm-8">
+                                            <input type="date" class="form-control" id="tgl_akhir" name="tgl_akhir">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1">
+                                    <div class="form-group row">
+                                        <button type="submit" class="btn btn-primary">Filter</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
                 <div class="card">
                     <div class="card-header">
                         <h5>Mahasiswa</h5>
@@ -39,26 +75,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                    $no = 1;
-                                    $total_penghasilan = 0;
-                                    foreach ($penghasilan as $p) : ?>
-                                        <tr>
-                                            <td class="text-center align-middle"><?= $no++; ?></td>
-                                            <td class="align-middle text-center">
-                                                <img src="<?= base_url('upload/foto_user/' . $p['foto_mahasiswa']); ?>" alt="contact-img" title="contact-img" class="img-radius mr-3" height="48" width="48" style="object-fit: cover">
-                                            </td>
-                                            <td class="align-middle"><?= $p['nim']; ?></td>
-                                            <td class="align-middle"><?= $p['nama_mahasiswa']; ?></td>
-                                            <td class="align-middle"><?= $p['nama_prodi']; ?></td>
-                                            <td class="align-middle"><?= $p['telepon_mahasiswa']; ?></td>
+                                    <?php if (count($penghasilan) > 0) : ?>
+                                        <?php
+                                        $no = 1;
+                                        $total_penghasilan = 0;
+                                        foreach ($penghasilan as $p) : ?>
+                                            <tr>
+                                                <td class="text-center align-middle"><?= $no++; ?></td>
+                                                <td class="align-middle text-center">
+                                                    <img src="<?= base_url('upload/foto_user/' . $p['foto_mahasiswa']); ?>" alt="contact-img" title="contact-img" class="img-radius mr-3" height="48" width="48" style="object-fit: cover">
+                                                </td>
+                                                <td class="align-middle"><?= $p['nim']; ?></td>
+                                                <td class="align-middle"><?= $p['nama_mahasiswa']; ?></td>
+                                                <td class="align-middle"><?= $p['nama_prodi']; ?></td>
+                                                <td class="align-middle"><?= $p['telepon_mahasiswa']; ?></td>
 
-                                            <td class="align-middle text-center">Rp<?= number_format($p['total_penghasilan'], 0, ',', '.'); ?></td>
-                                            <td class="align-middle text-center">
-                                                <a href="<?= site_url('penjualan/detail_penghasilan'); ?>/<?= $p['id_mahasiswa']; ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
+                                                <td class="align-middle text-center">Rp<?= number_format($p['total_penghasilan'], 0, ',', '.'); ?></td>
+                                                <td class="align-middle text-center">
+                                                    <a href="<?= site_url('penjualan/detail_penghasilan'); ?>/<?= $p['id_mahasiswa']; ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
 
                                 </tbody>
                             </table>
