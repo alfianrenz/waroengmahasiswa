@@ -129,7 +129,7 @@ class Checkout_model extends CI_Model
             'telepon_pelanggan' => $this->session->userdata('telepon'),
             'kota_pelanggan'    => $lokasi['nama_lokasi'],
             'id_keranjang'      => $produk[0]['id_keranjang'],
-            'jumlah_ongkir'     => $ongkir,
+            'ongkir'     => $ongkir,
             'total_bayar'       => $total_bayar,
             'status_bayar'      => 'pending',
         ];
