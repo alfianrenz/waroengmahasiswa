@@ -143,10 +143,26 @@ class Checkout extends My_Controller
         $this->db->where('id_keranjang', $data['transaksi']->id_keranjang);
         $this->db->update('keranjang', ['status_keranjang' => 1]);
 
-        $detail_keranjang = $this->db->get_where('detail_keranjang', ['id_keranjang' => $data['transaksi']->id_keranjang]);
+        $detail_keranjang = $this->db->get_where('detail_keranjang', ['id_keranjang' => $data['transaksi']->id_keranjang])->result_array();
 
-        var_dump($detail_keranjang['id_keranjang']);
+        $list_product = [];
 
+        foreach ($detail_keranjang as $detail) {
+            $list_product[] = $detail['id_produk'];
+        }
+
+        $produk = $this->db->select('*')
+            ->from('produk')
+            ->where_in('id_produk', $list_product)
+            ->get()->result_array();
+
+        for ($i = 0; $i < count($produk); $i++) {
+            $total_stok_akhir = $produk[$i]['stok_produk'] - $detail_keranjang[$i]['kuantitas'];
+            $total_terjual_akhir = $produk[$i]['terjual'] + $detail_keranjang[$i]['kuantitas'];
+
+            $this->db->where('id_produk', $produk[$i]['id_produk']);
+            $this->db->update('produk', ['stok_produk' => $total_stok_akhir, 'terjual' => $total_terjual_akhir]);
+        }
 
         $this->paggingFrontend('frontend/redirect', $data);
     }
