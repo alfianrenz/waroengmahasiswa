@@ -119,6 +119,7 @@
                                 <span id="total_penjual" style="display: none;"><?= count($list_penjual); ?></span>
                                 <input type="hidden" name="total_belanja">
                                 <input type="hidden" name="jumlah_ongkir">
+                                <input type="hidden" name="ongkir">
                             </div>
 
                             <table class="table">

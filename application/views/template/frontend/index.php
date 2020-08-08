@@ -206,6 +206,7 @@
             $("input[name=jumlah_ongkir]").val(ongkir * total_penjual);
             $('[id="ongkir"]').text(formatUangs(ongkir));
             $("#total_bayar").text(formatUangs(total_bayar));
+            $("input[name=ongkir]").val(ongkir);
             $("input[name=total_belanja]").val(total_bayar);
         });
     </script>
