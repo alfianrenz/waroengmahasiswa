@@ -53,11 +53,6 @@
                             <input type="text" class="form-control form-control-sm" id="alamat" name="alamat" value="<?= set_value('alamat'); ?>">
                             <small id="validasi_alamat" class="text-danger"></small>
                         </div>
-                        <div class="form-group">
-                            <label class="floating-label">Ongkos Kirim</label>
-                            <input type="number" class="form-control form-control-sm" name="jumlah_ongkir" id="jumlah_ongkir" />
-                            <small id="validasi_ongkir" class="text-danger"></small>
-                        </div>
                     </div>
 
                     <?php
@@ -69,47 +64,72 @@
                         <h3 class="small-title">DAFTAR BELANJA</h3>
                         <div class="order-infobox">
                             <div class="checkout-table table-responsive">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-left">PRODUK</th>
-                                            <th class="text-right">TOTAL</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach ($detail_keranjang as $detail) : ?>
+                                <?php for ($i = 0; $i < count($list_penjual); $i++) { ?>
+
+                                    <h6>NAMA PENJUAL : <?php echo $list_penjual[$i]['nama_mahasiswa']; ?></h6>
+
+                                    <table class="table">
+                                        <thead>
                                             <tr>
-                                                <td class="text-left"><?= $detail['nama_produk']; ?> <span>× <?= $detail['kuantitas']; ?></span></td>
-
-                                                <!-- Hitung Total Bayar -->
-                                                <?php
-                                                $harga_produk = $detail['harga_produk'];
-                                                $kuantitas = $detail['kuantitas'];
-                                                $subtotal = $harga_produk * $kuantitas;
-                                                $total_belanja = $total_belanja + $subtotal;
-                                                ?>
-
-                                                <td class="text-right">Rp<?= number_format($subtotal, 0, ',', '.'); ?></td>
+                                                <th class="text-left">PRODUK</th>
+                                                <th class="text-right">TOTAL</th>
                                             </tr>
-                                        <?php endforeach; ?>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th class="text-left">ONGKOS KIRIM</th>
-                                            <td class="text-right">
-                                                Rp<span id="ongkir"></span>
-                                            </td>
-                                        </tr>
-                                        <tr class=" total-price">
-                                            <th class="text-left">TOTAL BAYAR</th>
-                                            <!-- <td class="text-right">Rp<?= number_format($total_belanja, 0, ',', '.'); ?></td> -->
-                                            <td class="text-right">Rp<span id="total_bayar"></span> </td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
+                                        </thead>
+
+                                        <tbody>
+
+                                            <?php for ($k = 0; $k < count($detail_keranjang); $k++) {
+
+                                                if ($detail_keranjang[$k]['id_mahasiswa'] == $list_penjual[$i]['id_mahasiswa']) {
+
+                                            ?>
+                                                    <tr>
+                                                        <td class="text-left"><?= $detail_keranjang[$k]['nama_produk']; ?> <span>× <?= $detail_keranjang[$k]['kuantitas']; ?></span></td>
+
+                                                        <!-- Hitung Total Bayar -->
+                                                        <?php
+                                                        $harga_produk = $detail_keranjang[$k]['harga_produk'];
+                                                        $kuantitas = $detail_keranjang[$k]['kuantitas'];
+                                                        $subtotal = $harga_produk * $kuantitas;
+                                                        $total_belanja = $total_belanja + $subtotal;
+                                                        ?>
+
+                                                        <td class="text-right">Rp<?= number_format($subtotal, 0, ',', '.'); ?></td>
+                                                    </tr>
+                                                <?php } ?>
+
+                                            <?php  }
+                                            ?>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th class="text-left">ONGKOS KIRIM</th>
+                                                <td class="text-right">
+                                                    Rp<span id="ongkir"></span>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+
+                                    </table>
+
+                                <?php } ?>
+
+
                                 <span id="total_belanja" style="display: none;"><?= $total_belanja; ?></span>
+                                <span id="total_penjual" style="display: none;"><?= count($list_penjual); ?></span>
                                 <input type="hidden" name="total_belanja">
+                                <input type="hidden" name="jumlah_ongkir">
                             </div>
+
+                            <table class="table">
+                                <tfoot>
+                                    <tr class=" total-price">
+                                        <th class="text-left">TOTAL BAYAR</th>
+                                        <td class="text-right">Rp<span id="total_bayar"></span> </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+
                             <button class="ho-button ho-button-fullwidth" type="submit">
                                 <span>Bayar</span>
                             </button>

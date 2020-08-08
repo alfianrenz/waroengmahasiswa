@@ -55,9 +55,6 @@ class Checkout_model extends CI_Model
             $total_bayar += $subtotal;
         }
 
-
-        // $total_belanja = $this->input->post('ongkir');
-
         //required
         $transaction_details = [
             'order_id' => $order_id,

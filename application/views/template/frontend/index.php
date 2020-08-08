@@ -139,11 +139,6 @@
                         } else {
                             $('#validasi_alamat').html('');
                         }
-                        if (data.validasi_ongkir != '') {
-                            $('#validasi_ongkir').html(data.validasi_ongkir);
-                        } else {
-                            $('#validasi_ongkir').html('');
-                        }
                     } else {
                         snap.pay(data.token);
                     }
@@ -205,10 +200,11 @@
         $('select[name="lokasi"]').on('change', function() {
             var ongkir = $("select[name=lokasi] > option:selected").attr('data-ongkir');
             var total_belanja = $("#total_belanja").text();
+            var total_penjual = $("#total_penjual").text();
 
-            var total_bayar = parseInt(total_belanja) + parseInt(ongkir);
-            $("input[name=jumlah_ongkir]").val(ongkir);
-            $("#ongkir").text(formatUangs(ongkir));
+            var total_bayar = parseInt(total_belanja) + parseInt(ongkir * total_penjual);
+            $("input[name=jumlah_ongkir]").val(ongkir * total_penjual);
+            $('[id="ongkir"]').text(formatUangs(ongkir));
             $("#total_bayar").text(formatUangs(total_bayar));
             $("input[name=total_belanja]").val(total_bayar);
         });

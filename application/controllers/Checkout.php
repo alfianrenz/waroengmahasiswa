@@ -26,7 +26,33 @@ class Checkout extends My_Controller
         }
 
         $data['title'] = 'Warma CIC | Checkout';
-        $data['detail_keranjang'] = $this->checkout_model->getdetail_keranjang();
+
+        $list_penjual = $this->db->select('DISTINCT(akun_mahasiswa.id_mahasiswa), mahasiswa.nama_mahasiswa')
+            ->from('keranjang')
+            ->join('detail_keranjang', 'keranjang.id_keranjang = detail_keranjang.id_keranjang')
+            ->join('produk', 'detail_keranjang.id_produk = produk.id_produk')
+            ->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa')
+            ->join('mahasiswa', 'akun_mahasiswa.nim = mahasiswa.nim')
+            ->where('keranjang.id_pembeli', $this->session->userdata('id'))
+            ->where('keranjang.tipe_pembeli', $this->session->userdata('tipe'))
+            ->where('keranjang.status_keranjang', 0)
+            ->get()->result_array();
+
+        //Untuk ambil data detail keranjang
+        $detail_keranjang = $this->db->select('*')
+            ->from('keranjang')
+            ->join('detail_keranjang', 'keranjang.id_keranjang = detail_keranjang.id_keranjang')
+            ->join('produk', 'detail_keranjang.id_produk = produk.id_produk')
+            ->where('keranjang.id_pembeli', $this->session->userdata('id'))
+            ->where('keranjang.tipe_pembeli', $this->session->userdata('tipe'))
+            ->where('keranjang.status_keranjang', 0)
+            ->get()->result_array();
+
+        $list_mahasiswa = [];
+
+        foreach ($detail_keranjang as $detail) {
+            $list_mahasiswa[] = $detail['id_mahasiswa'];
+        }
 
         //Lokasi
         $lokasi = $this->db->select('*')
@@ -35,6 +61,7 @@ class Checkout extends My_Controller
             ->get()->result_array();
 
         $data['lokasi'] = $lokasi;
+        $data['list_penjual'] = $list_penjual;
         $this->paggingFrontend('frontend/checkout', $data);
     }
 
@@ -47,9 +74,6 @@ class Checkout extends My_Controller
         $this->form_validation->set_rules('alamat', 'alamat', 'required|trim', [
             'required' => 'Form ini tidak boleh kosong'
         ]);
-        $this->form_validation->set_rules('jumlah_ongkir', 'jumlah_ongkir', 'required|trim', [
-            'required' => 'Form ini tidak boleh kosong'
-        ]);
 
         if ($this->form_validation->run() == FALSE) {
             header('Content-Type: application/json');
@@ -57,7 +81,6 @@ class Checkout extends My_Controller
                 'error' => true,
                 'validasi_alamat' => form_error('alamat'),
                 'validasi_lokasi' => form_error('lokasi'),
-                'validasi_ongkir' => form_error('jumlah_ongkir'),
             ));
         } else {
             header('Content-Type: application/json');
@@ -91,9 +114,6 @@ class Checkout extends My_Controller
             $bank = $data->va_numbers[0]->bank;
             $va_number = $data->va_numbers[0]->va_number;
         }
-
-        // var_dump(count($data->va_numbers));
-        // die();
 
         //Update status pesanan
         if ($data->transaction_status == 'pending') {
