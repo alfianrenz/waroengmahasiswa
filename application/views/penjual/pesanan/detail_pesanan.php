@@ -191,7 +191,7 @@
                                     <?php endforeach; ?>
 
                                     <?php
-                                    $total_bayar = $total_bayar + $i['jumlah_ongkir'];
+                                    $total_bayar = $total_bayar + $i['ongkir'];
                                     ?>
 
                                     <tr>
