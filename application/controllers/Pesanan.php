@@ -57,6 +57,30 @@ class Pesanan extends My_Controller
 
     public function konfirmasi_barang($id)
     {
+        $order_id = $id;
+        $data['transaksi'] = $this->db->get_where('transaksi', ['order_id' => $order_id])->row();
+
+        $detail_keranjang = $this->db->get_where('detail_keranjang', ['id_keranjang' => $data['transaksi']->id_keranjang])->result_array();
+
+        $list_product = [];
+
+        foreach ($detail_keranjang as $detail) {
+            $list_product[] = $detail['id_produk'];
+        }
+
+        $produk = $this->db->select('*')
+            ->from('produk')
+            ->where_in('id_produk', $list_product)
+            ->get()->result_array();
+
+        for ($i = 0; $i < count($produk); $i++) {
+            $total_stok_akhir = $produk[$i]['stok_produk'] - $detail_keranjang[$i]['kuantitas'];
+            $total_terjual_akhir = $produk[$i]['terjual'] + $detail_keranjang[$i]['kuantitas'];
+
+            $this->db->where('id_produk', $produk[$i]['id_produk']);
+            $this->db->update('produk', ['stok_produk' => $total_stok_akhir, 'terjual' => $total_terjual_akhir]);
+        }
+
         $this->checkout_model->konfirmasi_barang($id);
         $this->session->set_flashdata('message', '<div class="flash-data" data-konfirmasibarang="Barang telah diterima"></div>');
         echo '<script>window.history.back();</script>';
