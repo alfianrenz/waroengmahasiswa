@@ -84,8 +84,9 @@ class Checkout extends My_Controller
             ));
         } else {
             header('Content-Type: application/json');
-            $ongkir = $this->input->post('ongkir');
-            $transaksi = $this->checkout_model->token($ongkir);
+            $data['ongkir'] = $this->input->post('ongkir');
+            $data['jumlah_ongkir'] = $this->input->post('jumlah_ongkir');
+            $transaksi = $this->checkout_model->token($data);
             echo json_encode(array('error' => false, 'token' => $transaksi));
         }
     }

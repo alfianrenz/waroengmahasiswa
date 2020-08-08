@@ -23,7 +23,7 @@ class Checkout_model extends CI_Model
     //=======================================
 
     //get token midtrans
-    public function token($ongkir)
+    public function token($data)
     {
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = 'SB-Mid-server-kbDhOYnPE-xqkkyHUaPf4kKy';
@@ -75,7 +75,7 @@ class Checkout_model extends CI_Model
         //ongkir
         $item_details[] = [
             'id' => rand(),
-            'price' => $ongkir,
+            'price' => $data['jumlah_ongkir'],
             'quantity' => 1,
             'name' => 'Ongkos Kirim'
         ];
@@ -129,7 +129,7 @@ class Checkout_model extends CI_Model
             'telepon_pelanggan' => $this->session->userdata('telepon'),
             'kota_pelanggan'    => $lokasi['nama_lokasi'],
             'id_keranjang'      => $produk[0]['id_keranjang'],
-            'ongkir'     => $ongkir,
+            'ongkir'            => $data['ongkir'],
             'total_bayar'       => $total_bayar,
             'status_bayar'      => 'pending',
         ];
