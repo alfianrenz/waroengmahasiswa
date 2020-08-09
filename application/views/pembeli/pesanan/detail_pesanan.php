@@ -64,7 +64,7 @@
                                     </tr>
                                     <?php if ($transaksi['tipe_pembayaran'] == 'bank_transfer') { ?>
                                         <tr>
-                                            <td>VA Number</td>
+                                            <td>Virtual Account</td>
                                             <td>:&nbsp;&nbsp; <?= $transaksi['va_number']; ?></td>
                                         </tr>
                                     <?php } ?>
@@ -151,10 +151,64 @@
             </div>
 
             <!-- Detail Item -->
+
+
             <div class="col-xl-12">
+                <?php for ($i = 0; $i < count($list_penjual); $i++) { ?>
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="mb-0">Penjual : <?= $list_penjual[$i]['nama_mahasiswa']; ?></h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="dt-responsive table-responsive">
+                                <table id="simpletable" class="table table-de nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th width="5%">No</th>
+                                            <th>Nama Produk</th>
+                                            <th class="text-center">Harga Produk</th>
+                                            <th class="text-center">Kuantitas</th>
+                                            <th class="text-center">Subtotal</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $total_belanja = 0;
+                                        $no = 1;
+                                        for ($k = 0; $k < count($detail_keranjang); $k++) {
+                                            if ($detail_keranjang[$k]['id_mahasiswa'] == $list_penjual[$i]['id_mahasiswa']) { ?>
+                                                <tr>
+                                                    <td class="text-center"><?= $no++; ?></td>
+                                                    <td class="text-left"><?= $detail_keranjang[$k]['nama_produk']; ?></td>
+                                                    <td class="text-center">Rp<?= number_format($detail_keranjang[$k]['harga_produk'], 0, ',', '.'); ?></td>
+                                                    <td class="text-center"><?= $detail_keranjang[$k]['kuantitas']; ?></td>
+
+                                                    <?php
+                                                    $harga_produk = $detail_keranjang[$k]['harga_produk'];
+                                                    $kuantitas = $detail_keranjang[$k]['kuantitas'];
+                                                    $subtotal = $harga_produk * $kuantitas;
+                                                    $total_belanja = $total_belanja + $subtotal;
+                                                    ?>
+
+                                                    <td class="text-center">Rp<?= number_format($subtotal, 0, ',', '.'); ?></td>
+                                                </tr>
+                                            <?php } ?>
+                                        <?php  } ?>
+                                        <tr>
+                                            <td class="font-weight-bold" colspan="4">Ongkos Kirim</td>
+                                            <td class="text-center font-weight-bold">Rp<?= number_format($detail_keranjang[$i]['ongkir'], 0, ',', '.'); ?></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+            </div>
+            <!-- <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header">
-                        <h6 class="mb-0">Detail Item</h6>
+                        <h6 class="mb-0">Penjual : Andreas Oktafian</h6>
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">
@@ -179,7 +233,6 @@
                                             <td class="align-middle text-center">Rp<?= number_format($i['harga_produk'], 0, ',', '.'); ?></td>
                                             <td class="align-middle text-center"><?= $i['kuantitas']; ?></td>
 
-                                            <!-- Subtotal -->
                                             <?php
                                             $harga = $i['harga_produk'];
                                             $kuantitas = $i['kuantitas'];
@@ -206,7 +259,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
