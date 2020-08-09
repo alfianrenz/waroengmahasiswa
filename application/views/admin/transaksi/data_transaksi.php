@@ -68,7 +68,7 @@
                                                     <span>Bank Transfer</span>
                                                 <?php } ?>
                                             </td>
-                                            <td class="align-middle"><?= $t['waktu_transaksi']; ?></td>
+                                            <td class="align-middle text-center"><?= $t['waktu_transaksi']; ?></td>
                                             <td class="align-middle text-center">Rp<?= number_format($t['total_bayar'], 0, ',', '.'); ?></td>
                                             <td class="align-middle text-center">
                                                 <?php if ($t['status_bayar'] == 'pending') { ?>
