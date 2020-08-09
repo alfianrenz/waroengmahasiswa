@@ -60,7 +60,7 @@
                 </li>
 
                 <!-- Laporan -->
-                <li class="nav-item <?php echo $this->uri->segment(2) == 'laporan_transaksi' ? 'active' : ''; ?><?= active_menu('laporan/laporan_transaksi'); ?>">
+                <li class="nav-item <?php echo $this->uri->segment(2) == 'laporan_transaksi' || $this->uri->segment(2) == 'detail_laporan_transaksi' ? 'active' : ''; ?><?= active_menu('laporan/laporan_transaksi'); ?>">
                     <a href="<?= site_url('laporan/laporan_transaksi'); ?>" class="nav-link ">
                         <span class="pcoded-micon"><i class="feather icon-file"></i></span>
                         <span class="pcoded-mtext">Laporan Transaksi</span>

@@ -54,7 +54,35 @@ class Laporan extends My_Controller
     {
         $data['title'] = 'Warma CIC | Laporan Transaksi';
         $data['transaksi'] = $this->checkout_model->detail_transaksiAdmin($id);
-        $data['item'] = $this->checkout_model->detail_itemAdmin($id);
+        // $data['item'] = $this->checkout_model->detail_itemAdmin($id);
+
+        $list_penjual = $this->db->select('DISTINCT(akun_mahasiswa.id_mahasiswa), mahasiswa.nama_mahasiswa')
+            ->from('keranjang')
+            ->join('detail_keranjang', 'keranjang.id_keranjang = detail_keranjang.id_keranjang')
+            ->join('transaksi', 'detail_keranjang.id_keranjang = transaksi.id_keranjang')
+            ->join('produk', 'detail_keranjang.id_produk = produk.id_produk')
+            ->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa')
+            ->join('mahasiswa', 'akun_mahasiswa.nim = mahasiswa.nim')
+            ->where('transaksi.order_id', $id)
+            ->get()->result_array();
+
+        //Untuk ambil data detail keranjang
+        $detail_keranjang = $this->db->select('*')
+            ->from('keranjang')
+            ->join('detail_keranjang', 'keranjang.id_keranjang = detail_keranjang.id_keranjang')
+            ->join('transaksi', 'detail_keranjang.id_keranjang = transaksi.id_keranjang')
+            ->join('produk', 'detail_keranjang.id_produk = produk.id_produk')
+            ->where('transaksi.order_id', $id)
+            ->get()->result_array();
+
+        $list_mahasiswa = [];
+
+        foreach ($detail_keranjang as $detail) {
+            $list_mahasiswa[] = $detail['id_mahasiswa'];
+        }
+
+        $data['list_penjual'] = $list_penjual;
+        $data['detail_keranjang'] = $detail_keranjang;
         $this->paggingAdmin('admin/laporan/detail_laporan', $data);
     }
 
