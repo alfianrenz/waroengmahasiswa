@@ -14,6 +14,7 @@ class Penjualan extends My_Controller
     //=======================================
     public function penghasilan_penjual()
     {
+        $data['title'] = 'Warma CIC | Penghasilan Penjual';
         $data = [
             'penghasilan' => [],
             'tgl_awal' => "",
@@ -47,7 +48,6 @@ class Penjualan extends My_Controller
 
             $data['tgl_awal'] = $tgl_awal;
             $data['tgl_akhir'] = $tgl_akhir;
-            $data['title'] = 'Warma CIC | Penghasilan Penjual';
         }
         $this->paggingAdmin('admin/penghasilan/penghasilan_penjual', $data);
     }
