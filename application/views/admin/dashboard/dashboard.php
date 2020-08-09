@@ -59,7 +59,7 @@
                             <table id="" class="table table-de nowrap">
                                 <thead>
                                     <tr>
-                                        <th>Order ID</th>
+                                        <th class="text-center">Order ID</th>
                                         <th class="text-center">Metode Pembayaran</th>
                                         <th class="text-center">Tanggal & Waktu</th>
                                         <th class="text-center">Total Pembayaran</th>
