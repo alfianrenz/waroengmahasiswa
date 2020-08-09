@@ -131,7 +131,7 @@
                                             </td>
 
                                             <!-- Waktu Transaksi -->
-                                            <td class="align-middle"><?= $t['waktu_transaksi']; ?>
+                                            <td class="align-middle text-center"><?= $t['waktu_transaksi']; ?>
                                             </td>
 
                                             <!-- Total Bayar -->
