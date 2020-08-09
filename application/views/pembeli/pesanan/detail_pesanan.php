@@ -150,9 +150,6 @@
                 </div>
             </div>
 
-            <!-- Detail Item -->
-
-
             <div class="col-xl-12">
                 <?php for ($i = 0; $i < count($list_penjual); $i++) { ?>
                     <div class="card">

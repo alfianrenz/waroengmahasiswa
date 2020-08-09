@@ -61,8 +61,8 @@
                                     <tr>
                                         <th>Order ID</th>
                                         <th class="text-center">Metode Pembayaran</th>
-                                        <th>Tanggal & Waktu</th>
-                                        <th class="text-center">Total</th>
+                                        <th class="text-center">Tanggal & Waktu</th>
+                                        <th class="text-center">Total Pembayaran</th>
                                         <th class="text-center">Status</th>
                                         <th width="8%">Action</th>
                                     </tr>
