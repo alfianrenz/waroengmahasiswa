@@ -62,31 +62,28 @@
                     <!-- DAFTAR BELANJA -->
                     <div class="col-lg-6">
                         <h3 class="small-title">DAFTAR BELANJA</h3>
-                        <div class="order-infobox">
-                            <div class="checkout-table table-responsive">
-                                <?php for ($i = 0; $i < count($list_penjual); $i++) { ?>
-
-                                    <h6>NAMA PENJUAL : <?php echo $list_penjual[$i]['nama_mahasiswa']; ?></h6>
-
-                                    <table class="table">
+                        <?php for ($i = 0; $i < count($list_penjual); $i++) { ?>
+                            <div class="order-infobox mb-30">
+                                <div class="checkout-table table-responsive">
+                                    <table class="table mb-0">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-left">NAMA PENJUAL</th>
+                                                <th class="text-right"><?= $list_penjual[$i]['nama_mahasiswa']; ?></th>
+                                            </tr>
+                                        </thead>
                                         <thead>
                                             <tr>
                                                 <th class="text-left">PRODUK</th>
                                                 <th class="text-right">TOTAL</th>
                                             </tr>
                                         </thead>
-
                                         <tbody>
-
                                             <?php for ($k = 0; $k < count($detail_keranjang); $k++) {
-
-                                                if ($detail_keranjang[$k]['id_mahasiswa'] == $list_penjual[$i]['id_mahasiswa']) {
-
-                                            ?>
+                                                if ($detail_keranjang[$k]['id_mahasiswa'] == $list_penjual[$i]['id_mahasiswa']) { ?>
                                                     <tr>
                                                         <td class="text-left"><?= $detail_keranjang[$k]['nama_produk']; ?> <span>× <?= $detail_keranjang[$k]['kuantitas']; ?></span></td>
 
-                                                        <!-- Hitung Total Bayar -->
                                                         <?php
                                                         $harga_produk = $detail_keranjang[$k]['harga_produk'];
                                                         $kuantitas = $detail_keranjang[$k]['kuantitas'];
@@ -97,9 +94,7 @@
                                                         <td class="text-right">Rp<?= number_format($subtotal, 0, ',', '.'); ?></td>
                                                     </tr>
                                                 <?php } ?>
-
-                                            <?php  }
-                                            ?>
+                                            <?php  } ?>
                                         </tbody>
                                         <tfoot>
                                             <tr>
@@ -109,31 +104,31 @@
                                                 </td>
                                             </tr>
                                         </tfoot>
-
                                     </table>
-
-                                <?php } ?>
-
-
-                                <span id="total_belanja" style="display: none;"><?= $total_belanja; ?></span>
-                                <span id="total_penjual" style="display: none;"><?= count($list_penjual); ?></span>
-                                <input type="hidden" name="total_belanja">
-                                <input type="hidden" name="jumlah_ongkir">
-                                <input type="hidden" name="ongkir">
+                                </div>
                             </div>
+                        <?php } ?>
 
-                            <table class="table">
-                                <tfoot>
-                                    <tr class=" total-price">
-                                        <th class="text-left">TOTAL BAYAR</th>
-                                        <td class="text-right">Rp<span id="total_bayar"></span> </td>
-                                    </tr>
-                                </tfoot>
-                            </table>
+                        <span id="total_belanja" style="display: none;"><?= $total_belanja; ?></span>
+                        <span id="total_penjual" style="display: none;"><?= count($list_penjual); ?></span>
+                        <input type="hidden" name="total_belanja">
+                        <input type="hidden" name="jumlah_ongkir">
+                        <input type="hidden" name="ongkir">
 
-                            <button class="ho-button ho-button-fullwidth" type="submit">
-                                <span>Bayar</span>
-                            </button>
+                        <div class="order-infobox mb-30">
+                            <div class="checkout-table table-responsive">
+                                <table class="table table-borderless">
+                                    <tfoot>
+                                        <tr class=" total-price">
+                                            <th class="text-left">TOTAL BAYAR</th>
+                                            <td class="text-right">Rp<span id="total_bayar"></span> </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <button class="ho-button ho-button-fullwidth col-sm-12" type="submit">
+                                    <span>Bayar</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>

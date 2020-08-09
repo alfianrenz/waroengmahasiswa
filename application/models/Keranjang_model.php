@@ -22,6 +22,8 @@ class Keranjang_model extends CI_Model
         $this->db->from('keranjang');
         $this->db->join('detail_keranjang', 'keranjang.id_keranjang = detail_keranjang.id_keranjang');
         $this->db->join('produk', 'detail_keranjang.id_produk = produk.id_produk');
+        $this->db->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa');
+        $this->db->join('mahasiswa', 'akun_mahasiswa.nim = mahasiswa.nim');
         $this->db->where('keranjang.id_pembeli', $this->session->userdata('id'));
         $this->db->where('keranjang.tipe_pembeli', $this->session->userdata('tipe'));
         $this->db->where('keranjang.status_keranjang', 0);

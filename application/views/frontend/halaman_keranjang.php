@@ -23,6 +23,7 @@
                             <th width="3%">No</th>
                             <th width="10%" class="text-center">Foto</th>
                             <th class="text-center">Nama Produk</th>
+                            <th class="text-center">Nama Penjual</th>
                             <th class="text-center">Harga</th>
                             <th class="text-center" width="15%">Kuantitas</th>
                             <th class="text-center">Subtotal</th>
@@ -48,6 +49,9 @@
 
                                 <!-- Nama Produk -->
                                 <td class="align-middle text-center"><?= $k['nama_produk']; ?></td>
+
+                                <!-- Nama Penjual -->
+                                <td class="align-middle text-center"><?= $k['nama_mahasiswa']; ?></td>
 
                                 <!-- Harga Produk -->
                                 <td class="align-middle text-center">Rp<?= number_format($k['harga_produk'], 0, ',', '.'); ?></td>
@@ -95,8 +99,8 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-12 mb-3">
                         <div class="cart-content-right">
-                            <h4>TOTAL BELANJA</h4>
-                            <h1 class="text-primary" id="total">Rp<?= number_format($total_bayar, 0, ',', '.'); ?></h1>
+                            <!-- <h4>TOTAL BELANJA</h4>
+                            <h1 class="text-primary" id="total">Rp<?= number_format($total_bayar, 0, ',', '.'); ?></h1> -->
                             <a href="<?= site_url('checkout'); ?>">
                                 <button class="ho-button">
                                     <span>Checkout</span>
