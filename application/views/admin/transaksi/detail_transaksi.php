@@ -101,7 +101,7 @@
             <div class="col-xl-6">
                 <div class="card">
                     <div class="card-header">
-                        <h6 class="mb-0">Informasi Pengiriman</h6>
+                        <h6 class="mb-0">Customer Information</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
