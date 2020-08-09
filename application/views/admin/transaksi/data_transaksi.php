@@ -41,8 +41,6 @@
                                     <tr>
                                         <th class="text-center">Order ID</th>
                                         <th class="text-center">Metode Pembayaran</th>
-                                        <th class="text-center">Customer</th>
-                                        <th class="text-center">Seller</th>
                                         <th class="text-center">Tanggal & Waktu</th>
                                         <th class="text-center">Total</th>
                                         <th class="text-center">Status</th>
@@ -70,8 +68,6 @@
                                                     <span>Bank Transfer</span>
                                                 <?php } ?>
                                             </td>
-                                            <td class="align-middle text-center"><?= $t['nama_pelanggan']; ?></td>
-                                            <td class="align-middle text-center"><?= $t['nama_mahasiswa']; ?></td>
                                             <td class="align-middle"><?= $t['waktu_transaksi']; ?></td>
                                             <td class="align-middle text-center">Rp<?= number_format($t['total_bayar'], 0, ',', '.'); ?></td>
                                             <td class="align-middle text-center">
