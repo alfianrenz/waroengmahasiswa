@@ -30,9 +30,12 @@ class Pesanan extends My_Controller
 
     public function input_pengiriman($id)
     {
-        $this->checkout_model->input_pengiriman($id);
-        $this->session->set_flashdata('message', '<div class="flash-data" data-inputpengiriman="Produk sedang dikirim"></div>');
-        echo '<script>window.history.back();</script>';
+
+        $data['title'] = 'Warma CIC | Input Pengiriman';
+        $this->paggingPenjual('penjual/pesanan/input_pengiriman', $data);
+        // $this->checkout_model->input_pengiriman($id);
+        // $this->session->set_flashdata('message', '<div class="flash-data" data-inputpengiriman="Produk sedang dikirim"></div>');
+        // echo '<script>window.history.back();</script>';
     }
 
     //========================================

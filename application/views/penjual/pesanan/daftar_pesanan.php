@@ -104,7 +104,7 @@
                                             <td class="align-middle text-center">
                                                 <a href="<?= site_url('pesanan/detail_pesanan_penjual/' . $t['order_id']); ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
                                                 <?php if ($this->uri->segment(3) == 'diproses' ? 'active' : '') { ?>
-                                                    <a href="<?= site_url('pesanan/input_pengiriman/' . $t['order_id']); ?>" class="btn btn-sm btn-success rounded tombol-kirim"><i class="feather icon-navigation"></i> Kirim</a>
+                                                    <a href="<?= site_url('pesanan/input_pengiriman/' . $t['order_id']); ?>" class="btn btn-sm btn-success rounded"><i class="feather icon-navigation"></i> Kirim</a>
                                                 <?php } ?>
                                             </td>
                                         </tr>
