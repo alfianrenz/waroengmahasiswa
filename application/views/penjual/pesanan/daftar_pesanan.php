@@ -18,6 +18,10 @@
 
         <?= $this->session->userdata('message'); ?>
 
+        <?php if ($this->uri->segment(3) == 'diproses' ? 'active' : '') { ?>
+            <div class="alert alert-success">Harap segera memproses pengiriman!</div>
+        <?php } ?>
+
         <!-- Main Content -->
         <div class="row">
             <div class="col-sm-12">
@@ -104,7 +108,11 @@
                                             <td class="align-middle text-center">
                                                 <a href="<?= site_url('pesanan/detail_pesanan_penjual/' . $t['order_id']); ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
                                                 <?php if ($this->uri->segment(3) == 'diproses' ? 'active' : '') { ?>
-                                                    <a href="<?= site_url('pesanan/input_pengiriman/' . $t['order_id']); ?>" class="btn btn-sm btn-success rounded"><i class="feather icon-navigation"></i> Kirim</a>
+                                                    <?php if ($t['kota_pelanggan'] == "Kampus Universitas CIC (Bertemu di Kampus)") { ?>
+                                                        <a href="<?= site_url('pesanan/input_pengiriman_noresi/' . $t['order_id']); ?>" class="btn btn-sm btn-success rounded tombol-kirim"><i class="feather icon-navigation"></i> Kirim</a>
+                                                    <?php } else { ?>
+                                                        <a href="<?= site_url('pesanan/input_pengiriman/' . $t['order_id']); ?>" class="btn btn-sm btn-success rounded"><i class="feather icon-navigation"></i> Kirim</a>
+                                                    <?php } ?>
                                                 <?php } ?>
                                             </td>
                                         </tr>

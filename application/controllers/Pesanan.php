@@ -32,10 +32,28 @@ class Pesanan extends My_Controller
     {
 
         $data['title'] = 'Warma CIC | Input Pengiriman';
-        $this->paggingPenjual('penjual/pesanan/input_pengiriman', $data);
-        // $this->checkout_model->input_pengiriman($id);
-        // $this->session->set_flashdata('message', '<div class="flash-data" data-inputpengiriman="Produk sedang dikirim"></div>');
-        // echo '<script>window.history.back();</script>';
+        $data['transaksi'] = $this->db->get_where('transaksi', ['order_id' => $id])->row_array();
+
+        //form validasi setrules
+        $this->form_validation->set_rules('jasa', 'jasa', 'required|trim', [
+            'required' => 'Form ini tidak boleh kosong'
+        ]);
+
+        //jika validasi salah
+        if ($this->form_validation->run() == false) {
+            $this->paggingPenjual('penjual/pesanan/input_pengiriman', $data);
+        } else {
+            $this->checkout_model->input_pengiriman_resi($id);
+            $this->session->set_flashdata('message', '<div class="flash-data" data-inputpengiriman="Produk sedang dikirim"></div>');
+            redirect('pesanan/daftar_pesanan_penjual/dikirim');
+        }
+    }
+
+    public function input_pengiriman_noresi($id)
+    {
+        $this->checkout_model->input_pengiriman($id);
+        $this->session->set_flashdata('message', '<div class="flash-data" data-inputpengiriman="Produk sedang dikirim"></div>');
+        echo '<script>window.history.back();</script>';
     }
 
     //========================================

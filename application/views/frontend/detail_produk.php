@@ -37,12 +37,18 @@
                                 <span class="price">Rp <?= number_format($produk['harga_produk'], 0, ',', '.'); ?></span>
                             </div>
                             <p><?= $produk['deskripsi_produk']; ?></p>
-                            <div class="pdetails-quantity">
-                                <a href="<?= site_url('keranjang/tambah_keranjang/' . $produk['id_produk']); ?>" class="ho-button">
-                                    <i class="lnr lnr-cart"></i>
-                                    <span>&nbsp;Tambahkan Keranjang</span>
-                                </a>
-                            </div>
+
+                            <?php if ($produk['nama_kategori'] == 'Jasa') { ?>
+
+                            <?php } else { ?>
+                                <div class="pdetails-quantity">
+                                    <a href="<?= site_url('keranjang/tambah_keranjang/' . $produk['id_produk']); ?>" class="ho-button">
+                                        <i class="lnr lnr-cart"></i>
+                                        <span>&nbsp;Tambahkan Keranjang</span>
+                                    </a>
+                                </div>
+                            <?php } ?>
+
                             <div class="pdetails-categories">
                                 <span>Kategori :</span>
                                 <ul>

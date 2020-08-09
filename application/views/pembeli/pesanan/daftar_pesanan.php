@@ -18,6 +18,10 @@
 
         <?= $this->session->userdata('message'); ?>
 
+        <?php if ($this->uri->segment(3) == 'dikirim' ? 'active' : '') { ?>
+            <div class="alert alert-success">Harap konfirmasi apabila barang yang dikirim telah sampai ditempat tujuan</div>
+        <?php } ?>
+
         <!-- Main Content -->
         <div class="row">
             <div class="col-sm-12">

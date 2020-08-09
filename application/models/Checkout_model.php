@@ -262,6 +262,18 @@ class Checkout_model extends CI_Model
         $this->db->update('transaksi', $data);
     }
 
+    //input pengiriman resi
+    public function input_pengiriman_resi($id)
+    {
+        $data = [
+            'kurir' => $this->input->post('jasa'),
+            'no_resi' => $this->input->post('no_resi'),
+            'status_pesanan' => 'Dikirim'
+        ];
+        $this->db->where('order_id', $id);
+        $this->db->update('transaksi', $data);
+    }
+
     //jumlah pesanan (dashboard)
     public function jumlah_pesanan()
     {

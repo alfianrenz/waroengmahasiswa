@@ -361,7 +361,7 @@ $('.tombol-kirim').on('click', function (e) {
 
     Swal.fire({
         title: 'Kirim',
-        text: 'Ubah status menjadi dikirim?',
+        text: 'Ubah status pesanan menjadi dikirim?',
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085D6',

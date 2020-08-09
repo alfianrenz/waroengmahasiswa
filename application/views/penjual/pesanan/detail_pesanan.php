@@ -18,12 +18,11 @@
 
         <!-- Main Content -->
         <div class="row">
-
             <!-- Detail Transaksi -->
             <div class="col-xl-6">
                 <div class="card">
                     <div class="card-header">
-                        <h6 class="mb-0">Detail Transaksi</h6>
+                        <h6 class="mb-0">Transaction Details</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -101,7 +100,7 @@
             <div class="col-xl-6">
                 <div class="card">
                     <div class="card-header">
-                        <h6 class="mb-0">Informasi Pengiriman</h6>
+                        <h6 class="mb-0">Customer Information</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -149,6 +148,44 @@
                     </div>
                 </div>
             </div>
+
+            <?php if ($transaksi['status_pesanan'] == 'Dikirim') { ?>
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="mb-0">Informasi Pengiriman</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-sm table-borderless mb-0 wrapper">
+                                    <tbody>
+                                        <tr>
+                                            <td width="20%">Jasa Pengiriman </td>
+                                            <td>:&nbsp;&nbsp;
+                                                <?php if (empty($transaksi['kurir'])) { ?>
+                                                    <span>-</span>
+                                                <?php } else { ?>
+                                                    <span><?= $transaksi['kurir']; ?></span>
+                                                <?php } ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nomor Resi</td>
+                                            <td>:&nbsp;&nbsp;
+                                                <?php if (empty($transaksi['no_resi'])) { ?>
+                                                    <span>-</span>
+                                                <?php } else { ?>
+                                                    <span><?= $transaksi['no_resi']; ?></span>
+                                                <?php } ?>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
 
             <!-- Detail Item -->
             <div class="col-xl-12">

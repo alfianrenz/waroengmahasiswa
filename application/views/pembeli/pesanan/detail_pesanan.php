@@ -16,14 +16,20 @@
             </div>
         </div>
 
+        <?php echo $this->session->userdata('message'); ?>
+
+        <?php if ($transaksi['status_pesanan'] == 'Dikirim') { ?>
+            <div class="alert alert-success">Harap konfirmasi apabila barang yang dikirim telah sampai ditempat tujuan</div>
+        <?php } ?>
+
+
         <!-- Main Content -->
         <div class="row">
-
             <!-- Detail Transaksi -->
             <div class="col-xl-6">
                 <div class="card">
                     <div class="card-header">
-                        <h6 class="mb-0">Detail Transaksi</h6>
+                        <h6 class="mb-0">Transaction Details</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -101,7 +107,7 @@
             <div class="col-xl-6">
                 <div class="card">
                     <div class="card-header">
-                        <h6 class="mb-0">Informasi Pengiriman</h6>
+                        <h6 class="mb-0">Customer Details</h6>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
@@ -150,11 +156,64 @@
                 </div>
             </div>
 
+            <?php if ($transaksi['status_pesanan'] == 'Dikirim') { ?>
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="mb-0">Informasi Pengiriman</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-sm table-borderless mb-0 wrapper">
+                                    <tbody>
+                                        <tr>
+                                            <td width="20%">Jasa Pengiriman </td>
+                                            <td>:&nbsp;&nbsp;
+                                                <?php if (empty($transaksi['kurir'])) { ?>
+                                                    <span>-</span>
+                                                <?php } else { ?>
+                                                    <span><?= $transaksi['kurir']; ?></span>
+                                                <?php } ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nomor Resi</td>
+                                            <td>:&nbsp;&nbsp;
+                                                <?php if (empty($transaksi['no_resi'])) { ?>
+                                                    <span>-</span>
+                                                <?php } else { ?>
+                                                    <span><?= $transaksi['no_resi']; ?></span>
+                                                <?php } ?>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h6 class="mb-0">Konfirmasi</h6>
+                        </div>
+                        <div class="card-body">
+                            <!-- <div class="alert alert-success">Silahkan konfirmasi</div> -->
+                            <span>Silahkan Konfirmasi dengan memilih button dibawah ini</span>
+                            <a href="<?= site_url('pesanan/konfirmasi_barang/' . $transaksi['order_id']); ?>" class="btn btn-success mt-3 tombol-konfirmasi"><i class="feather icon-check-circle"></i>&nbsp;&nbsp;Konfirmasi </a>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+
             <div class="col-xl-12">
                 <?php for ($i = 0; $i < count($list_penjual); $i++) { ?>
                     <div class="card">
                         <div class="card-header">
-                            <h6 class="mb-0">Penjual : <?= $list_penjual[$i]['nama_mahasiswa']; ?></h6>
+                            <h6 class="mb-0">Detail Item</h6>
+                            <div class="card-header-right mt-2">
+                                <h6>Penjual : <?= $list_penjual[$i]['nama_mahasiswa']; ?></h6>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="dt-responsive table-responsive">
