@@ -9,7 +9,7 @@
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?= site_url('dashboard/penjual'); ?>"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#!">Laporan Penghasilan</a></li>
+                            <li class="breadcrumb-item"><a href="#!">Laporan Penjualan</a></li>
                         </ul>
                     </div>
                 </div>
@@ -18,34 +18,12 @@
 
         <!-- Main Content -->
         <div class="row">
-            <div class="col-sm-6">
-                <div class="card bg-c-white text-white widget-visitor-card">
-                    <div class="card-body text-center">
-                        <h2 class="text-primary">Rp<?= number_format($penghasilan, 0, ',', '.'); ?></h2>
-                        <h6 class="text-primary">Total Penghasilan</h6>
-                        <i class="feather icon-github text-primary"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="card bg-c-white text-white widget-visitor-card">
-                    <div class="card-body text-center">
-                        <h2 class="text-success"><?= $produk_terjual; ?></h2>
-                        <h6 class="text-success">Produk Terjual</h6>
-                        <i class="feather icon-box text-success"></i>
-                    </div>
-                </div>
-            </div>
-
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h6>Laporan Penjualan</h6>
+                        <h6 class="mb-1">Laporan Penjualan</h6>
                         <div class="card-header-right">
-                            <a href="<?= site_url('produk/tambah_produk'); ?>" class="btn waves-effect waves-light btn-primary">
-                                <i class="feather icon-printer"></i>
-                                &nbsp;Print Laporan
-                            </a>
+                            <a href="" class="btn btn-primary"><i class="feather icon-printer"></i>&nbsp;&nbsp;Print</a>
                         </div>
                     </div>
                     <div class="card-body">
@@ -63,32 +41,34 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                    $no = 1;
-                                    foreach ($penjualan as $p) : ?>
-                                        <tr>
-                                            <td class="text-center align-middle"><?= $no++; ?></td>
-                                            <td class="align-middle text-center">
-                                                <img src="<?= base_url('upload/foto_produk/' . $p['foto_produk']); ?>" alt="contact-img" title="contact-img" class="rounded mr-3" height="48" width="48" style="object-fit: cover">
-                                            </td>
+                                    <?php if (count($penjualan) > 0) : ?>
+                                        <?php
+                                        $no = 1;
+                                        foreach ($penjualan as $p) : ?>
+                                            <tr>
+                                                <td class="text-center align-middle"><?= $no++; ?></td>
+                                                <td class="align-middle text-center">
+                                                    <img src="<?= base_url('upload/foto_produk/' . $p['foto_produk']); ?>" alt="contact-img" title="contact-img" class="rounded mr-3" height="48" width="48" style="object-fit: cover">
+                                                </td>
 
-                                            <td class="align-middle">
-                                                <?= $p['nama_produk']; ?>
-                                            </td>
+                                                <td class="align-middle">
+                                                    <?= $p['nama_produk']; ?>
+                                                </td>
 
-                                            <td class="align-middle text-center">
-                                                <?= $p['nama_kategori']; ?>
-                                            </td>
+                                                <td class="align-middle text-center">
+                                                    <?= $p['nama_kategori']; ?>
+                                                </td>
 
-                                            <td class="text-center align-middle">Rp<?= number_format($p['harga_produk'], 0, ',', '.'); ?></td>
+                                                <td class="text-center align-middle">Rp<?= number_format($p['harga_produk'], 0, ',', '.'); ?></td>
 
-                                            <td class="text-center align-middle"><?= $p['terjual']; ?></td>
+                                                <td class="text-center align-middle"><?= $p['terjual']; ?></td>
 
-                                            <td class="text-center align-middle">
-                                                <a href="<?= site_url('penjualan/detail_penjualan'); ?>/<?= $p['id_produk']; ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail Penjualan</a>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
+                                                <td class="text-center align-middle">
+                                                    <a href="<?= site_url('penjualan/detail_penjualan'); ?>/<?= $p['id_produk']; ?>" class="btn btn-sm btn-info rounded"><i class="feather icon-eye"></i> Detail</a>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
                                 </tbody>
                             </table>
                         </div>

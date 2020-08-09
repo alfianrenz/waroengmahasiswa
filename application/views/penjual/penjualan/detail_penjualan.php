@@ -20,18 +20,13 @@
         <div class="row">
             <div class="col-sm-3">
                 <div class="card">
-                    <div class="card-header">
-                        <h6 class="mb-0">Nama Produk</h6>
-                    </div>
-
-                    <?php foreach ($penjualan as $p) : ?>
-                    <?php endforeach; ?>
-
-                    <div class="card-body">
-                        <img src="<?= base_url('upload/foto_produk/' . $p['foto_produk']); ?>" width="300px" class="img-fluid" style="object-fit: cover" id="image-field">
-                        <div class="text-center mt-3">
-                            <h5><?= $p['nama_produk']; ?></h5>
-                            <p class="mb-0"><?= $p['nama_kategori']; ?></p>
+                    <div class="card-body text-center">
+                        <div class="thumbnail">
+                            <div class="thumb">
+                                <a href="<?= base_url('upload/foto_produk/' . $produk['foto_produk']); ?>" data-lightbox="1">
+                                    <img src="<?= base_url('upload/foto_produk/' . $produk['foto_produk']); ?>" alt="" class="img-fluid" width="500px" style="object-fit: cover">
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -39,24 +34,54 @@
             <div class="col-sm-9">
                 <div class="card">
                     <div class="card-header">
-                        <h6 class="mb-0">Detail Transaksi</h6>
+                        <h6 class="mb-0">Detail Produk</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-sm table-borderless mb-0">
+                                <tbody>
+                                    <tr>
+                                        <td>Nama Produk</td>
+                                        <td>:&nbsp;&nbsp;<?= $produk['nama_produk']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nama Mahasiswa</td>
+                                        <td>:&nbsp;&nbsp;<?= $produk['nama_kategori']; ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Harga Produk</td>
+                                        <td>:&nbsp;&nbsp;Rp<?= number_format($produk['harga_produk'], 0, ',', '.'); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Stok Produk</td>
+                                        <td>:&nbsp;&nbsp;<?= number_format($produk['stok_produk'], 0, ',', '.'); ?></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h6 class="mb-0">Info Penjualan</h6>
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">
-                            <table id="" class="table table-de nowrap">
+                            <table id="simpletable" class="table table-de nowrap">
                                 <thead>
                                     <tr>
                                         <th class="text-center">Order ID</th>
                                         <th class="text-center">Metode Pembayaran</th>
-                                        <th class="text-center">Tanggal dan Waktu</th>
+                                        <th class="text-center">Tanggal & Waktu</th>
                                         <th class="text-center">Nama Pelanggan</th>
-                                        <th class="text-center">Kuantitas</th>
+                                        <th class="text-center">Total Bayar</th>
+                                        <th class="text-center">Status Pesanan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                    $total_penjualan = 0;
-                                    foreach ($penjualan as $p) : ?>
+                                    <?php foreach ($penjualan as $p) : ?>
                                         <tr>
                                             <td class="text-center align-middle"><?= $p['order_id']; ?></td>
                                             <td class="align-middle text-center">
@@ -78,17 +103,22 @@
                                             </td>
                                             <td class="align-middle text-center"><?= $p['waktu_transaksi']; ?></td>
                                             <td class="align-middle text-center"><?= $p['nama_pelanggan']; ?></td>
-                                            <td class="align-middle text-center"><?= $p['kuantitas']; ?></td>
+                                            <td class="align-middle text-center">Rp<?= number_format($p['total_bayar'], 0, ',', '.'); ?></td>
+                                            <td class="align-middle text-center">
+                                                <?php if ($p['status_pesanan'] == 'Belum Bayar') { ?>
+                                                    <span class="badge badge-warning">Belum Bayar</span>
+                                                <?php } else if ($p['status_pesanan'] == 'Diproses') { ?>
+                                                    <span class="badge badge-primary">Diproses</span>
+                                                <?php } else if ($p['status_pesanan'] == 'Dikirim') { ?>
+                                                    <span class="badge badge-info">Dikirim</span>
+                                                <?php } else if ($p['status_pesanan'] == 'Selesai') { ?>
+                                                    <span class="badge badge-success">Selesai</span>
+                                                <?php } else { ?>
+                                                    <span class="badge badge-danger">Batal</span>
+                                                <?php } ?>
+                                            </td>
                                         </tr>
-
-                                        <?php
-                                        $total_penjualan = $total_penjualan + $p['kuantitas'];
-                                        ?>
                                     <?php endforeach; ?>
-                                    <tr>
-                                        <td class="font-weight-bold" colspan="4" style="background-color: #ecf0f5; text-align:center">TOTAL PENJUALAN</td>
-                                        <td class="text-center font-weight-bold" style="background-color: #ecf0f5;"><?= $total_penjualan; ?></td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>

@@ -108,6 +108,8 @@ class Laporan extends My_Controller
                 ->get()->result_array();
             //print_r($query);
             $data['transaksi'] = $query;
+            $data['tgl_awal'] = $tgl_awal;
+            $data['tgl_akhir'] = $tgl_akhir;
         }
 
         $this->load->view('admin/laporan/print_laporan', $data);

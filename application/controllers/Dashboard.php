@@ -9,6 +9,7 @@ class Dashboard extends My_Controller
         parent::__construct();
         $this->load->model('checkout_model');
         $this->load->model('user_model');
+        $this->load->model('laporan_model');
     }
 
     //DASHBOARD ADMIN
@@ -44,6 +45,14 @@ class Dashboard extends My_Controller
         $data['belum_bayar'] = $this->checkout_model->belum_bayar();
         $data['diproses'] = $this->checkout_model->diproses();
 
+        $penjualan = $this->laporan_model->get_penjualan();
+        $produk_terjual = 0;
+        for ($i = 0; $i < count($penjualan); $i++) {
+            $id_produk = $penjualan[$i]['id_produk'];
+            $penjualan[$i]['terjual'] = $this->db->query("SELECT SUM(kuantitas) AS terjual FROM detail_keranjang JOIN keranjang USING (id_keranjang) JOIN transaksi USING (id_keranjang) WHERE id_produk = '$id_produk' AND status_pesanan = 'Selesai'")->row()->terjual;
+            $produk_terjual += $penjualan[$i]['terjual'];
+        }
+
         //Penghasilan
         $penghasilan = 0;
         // $transaksi = $this->db->get_where('transaksi', ['status_pesanan' => 'Selesai'])->result_array();
@@ -62,6 +71,7 @@ class Dashboard extends My_Controller
             $penghasilan = $penghasilan + $t['total_bayar'];
         }
         $data['penghasilan'] = $penghasilan;
+        $data['produk_terjual'] = $produk_terjual;
 
         $this->paggingPenjual('penjual/dashboard/dashboard', $data);
     }

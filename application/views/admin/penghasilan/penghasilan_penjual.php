@@ -58,6 +58,15 @@
                 <div class="card">
                     <div class="card-header">
                         <h5>Mahasiswa</h5>
+                        <div class="card-header-right">
+                            <form method="GET" target="_blank" action="<?php echo site_url('penjualan/print_penghasilan_penjual/') ?>">
+                                <input type="hidden" name="tgl_awal" value="<?= $tgl_awal; ?>">
+                                <input type="hidden" name="tgl_akhir" value="<?= $tgl_akhir; ?>">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="feather icon-printer"></i>&nbsp;&nbsp; Print
+                                </button>
+                            </form>
+                        </div>
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">
@@ -86,7 +95,7 @@
                                                     <img src="<?= base_url('upload/foto_user/' . $p['foto_mahasiswa']); ?>" alt="contact-img" title="contact-img" class="img-radius mr-3" height="48" width="48" style="object-fit: cover">
                                                 </td>
                                                 <td class="align-middle"><?= $p['nim']; ?></td>
-                                                <td class="align-middle"><?= $p['nama_mahasiswa']; ?></td>
+                                                <td class="align-middle text-center"><?= $p['nama_mahasiswa']; ?></td>
                                                 <td class="align-middle"><?= $p['nama_prodi']; ?></td>
                                                 <td class="align-middle"><?= $p['telepon_mahasiswa']; ?></td>
 

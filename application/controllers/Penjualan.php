@@ -7,6 +7,7 @@ class Penjualan extends My_Controller
     {
         parent::__construct();
         $this->load->model('laporan_model');
+        $this->load->model('produk_model');
     }
 
     //=======================================
@@ -14,7 +15,6 @@ class Penjualan extends My_Controller
     //=======================================
     public function penghasilan_penjual()
     {
-        $data['title'] = 'Warma CIC | Penghasilan Penjual';
         $data = [
             'penghasilan' => [],
             'tgl_awal' => "",
@@ -49,6 +49,8 @@ class Penjualan extends My_Controller
             $data['tgl_awal'] = $tgl_awal;
             $data['tgl_akhir'] = $tgl_akhir;
         }
+
+        $data['title'] = 'Warma CIC | Penghasilan Penjual';
         $this->paggingAdmin('admin/penghasilan/penghasilan_penjual', $data);
     }
 
@@ -72,12 +74,49 @@ class Penjualan extends My_Controller
         $this->paggingAdmin('admin/penghasilan/detail_penghasilan', $data);
     }
 
+    public function print_penghasilan_penjual()
+    {
+        $data['transaksi'] = [];
+        if (isset($_GET['tgl_awal'], $_GET['tgl_akhir'])) {
+            $tgl_awal = $this->input->get('tgl_awal');
+            $tgl_akhir = $this->input->get('tgl_akhir');
+
+            $query = $this->db->select('*')
+                ->from('transaksi')
+                ->join('detail_keranjang', 'transaksi.id_keranjang = detail_keranjang.id_keranjang')
+                ->join('produk', 'detail_keranjang.id_produk = produk.id_produk')
+                ->join('keranjang', 'transaksi.id_keranjang = keranjang.id_keranjang')
+                ->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa')
+                ->join('mahasiswa', 'akun_mahasiswa.nim = mahasiswa.nim')
+                ->join('prodi', 'mahasiswa.id_prodi = prodi.id_prodi')
+                ->join('fakultas', 'prodi.id_fakultas = fakultas.id_fakultas')
+                ->where('DATE(waktu_transaksi) >=', $tgl_awal)
+                ->where('DATE(waktu_transaksi) <=', $tgl_akhir)
+                ->where(['transaksi.status_pesanan' => "Selesai"])
+                ->group_by('akun_mahasiswa.id_mahasiswa')
+                ->order_by('mahasiswa.nama_mahasiswa', 'ASC')
+                ->get()->result_array();
+            //print_r($query);
+            $data['transaksi'] = $query;
+            for ($i = 0; $i < count($data['transaksi']); $i++) {
+                $id = $data['transaksi'][$i]['id_mahasiswa'];
+                $data['transaksi'][$i]['total_penghasilan'] = $this->laporan_model->hitung_penghasilan($id);
+            }
+
+            $data['tgl_awal'] = $tgl_awal;
+            $data['tgl_akhir'] = $tgl_akhir;
+        }
+
+        $this->load->view('admin/penghasilan/print_penghasilan', $data);
+    }
+
 
     //=======================================
     //               PENJUAL
     //=======================================
     public function info_penjualan()
     {
+
         $data['title'] = 'Warma CIC | Penjualan';
         $penjualan = $this->laporan_model->get_penjualan();
         $produk_terjual = 0;
@@ -99,6 +138,7 @@ class Penjualan extends My_Controller
     public function detail_penjualan($id)
     {
         $data['title'] = 'Warma CIC | Penjualan';
+        $data['produk'] = $this->produk_model->getProduk_id($id);
         $data['penjualan'] = $this->laporan_model->get_detailPenjualan($id);
         $this->paggingPenjual('penjual/penjualan/detail_penjualan', $data);
     }

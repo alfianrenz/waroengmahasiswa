@@ -68,18 +68,16 @@
                     <div class="card widget-statstic-card">
                         <div class="card-body">
                             <div class="card-header-left mb-3">
-                                <h5 class="mb-0">Diproses</h5>
+                                <h5 class="mb-0">Produk Terjual</h5>
                             </div>
                             <i class="feather icon-shopping-cart st-icon bg-c-yellow"></i>
                             <div class="text-left">
-                                <h3 class="d-inline-block text-warning"><?= $diproses; ?></h3>
+                                <h3 class="d-inline-block text-warning"><?= $produk_terjual; ?></h3>
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
-
-
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-header">

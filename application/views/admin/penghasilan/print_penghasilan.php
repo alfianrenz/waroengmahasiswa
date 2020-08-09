@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Laporan Transaksi Waroeng Mahasiswa</title>
+    <title>Laporan Penghasilan Penjual</title>
     <link rel="icon" type="image/png" href="<?php echo base_url(); ?>assets/dist/img/logo/cic_putih.png">
 </head>
 
@@ -19,50 +19,25 @@
     </div>
     <hr size="2" style="background-color:black">
     <br>
-    <h3>Laporan Transaksi Per <?= $tgl_awal; ?> s/d <?= $tgl_akhir; ?></h3>
+    <h3>Laporan Penghasilan Penjual Per <?= $tgl_awal; ?> s/d <?= $tgl_akhir; ?></h3>
     <table border=1 cellspadding=0 cellspacing=0 style="width: 100%">
         <tr>
-            <th>Order ID</th>
-            <th>Metode Pembayaran</th>
-            <th>Tanggal dan Waktu</th>
-            <th>Nama Pelanggan</th>
-            <th>Total Bayar</th>
-            <th>Status</th>
+            <th>NIM</th>
+            <th>Nama Mahasiswa</th>
+            <th>Fakultas</th>
+            <th>Program Studi</th>
+            <th>Telepon</th>
+            <th>Penghasilan</th>
         </tr>
         <?php foreach ($transaksi as $t) : ?>
             <tr align="center">
-                <td><?= $t['order_id']; ?></td>
-                <td>
-                    <?php if ($t['tipe_pembayaran'] == 'gopay') { ?>
-                        <span>GO-PAY</span>
-                    <?php } ?>
+                <td><?= $t['nim']; ?></td>
+                <td><?= $t['nama_mahasiswa']; ?></td>
+                <td><?= $t['nama_fakultas'] ?></td>
+                <td><?= $t['nama_prodi']; ?></td>
+                <td><?= $t['telepon_mahasiswa']; ?></td>
 
-                    <?php if ($t['tipe_pembayaran'] == 'cstore') { ?>
-                        <?php if ($t['store'] == 'alfamart') { ?>
-                            <span>Alfamart</span>
-                        <?php } else { ?>
-                            <span>Indomaret</span>
-                        <?php } ?>
-                    <?php } ?>
-
-                    <?php if ($t['tipe_pembayaran'] == 'bank_transfer') { ?>
-                        <span>Bank Transfer</span>
-                    <?php } ?>
-                </td>
-                <td><?= $t['waktu_transaksi'] ?></td>
-                <td><?= $t['nama_pelanggan']; ?></td>
-                <td>Rp<?= number_format($t['total_bayar'], 0, ',', '.'); ?></td>
-                <td>
-                    <?php if ($t['status_bayar'] == 'pending') { ?>
-                        <span class="badge badge-warning">Pending</span>
-                    <?php } else if ($t['status_bayar'] == 'expire') { ?>
-                        <span class="badge badge-danger">Failure</span>
-                    <?php } else if ($t['status_bayar'] == 'settlement') { ?>
-                        <span class="badge badge-success">Settlement</span>
-                    <?php } else { ?>
-                        <span class="badge badge-danger">Cancel</span>
-                    <?php } ?>
-                </td>
+                <td>Rp<?= number_format($t['total_penghasilan'], 0, ',', '.'); ?></td>
             </tr>
         <?php endforeach; ?>
     </table>

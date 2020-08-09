@@ -21,13 +21,7 @@
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
-                        <h6>Laporan Penjualan</h6>
-                        <!-- <div class="card-header-right">
-                            <a href="<?= site_url('produk/tambah_produk'); ?>" class="btn waves-effect waves-light btn-primary">
-                                <i class="feather icon-printer"></i>
-                                &nbsp;Print Laporan
-                            </a>
-                        </div> -->
+                        <h6 class="mb-0">Detail Penghasilan</h6>
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">
