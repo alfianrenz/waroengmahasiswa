@@ -49,7 +49,16 @@
                             <small id="validasi_lokasi" class="text-danger"></small>
                         </div>
                         <div class="form-group">
-                            <label class="floating-label">Alamat / Kecamatan</label>
+                            <label class="floating-label">Kecamatan</label>
+                            <select class="form-control" id="kecamatan" name="kecamatan">
+                                <option value="">Pilih Kecamatan</option>
+
+
+                            </select>
+                            <small id="validasi_kecamatan" class="text-danger"></small>
+                        </div>
+                        <div class="form-group">
+                            <label class="floating-label">Alamat Lengkap</label>
                             <input type="text" class="form-control form-control-sm" id="alamat" name="alamat" value="<?= set_value('alamat'); ?>">
                             <small id="validasi_alamat" class="text-danger"></small>
                         </div>

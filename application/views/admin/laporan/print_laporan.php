@@ -7,16 +7,30 @@
 
 <body>
 
-    <div align='center' width='750px' style="float:center">
+    <style>
+        .clearfix {
+            clear: both;
+            float: none;
+        }
+    </style>
+
+    <div align='center' width="750px" style="width:100%;">
+        <!-- <div class="clearfix"></div> -->
         <div style="float:left">
+            <img src="<?php echo base_url(); ?>assets/backend/images/logo/logo_cic.png" width='145px' height='70px'>
+        </div>
+        <!-- <div class="clearfix"></div> -->
+        <div style="float:right">
             <img src="<?php echo base_url(); ?>assets/backend/images/logo/logo_bkm.png" width='120px' height='70px'>
         </div>
-        <div style="float:center; line-height:8pt">
+        <div style="line-height:8pt;text-align:center;">
             <h3> BADAN KOORDINASI MAHASISWA CIC </h3>
             <p> Jl. Kesambi No. 202 Cirebon - 45134</p>
             <p> Website : http://www.bkmcic.com Email : bkmcic.official@gmail.com</p>
         </div>
+        <div class="clearfix"></div>
     </div>
+
     <hr size="2" style="background-color:black">
     <br>
     <h3>Laporan Transaksi Per <?= $tgl_awal; ?> s/d <?= $tgl_akhir; ?></h3>
@@ -29,6 +43,13 @@
             <th>Total Bayar</th>
             <th>Status</th>
         </tr>
+
+        <?php
+        $volume_transaksi_berhasil = 0;
+        $jumlah_transaksi_masuk = 0;
+        $jumlah_transaksi_berhasil = 0;
+        ?>
+
         <?php foreach ($transaksi as $t) : ?>
             <tr align="center">
                 <td><?= $t['order_id']; ?></td>
@@ -64,10 +85,38 @@
                     <?php } ?>
                 </td>
             </tr>
+
+            <?php if ($t['status_bayar'] == "settlement") {
+                $volume_transaksi_berhasil += $t['total_bayar'];
+                $jumlah_transaksi_berhasil++;
+            }
+            $jumlah_transaksi_masuk++;
+            ?>
+
+
+
         <?php endforeach; ?>
     </table>
 
     <br>
+    <b>Keterangan :</b>
+    <br>
+    <table>
+        <tr>
+            <td>Total Transaksi Berhasil</td>
+            <td>: Rp<?= number_format($volume_transaksi_berhasil, 0, ',', '.'); ?></td>
+        </tr>
+        <tr>
+            <td>Jumlah Transaksi Masuk</td>
+            <td>: <?= $jumlah_transaksi_masuk++; ?></td>
+        </tr>
+        <tr>
+            <td>Jumlah Transaksi Berhasil</td>
+            <td>: <?= $jumlah_transaksi_berhasil; ?></td>
+        </tr>
+    </table>
+
+
     <br>
     <br>
     <div align='right' style='padding-right: 74px;'>Cirebon, <?php echo date("d F Y") ?></div>

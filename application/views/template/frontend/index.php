@@ -139,6 +139,11 @@
                         } else {
                             $('#validasi_alamat').html('');
                         }
+                        if (data.validasi_kecamatan != '') {
+                            $('#validasi_kecamatan').html(data.validasi_kecamatan);
+                        } else {
+                            $('#validasi_kecamatan').html('');
+                        }
                     } else {
                         snap.pay(data.token);
                     }
@@ -199,6 +204,7 @@
         //Script ongkir
         $('select[name="lokasi"]').on('change', function() {
             var ongkir = $("select[name=lokasi] > option:selected").attr('data-ongkir');
+            var lokasi = $("select[name=lokasi] > option:selected").val();
             var total_belanja = $("#total_belanja").text();
             var total_penjual = $("#total_penjual").text();
 
@@ -208,9 +214,15 @@
             $("#total_bayar").text(formatUangs(total_bayar));
             $("input[name=ongkir]").val(ongkir);
             $("input[name=total_belanja]").val(total_bayar);
+
+            $.post('<?php echo site_url('checkout/change_kecamatan'); ?>', {
+                lokasi: lokasi
+            }, function(data) {
+                $("#kecamatan").html(data);
+                $("select").niceSelect('update');
+            });
         });
     </script>
-
 </body>
 
 </html>

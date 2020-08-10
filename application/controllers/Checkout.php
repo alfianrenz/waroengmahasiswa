@@ -74,6 +74,9 @@ class Checkout extends My_Controller
         $this->form_validation->set_rules('alamat', 'alamat', 'required|trim', [
             'required' => 'Form ini tidak boleh kosong'
         ]);
+        $this->form_validation->set_rules('kecamatan', 'kecamatan', 'required|trim', [
+            'required' => 'Form ini tidak boleh kosong'
+        ]);
 
         if ($this->form_validation->run() == FALSE) {
             header('Content-Type: application/json');
@@ -81,6 +84,7 @@ class Checkout extends My_Controller
                 'error' => true,
                 'validasi_alamat' => form_error('alamat'),
                 'validasi_lokasi' => form_error('lokasi'),
+                'validasi_kecamatan' => form_error('kecamatan'),
             ));
         } else {
             header('Content-Type: application/json');
@@ -165,5 +169,18 @@ class Checkout extends My_Controller
         $this->db->update('keranjang', ['status_keranjang' => 1]);
 
         $this->paggingFrontend('frontend/redirect', $data);
+    }
+
+    public function change_kecamatan()
+    {
+        $kecamatan = $this->db->get_where('kecamatan', ['id_lokasi' => $this->input->post('lokasi')])->result_array();
+        // echo '<option> Pilih Kecamatan </option>';
+        $response = [];
+        foreach ($kecamatan as $k) {
+            echo '<option value="' . $k['id_kecamatan'] . '">' . $k['nama_kecamatan'] . '</option>';
+            //$response[] = $k;
+        }
+
+        //echo json_encode($response);
     }
 }

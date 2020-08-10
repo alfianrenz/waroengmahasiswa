@@ -128,6 +128,7 @@ class Checkout_model extends CI_Model
             'alamat_pelanggan'  => $this->input->post('alamat'),
             'telepon_pelanggan' => $this->session->userdata('telepon'),
             'kota_pelanggan'    => $lokasi['nama_lokasi'],
+            'id_kecamatan'      => $this->input->post('kecamatan'),
             'id_keranjang'      => $produk[0]['id_keranjang'],
             'ongkir'            => $data['ongkir'],
             'total_bayar'       => $total_bayar,
