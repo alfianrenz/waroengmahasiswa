@@ -197,10 +197,10 @@
                         <div class="card-header">
                             <h6 class="mb-0">Konfirmasi</h6>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body text-center">
                             <!-- <div class="alert alert-success">Silahkan konfirmasi</div> -->
                             <span>Silahkan Konfirmasi dengan memilih button dibawah ini</span>
-                            <a href="<?= site_url('pesanan/konfirmasi_barang/' . $transaksi['order_id']); ?>" class="btn btn-success mt-3 tombol-konfirmasi"><i class="feather icon-check-circle"></i>&nbsp;&nbsp;Konfirmasi </a>
+                            <a href="<?= site_url('pesanan/konfirmasi_barang/' . $transaksi['order_id']); ?>" class="btn btn-primary mt-3 tombol-konfirmasi"><i class="feather icon-check-circle"></i>&nbsp;&nbsp;Konfirmasi </a>
                         </div>
                     </div>
                 </div>

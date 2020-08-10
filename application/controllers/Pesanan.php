@@ -146,4 +146,45 @@ class Pesanan extends My_Controller
         $this->session->set_flashdata('message', '<div class="flash-data" data-cancelpesanan="Pesanan Berhasil Dibatalkan"></div>');
         echo '<script>window.history.back();</script>';
     }
+
+    public function invoice($id)
+    {
+        $data['title'] = 'Warma CIC | Invoice';
+        $data['transaksi'] = $this->checkout_model->getDetail_transaksi($id);
+
+
+        $list_penjual = $this->db->select('DISTINCT(akun_mahasiswa.id_mahasiswa), mahasiswa.nama_mahasiswa')
+            ->from('keranjang')
+            ->join('detail_keranjang', 'keranjang.id_keranjang = detail_keranjang.id_keranjang')
+            ->join('transaksi', 'detail_keranjang.id_keranjang = transaksi.id_keranjang')
+            ->join('produk', 'detail_keranjang.id_produk = produk.id_produk')
+            ->join('akun_mahasiswa', 'produk.id_mahasiswa = akun_mahasiswa.id_mahasiswa')
+            ->join('mahasiswa', 'akun_mahasiswa.nim = mahasiswa.nim')
+            ->where('keranjang.id_pembeli', $this->session->userdata('id'))
+            ->where('keranjang.tipe_pembeli', $this->session->userdata('tipe'))
+            ->where('transaksi.order_id', $id)
+            ->get()->result_array();
+
+        //Untuk ambil data detail keranjang
+        $detail_keranjang = $this->db->select('*')
+            ->from('keranjang')
+            ->join('detail_keranjang', 'keranjang.id_keranjang = detail_keranjang.id_keranjang')
+            ->join('transaksi', 'detail_keranjang.id_keranjang = transaksi.id_keranjang')
+            ->join('produk', 'detail_keranjang.id_produk = produk.id_produk')
+            ->where('keranjang.id_pembeli', $this->session->userdata('id'))
+            ->where('keranjang.tipe_pembeli', $this->session->userdata('tipe'))
+            ->where('transaksi.order_id', $id)
+            ->get()->result_array();
+
+        $list_mahasiswa = [];
+
+        foreach ($detail_keranjang as $detail) {
+            $list_mahasiswa[] = $detail['id_mahasiswa'];
+        }
+
+        $data['ongkir'] = $this->db->get_where('transaksi', ['order_id' => $id])->row_array();
+        $data['list_penjual'] = $list_penjual;
+        $data['detail_keranjang'] = $detail_keranjang;
+        $this->paggingPembeli('pembeli/pesanan/invoice', $data);
+    }
 }

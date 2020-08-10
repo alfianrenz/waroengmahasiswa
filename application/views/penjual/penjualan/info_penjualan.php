@@ -22,9 +22,6 @@
                 <div class="card">
                     <div class="card-header">
                         <h6 class="mb-1">Laporan Penjualan</h6>
-                        <div class="card-header-right">
-                            <a href="" class="btn btn-primary"><i class="feather icon-printer"></i>&nbsp;&nbsp;Print</a>
-                        </div>
                     </div>
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">
