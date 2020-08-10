@@ -160,9 +160,10 @@ class Website_model extends CI_Model
     //update status slider
     public function update_status_slider($id)
     {
-        $data = [
-            "status" => 1,
-        ];
+        //Update nonaktifkan semua slider yang statusna 1
+        $this->db->query("UPDATE slider SET status = 0 WHERE status = 1");
+
+        $data = ["status" => 1];
         $this->db->where(['id_slider' => $id]);
         $this->db->update('slider', $data);
     }

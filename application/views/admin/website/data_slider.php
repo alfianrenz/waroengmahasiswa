@@ -55,7 +55,7 @@
                                                 <?php if ($s['status'] == 1) { ?>
                                                     <span class="badge badge-success">Aktif</span>
                                                 <?php } else { ?>
-                                                    <a href="<?= site_url('website/update_status_slider'); ?>/<?= $s['id_slider']; ?>" class="badge badge-danger" onclick="confirm('Jadikan slider utama?')"> Tidak Aktif</a>
+                                                    <a href="<?= site_url('website/update_status_slider'); ?>/<?= $s['id_slider']; ?>" class="badge badge-danger" onclick="return confirm('Jadikan slider utama?')"> Tidak Aktif</a>
                                                 <?php } ?>
                                             </td>
                                             <td class="align-middle"><?= $s['headline2']; ?></td>
