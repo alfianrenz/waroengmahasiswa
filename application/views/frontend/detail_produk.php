@@ -61,6 +61,12 @@
                                     <li><a href="shop-rightsidebar.html"><?= $produk['stok_produk']; ?></a></li>
                                 </ul>
                             </div>
+                            <div class="pdetails-tags">
+                                <span>Terjual :</span>
+                                <ul>
+                                    <li><a href="shop-rightsidebar.html"><?= $produk['terjual']; ?></a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

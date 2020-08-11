@@ -213,7 +213,7 @@ class Produk_model extends CI_Model
         $this->db->from('produk');
         $this->db->join('kategori', 'produk.id_kategori = kategori.id_kategori');
         $this->db->where(['status_produk' => 1]);
-        $this->db->order_by('produk.tanggal_input', 'ASC');
+        $this->db->order_by('produk.terjual', 'DESC');
         return $this->db->get()->result_array();
     }
 }

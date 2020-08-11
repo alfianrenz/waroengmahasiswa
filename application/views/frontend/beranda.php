@@ -140,7 +140,7 @@
                   <div class="tab-pane fade" id="bstab3-area2" role="tabpanel" aria-labelledby="bstab3-area2-tab">
                       <div class="product-slider new-best-featured-slider slider-navigation-2">
 
-                          <?php foreach ($produk as $p) : ?>
+                          <?php foreach ($produk_terlaris as $p) : ?>
                               <div class="product-slider-col">
                                   <!-- Single Product -->
                                   <article class="hoproduct">
