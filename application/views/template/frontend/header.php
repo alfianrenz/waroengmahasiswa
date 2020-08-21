@@ -46,7 +46,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-3 col-md-6 col-sm-6 order-1 order-lg-1">
                     <a href="<?= site_url('beranda'); ?>" class="header-logo">
-                        <img src="<?= base_url(); ?>assets/frontend/images/logo/logo-warma.png" alt="logo" width="180px">
+                        <img src="<?= base_url(); ?>assets/frontend/images/logo/logo-warma-2.png" alt="logo" width="240px">
                     </a>
                 </div>
                 <div class="col-lg-6 col-12 order-3 order-lg-2">

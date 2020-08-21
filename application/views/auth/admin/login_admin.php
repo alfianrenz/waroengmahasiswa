@@ -24,7 +24,7 @@
 <div class="auth-wrapper">
     <div class="auth-content">
         <div class="text-center">
-            <img src="<?= base_url(); ?>assets/backend/images/logo/warma-admin-white.png" alt="" class="img-fluid mb-5" width="115px">
+            <img src="<?= base_url(); ?>assets/frontend/images/logo/logo-warma-2.png" alt="" class="img-fluid mb-5" width="240px">
         </div>
         <div class="card">
             <div class="row align-items-center text-center">

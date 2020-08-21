@@ -28,7 +28,7 @@
                         </div>
                         <div class="card-body">
                             <div class="text-center">
-                                <img src="<?= base_url('upload/logo_website/' . $website['logo']); ?>" width="300px" class="img-fluid" style="object-fit: cover; margin-top:30px; margin-bottom:30px" id="image-field">
+                                <img src="<?= base_url('upload/logo_website/' . $website['logo']); ?>" width="350px" class="img-fluid" style="object-fit: cover; margin-top:30px; margin-bottom:30px" id="image-field">
                             </div>
                         </div>
                     </div>
